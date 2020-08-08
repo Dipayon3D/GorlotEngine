@@ -34,7 +34,7 @@ AudioEmitter.prototype.initialize = function()
 	var self = this;
 
 	if(this.audio !== null) {
-		THREE.AudioContext.decodeAudioData(this.audio.data, (buffer) => {
+		THREE.AudioContext.getContext().decodeAudioData(this.audio.data, (buffer) => {
 			self.setBuffer(buffer)
 		})
 	}

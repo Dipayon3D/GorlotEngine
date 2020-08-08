@@ -1287,8 +1287,9 @@ Editor.saveProgram = function(fname, compressed)
         fname = Editor.open_file
     }
 
+    // If compressed, don't store the resources
 	if (compressed) {
-		var json = JSON.stringify(Editor.program.toJSON())
+		var json = JSON.stringify(Editor.program.toJSON(undefined, false))
 	} else {
 		var output = Editor.program.toJSON()
 		var json = JSON.stringify(output, null, "\t").replace(/[\n\t]+([\d\.e\-\[\]]+)/g, "$1")
