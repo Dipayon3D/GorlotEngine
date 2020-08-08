@@ -32,6 +32,11 @@ function AssetExplorer(parent)
         context.size.set(130, 20)
         context.position.set(e.clientX - 5, e.clientY - 5)
 
+        context.addOption("Select All", () => {
+            alert("Not implemented yet")
+            // TODO: This
+        })
+
         context.addOption("Paste", () => {
             alert("Not implemented yet")
             // TODO: This

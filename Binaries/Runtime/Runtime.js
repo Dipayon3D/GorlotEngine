@@ -35,7 +35,7 @@ include("Engine/Core/Resources/Video.js")
 include("Engine/Core/Resources/Audio.js")
 include("Engine/Core/Resources/Image.js")
 
-include("Engine/Core/Texture/TextTexture.js")
+include("Engine/Core/Texture/CanvasTexture.js")
 include("Engine/Core/Texture/VideoTexture.js")
 include("Engine/Core/Texture/WebcamTexture.js")
 include("Engine/Core/Texture/Texture.js")

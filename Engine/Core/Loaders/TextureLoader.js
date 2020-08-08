@@ -37,6 +37,10 @@ TextureLoader.prototype.parse = function(json, onLoad) {
 	else if (category === "Webcam") {
 		texture = new WebcamTexture()
 	}
+    // Canvas Texture
+    else if(category === "Canvas") {
+        texture = new CanvasTexture(json.width, json.height)
+    }
 	// Texture
 	else {
 		if (json.image === undefined) {
