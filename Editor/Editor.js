@@ -1297,7 +1297,7 @@ Editor.saveProgram = function(fname, compressed)
 
 	FileSystem.writeFile(fname, json)
 
-    if(Editor.open_file === null) {
+    if(Editor.open_file !== fname) {
         Editor.setOpenFile(fname)
     }
 }
