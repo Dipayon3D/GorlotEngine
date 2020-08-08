@@ -14,7 +14,7 @@ include("Engine/Libraries/leap.min.js")
 include("Engine/Libraries/stats.min.js")
 include("Engine/Libraries/SPE.min.js")
 include("Engine/Libraries/spine.min.js")
-include("Engine/Libraries/opentype.min")
+include("Engine/Libraries/opentype.min.js")
 
 include("Engine/Libraries/litegraph/litegraph.js")
 
@@ -34,8 +34,6 @@ include("Engine/Input/Keyboard.js");
 include("Engine/Input/Mouse.js");
 
 include("Engine/Core/WebVR/VRControls.js");
-
-include("Engine/Core/Namespace.js")
 
 include("Engine/Core/Resources/Font.js")
 include("Engine/Core/Resources/Video.js")
