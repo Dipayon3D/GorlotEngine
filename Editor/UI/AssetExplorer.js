@@ -27,6 +27,17 @@ function AssetExplorer(parent)
 		event.preventDefault();
 	};
 
+    this.element.oncontextmenu = function(e) {
+        var context = new ContextMenu()
+        context.size.set(130, 20)
+        context.position.set(e.clientX - 5, e.clientY - 5)
+
+        context.addOption("Paste", () => {
+            alert("Not implemented yet")
+            // TODO: This
+        })
+    }
+
 	//Element atributes
 	this.fit_parent = false;
 	this.size = new THREE.Vector2(0,0);
