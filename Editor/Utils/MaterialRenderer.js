@@ -13,22 +13,11 @@ function MaterialRenderer() {
 	// Camera
 	this.camera = new THREE.PerspectiveCamera(90, this.canvas.width/this.canvas.height);
 
-    // Scene
-    this.scene = new THREE.Scene()
-    this.scene.add(new THREE.PointLight(0x666666))
-    this.scene.add(new THREE.AmbientLight(0x666666))
-
-	// Material sphere
-    this.sphere = new Mesh(new THREE.SphereBufferGeometry(1, 32, 32), null);
-	this.sphere.position.set(0, 0, -1.5);
-	this.sphere.visible = false;
-    this.scene.add(this.sphere)
-
+	// Sphere
+    this.sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(1, 32, 32), null);
+    
     // Sprite
     this.sprite = new THREE.Sprite(null);
-	this.sprite.position.set(0, 0, -0.5);
-	this.sprite.visible = false;
-	this.scene.add(this.sprite);
 }
 
 //Set render size
@@ -45,17 +34,15 @@ MaterialRenderer.prototype.renderMaterial = function(material, img)
 	if(material instanceof SpriteMaterial)
 	{
 		this.sprite.material = material;
-		this.sprite.visible = true;
-		this.sphere.visible = false;
+        this.camera.position.set(0, 0, 0.5)
+        this.renderer.render(this.sprite, this.camera)
 	}
 	else
 	{
 		this.sphere.material = material;
-		this.sphere.visible = true;
-		this.sprite.visible = false;
+        this.camera.position.set(0, 0, 1.5)
+        this.renderer.render(this.sphere, this.camera)
 	}
-
-	this.renderer.render(this.scene, this.camera);
 
     // Create image blob and set as image source
 	var canvas = this.canvas;

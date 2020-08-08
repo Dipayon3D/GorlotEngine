@@ -39,6 +39,7 @@ include("Engine/Core/THREE/Texture.js")
 include("Engine/Core/THREE/LightShadow.js")
 include("Engine/Core/THREE/Fog.js")
 include("Engine/Core/THREE/Material.js")
+include("Engine/Core/THREE/RectAreaLight.js")
 
 include("Engine/Input/Key.js")
 include("Engine/Input/Keyboard.js")

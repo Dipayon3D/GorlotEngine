@@ -562,6 +562,10 @@ ObjectLoader.prototype.parseObject = function(data, geometries, materials, textu
 			}
 			break;
 
+        case "RectAreaLight":
+            object = new RectAreaLight(data.color, data.intensity, data.width, data.height)
+            break
+
 		case "AmbientLight":
 			object = new AmbientLight(data.color, data.intensity);
 			break;
