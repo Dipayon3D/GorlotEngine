@@ -29,7 +29,7 @@ TextSprite.prototype.setText = function(text) {
 
 // Dispose Text Sprite
 TextSprite.prototype.dispose = function() {
-	if (this.material.dispose !== undefined) {
+	if (this.material !== null && this.material.dispose !== undefined) {
 		this.material.dispose()
 	}
 

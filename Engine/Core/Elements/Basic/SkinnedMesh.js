@@ -22,7 +22,7 @@ SkinnedMesh.prototype = Object.create(THREE.SkinnedMesh.prototype)
 // Dispose model
 SkinnedMesh.prototype.dispose = function() {
 	// Dispose material and geometry
-	if (this.material.dispose !== undefined) {
+	if (this.material !== null && this.material.dispose !== undefined) {
 		this.material.dispose()
 	}
 	this.geometry.dispose()
