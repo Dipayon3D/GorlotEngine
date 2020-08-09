@@ -206,18 +206,22 @@ Runtime.prototype.run = function() {
 		this.vr_effect = new THREE.VREffect(this.renderer)
 	}
 
-	// Initialise program
+	// Create default camera
 	this.program.default_camera = new PerspectiveCamera(60, this.canvas.width/this.canvas.height, 0.1, 1000000)
 	this.program.default_camera.position.set(0, 10, 30)
 	this.program.renderer = this.renderer
+
+    // Initialise program
 	this.program.initialize()
 	this.program.resize(this.canvas.width, this.canvas.height)
 
 	// Update loop
 	var self = this
 	var update = function() {
-		requestAnimationFrame(update)
-		self.update()
+        if(self.program !== null) {
+            requestAnimationFrame(update)
+            self.update()
+        }
 	}
 
 	update()
