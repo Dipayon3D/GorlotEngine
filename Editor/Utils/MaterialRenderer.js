@@ -2,7 +2,7 @@
 
 function MaterialRenderer() {
 	// Renderer
-	this.renderer = new THREE.WebGLRenderer({lpha: true});
+	this.renderer = new THREE.WebGLRenderer({alpha: true});
 	this.renderer.setSize(128, 128);
 
 	// Camera
