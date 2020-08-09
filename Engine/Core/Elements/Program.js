@@ -47,6 +47,7 @@ function Program(name)
 	//Runtime variables
 	this.scene = null
 	this.renderer = null
+    this.canvas = null
 
 	this.components = []
 	this.defaultComponents = []
@@ -70,8 +71,15 @@ Program.prototype.initialize = function() {
 		this.setScene(this.children[0])
 	}
 
+    // Get canvas from renderer
+    this.canvas = this.renderer.domElement
+
 	// Set mouse lock
-	Mouse.setLock(this.lock_pointer)
+    if(this.lock_pointer) {
+        Mouse.setLock(true)
+
+        // TODO: Add event to lock when canvas is clicked
+    }
 }
 
 // Update program

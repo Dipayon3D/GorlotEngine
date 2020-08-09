@@ -1,19 +1,5 @@
 "use strict"
 
-function Editor(){}
-
-Editor.CURRENT_PATH = "/"
-
-// NWJS Modules
-try {
-	Editor.fs = require("fs")
-	Editor.gui = require("nw.gui")
-	Editor.clipboard = Editor.gui.Clipboard.get()
-	Editor.args = Editor.gui.App.argv
-} catch(e) {
-	Editor.args = []
-}
-
 // Gorlot global
 include("Engine/Gorlot.js")
 
@@ -301,6 +287,8 @@ include("Editor/DragBuffer.js")
 include("Editor/Interface.js")
 include("Editor/Settings.js")
 
+function Editor(){}
+
 // Editor state
 Editor.STATE_IDLE = 8
 Editor.STATE_EDITING = 9
@@ -315,6 +303,18 @@ Editor.MODE_ROTATE = 3
 // Editor camera mode
 Editor.CAMERA_ORTHOGRAPHIC = 20
 Editor.CAMERA_PERSPECTIVE = 21
+
+Editor.CURRENT_PATH = "/"
+
+// NWJS Modules
+try {
+	Editor.fs = require("fs")
+	Editor.gui = require("nw.gui")
+	Editor.clipboard = Editor.gui.Clipboard.get()
+	Editor.args = Editor.gui.App.argv
+} catch(e) {
+	Editor.args = []
+}
 
 // Initialize Main
 Editor.initialize = function() {
