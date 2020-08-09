@@ -12,7 +12,7 @@ function Script(code)
 
 	//Script Code
 	this.func = null
-	this.setCode((code !== undefined) ? code : "// This block of code is executed one\nthis.initialize = function() {\n\n}\n\n// This block of code is executed once per frame\nthis.update = function() {\n\n}\n\nthis.onMouseOver = function(object) {\n\n}\n\nthis.onResize = function() {\n\n}\nthis.onExit = function() {\n\n}\n")
+	this.setCode((code !== undefined) ? code : Script.default)
 
 	this.components = []
 	this.defaultComponents = []
@@ -22,6 +22,9 @@ function Script(code)
 }
 
 Script.prototype = Object.create(THREE.Object3D.prototype)
+
+// Default script code
+Script.default = "// This block of code is executed one\nthis.initialize = function() {\n\n}\n\n// This block of code is executed once per frame\nthis.update = function() {\n\n}\n\n// When mouse is over children\nthis.onMouseOver = function(object) {\n\n}\n\n// When the window is resized\nthis.onResize = function() {\n\n}\n\n// When the game is closed\nthis.onExit = function() {\n\n}\n"
 
 //Initialize
 Script.prototype.initialize = function()
