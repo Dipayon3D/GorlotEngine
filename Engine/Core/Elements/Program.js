@@ -59,6 +59,9 @@ Program.prototype = Object.create(THREE.Object3D.prototype)
 
 // Select initial scene and initialise it
 Program.prototype.initialize = function() {
+    // Get canvas from renderer
+    this.canvas = this.renderer.domElement
+    
 	// Get default scene
 	if (this.default_scene !== null) {
 		for(var i = 0; i < this.children.length; i++) {
@@ -70,9 +73,6 @@ Program.prototype.initialize = function() {
 	} else if(this.children.length > 0) {
 		this.setScene(this.children[0])
 	}
-
-    // Get canvas from renderer
-    this.canvas = this.renderer.domElement
 
 	// Set mouse lock
     if(this.lock_pointer) {
