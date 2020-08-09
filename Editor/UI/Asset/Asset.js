@@ -75,6 +75,10 @@ Asset.prototype.setIcon = function(icon)
 //Set file label
 Asset.prototype.setText = function(text)
 {
+    if(text === null) {
+        return
+    }
+
 	if(text.length > 8)
 	{
 		text = text.slice(0,8) + "...";

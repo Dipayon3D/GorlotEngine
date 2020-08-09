@@ -364,7 +364,7 @@ ObjectLoader.prototype.parseObject = function(data, geometries, materials, textu
 			object.autoplay = data.autoplay;
 			object.startTime = data.startTime;
 			object.playbackRate = data.playbackRate;
-			object.source.loop = data.source.loop;
+            object.loop = (data.source !== undefined) ? data.source.loop : data.loop;
 			break;
 
 		case "Physics":
@@ -423,14 +423,17 @@ ObjectLoader.prototype.parseObject = function(data, geometries, materials, textu
 				emitter.velocity.spread = THREE.Vector3.fromJSON(emitter.velocity.spread);
 				emitter.acceleration.value = THREE.Vector3.fromJSON(emitter.acceleration.value);
 				emitter.acceleration.spread = THREE.Vector3.fromJSON(emitter.acceleration.spread);
+
 				for(var i = 0; i < emitter.color.value.length; i++)
 				{
-					emitter.color.value[i] = THREE.Color.fromJSON(emitter.color.value[i]);
-					emitter.color.spread[i] = THREE.Color.fromJSON(emitter.color.spread[i]);
+					emitter.color.value[i] = new THREE.Color(emitter.color.value[i]);
+					emitter.color.spread[i] = THREE.Vector3.fromJSON(emitter.color.spread[i]);
 				}
 			}
+
 			object = new ParticleEmitter(data.group, data.emitter);
-			break;
+			
+            break;
 			
 		case "Text3D":
 			object = new Text3D(data.text, getMaterial(data.material), getFont(data.font), data.height, data.bevel, data.bevel_thickness, data.bevel_size, data.size, data.curve_segments)

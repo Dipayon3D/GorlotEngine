@@ -60,6 +60,8 @@ MaterialLoader.prototype = {
 			var material = new MeshNormalMaterial()
 		} else if (type === "MeshDepthMaterial") {
 			var material = new MeshDepthMaterial()
+        } else if(type === "MeshToonMaterial") {
+            var material = new MeshToonMaterial()
 		} else {
 			console.log("Unregistered material in \"MaterialLoader\": " + json.type)
 			var material = new THREE[json.type]

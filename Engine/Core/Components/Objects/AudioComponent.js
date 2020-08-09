@@ -51,7 +51,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.loop.size.set(150, 15)
 	this.loop.setOnChange(() => {
 		if (self.obj !== null) {
-			self.obj.source.loop = self.loop.getValue()
+			self.obj.loop = self.loop.getValue()
 		}
 	})
 	this.form.add(this.loop)
@@ -83,13 +83,13 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 
 AudioComponent.prototype.updateData = function() {
 	this.autoplay.setValue(this.obj.autoplay)
-	this.loop.setValue(this.obj.source.loop)
+	this.loop.setValue(this.obj.loop)
 	this.playbackRate.setValue(this.obj.playbackRate)
 }
 
 AudioComponent.prototype.onReset = function() {
 	this.obj.autoplay = this.values.autoplay
-	this.obj.source.loop = this.values.loop
+	this.obj.loop = this.values.loop
 	this.obj.playbackRate = this.values.playbackRate
 
 	Editor.updateObjectViews()

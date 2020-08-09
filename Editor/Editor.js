@@ -20,6 +20,11 @@ include("Engine/Gorlot.js")
 // Runtime dependencies
 include("Engine/Libraries/three/three.js")
 include("Engine/Libraries/three/effects/VREffect.js")
+
+include("Engine/Libraries/three/animation/Animation.js")
+include("Engine/Libraries/three/animation/AnimationHandler.js")
+include("Engine/Libraries/three/animation/KeyFrameAnimation.js")
+
 include("Engine/Libraries/cannon.min.js")
 include("Engine/Libraries/leap.min.js")
 include("Engine/Libraries/stats.min.js")
@@ -29,17 +34,15 @@ include("Engine/Libraries/opentype.min.js")
 
 include("Engine/Libraries/litegraph/litegraph.js")
 
-// Runtime internal modules
+// Core runtime modules
 include("Engine/Core/THREE/Three.js")
 include("Engine/Core/THREE/Object3D.js")
 include("Engine/Core/THREE/Vector3.js")
 include("Engine/Core/THREE/Vector2.js")
-include("Engine/Core/THREE/Color.js")
 include("Engine/Core/THREE/Texture.js")
 include("Engine/Core/THREE/LightShadow.js")
 include("Engine/Core/THREE/Fog.js")
 include("Engine/Core/THREE/Material.js")
-include("Engine/Core/THREE/RectAreaLight.js")
 
 include("Engine/Input/Key.js")
 include("Engine/Input/Keyboard.js")
@@ -83,6 +86,7 @@ include("Engine/Core/Elements/Lighting/SpotLight.js")
 include("Engine/Core/Elements/Lighting/AmbientLight.js")
 include("Engine/Core/Elements/Lighting/DirectionalLight.js")
 include("Engine/Core/Elements/Lighting/HemisphereLight.js")
+include("Engine/Core/Elements/Lighting/RectAreaLight.js")
 include("Engine/Core/Elements/Lighting/Sky.js")
 
 include("Engine/Core/Elements/Cinematic/PerspectiveCamera.js")
@@ -119,6 +123,7 @@ include("Engine/Core/Assets/Materials/MeshNormalMaterial.js")
 include("Engine/Core/Assets/Materials/MeshPhongMaterial.js")
 include("Engine/Core/Assets/Materials/MeshShaderMaterial.js")
 include("Engine/Core/Assets/Materials/MeshStandardMaterial.js")
+include("Engine/Core/Assets/Materials/MeshToonMaterial.js")
 include("Engine/Core/Assets/Materials/SpriteMaterial.js")
 
 // Default Components
@@ -211,10 +216,6 @@ include("Engine/Libraries/three/loaders/VTKLoader.js")
 include("Engine/Libraries/three/loaders/AWDLoader.js")
 include("Engine/Libraries/three/loaders/TGALoader.js")
 include("Engine/Libraries/three/loaders/PCDLoader.js")
-
-include("Engine/Libraries/three/animation/Animation.js")
-include("Engine/Libraries/three/animation/AnimationHandler.js")
-include("Engine/Libraries/three/animation/KeyFrameAnimation.js")
 
 //Internal modules
 include("Editor/UI/Element/Bar.js")

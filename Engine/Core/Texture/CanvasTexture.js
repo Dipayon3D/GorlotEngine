@@ -15,10 +15,10 @@ function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, format, 
 
     // 2D Drawing context
     this.context = this.image.getContext("2d")
-    this.context.font = "Normal 50px Arial"
+    this.context.font = "Normal 55px Arial"
     this.context.textAlign = "center"
-    this.context.fillStyle = "#FFFFFF"
-    this.context.fillText("text", this.width/2, this.height/2)
+    this.context.fillStyle = "#FFFF00"
+    this.context.fillText("Canvas Texture", this.width/2, this.height/2)
 
     this.needsUpdate = true
 }

@@ -88,6 +88,13 @@ Interface.initialize = function() {
 		Editor.updateObjectViews()
 	})
 
+    asset_material.addOption("Toon Material", () => {
+        var material = new MeshToonMaterial()
+        material.name = "toon"
+        Editor.program.addMaterial(material)
+        Editor.updateObjectViews()
+    })
+
 	asset_material.addOption("Lambert Material", () => {
 		var material = new MeshLambertMaterial()
 		material.name = "lambert"
