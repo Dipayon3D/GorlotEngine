@@ -63,6 +63,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object Position
 	this.form.addText("Position")
 	this.position = new CoordinatesBox(this.form.element)
+    this.position.setStep(0.01)
 	this.position.setOnChange(() => {
 		if (self.obj !== null) {
 			var position = self.position.getValue()
@@ -75,6 +76,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object Rotation
 	this.form.addText("Rotation")
 	this.rotation = new CoordinatesBox(this.form.element)
+    this.rotation.setStep(0.01)
 	this.rotation.setOnChange(() => {
 		if (self.obj !== null) {
 			var rotation = self.rotation.getValue()
@@ -87,6 +89,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object Scale
 	this.form.addText("Scale")
 	this.scale = new CoordinatesBox(this.form.element)
+    this.scale.setStep(0.01)
 	this.scale.setOnChange(() => {
 		if (self.obj !== null) {
 			var scale = self.scale.getValue()

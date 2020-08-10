@@ -6,6 +6,8 @@ function Texture(image, mapping, wrapS, wrapT, magFilter, minFilter, format, typ
 	// If image is a URL
 	if (typeof image === "string") {
 		this.img = new GORLOT.Image(image)
+    } else if(image === undefined) {
+        this.img = new GORLOT.Image()
 	} else {
 		this.img = image
 	}
