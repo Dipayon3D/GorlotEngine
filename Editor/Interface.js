@@ -347,11 +347,12 @@ Interface.initialize = function() {
 	}, Interface.file_dir + "Icons/Assets/Image.png")
 
 	// Text Texture
-	import_texture.addOption("Text Texture", () => {
-		var texture = new TextTexture("abcdef", Editor.default_font)
-		texture.name = "text"
+	import_texture.addOption("Canvas Texture", () => {
+        var texture = new CanvasTexture(512, 512)
+        texture.name = "canvas"
         Editor.program.addTexture(texture)
-		Editor.updateObjectViews()
+
+        Editor.updateObjectViews()
 	}, Interface.file_dir + "Icons/Assets/Image.png")
 
 	// Video Texture

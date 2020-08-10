@@ -1,10 +1,11 @@
 "use strict"
 
-function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, format, type, anisotropy, encoding) {
+function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding) {
     THREE.Texture.call(this, document.createElement("canvas"), mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding)
 
     this.name = "canvas"
     this.category = "Canvas"
+    this.path = "/"
 
     this.width = (width !== undefined) ? width : 512
     this.height = (height !== undefined) ? height: 512
@@ -25,12 +26,21 @@ function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, format, 
 
 CanvasTexture.prototype = Object.create(THREE.Texture.prototype)
 
+// Sets the path of this texture
+CanvasTexture.prototype.setPath = function(path) {
+    if(path !== undefined) {
+        this.path = path
+    }
+}
+
 // Create JSON description
 CanvasTexture.prototype.toJSON = function(meta) {
     var data = THREE.Texture.prototype.toJSON.call(this)
 
     data.width = this.width
     data.height = this.height
+
+    data.path = this.path
 
     return data
 }

@@ -6,7 +6,7 @@ var code = ""
 // Namespace
 include("Engine/Gorlot.js")
 
-//External libs
+// Runtime dependencies
 include("Engine/Libraries/three/three.js")
 include("Engine/Libraries/three/effects/VREffect.js")
 include("Engine/Libraries/cannon.min.js")
@@ -21,8 +21,10 @@ include("Engine/Libraries/three/animation/KeyFrameAnimation.js")
 
 include("Engine/Libraries/litegraph/litegraph.js")
 
-//Core runtime modules
-include("Engine/Core/THREE/Three.js")
+// Core runtime modules
+include("Engine/Core/Global.js")
+include("Engine/Core/FileSystem.js")
+
 include("Engine/Core/THREE/Object3D.js")
 include("Engine/Core/THREE/Vector3.js")
 include("Engine/Core/THREE/Vector2.js")
@@ -99,7 +101,7 @@ include("Engine/Core/Utils/Base64Utils.js")
 include("Engine/Core/Utils/ArraybufferUtils.js")
 include("Engine/Core/Utils/MathUtils.js")
 include("Engine/Core/Utils/ObjectUtils.js")
-include("Engine/Core/Utils/Mesh2Shape.js")
+include("Engine/Core/Utils/BufferUtils.js")
 
 // Assets
 include("Engine/Core/Assets/Materials/MeshBasicMaterial.js")
@@ -155,8 +157,6 @@ include("Engine/Core/Nodes/Material/MaterialNodes.js")
 
 // Particles
 include("Engine/Core/Nodes/Particles/ParticlesNodes.js")
-
-include("Engine/Core/FileSystem.js")
 
 include("Binaries/Runtime/Runtime.js")
 

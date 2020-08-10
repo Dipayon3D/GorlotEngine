@@ -2,6 +2,11 @@
 
 function Base64Utils() {}
 
+// Remove base64 header from data
+Base64Utils.removeHeader = function(data) {
+    return data.slice(data.search(";base64") + 8)
+}
+
 // Create base64 string from arraybuffer
 Base64Utils.fromArrayBuffer = function(arraybuffer) {
 	var encoding = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"

@@ -18,7 +18,7 @@ try {
 include("Engine/Gorlot.js")
 
 // Runtime dependencies
-include("Engine/Libraries/three/three.js")
+include("Engine/Libraries/three/three.min.js")
 include("Engine/Libraries/three/effects/VREffect.js")
 
 include("Engine/Libraries/three/animation/Animation.js")
@@ -35,7 +35,9 @@ include("Engine/Libraries/opentype.min.js")
 include("Engine/Libraries/litegraph/litegraph.js")
 
 // Core runtime modules
-include("Engine/Core/THREE/Three.js")
+include("Engine/Core/Global.js")
+include("Engine/Core/FileSystem.js")
+
 include("Engine/Core/THREE/Object3D.js")
 include("Engine/Core/THREE/Vector3.js")
 include("Engine/Core/THREE/Vector2.js")
@@ -114,7 +116,7 @@ include("Engine/Core/Utils/Base64Utils.js")
 include("Engine/Core/Utils/ArraybufferUtils.js")
 include("Engine/Core/Utils/MathUtils.js")
 include("Engine/Core/Utils/ObjectUtils.js")
-include("Engine/Core/Utils/Mesh2Shape.js")
+include("Engine/Core/Utils/BufferUtils.js")
 
 // Assets
 include("Engine/Core/Assets/Materials/MeshBasicMaterial.js")
@@ -171,8 +173,6 @@ include("Engine/Core/Nodes/Material/MaterialNodes.js")
 // Particles
 include("Engine/Core/Nodes/Particles/ParticlesNodes.js")
 
-include("Engine/Core/FileSystem.js")
-
 //Codemirror
 include("Engine/Libraries/codemirror/codemirror.min.js")
 include("Engine/Libraries/codemirror/codemirror.css")
@@ -200,6 +200,9 @@ include("Engine/Libraries/codemirror/theme/*")
 include("Engine/Libraries/jshint.min.js")
 include("Engine/Libraries/jscolor.min.js")
 include("Engine/Libraries/quickhull.js")
+
+// Core modules
+include("Engine/Core/Utils/Mesh2Shape.js")
 
 include("Engine/Libraries/litegraph/litegraph.css")
 include("Engine/Libraries/litegraph/litegui.css")
