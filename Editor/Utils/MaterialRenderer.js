@@ -15,15 +15,9 @@ function MaterialRenderer() {
     this.sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(1, 32, 32), null);
     this.scene.add(this.sphere)
 
-    // Light
-    this.scene.add(new THREE.AmbientLight(0x777777))
-
-    var point = new THREE.PointLight(0xBBBBBB)
-    point.position.set(0, 1, 1.5)
-    this.scene.add(point)
-
     // Sprite
     this.sprite = new THREE.Sprite(null);
+    this.scene.add(this.sprite)
 }
 
 //Set render size
@@ -38,18 +32,22 @@ MaterialRenderer.prototype.renderMaterial = function(material, img)
     // Render material
 	if(material instanceof SpriteMaterial)
 	{
+        this.sphere.visible = false
+        this.sprite.visible = true
+
 		this.sprite.material = material;
         this.camera.position.set(0, 0, 0.5)
-
-        this.renderer.render(this.sprite, this.camera)
 	}
 	else
 	{
+        this.sprite.visible = false
+        this.sphere.visible = true
+
 		this.sphere.material = material;
         this.camera.position.set(0, 0, 1.5)
-
-        this.renderer.render(this.sphere, this.camera)
 	}
+
+    this.renderer.render(this.scene, this.camera)
 
     // Create image blob and set as image source
 	if(img !== undefined)
