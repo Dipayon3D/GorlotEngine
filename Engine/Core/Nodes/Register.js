@@ -26,6 +26,10 @@ Register.registerParticlesNodes = function() {
 	registerParticlesNodes()
 }
 
+Register.registerTextureNodes = function() {
+
+}
+
 Register.unregisterAll = function() {
 	LiteGraph.registered_node_types = {}
 	LiteGraph.Nodes = {}
