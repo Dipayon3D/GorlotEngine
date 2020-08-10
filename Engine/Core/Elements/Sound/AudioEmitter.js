@@ -8,6 +8,8 @@ function AudioEmitter(audio)
 	this.name = "audio";
 	this.type = "Audio";
 
+    this.matrixAutoUpdate = false
+
 	this.audio = (audio !== undefined) ? audio : Editor.default_audio
 
 	this.autoplay = true;

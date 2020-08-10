@@ -120,6 +120,12 @@ Program.prototype.resize = function(x, y) {
 		this.scene.cameras[i].aspect = x / y
 		this.scene.cameras[i].updateProjectionMatrix()
 	}
+
+    this.traverse((child) => {
+        if(child instanceof Script) {
+            child.resize()
+        }
+    })
 }
 
 // Get material by name

@@ -27,14 +27,23 @@ function AssetExplorer(parent)
             // Image
             if(file.type.startsWith("image")) {
                 var texture = new Texture(file.path)
+                texture.setPath(Editor.CURRENT_PATH)
+                Editor.program.addTexture(texture)
+                Editor.updateAssetExplorer()
             }
             // Video
             else if(file.type.startsWith("video")) {
                 var texture = new VideoTexture(file.path)
+                texture.setPath(Editor.CURRENT_PATH)
+                Editor.program.addTexture(texture)
+                Editor.updateAssetExplorer()
             }
             // Audio
             else if(file.type.startsWith("audio")) {
                 var texture = new Audio(file.path)
+                texture.setPath(Editor.CURRENT_PATH)
+                Editor.program.addTexture(texture)
+                Editor.updateAssetExplorer()
             }
         }
 	};

@@ -954,6 +954,23 @@ Interface.initialize = function() {
 	Interface.effects_form.add(audio)
 	Interface.effects_form.nextRow()
 
+    // Positional audio
+    var posAudio = new Button(Interface.effects_form.element)
+    posAudio.size.set(sizex, 45)
+    posAudio.setText("Positional Audio")
+    posAudio.setCallback(() => {
+        Editor.addToScene(new PositionalAudio(Editor.default_audio))
+    })
+
+    var posAudioIcon = new ImageBox(posAudio.element)
+    posAudioIcon.size.set(40, 40)
+    posAudioIcon.position.set(5, 2)
+    posAudioIcon.setImage(Interface.file_dir + "Icons/Assets/AudioPositional.png")
+    posAudioIcon.updateInterface()
+
+    Interface.effects_form.add(posAudio)
+    Interface.effects_form.nextRow()
+
 	// ------------------------------------ Physics ------------------------------------
 	Interface.physics_form = new Form(Interface.physics_tab.element)
 	Interface.physics_form.position.set(0, 0)

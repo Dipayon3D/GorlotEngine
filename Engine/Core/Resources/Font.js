@@ -32,7 +32,7 @@ function Font(url) {
 			} else if (this.encoding === "ttf" || this.encoding === "otf" || this.encoding === "ttc" || this.encoding === "otc") {
 				this.data = FileSystem.readFileArrayBuffer(url)
 				this.font = new TTFLoader().parse(this.data)
-				this.name = this.font.original_font_information.fullName
+				this.name = FileSystem.getFileName(url)
 				this.format = "arraybuffer"
 			}
 		}

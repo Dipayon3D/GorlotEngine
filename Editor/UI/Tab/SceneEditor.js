@@ -52,16 +52,16 @@ function SceneEditor(parent) {
 			// Dragged file into object
 			if (intersections.length > 0 && event.dataTransfer.files.length > 0) {
 				var file = event.dataTransfer.files[0]
+                var object = intersections[0].object
 
 				// Image
 				if (file.type.startsWith("image")) {
-					var object = intersections[0].object
-
 					if (object instanceof THREE.Mesh) {
 						// Create new material with selected image
 						var texture = new Texture(file.path)
 						var material = new MeshStandardMaterial({map: texture, color: 0xffffff, roughness: 0.6, metalness: 0.2})
 						material.name = file.name
+                        material.path = Editor.CURRENT_PATH
 						object.material = material
 
 						// Update asset explorer
@@ -71,6 +71,7 @@ function SceneEditor(parent) {
 						var texture = new Texture(file.path)
 						var material = new SpriteMaterial({map: texture, color: 0xffffff})
 						material.name = file.name
+                        material.path = Editor.CURRENT_PATH
 						object.material = material
 
 						Editor.updateObjectViews()
@@ -78,21 +79,29 @@ function SceneEditor(parent) {
 				}
 				// Video
 				else if (file.type.startsWith("video")) {
-					var object = intersections[0].object
-
 					if (object instanceof THREE.Mesh) {
 						var texture = new VideoTexture(file.path)
 						var material = new MeshStandardMaterial({map: texture, color: 0xffffff, roughness: 0.6, metalness: 0.2})
 						material.name = file.name
+                        material.path = Editor.CURRENT_PATH
 						object.material = material
 						Editor.updateObjectViews()
 					} else if (object instanceof THREE.Sprite) {
 						var texture = new VideoTexture(file.path)
 						var material = new SpriteMaterial({map: texture, color: 0xffffff})
 						material.name = file.name
+                        material.path = Editor.CURRENT_PATH
 						Editor.updateObjectViews()
 					}
 				}
+                // Font
+                else if(FontLoader.fileIsFont(file.path)) {
+                    if(object.font !== undefined) {
+                        var font = new Font(file.path)
+                        object.setFont(font)
+                        Editor.updateObjectViews()
+                    }
+                }
 			}
 			// Dragged resource into object
 			else if (intersections.length > 0 && dragged_object !== null) {
@@ -110,10 +119,14 @@ function SceneEditor(parent) {
 					}
 				} else if(dragged_object instanceof THREE.Texture) {
                     if(object instanceof THREE.Mesh) {
-                        object.material = new MeshStandardMaterial({ map: dragged_object, color: 0xffffff, roughness: 0.6, metalness: 0.2 })
+                        var material = new MeshStandardMaterial({ map: dragged_object, color: 0xffffff, roughness: 0.6, metalness: 0.2 })
+                        material.path = Editor.CURRENT_PATH
+                        object.material = material
                         Editor.updateObjectViews()
                     } else if(object instanceof THREE.Sprite) {
-                        object.material = new SpriteMaterial({ map: dragged_object, color: 0xffffff })
+                        var material = new SpriteMaterial({ map: dragged_object, color: 0xffffff })
+                        material.path = Editor.CURRENT_PATH
+                        object.material = material
                         Editor.updateObjectViews()
                     }
                 }else if (dragged_object instanceof Font) {

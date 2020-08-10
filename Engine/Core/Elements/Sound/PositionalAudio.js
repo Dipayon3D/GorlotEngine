@@ -1,10 +1,10 @@
 "use strict"
 
-function PositionalAudioEmitter(audio) {
-    THREE.Audo.call(this, PositionalAudioEmitter.listener)
+function PositionalAudio(audio) {
+    THREE.PositionalAudio.call(this, PositionalAudio.listener)
 
     this.name = "audio"
-    this.type = "Audio"
+    this.type = "PositionalAudio"
 
     this.audio = (audio !== undefined) ? audio : null
 
@@ -15,16 +15,21 @@ function PositionalAudioEmitter(audio) {
 
     this.isPlaying = false
     this.hasPlaybackControl = true
+
+    this.components = []
+    this.defaultComponents = []
+
+	this.defaultComponents.push(new ElementComponent())
 }
 
 // Default audio listener
-PositionalAudioEmitter.listener = new THREE.AudioListener()
+PositionalAudio.listener = new THREE.AudioListener()
 
 // Super prototypes
-PositionalAudioEmitter.prototype = Object.create(THREE.Audio.prototype)
+PositionalAudio.prototype = Object.create(THREE.Audio.prototype)
 
 // Initialise audio object
-PositionalAudioEmitter.prototype.initialize = function() {
+PositionalAudio.prototype.initialize = function() {
     var self = this
 
     if(this.audio !== null) {
@@ -39,7 +44,7 @@ PositionalAudioEmitter.prototype.initialize = function() {
 }
 
 // Dispose audio object
-PositionalAudioEmitter.prototype.dispose = function() {
+PositionalAudio.prototype.dispose = function() {
     if(this.isPlaying) {
         this.stop()
         this.disconnect()
@@ -51,7 +56,7 @@ PositionalAudioEmitter.prototype.dispose = function() {
 }
 
 // Create JSON description
-PositionalAudioEmitter.prototype.toJSON = function(meta) {
+PositionalAudio.prototype.toJSON = function(meta) {
     var audio = this.audio
     var data = THREE.Object3D.prototype.toJSON.call(this, meta, (meta, object) => {
         audio = audio.toJSON(meta)

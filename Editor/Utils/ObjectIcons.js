@@ -42,6 +42,7 @@ ObjectIcons.icons["Scene"] = "Editor/Files/Icons/Models/Models.png"
 
 //Audio
 ObjectIcons.icons["Audio"] = "Editor/Files/Icons/Assets/Audio.png"
+ObjectIcons.icons["PositionalAudio"] = "Editor/Files/Icons/Assets/AudioPositional.png"
 
 //Physics
 ObjectIcons.icons["Physics"] = "Editor/Files/Icons/Physics/Physics.png"
