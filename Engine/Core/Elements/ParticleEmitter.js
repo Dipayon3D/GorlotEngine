@@ -112,7 +112,7 @@ ParticleEmitter.prototype.initialize = function()
 		this.children[i].initialize();
 	}
 
-        this.clock.getDelta()
+    this.clock.start()
 
 	this.add(this.group.mesh);
 }

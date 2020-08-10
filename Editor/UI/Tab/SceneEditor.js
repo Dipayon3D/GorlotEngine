@@ -129,20 +129,6 @@ function SceneEditor(parent) {
 				obj.setObject(dragged_object)
 				Editor.addToScene(obj)
 			}
-
-			// Dragged file into window
-			if (event.dataTransfer.files.length > 0) {
-				var file = event.dataTransfer.files[0]
-
-				// Open project
-				if (file.name.endsWith(".isp")) {
-					if (confirm("All unsaved changes to the project will be lost! Load file?")) {
-						Editor.loadProgram(file.path)
-						Editor.resetEditingFlags()
-						Editor.updateObjectViews()
-					}
-				}
-			}
 		}
 	}
 
@@ -179,6 +165,7 @@ function SceneEditor(parent) {
 	this.tool_select_button = new ButtonImage(this.element)
 	this.tool_select_button.size.set(15, 15)
 	this.tool_select_button.setImage("Editor/Files/Icons/Tools/Select.png")
+    this.tool_select_button.setAltText("Select tool")
 	this.tool_select_button.visible = false
 	this.tool_select_button.updateInterface()
 
@@ -199,6 +186,7 @@ function SceneEditor(parent) {
 	this.tool_move_button = new ButtonImage(this.element)
 	this.tool_move_button.size.set(15, 15)
 	this.tool_move_button.setImage("Editor/Files/Icons/Tools/Move.png")
+    this.tool_move_button.setAltText("Move tool")
 	this.tool_move_button.visible = false
 	this.tool_move_button.updateInterface()
 	this.tool_move_button.img.style.filter = "contrast(0%)"
@@ -221,6 +209,7 @@ function SceneEditor(parent) {
 	this.tool_rotate_button = new ButtonImage(this.element)
 	this.tool_rotate_button.size.set(15, 15)
 	this.tool_rotate_button.setImage("Editor/Files/Icons/Tools/Rotate.png")
+    this.tool_rotate_button.setAltText("Rotate tool")
 	this.tool_rotate_button.visible = false
 	this.tool_rotate_button.updateInterface()
 	this.tool_rotate_button.img.style.filter = "contrast(0%)"
@@ -243,6 +232,7 @@ function SceneEditor(parent) {
 	this.tool_scale_button = new ButtonImage(this.element)
 	this.tool_scale_button.size.set(15, 15)
 	this.tool_scale_button.setImage("Editor/Files/Icons/Tools/Resize.png")
+    this.tool_scale_button.setAltText("Scale tool")
 	this.tool_scale_button.visible = false
 	this.tool_scale_button.updateInterface()
 	this.tool_scale_button.img.style.filter = "contrast(0%)"
@@ -265,6 +255,7 @@ function SceneEditor(parent) {
 	this.camera_button2d = new ButtonImage(this.element)
 	this.camera_button2d.size.set(15, 15)
 	this.camera_button2d.setImage("Editor/Files/Icons/Misc/2D.png")
+    this.camera_button2d.setAltText("Change camera to 2D mode")
 	this.camera_button2d.visible = true
 	this.camera_button2d.updateInterface()
 	this.camera_button2d.img.style.filter = "contrast(0%)"
@@ -288,6 +279,7 @@ function SceneEditor(parent) {
 	this.camera_button3d = new ButtonImage(this.element)
 	this.camera_button3d.size.set(15, 15)
 	this.camera_button3d.setImage("Editor/Files/Icons/Misc/3D.png")
+    this.camera_button3d.setAltText("Change camera to 3D mode")
 	this.camera_button3d.visible = true
 	this.camera_button3d.updateInterface()
 	this.camera_button3d.img.style.filter = "contrast(100%)"
@@ -406,7 +398,9 @@ SceneEditor.prototype.destroy = function() {
 }
 
 // Update SceneEditor
-SceneEditor.prototype.update = function(){}
+SceneEditor.prototype.update = function(){
+    // TODO: This
+}
 
 // Update division Size
 SceneEditor.prototype.updateInterface = function() {
@@ -479,11 +473,13 @@ SceneEditor.prototype.updateInterface = function() {
 	// Switch 2D button
 	this.camera_button2d.position.x = this.position.x + this.size.x - 40
 	this.camera_button2d.position.y = this.tool_select_button.position.y
+    this.camera_button2d.visible = this.visible && this.show_buttons_tools
 	this.camera_button2d.updateInterface()
 
 	// Switch 3D button
 	this.camera_button3d.position.x = this.position.y + this.size.x - 20
 	this.camera_button3d.position.y = this.tool_select_button.position.y
+    this.camera_button3d.visible = this.visible && this.show_buttons_tools
 	this.camera_button3d.updateInterface()
 
 	// VR button

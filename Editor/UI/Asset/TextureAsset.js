@@ -31,6 +31,18 @@ function TextureAsset(parent) {
 			}
 		})
 
+        context.addOption("Cut", () => {
+            if(self.texture !== null) {
+                try {
+                    Editor.clipboard.set(JSON.stringify(self.texture.toJSON()), "text")
+
+                    self.texture.dispose()
+                    Editor.program.removeTexture(self.texture, Editor.default_texture)
+                    Editor.updateObjectViews()
+                } catch(e) {throw e}
+            }
+        })
+
 		context.addOption("Copy", function() {
 			if(self.texture !== null) {
 				try {

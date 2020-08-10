@@ -24,15 +24,6 @@ function PerspectiveCamera(fov, aspect, near, far)
 
 PerspectiveCamera.prototype = Object.create(THREE.PerspectiveCamera.prototype)
 
-// Initialise camera
-PerspectiveCamera.prototype.initialize = function()
-{
-	for(var i = 0; i < this.children.length; i++)
-	{
-		this.children[i].initialize()
-	}
-}
-
 // Destroy camera
 PerspectiveCamera.prototype.destroy = function() {
 	var scene = ObjectUtils.getScene(this)
@@ -78,7 +69,8 @@ PerspectiveCamera.prototype.updateProjectionMatrix = function() {
 		left += this.near * this.filmOffset / this.getFilmWidth()
 	}
 
-	this.projectionMatrix.makeFrustum(left, left + width, top - height, top, this.near, this.far)
+    this.projectionMatrix.makeFrustum(left, left + width, top - height, top, this.near, this.far)
+    //this.projectionMatrix.makePerspective(left, left + width, top, top - height, this.near, this.far);
 }
 
 // Create JSON for object

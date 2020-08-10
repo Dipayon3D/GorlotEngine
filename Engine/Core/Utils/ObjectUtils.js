@@ -62,11 +62,10 @@ ObjectUtils.getMaterials = function(obj, materials) {
 			}
 			else if(child.material instanceof THREE.MultiMaterial)
 			{
-				var material_array = child.material.materials;
-
-				for(var j = 0; j < material_array.length; j++)
+				var array = child.material.materials;
+				for(var j = 0; j < array.length; j++)
 				{
-					add(material_array[j]);
+					add(array[j]);
 				}
 			}
 
@@ -83,6 +82,20 @@ ObjectUtils.getMaterials = function(obj, materials) {
 
 //Get all textures in object and children
 ObjectUtils.getTextures = function(obj, textures) {
+
+    // Get Textures from material
+    function addFromMaterial(material) {
+        add(material.map)
+        add(material.bumpMap)
+        add(material.normalMap)
+        add(material.displacementMap)
+        add(material.specularMap)
+        add(material.emissiveMap)
+        add(material.alphaMap)
+        add(material.roughnessMap)
+        add(material.metalnessMap)
+    }
+
 	// Auxiliar function to add textures
 	function add(texture) {
 		if(texture != null)
@@ -103,17 +116,14 @@ ObjectUtils.getTextures = function(obj, textures) {
     obj.traverse((child) => {
 		if(child.material !== undefined)
 		{
-			var material = child.material;
-			
-			add(material.map)
-			add(material.bumpMap)
-			add(material.normalMap)
-			add(material.displacementMap)
-			add(material.specularMap)
-			add(material.emissiveMap)
-			add(material.alphaMap)
-			add(material.roughnessMap)
-			add(material.metalnessMap)
+            if(child.material instanceof THREE.Material) {
+                addFromMaterial(child.material)
+            } else if(child.material instanceof THREE.MultiMaterial) {
+                var array = child.material.materials
+                for(var j = 0; j < array.length; j++) {
+                    addFromMaterial(array[j])
+                }
+            }
 		}
 		else if(child instanceof ParticleEmitter)
 		{

@@ -35,13 +35,6 @@ function FontAsset(parent) {
 			}
 		})
 
-		context.addOption("Reverse glyphs", () => {
-			if (self.font !== null && confirm("Reverse font glyps?")) {
-				// TODO: This
-				alert("Glyph reversing is not implemented yet")
-			}
-		})
-
 		context.addOption("Copy", () => {
 			if (self.font !== null) {
 				try {
@@ -84,8 +77,7 @@ FontAsset.prototype.setFont = function(font) {
 // Update font preview
 FontAsset.prototype.updateMetadata = function() {
 	if (this.font !== null) {
-        // TODO: Font preview
-		this.image.src = Interface.file_dir + "Icons/Assets/Font.png"
+        Editor.font_renderer.renderFont(this.font, this.image)
 
 		this.setText(this.font.name)
 		this.path = this.font.path

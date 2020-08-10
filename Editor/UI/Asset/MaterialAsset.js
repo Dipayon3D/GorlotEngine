@@ -92,6 +92,17 @@ function MaterialAsset(parent) {
 			}
 		})
 
+        context.addOption("Cut", () => {
+            if(self.material !== null) {
+                try {
+                    Editor.clipboard.set(JSON.stringify(self.material.toJSON()), "text")
+
+                    Editor.program.removeMaterial(self.material, Editor.default_material, Editor.default_sprite_material)
+                    Editor.updateObjectViews()
+                } catch(e) {}
+            }
+        })
+
 		context.addOption("Duplicate", function() {
 			if(self.material !== null) {
 				try {

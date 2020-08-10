@@ -1,7 +1,7 @@
 "use strict"
 
 function File() {
-    this.name = ""
+    this.name = "file"
     this.uuid = THREE.Math.generateUUID()
     this.type = "File"
 
