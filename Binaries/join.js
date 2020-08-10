@@ -80,6 +80,7 @@ include("Engine/Core/Elements/Cinematic/PerspectiveCamera.js")
 include("Engine/Core/Elements/Cinematic/OrthographicCamera.js")
 
 include("Engine/Core/Elements/Sound/AudioEmitter.js")
+include("Engine/Core/Elements/Sound/PositionalAudio.js")
 
 include("Engine/Core/Elements/Script/Script.js")
 include("Engine/Core/Elements/Script/BlockScript.js")
