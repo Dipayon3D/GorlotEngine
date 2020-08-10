@@ -12,8 +12,6 @@ function PerspectiveCamera(fov, aspect, near, far)
 	this.clear_color = false
 	this.clear_depth = false
 
-	this.listener = new THREE.AudioListener()
-
 	this.components = []
 	this.defaultComponents = []
 

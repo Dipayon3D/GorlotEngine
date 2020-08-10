@@ -55,6 +55,7 @@ var TorusGeometry = THREE.TorusGeometry
 var TorusKnotBufferGeometry = THREE.TorusKnotBufferGeometry
 var TorusKnotGeometry = THREE.TorusKnotGeometry
 var TubeGeometry = THREE.TubeGeometry
+var WireframeGeometry = THREE.WireframeGeometry
 var TubeBufferGeometry = THREE.TubeBufferGeometry
 
 //Math
