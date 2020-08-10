@@ -1187,7 +1187,7 @@ Editor.setCameraMode = function(mode) {
 	var aspect = (Editor.canvas !== null) ? Editor.canvas.width/Editor.canvas.height : 1.0
 
 	if (mode === Editor.CAMERA_ORTHOGRAPHIC) {
-		Editor.camera = new OrthographicCamera(10, aspect, OrthographicCamera.FIXED_VERTICAL)
+		Editor.camera = new OrthographicCamera(10, aspect, OrthographicCamera.RESIZE_HORIZONTAL)
 		Editor.camera.position.set(0, 0, 100)
 		Editor.grid_helper.rotation.x = Math.PI / 2
 	} else if (mode === Editor.CAMERA_PERSPECTIVE) {

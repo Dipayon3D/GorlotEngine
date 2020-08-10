@@ -813,7 +813,7 @@ Interface.initialize = function() {
 	orthographic.size.set(sizex, 45)
 	orthographic.setText("Orthographic")
 	orthographic.setCallback(() => {
-		Editor.addToScene(new OrthographicCamera(3, 2, OrthographicCamera.FIXED_VERTICAL))
+		Editor.addToScene(new OrthographicCamera(3, 2, OrthographicCamera.RESIZE_HORIZONTAL))
 	})
 
 	var orthographicIcon = new ImageBox(orthographic.element)
