@@ -3,10 +3,10 @@
 var path = "../"
 var code = ""
 
-// Gorlot Global
+// Namespace
 include("Engine/Gorlot.js")
 
-// External Libraries
+//External libs
 include("Engine/Libraries/three/three.js")
 include("Engine/Libraries/three/effects/VREffect.js")
 include("Engine/Libraries/cannon.min.js")
@@ -14,39 +14,40 @@ include("Engine/Libraries/leap.min.js")
 include("Engine/Libraries/stats.min.js")
 include("Engine/Libraries/SPE.min.js")
 include("Engine/Libraries/spine.min.js")
-include("Engine/Libraries/opentype.min.js")
+
+include("Engine/Libraries/three/animation/Animation.js")
+include("Engine/Libraries/three/animation/AnimationHandler.js")
+include("Engine/Libraries/three/animation/KeyFrameAnimation.js")
 
 include("Engine/Libraries/litegraph/litegraph.js")
 
-//Internal modules
-include("Engine/Core/THREE/Three.js");
-include("Engine/Core/THREE/Object3D.js");
-include("Engine/Core/THREE/Vector3.js");
-include("Engine/Core/THREE/Vector2.js");
-include("Engine/Core/THREE/Color.js");
+//Core runtime modules
+include("Engine/Core/THREE/Three.js")
+include("Engine/Core/THREE/Object3D.js")
+include("Engine/Core/THREE/Vector3.js")
+include("Engine/Core/THREE/Vector2.js")
 include("Engine/Core/THREE/Texture.js")
 include("Engine/Core/THREE/LightShadow.js")
 include("Engine/Core/THREE/Fog.js")
 include("Engine/Core/THREE/Material.js")
 
-include("Engine/Input/Key.js");
-include("Engine/Input/Keyboard.js");
-include("Engine/Input/Mouse.js");
+include("Engine/Input/Key.js")
+include("Engine/Input/Keyboard.js")
+include("Engine/Input/Mouse.js")
 
-include("Engine/Core/WebVR/VRControls.js");
+include("Engine/Core/WebVR/VRControls.js")
 
 include("Engine/Core/Resources/Font.js")
 include("Engine/Core/Resources/Video.js")
 include("Engine/Core/Resources/Audio.js")
 include("Engine/Core/Resources/Image.js")
-include("Engine/Core/Resources/Folder.js")
 
-include("Engine/Core/Texture/TextTexture.js");
-include("Engine/Core/Texture/VideoTexture.js");
-include("Engine/Core/Texture/WebcamTexture.js");
-include("Engine/Core/Texture/Texture.js");
+include("Engine/Core/Texture/CanvasTexture.js")
+include("Engine/Core/Texture/VideoTexture.js")
+include("Engine/Core/Texture/WebcamTexture.js")
+include("Engine/Core/Texture/Texture.js")
 
-include("Engine/Core/Loaders/FontLoader.js");
+include("Engine/Core/Loaders/FontLoader.js")
 include("Engine/Core/Loaders/ImageLoader.js")
 include("Engine/Core/Loaders/VideoLoader.js")
 
@@ -56,41 +57,41 @@ include("Engine/Core/Loaders/ObjectLoader.js")
 include("Engine/Core/Loaders/MaterialLoader.js")
 include("Engine/Core/Loaders/TTFLoader.js")
 
-include("Engine/Core/Elements/Device/LeapMotion.js");
-include("Engine/Core/Elements/Device/KinectDevice.js");
+include("Engine/Core/Elements/Device/LeapMotion.js")
+include("Engine/Core/Elements/Device/KinectDevice.js")
 
 include("Engine/Core/Elements/Basic/Mesh.js")
 include("Engine/Core/Elements/Basic/SkinnedMesh.js")
 include("Engine/Core/Elements/Basic/Text3D.js")
 
 include("Engine/Core/Elements/Sprite/Sprite.js")
-include("Engine/Core/Elements/Sprite/TextSprite.js")
 
-include("Engine/Core/Elements/Lighting/PointLight.js");
-include("Engine/Core/Elements/Lighting/SpotLight.js");
-include("Engine/Core/Elements/Lighting/AmbientLight.js");
-include("Engine/Core/Elements/Lighting/DirectionalLight.js");
-include("Engine/Core/Elements/Lighting/HemisphereLight.js");
-include("Engine/Core/Elements/Lighting/Sky.js");
+include("Engine/Core/Elements/Lighting/PointLight.js")
+include("Engine/Core/Elements/Lighting/SpotLight.js")
+include("Engine/Core/Elements/Lighting/AmbientLight.js")
+include("Engine/Core/Elements/Lighting/DirectionalLight.js")
+include("Engine/Core/Elements/Lighting/HemisphereLight.js")
+include("Engine/Core/Elements/Lighting/RectAreaLight.js")
+include("Engine/Core/Elements/Lighting/Sky.js")
 
-include("Engine/Core/Elements/Cinematic/PerspectiveCamera.js");
-include("Engine/Core/Elements/Cinematic/OrthographicCamera.js");
+include("Engine/Core/Elements/Cinematic/PerspectiveCamera.js")
+include("Engine/Core/Elements/Cinematic/OrthographicCamera.js")
 
-include("Engine/Core/Elements/Sound/AudioEmitter.js");
+include("Engine/Core/Elements/Sound/AudioEmitter.js")
 
-include("Engine/Core/Elements/Script/Script.js");
-include("Engine/Core/Elements/Script/BlockScript.js");
+include("Engine/Core/Elements/Script/Script.js")
+include("Engine/Core/Elements/Script/BlockScript.js")
 
-include("Engine/Core/Elements/Physics/PhysicsObject.js");
+include("Engine/Core/Elements/Physics/PhysicsObject.js")
 
 include("Engine/Core/Elements/Spine/SpineAnimation.js")
 include("Engine/Core/Elements/Spine/SpineTexture.js")
 
-include("Engine/Core/Elements/Bone.js");
-include("Engine/Core/Elements/Empty.js");
-include("Engine/Core/Elements/ParticleEmitter.js");
-include("Engine/Core/Elements/Program.js");
-include("Engine/Core/Elements/Scene.js");
+include("Engine/Core/Elements/Bone.js")
+include("Engine/Core/Elements/Empty.js")
+include("Engine/Core/Elements/ParticleEmitter.js")
+include("Engine/Core/Elements/Program.js")
+include("Engine/Core/Elements/Scene.js")
 
 include("Engine/Core/Elements/Special/ObjectCaller.js")
 
@@ -107,6 +108,7 @@ include("Engine/Core/Assets/Materials/MeshNormalMaterial.js")
 include("Engine/Core/Assets/Materials/MeshPhongMaterial.js")
 include("Engine/Core/Assets/Materials/MeshShaderMaterial.js")
 include("Engine/Core/Assets/Materials/MeshStandardMaterial.js")
+include("Engine/Core/Assets/Materials/MeshToonMaterial.js")
 include("Engine/Core/Assets/Materials/SpriteMaterial.js")
 
 // Default Components
