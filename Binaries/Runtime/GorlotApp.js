@@ -21,6 +21,18 @@ function GorlotApp(canvas) {
 		this.canvas_resize = false
 	}
 
+    // Lock pointer function
+    var canvas = this.canvas
+    this.lock_mouse = function() {
+        if(canvas.requestPointerLock) {
+            canvas.requestPointerLock()
+        } else if(canvas.mozPointerRequest) {
+            canvas.mozPointerRequest()
+        } else if(canvas.webkitRequestPointLock) {
+            canvas.webkitRequestPointLock()
+        }
+    }
+
 	// WebGL renderer
 	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, antialias: true})
 	this.renderer.autoClear = false
@@ -71,6 +83,11 @@ GorlotApp.prototype.run = function() {
 	this.program.initialize()
 	this.program.resize(this.canvas.width, this.canvas.height)
 
+    // Lock mouse pointer
+    if(this.program.lock_pointer) {
+        this.canvas.addEventListener("click", this.lock_mouse, false)
+    }
+
 	// Update loop
 	var self = this
 	var update = function() {
@@ -94,6 +111,11 @@ GorlotApp.prototype.update = function() {
 
 // Exit from App
 GorlotApp.prototype.exit = function() {
+    // Remove mouse lock event from canvas
+    if(this.program.lock_pointer) {
+        this.canvas.removeEventListener("click", this.lock_mouse, false)
+    }
+
     // Dispose and remove program
 	if (this.program !== null) {
 		this.program.dispose()
