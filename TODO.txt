@@ -1,0 +1,6 @@
+- Audio Editor
+- Texture Editor
+- CTRL-Z and CTRL-Y support
+- Modify blocks and scripts variables in their components
+- Component creator (by using forms)
+- Create a hub where components can be downloaded (for example, windows, linux and mac nwjs for exporting to those platforms)
