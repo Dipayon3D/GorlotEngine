@@ -18,19 +18,24 @@ try {
 include("Engine/Gorlot.js")
 
 // Runtime dependencies
-include("Engine/Libraries/three/three.min.js")
-include("Engine/Libraries/three/effects/VREffect.js")
+include("Engine/Libraries/THREE/three.min.js")
+include("Engine/Libraries/THREE/effects/VREffect.js")
 
-include("Engine/Libraries/three/animation/Animation.js")
-include("Engine/Libraries/three/animation/AnimationHandler.js")
-include("Engine/Libraries/three/animation/KeyFrameAnimation.js")
+include("Engine/Libraries/THREE/animation/Animation.js")
+include("Engine/Libraries/THREE/animation/AnimationHandler.js")
+include("Engine/Libraries/THREE/animation/KeyFrameAnimation.js")
 
-include("Engine/Libraries/cannon.min.js")
-include("Engine/Libraries/leap.min.js")
+include("Engine/Libraries/CANNON/cannon.min.js")
+
+include("Engine/Libraries/Leap/leap.min.js")
+
 include("Engine/Libraries/stats.min.js")
-include("Engine/Libraries/SPE.min.js")
-include("Engine/Libraries/spine.min.js")
-include("Engine/Libraries/opentype.min.js")
+
+include("Engine/Libraries/SPE/SPE.min.js")
+
+include("Engine/Libraries/Spine/spine.min.js")
+
+include("Engine/Libraries/Opentype/opentype.min.js")
 
 include("Engine/Libraries/litegraph/litegraph.js")
 
@@ -129,18 +134,22 @@ include("Engine/Core/Assets/Materials/MeshStandardMaterial.js")
 include("Engine/Core/Assets/Materials/MeshToonMaterial.js")
 include("Engine/Core/Assets/Materials/SpriteMaterial.js")
 
-// Default Components
+// Components
 include("Engine/Core/Components/Panel.js")
 include("Engine/Core/Components/Component.js")
 
-include("Engine/Core/Components/Objects/AudioComponent.js")
-include("Engine/Core/Components/Objects/ElementComponent.js")
-include("Engine/Core/Components/Objects/ObjectComponent.js")
-include("Engine/Core/Components/Objects/PhysicsComponent.js")
-include("Engine/Core/Components/Objects/ProgramComponent.js")
-include("Engine/Core/Components/Objects/SceneComponent.js")
-include("Engine/Core/Components/Objects/Text3DComponent.js")
-include("Engine/Core/Components/Objects/ScriptComponent.js")
+include("Engine/Core/Components/Sound/AudioComponent.js")
+
+include("Engine/Core/Components/Physics/PhysicsComponent.js")
+
+include("Engine/Core/Components/Scripts/ScriptComponent.js")
+
+include("Engine/Core/Components/Elements/ElementComponent.js")
+include("Engine/Core/Components/Elements/ObjectComponent.js")
+include("Engine/Core/Components/Elements/ProgramComponent.js")
+include("Engine/Core/Components/Elements/SceneComponent.js")
+
+include("Engine/Core/Components/Elements/Basic/Text3DComponent.js")
 
 include("Engine/Core/Components/Device/KinectComponent.js")
 include("Engine/Core/Components/Device/LeapComponent.js")
@@ -198,9 +207,9 @@ include("Engine/Libraries/codemirror/addon/lint/lint.js")
 include("Engine/Libraries/codemirror/addon/lint/javascript-lint")
 include("Engine/Libraries/codemirror/theme/*")
 
-include("Engine/Libraries/jshint.min.js")
-include("Engine/Libraries/jscolor.min.js")
-include("Engine/Libraries/quickhull.js")
+include("Engine/Libraries/Editor/Jshint.min.js")
+include("Engine/Libraries/Editor/Jscolor.min.js")
+include("Engine/Libraries/Editor/Quickhull.js")
 
 // Core modules
 include("Engine/Core/Utils/Mesh2Shape.js")
@@ -209,17 +218,17 @@ include("Engine/Libraries/litegraph/litegraph.css")
 include("Engine/Libraries/litegraph/litegui.css")
 
 //Threejs
-include("Engine/Libraries/three/loaders/OBJLoader.js")
-include("Engine/Libraries/three/loaders/MTLLoader.js")
-include("Engine/Libraries/three/loaders/VRMLLoader.js")
-include("Engine/Libraries/three/loaders/FBXLoader.js")
-include("Engine/Libraries/three/loaders/GLTFLoader.js")
-include("Engine/Libraries/three/loaders/ColladaLoader.js")
-include("Engine/Libraries/three/loaders/PLYLoader.js")
-include("Engine/Libraries/three/loaders/VTKLoader.js")
-include("Engine/Libraries/three/loaders/AWDLoader.js")
-include("Engine/Libraries/three/loaders/TGALoader.js")
-include("Engine/Libraries/three/loaders/PCDLoader.js")
+include("Engine/Libraries/THREE/loaders/OBJLoader.js")
+include("Engine/Libraries/THREE/loaders/MTLLoader.js")
+include("Engine/Libraries/THREE/loaders/VRMLLoader.js")
+include("Engine/Libraries/THREE/loaders/FBXLoader.js")
+include("Engine/Libraries/THREE/loaders/GLTFLoader.js")
+include("Engine/Libraries/THREE/loaders/ColladaLoader.js")
+include("Engine/Libraries/THREE/loaders/PLYLoader.js")
+include("Engine/Libraries/THREE/loaders/VTKLoader.js")
+include("Engine/Libraries/THREE/loaders/AWDLoader.js")
+include("Engine/Libraries/THREE/loaders/TGALoader.js")
+include("Engine/Libraries/THREE/loaders/PCDLoader.js")
 
 //Internal modules
 include("Editor/UI/Element/Bar.js")
