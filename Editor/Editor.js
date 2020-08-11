@@ -1471,7 +1471,7 @@ Editor.setState = function(state)
 		//If program uses VR set button
 		if(Editor.program_running.vr)
 		{
-			if(Editor.webvrAvailable())
+			if(GORLOT.WebVRAvailable())
 			{
 				Editor.vr_effect = new THREE.VREffect(Editor.renderer)
 				
@@ -1573,11 +1573,6 @@ Editor.setFullscreen = function(fullscreen, element) {
 			document.exitFullscreen()
 		}
 	}
-}
-
-// Check if webvr is available
-Editor.webvravailable = function() {
-	return (navigator.getVRDisplays !== undefined)
 }
 
 // Opens a different window

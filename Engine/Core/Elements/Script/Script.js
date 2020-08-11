@@ -90,8 +90,7 @@ Script.prototype.setCode = function(code)
 		this.script = new(new Function(this.code))()
 	}
 	catch(e){
-        console.error(e)
-
+        console.error("Script: Error compiling script", e)
         this.script = new(function(){})()
 	}
 }

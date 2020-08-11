@@ -59,6 +59,9 @@ Runtime.prototype.run = function() {
 		this.vr_effect = new THREE.VREffect(this.renderer)
 	}
 
+    // Attach this runtime to program
+    this.program.gorlot_app = this
+
 	// Create default camera
 	this.program.default_camera = new PerspectiveCamera(60, this.canvas.width/this.canvas.height, 0.1, 1000000)
 	this.program.default_camera.position.set(0, 10, 30)
@@ -128,6 +131,11 @@ Runtime.prototype.resize = function() {
 	}
 }
 
+// Set on data receive callback (callback receives data as argument)
+Runtime.prototype.setOnDataReceived = function(callback) {
+    this.onDataReceived = callback
+}
+
 // Set on exit callback
 Runtime.prototype.setOnExit = function(callback) {
 	this.onExit = callback
@@ -154,9 +162,4 @@ Runtime.setFullscreen = function(fullscreen, element) {
 			document.exitFullscreen()
 		}
 	}
-}
-
-// Check if WebVR is available
-Runtime.webvravailable = function() {
-	return (navigator.getVRDisplays !== undefined)
 }

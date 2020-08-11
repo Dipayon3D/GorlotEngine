@@ -100,7 +100,7 @@ Font.prototype.generateShapes = function(text, size, divisions)
 	{
 		var chars = String(text).split("")
 		var scale = size / data.resolution
-        var line_height = (data.boundingBox.yMax - data.boundingBox.yMin + data.underlineThickness) * scale
+        var line_height = (data.boundingBox.yMax - data.boundingBox.yMin) * scale
 
         var offset_x = 0, offset_y = 0
 		var paths = []
@@ -114,7 +114,7 @@ Font.prototype.generateShapes = function(text, size, divisions)
                 offset_x = 0
             } else {
                 var ret = createPath(char, scale, offset_x, offset_y)
-                offset_x += ret.offset_x
+                offset_x += ret.width
                 paths.push(ret.path)
             }
 		}
@@ -214,7 +214,7 @@ Font.prototype.generateShapes = function(text, size, divisions)
 			}
 		}
 
-		return {offset_x: glyph.ha * scale, path: path}
+		return {width: glyph.ha * scale, path: path}
 	}
 }
 
