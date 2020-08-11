@@ -331,37 +331,47 @@ Program.prototype.removeFolder = function(folder) {
 	if (folder instanceof Folder) {
 		delete this.folders[folder.uuid]
 
-		var path = folder.path + folder.name + "/"
+		var oldPath = folder.path + folder.name + "/"
+        var pathParts = oldPath.split("/")
+        pathParts.splice(pathParts.length-2, 1)
+        var newPath = pathParts.toString()
+
+        if(newPath === "") {
+            newPath = "/"
+        } else {
+            newPath = pathParts.toString().replace(/,/gi, '/')
+        }
 
 		for(var i in this.materials) {
-			if (this.materials[i].path === path) {
-				this.materials[i].path = "/"
+			if (this.materials[i].path === oldPath) {
+				this.materials[i].path = newPath
 			}
 		}
 
 		for(var i in this.textures) {
-			if (this.textures[i].path === path) {
-				this.textures[i].path = "/"
+			if (this.textures[i].path === oldPath) {
+				this.textures[i].path = newPath
 			}
 		}
 
 		for(var i in this.fonts) {
-			if (this.fonts[i].path === path) {
-				this.fonts[i].path = "/"
+			if (this.fonts[i].path === oldPath) {
+				this.fonts[i].path = newPath
 			}
 		}
 
 		for(var i in this.asset_objects) {
-			if (this.asset_objects[i].path === path) {
-				this.asset_objects[i].path = "/"
+			if (this.asset_objects[i].path === oldPath) {
+				this.asset_objects[i].path = newPath
 			}
 		}
 
 		for(var i in this.audio) {
-			if (this.audio[i].path === path) {
-				this.audio[i].path = "/"
+			if (this.audio[i].path === oldPath) {
+				this.audio[i].path = newPath
 			}
 		}
+
 	}
 }
 
