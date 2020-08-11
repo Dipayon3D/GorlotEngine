@@ -270,7 +270,7 @@ Program.prototype.sendDataApp = function(data) {
             console.warn("Program: App data communication", data)
         }
     } else {
-        if(typeof obj === "object") {
+        if(typeof data === "object") {
             alert(JSON.stringify(data))
         } else {
             alert(data)

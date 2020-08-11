@@ -24,13 +24,27 @@ function Panel(parent) {
 		e.preventDefault()
 	}
 
-	// Element attributes
+	// Attributes
 	this.components = []
 	this.children_pos = new THREE.Vector2(5, 10)
 	this.fit_parent = true
 	this.size = new THREE.Vector2(0, 0)
 	this.position = new THREE.Vector2(0, 0)
 	this.visible = true
+
+    // Self pointer
+    var self = this
+
+    // Mouse inside panel
+    this.focused = false
+
+    this.element.onmouseenter = function() {
+        self.focused = true
+    }
+
+    this.element.onmouseleave = function() {
+        self.focused = false
+    }
 
 	// Object attached
 	this.obj = null
@@ -62,8 +76,6 @@ Panel.prototype.attachObject = function(obj) {
 		this.obj = obj
 		this.updateComponents()
 
-		var self = this
-
 		// Add component
 		this.add = new Button(this.element)
 		this.add.setText("Add Component")
@@ -71,11 +83,11 @@ Panel.prototype.attachObject = function(obj) {
 		this.add.setCallback((e) => {
 			var menu = new ContextMenu()
 			menu.size.set(130, 20)
-			var length = App.componentManager.length
+			var length = Editor.componentManager.length
 			menu.position.set(e.clientX - 5, event.clientY - (length * 10))
 
 			for(var i = 0; i < length; i++) {
-				var compo = App.componentManager[i]
+				var compo = Editor.componentManager[i]
 
 				menu.addOption(compo.component_name, () => {
 					var found = false

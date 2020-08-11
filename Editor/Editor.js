@@ -3,6 +3,7 @@
 function Editor(){}
 
 Editor.CURRENT_PATH = "/"
+Editor.componentManager = []
 
 // NWJS Modules
 try {
@@ -492,29 +493,30 @@ Editor.update = function()
 	if(Editor.state !== Editor.STATE_TESTING)
 	{
 		//Close tab, Save and load project
-		if(Keyboard.keyPressed(Keyboard.CTRL))
-		{
-			if(Keyboard.keyJustPressed(Keyboard.S))
-			{
-                if(Editor.open_file === null) {
-                    Interface.saveProgram()
-                } else {
-                    Editor.saveProgram(undefined, false)
+		if(Keyboard.keyPressed(Keyboard.CTRL)) {
+            if(Interface.panel !== null && !Interface.panel.focused) {
+                if(Keyboard.keyJustPressed(Keyboard.S))
+                {
+                    if(Editor.open_file === null) {
+                        Interface.saveProgram()
+                    } else {
+                        Editor.saveProgram(undefined, false)
+                    }
+                }
+                else if(Keyboard.keyJustPressed(Keyboard.O))
+                {
+                    Interface.loadProgram()
+                }
+                else if(Keyboard.keyJustPressed(Keyboard.W) || Keyboard.keyJustPressed(Keyboard.F4))
+                {
+                    Interface.tab.closeActual()
+                } else if (Keyboard.keyJustPressed(Keyboard.TAB) || Keyboard.keyJustPressed(Keyboard.PAGE_DOWN)) {
+                    Interface.tab.selectNextTab()
+                } else if (Keyboard.keyJustPressed(Keyboard.PAGE_UP)) {
+                    Interface.tab.selectPreviousTab()
                 }
             }
-			else if(Keyboard.keyJustPressed(Keyboard.O))
-			{
-				Interface.loadProgram()
-			}
-			else if(Keyboard.keyJustPressed(Keyboard.W) || Keyboard.keyJustPressed(Keyboard.F4))
-			{
-				Interface.tab.closeActual()
-			} else if (Keyboard.keyJustPressed(Keyboard.TAB) || Keyboard.keyJustPressed(Keyboard.PAGE_DOWN)) {
-				Interface.tab.selectNextTab()
-			} else if (Keyboard.keyJustPressed(Keyboard.PAGE_UP)) {
-				Interface.tab.selectPreviousTab()
-			}
-		}
+        }
 	}
 
 	// Editing a scene
@@ -525,17 +527,19 @@ Editor.update = function()
 		} else if(Keyboard.keyJustPressed(Keyboard.F5)) {
             Editor.setState(Editor.STATE_TESTING)
         } else if(Keyboard.keyPressed(Keyboard.CTRL)) {
-			if(Keyboard.keyJustPressed(Keyboard.C)) {
-				Editor.copyObject()
-			} else if(Keyboard.keyJustPressed(Keyboard.V)) {
-				Editor.pasteObject()
-			} else if(Keyboard.keyJustPressed(Keyboard.X)) {
-				Editor.cutObject()
-			} else if(Keyboard.keyJustPressed(Keyboard.Y)) {
-				Editor.redo()
-			} else if(Keyboard.keyJustPressed(Keyboard.Z)) {
-				Editor.undo()
-			}
+            if(Interface.panel !== null && !Interface.panel.focused) {
+                if(Keyboard.keyJustPressed(Keyboard.C)) {
+                    Editor.copyObject()
+                } else if(Keyboard.keyJustPressed(Keyboard.V)) {
+                    Editor.pasteObject()
+                } else if(Keyboard.keyJustPressed(Keyboard.X)) {
+                    Editor.cutObject()
+                } else if(Keyboard.keyJustPressed(Keyboard.Y)) {
+                    Editor.redo()
+                } else if(Keyboard.keyJustPressed(Keyboard.Z)) {
+                    Editor.undo()
+                }
+            }
 		}
 
 		// Select objects
