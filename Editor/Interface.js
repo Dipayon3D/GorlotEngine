@@ -769,6 +769,23 @@ Interface.initialize = function() {
 	Interface.lights_form.add(hemisphere)
 	Interface.lights_form.nextRow()
 
+    // RectArea Light
+    var rect = new Button(Interface.lights_form.element)
+    rect.size.set(sizex, 45)
+    rect.setText("Rect Area")
+    rect.setCallback(() => {
+        Editor.addToScene(new RectAreaLight(0x555555, 20, 20, 20))
+    })
+
+    var rectIcon = new ImageBox(rect.element)
+    rectIcon.size.set(40, 40)
+    rectIcon.position.set(5, 2)
+    rectIcon.setImage(Interface.file_dir + "Icons/Lights/Directional.png")
+    rectIcon.updateInterface()
+
+    Interface.lights_form.add(rect)
+    Interface.lights_form.nextRow()
+
 	// Sky
 	var sky = new Button(Interface.lights_form.element)
 	sky.size.set(sizex, 45)

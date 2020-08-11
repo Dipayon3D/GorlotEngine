@@ -17,7 +17,9 @@ function LightComponent() {
 		shadow_near: 0.01,
 		shadow_far: 1000000,
 		angle: 1,
-		penumbra: 0
+		penumbra: 0,
+        rectWidth: 20,
+        rectHeight: 20
 	}
 }
 
@@ -266,7 +268,46 @@ LightComponent.prototype.initUI = function(pos, obj) {
 			this.form.nextRow()
 		}
 		
-	}
+	} else if(this.obj instanceof RectAreaLight) {
+        // Intensity
+        this.form.addText("Intensity")
+        this.intensity = new Slider(this.form.element)
+        this.intensity.size.set(160, 18)
+        this.intensity.setStep(0.1)
+        this.intensity.setRange(0, 500)
+        this.intensity.setOnChange(() => {
+            if(self.obj !== null) {
+                self.obj.intensity = self.intensity.getValue()
+            }
+        })
+        this.form.add(this.intensity)
+        this.form.nextRow()
+
+        // Rect width
+        this.form.addText("Width")
+        this.width = new NumberBox(this.form.element)
+        this.width.size.set(60, 18)
+        this.width.setStep(0.1)
+        this.width.setOnChange(() => {
+            if(self.obj !== null) {
+                self.obj.width = self.width.getValue()
+            }
+        })
+        this.form.add(this.width)
+
+        // Rect Height
+        this.form.addText("Height")
+        this.height = new NumberBox(this.form.element)
+        this.height.size.set(60, 18)
+        this.height.setStep(0.1)
+        this.height.setOnChange(() => {
+            if(self.obj !== null) {
+                self.obj.height = self.height.getValue()
+            }
+        })
+        this.form.add(this.height)
+        this.form.nextRow()
+    }
 
 	// Set form position and update interface
 	this.form.position.copy(this.widgetsPos)
@@ -286,7 +327,7 @@ LightComponent.prototype.updateData = function() {
 	}
 	if (this.obj instanceof PointLight) {
 		this.distance.setValue(this.obj.distance)
-		this.intensity.setValue(this.obj.intensity)
+        this.intensity.setValue(this.obj.intensity)
 	}
 	if (this.obj instanceof SpotLight) {
 		this.angle.setValue(this.obj.angle)
@@ -308,6 +349,11 @@ LightComponent.prototype.updateData = function() {
 		this.shadow_bottom.setValue(this.obj.shadow.camera.bottom)
 	}
 
+    if(this.obj instanceof RectAreaLight) {
+        this.width.setValue(this.obj.width)
+        this.height.setValue(this.obj.height)
+        this.intensity.setValue(this.obj.intensity)
+    }
 }
 
 LightComponent.prototype.onReset = function() {
@@ -315,13 +361,13 @@ LightComponent.prototype.onReset = function() {
 
 	if (this.obj instanceof DirectionalLight || this.obj instanceof PointLight) {
 		this.obj.castShadow = this.values.castShadow
+        this.obj.intensity = this.values.intensity
 	}
 	if (this.obj instanceof HemisphereLight) {
 		this.obj.groundColor.setRGB(this.values.groundCol[0], this.values.groundCol[1], this.values.groundCol[2])
 	}
 	if (this.obj instanceof PointLight) {
 		this.obj.distance = this.values.distance
-		this.obj.intensity = this.values.intensity
 		this.obj.shadow.mapSize.width = this.values.shadow_width
 		this.obj.shadow.mapSize.height = this.values.shadow_height
 		this.obj.shadow.camera.near = this.values.shadow_near
@@ -332,6 +378,11 @@ LightComponent.prototype.onReset = function() {
 		this.obj.penumbra = this.values.penumbra
 		this.obj.angle = this.values.angle
 	}
+    if (this.obj instanceof RectAreaLight) {
+        this.obj.width = this.values.rectWidth
+        this.obj.height = this.values.rectHeight
+        this.obj.intensity = this.values.intensity
+    }
 
 	Editor.updateObjectViews()
 	this.updateData()

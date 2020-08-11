@@ -20,6 +20,7 @@ ObjectIcons.icons["PointLight"] = "Editor/Files/Icons/Lights/Point.png"
 ObjectIcons.icons["HemisphereLight"] = "Editor/Files/Icons/Lights/Hemisphere.png"
 ObjectIcons.icons["DirectionalLight"] = "Editor/Files/Icons/Lights/Directional.png"
 ObjectIcons.icons["AmbientLight"] = "Editor/Files/Icons/Lights/Ambient.png"
+ObjectIcons.icons["RectAreaLight"] = "Editor/Files/Icons/Lights/Directional.png"
 
 //Cameras
 ObjectIcons.icons["PerspectiveCamera"] = "Editor/Files/Icons/Camera/Perspective.png"
