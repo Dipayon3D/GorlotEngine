@@ -1,0 +1,14 @@
+V 0.0.1-alpha
+	First "release"
+	WYSIWYG 3D editor
+	Sound, Cinematic, Effects, Lights, Physics and Device categories added
+	Material and Font preview in Asset Explorer
+	Components system
+	Added Folders
+	2D and 3D mode
+	Using Gizmo tools
+	Added Default Scene
+	Added Material and Particles Editor
+	First sight upon the Blocks system
+	Blocks Editor
+	50+ New Blocks
