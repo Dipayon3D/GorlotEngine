@@ -1,6 +1,6 @@
 "use strict"
 
-function Runtime(canvas) {
+function GorlotApp(canvas) {
 
 	this.program = null
 
@@ -31,20 +31,20 @@ function Runtime(canvas) {
 }
 
 // Fullscreen control
-Runtime.fullscreen = false
+GorlotApp.fullscreen = false
 
 // Load program from file
-Runtime.prototype.loadProgram = function(fname) {
+GorlotApp.prototype.loadProgram = function(fname) {
 	var loader = new ObjectLoader()
 	var data = JSON.parse(FileSystem.readFile(fname))
 	this.program =  loader.parse(data)
 }
 
 // Start Gorlot program
-Runtime.prototype.run = function() {
+GorlotApp.prototype.run = function() {
 
 	if (this.program === null) {
-		console.warn("Runtime: No program is loaded")
+		console.warn("GorlotApp: No program is loaded")
 		return
 	}
 
@@ -54,13 +54,13 @@ Runtime.prototype.run = function() {
 	Mouse.setCanvas(this.canvas)
 
 	// Virtual reality
-	if (this.program.vr) {
+    if (this.program.vr && GORLOT.WebVRAvailable()) {
 		this.vr_controls = new VRControls()
 		this.vr_effect = new THREE.VREffect(this.renderer)
 	}
 
     // Attach this runtime to program
-    this.program.gorlot_app = this
+    this.program.app = this
 
 	// Create default camera
 	this.program.default_camera = new PerspectiveCamera(60, this.canvas.width/this.canvas.height, 0.1, 1000000)
@@ -84,7 +84,7 @@ Runtime.prototype.run = function() {
 }
 
 // Update gorlot program
-Runtime.prototype.update = function() {
+GorlotApp.prototype.update = function() {
 	Mouse.update()
 	Keyboard.update()
 
@@ -93,7 +93,7 @@ Runtime.prototype.update = function() {
 }
 
 // Exit from App
-Runtime.prototype.exit = function() {
+GorlotApp.prototype.exit = function() {
     // Dispose and remove program
 	if (this.program !== null) {
 		this.program.dispose()
@@ -110,14 +110,14 @@ Runtime.prototype.exit = function() {
 	}
 
     // If running on nwjs close all windows
-	if (Runtime.gui !== undefined) {
-		Runtime.gui.App.closeAllWindows()
-		Runtime.gui.App.quit()
+	if (GorlotApp.gui !== undefined) {
+		GorlotApp.gui.App.closeAllWindows()
+		GorlotApp.gui.App.quit()
 	}
 }
 
 // Resize to fit window
-Runtime.prototype.resize = function() {
+GorlotApp.prototype.resize = function() {
 	if(this.canvas !== null && this.canvas_resize) {
 		this.canvas.style.width = window.innerWidth + "px"
 		this.canvas.style.height = window.innerHeight + "px"
@@ -132,18 +132,18 @@ Runtime.prototype.resize = function() {
 }
 
 // Set on data receive callback (callback receives data as argument)
-Runtime.prototype.setOnDataReceived = function(callback) {
+GorlotApp.prototype.setOnDataReceived = function(callback) {
     this.onDataReceived = callback
 }
 
 // Set on exit callback
-Runtime.prototype.setOnExit = function(callback) {
+GorlotApp.prototype.setOnExit = function(callback) {
 	this.onExit = callback
 }
 
 // Set fullscreen mode
-Runtime.setFullscreen = function(fullscreen, element) {
-	Runtime.fullscreen = fullscreen
+GorlotApp.setFullscreen = function(fullscreen, element) {
+	GorlotApp.fullscreen = fullscreen
 
 	if(fullscreen) {
 		if(element === undefined) {

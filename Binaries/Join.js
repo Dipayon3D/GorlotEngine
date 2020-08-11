@@ -168,7 +168,7 @@ include("Engine/Core/Nodes/Material/MaterialNodes.js")
 // Particles
 include("Engine/Core/Nodes/Particles/ParticlesNodes.js")
 
-include("Binaries/Runtime/Runtime.js")
+include("Binaries/Runtime/GorlotApp.js")
 
 writeFile("out.js", code.replace(/"use strict"/gi, "").replace(/include\(".*"\)/gi, ""))
 

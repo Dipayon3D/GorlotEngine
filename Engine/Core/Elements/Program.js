@@ -11,7 +11,7 @@ function Program(name)
 	this.matrixAutoUpdate = false
 
     // Pointer to gorlot app
-    this.gorlot_app = null
+    this.app = null
 
 	// Program Info
 	this.name = (name !== undefined) ? name : "program"
@@ -263,14 +263,18 @@ Program.prototype.dispose = function()
 
 // Communicate
 Program.prototype.sendDataApp = function(data) {
-    if(this.gorlot_app !== null) {
-        if(this.gorlot_app.onDataReceived !== undefined) {
-            this.gorlot_app.onDataReceived(data)
+    if(this.app !== null) {
+        if(this.app.onDataReceived !== undefined) {
+            this.gorlot.onDataReceived(data)
         } else {
             console.warn("Program: App data communication", data)
         }
     } else {
-        alert(data)
+        if(typeof obj === "object") {
+            alert(JSON.stringify(data))
+        } else {
+            alert(data)
+        }
     }
 }
 
