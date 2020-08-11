@@ -1306,7 +1306,7 @@ Editor.createNewProgram = function()
 }
 
 //Save program to file
-Editor.saveProgram = function(fname, compressed)
+Editor.saveProgram = function(fname, compressed, keep_directory)
 {
     if(fname === undefined && Editor.open_file !== null) {
         fname = Editor.open_file
@@ -1322,7 +1322,7 @@ Editor.saveProgram = function(fname, compressed)
 
 	FileSystem.writeFile(fname, json)
 
-    if(Editor.open_file !== fname) {
+    if(keep_directory !== true && Editor.open_file !== fname) {
         Editor.setOpenFile(fname)
     }
 }
@@ -1383,7 +1383,7 @@ Editor.exportWebProject = function(dir)
 	FileSystem.copyFile("Binaries/Runtime/index.html", dir + "/index.html")
 	FileSystem.copyFile("Binaries/Gorlot.min.js", dir + "/Gorlot.min.js")
 
-	Editor.saveProgram(dir + "/app.isp", true)
+	Editor.saveProgram(dir + "/app.isp", true, true)
 }
 
 //Export windows project
@@ -1585,6 +1585,11 @@ Editor.openWindow = function(options) {
 	wind.window.editor = Editor
 
 	return wind
+}
+
+// Check if WebVR is available
+Editor.webvrAvailable = function() {
+    return navigator.getVRDisplays !== undefined
 }
 
 //Exit editor
