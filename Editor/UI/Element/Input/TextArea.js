@@ -14,6 +14,7 @@ function TextArea(parent) {
     this.element.style.resize = "none"
     this.element.style.position = "absolute"
     this.element.style.backgroundColor = Editor.theme.box_color
+    this.element.style.fontFamily = Editor.theme.font
     this.element.style.color = Editor.theme.text_color
     this.element.style.borderStyle = "none"
 

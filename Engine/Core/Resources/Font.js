@@ -115,9 +115,8 @@ Font.prototype.generateShapes = function(text, size, divisions)
             } else {
                 var ret = createPath(char, scale, offset_x, offset_y)
                 offset_x += ret.offset_x
+                paths.push(ret.path)
             }
-
-			paths.push(ret.path)
 		}
 
 		return paths

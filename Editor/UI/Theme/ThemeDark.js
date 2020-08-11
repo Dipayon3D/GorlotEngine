@@ -25,7 +25,7 @@ function ThemeDark()
 	this.special_over_color = "#008000"
 
     // Body
-	document.body.style.fontFamily = "Arial";
+	document.body.style.fontFamily = this.font 
 	document.body.style.fontSize = "12px";
 	document.body.style.color = this.text_color;
 }
