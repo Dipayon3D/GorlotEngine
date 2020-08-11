@@ -39,8 +39,8 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
 
         // Text
         this.form.addText("Text")
-        this.text = new TextBox(this.form.element)
-        this.text.size.set(200, 18)
+        this.text = new TextArea(this.form.element)
+        this.text.size.set(200, 60)
         this.text.setOnChange(() => {
                 if(self.obj !== null) {
                         self.obj.setText(self.text.getText())

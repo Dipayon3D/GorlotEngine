@@ -248,6 +248,7 @@ include("Editor/UI/Element/Input/Graph.js")
 include("Editor/UI/Element/Input/CodeEditor.js")
 include("Editor/UI/Element/Input/CheckBox.js")
 include("Editor/UI/Element/Input/TextBox.js")
+include("Editor/UI/Element/Input/TextArea.js")
 include("Editor/UI/Element/Input/ColorChooser.js")
 include("Editor/UI/Element/Input/Slider.js")
 include("Editor/UI/Element/Input/DropdownList.js")
@@ -352,6 +353,9 @@ Editor.initialize = function() {
         }
     }
 
+    //TODO: Use sync input keyboard mouse and gamepad
+
+    // Initialise input
 	Keyboard.initialize()
 	Mouse.initialize()
 

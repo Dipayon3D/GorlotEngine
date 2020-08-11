@@ -2,7 +2,14 @@
 
 function ThemeDark()
 {
+    // Metadata
 	this.name = "dark";
+    this.info = ""
+    this.version = "V1.0"
+    this.author = "Tentone"
+
+    // Font
+    this.font = "Arial"
 
 	this.bar_color = "#222222";
 	this.panel_color = "#333333";
@@ -17,9 +24,10 @@ function ThemeDark()
 	this.special_color = "#005A00"
 	this.special_over_color = "#008000"
 
-	document.body.style.color = this.text_color;
+    // Body
 	document.body.style.fontFamily = "Arial";
 	document.body.style.fontSize = "12px";
+	document.body.style.color = this.text_color;
 }
 
 Theme.register(ThemeDark, "dark");
