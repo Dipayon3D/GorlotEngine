@@ -26,6 +26,7 @@ function PositionalAudio(audio) {
     this.defaultComponents = []
 
 	this.defaultComponents.push(new ElementComponent())
+	this.defaultComponents.push(new AudioComponent())
 }
 
 // Default audio listener
