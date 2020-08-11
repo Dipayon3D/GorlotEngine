@@ -13,7 +13,7 @@
 			var app
 
 			function initialize() {
-				app = new Runtime()
+				app = new GorlotApp()
 				app.loadProgram('app.isp')
 				app.run()
 
@@ -29,8 +29,8 @@
 
 			// Fullscreen
 			function toggleFullscreen() {
-				if (Runtime.fullscreen) {
-					Runtime.setFullscreen(false)
+                if (GorlotApp.fullscreen) {
+                    GorlotApp.setFullscreen(false)
 					app.resize()
 				} else {
 					Runtime.setFullscreen(true)
@@ -40,10 +40,15 @@
 
 			var vr = true
 			function toggleVR() {
-				if (app.vr_effect !== null) {
-					app.vr_effect.setFullScreen(vr)
-					vr = !vr
-				}
+                if(app !== null) {
+                    vr = !vr
+
+                    if(vr) {
+                        GorlotApp.program.displayVR()
+                    } else {
+                        GorlotApp.program.exitVR()
+                    }
+                }
 			}
 		</script>
 		<div id="fullscreen_button" onclick="toggleFullscreen()" style="position:absolute; right:30px; bottom:30px; z-index: 1000">
