@@ -68,6 +68,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 		if (self.obj !== null) {
 			var position = self.position.getValue()
 			self.obj.position.set(position.x, position.y, position.z)
+            Editor.history.push(this.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.position)
@@ -81,6 +82,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 		if (self.obj !== null) {
 			var rotation = self.rotation.getValue()
 			self.obj.rotation.set(rotation.x, rotation.y, rotation.z)
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.rotation)
@@ -94,6 +96,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 		if (self.obj !== null) {
 			var scale = self.scale.getValue()
 			self.obj.scale.set(scale.x, scale.y, scale.z)
+            Editor.history.push(self.obj, Action.CHANGED)
 
 			if (self.obj instanceof PhysicsObject) {
 				// Update physics objects

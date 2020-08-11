@@ -305,6 +305,7 @@ include("Editor/Helpers/PhysicsObjectHelper.js")
 include("Editor/Helpers/BoundingBoxHelper.js")
 include("Editor/Helpers/WireframeHelper.js")
 include("Editor/Helpers/GridHelper.js")
+include("Editor/Helpers/RectAreaLightHelper.js")
 
 include("Editor/Utils/FontRenderer.js")
 include("Editor/Utils/MaterialRenderer.js")
@@ -402,7 +403,6 @@ Editor.initialize = function() {
 
 	// VR effect and controls
 	Editor.vr_controls = new VRControls()
-	Editor.vr_effect = null
 
 	// Renderer and canvas
 	Editor.renderer = null
@@ -1166,6 +1166,10 @@ Editor.selectObjectHelper = function() {
 		else if(Editor.selected_object instanceof THREE.PointLight) {
 			Editor.object_helper.add(new THREE.PointLightHelper(Editor.selected_object, 1))
 		}
+        // RectArea Light
+        else if(Editor.selected_object instanceof THREE.RectAreaLight) {
+            Editor.object_helper.add(new RectAreaLightHelper(Editor.selected_object))
+        }
 		// Spot light
 		else if(Editor.selected_object instanceof THREE.SpotLight) {
 			Editor.object_helper.add(new THREE.SpotLightHelper(Editor.selected_object))
@@ -1461,7 +1465,7 @@ Editor.setState = function(state)
 
 		//Use editor camera as default camera for program
 		Editor.program_running.default_camera = Editor.camera;
-		Editor.program_running.renderer = Editor.renderer;
+        Editor.program_running.setRenderer(Editor.renderer)
 
 		//Initialize scene
 		Editor.program_running.initialize();
@@ -1477,15 +1481,19 @@ Editor.setState = function(state)
 		{
 			if(GORLOT.WebVRAvailable())
 			{
-				Editor.vr_effect = new THREE.VREffect(Editor.renderer)
-				
 				// Show VR button
 				tab.show_buttons_vr = true
 
 				// Create VR switch callback
 				var vr = true
 				tab.vr_button.setCallback(function() {
-					// TODO: Change this
+                    if(vr) {
+                        Editor.program_running.displayVR()
+                    } else {
+                        Editor.program_running.exitVR()
+                    }
+
+                    vr = !vr
 				})
 			}
 		}
@@ -1524,7 +1532,6 @@ Editor.disposeRunningProgram = function()
 	{
 		Editor.program_running.dispose();
 		Editor.program_running = null;
-		Editor.vr_effect = null;
 	}
 
 	//Unlock mouse
@@ -1541,18 +1548,36 @@ Editor.setPerformanceMeter = function(stats)
 Editor.setRenderCanvas = function(canvas)
 {
 	Mouse.setCanvas(canvas);
-	Editor.canvas = canvas;
 	Editor.initializeRenderer(canvas);
 }
 
 //Initialize renderer
 Editor.initializeRenderer = function(canvas)
 {
-	Editor.renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: Settings.render.antialiasing});
+    if(canvas === undefined) {
+        canvas = Editor.canvas
+    } else {
+        Editor.canvas = canvas
+    }
+
+    // Get rendering quality settings
+    var antialiasing = Settings.render.follow_project ? Editor.program.antialiasing : Settings.render.antialiasing
+    var shadows = Settings.render.follow_project ? Editor.program.shadows : Settings.render.shadows
+    var shadows_type = Settings.render.follow_project ? Editor.program.shadows_type : Settings.render.shadows_type
+
+    // Dispose old render
+    if(Editor.renderer !== null) {
+        Editor.renderer.dispose()
+    }
+
+    // Create renderer
+    Editor.renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: antialiasing })
 	Editor.renderer.setSize(canvas.width, canvas.height);
+    Editor.renderer.shadowMap.enabled = shadows
+    Editor.renderer.shadowMap.type = shadows_type
 	Editor.renderer.autoClear = false;
-	Editor.renderer.shadowMap.enabled = Settings.render.shadows;
-	Editor.renderer.shadowMap.type = Settings.render.shadows_type;
+
+    // Get WebGL Context
 	Editor.gl = Editor.renderer.context
 }
 

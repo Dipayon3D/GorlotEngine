@@ -774,13 +774,13 @@ Interface.initialize = function() {
     rect.size.set(sizex, 45)
     rect.setText("Rect Area")
     rect.setCallback(() => {
-        Editor.addToScene(new RectAreaLight(0x555555, 20, 20, 20))
+        Editor.addToScene(new RectAreaLight(0x444444, 100, 1, 1))
     })
 
     var rectIcon = new ImageBox(rect.element)
     rectIcon.size.set(40, 40)
     rectIcon.position.set(5, 2)
-    rectIcon.setImage(Interface.file_dir + "Icons/Lights/Directional.png")
+    rectIcon.setImage(Interface.file_dir + "Icons/Lights/RectArea.png")
     rectIcon.updateInterface()
 
     Interface.lights_form.add(rect)

@@ -73,6 +73,7 @@ function MaterialAsset(parent) {
 			if(self.material !== null) {
 				self.material.name = prompt("Rename material", self.material.name)
 				self.updateMetadata()
+                Editor.updateTabsData()
 			}
 		})
 		

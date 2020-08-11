@@ -229,13 +229,13 @@ function SettingsTab(parent)
 	this.general_form.nextRow();
 
     // Use project settings
-    this.use_project_settings = new CheckBox(this.general_form.element)
-    this.use_project_settings.setText("Use project settings")
-    this.use_project_settings.size.set(200, 16)
-    this.use_project_settings.setOnChange(() => {
-        Settings.render.use_project_settings = self.use_project_settings.getValue()
+    this.follow_project = new CheckBox(this.general_form.element)
+    this.follow_project.setText("Use project settings")
+    this.follow_project.size.set(200, 16)
+    this.follow_project.setOnChange(() => {
+        Settings.render.follow_project = self.use_project_settings.getValue()
     })
-    this.general_form.add(this.use_project_settings)
+    this.general_form.add(this.follow_project)
     this.general_form.nextRow()
 
 	//Antialiasing
@@ -424,7 +424,7 @@ SettingsTab.prototype.activate = function()
 	this.camera_preview_percentage.setValue(Settings.editor.camera_preview_percentage);
 
 	//Render
-    this.use_project_settings.setValue(Settings.render.use_project_settings)
+    this.follow_project.setValue(Settings.render.follow_project)
 	this.antialiasing.setValue(Settings.render.antialiasing);
     this.shadows.setValue(Settings.render.shadows)
 	this.shadows_type.setValue(Settings.render.shadows_type);

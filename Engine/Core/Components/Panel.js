@@ -42,7 +42,7 @@ function Panel(parent) {
         self.focused = true
     }
 
-    this.element.onmouseleave = function() {
+    this.element.onmouseout = function() {
         self.focused = false
     }
 

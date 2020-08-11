@@ -26,6 +26,7 @@ function BlockAsset(parent) {
 			if (self.blocks !== null) {
 				self.blocks.name = prompt("Rename blocks", self.blocks.name)
 				self.updateMetadata()
+                Editor.updateTabsData()
 			}
 		})
 

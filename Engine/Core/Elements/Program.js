@@ -36,20 +36,25 @@ function Program(name)
 	this.videos = []
 	this.audio = []
 	this.fonts = []
-	this.materials = []
 	this.textures = []
 	this.geometries = []
+	this.materials = []
 	this.asset_objects = []
 	this.folders = []
 
-	// Default value
+	// Defaults
 	this.default_scene = null
 	this.default_camera = null
 
 	//Runtime variables
-	this.scene = null
 	this.renderer = null
     this.canvas = null
+	this.scene = null
+
+    // VR Objects
+    this.use_vr = false
+    this.vr_effect = null
+    this.vr_controls = null
 
 	this.components = []
 	this.defaultComponents = []
@@ -61,9 +66,6 @@ Program.prototype = Object.create(THREE.Object3D.prototype)
 
 // Select initial scene and initialise it
 Program.prototype.initialize = function() {
-    // Get canvas from renderer
-    this.canvas = this.renderer.domElement
-    
 	// Get default scene
 	if (this.default_scene !== null) {
 		for(var i = 0; i < this.children.length; i++) {
@@ -79,8 +81,42 @@ Program.prototype.initialize = function() {
 	// Set mouse lock
     if(this.lock_pointer) {
         Mouse.setLock(true)
+    }
+}
 
-        // TODO: Add event to lock when canvas is clicked
+// Set program renderer
+Program.prototype.setRenderer = function(renderer) {
+    this.renderer = renderer
+    this.canvas = renderer.domElement
+}
+
+// Enter VR Mode
+Program.prototype.displayVR = function() {
+    if(this.vr) {
+        try {
+            this.use_vr = true
+
+            this.vr_effect = new THREE.VREffect(this.renderer)
+            this.vr_effect.setFullScreen(true)
+        } catch(e) {
+            this.use_vr = false
+            this.vr_effect = null
+
+            console.warn("Program: Failed to enter in VR Mode", e)
+        }
+    }
+}
+
+// Exit VR Mode
+Program.prototype.exitVR = function() {
+    if(this.vr) {
+        this.use_vr = false
+
+        if(this.vr_effect !== null) {
+            this.vr_effect.setFullScreen(false)
+            this.vr_effect.dispose()
+            this.vr_effect = null
+        }
     }
 }
 
@@ -91,29 +127,39 @@ Program.prototype.update = function() {
 
 // Render program (renderer passed as argument)
 Program.prototype.render = function(renderer) {
-	var x = renderer.domElement.width
-	var y = renderer.domElement.height
+    // Render as a VR application (ignores camera parameters)
+    if(this.use_vr) {
+        for(var i = 0; i < this.scene.cameras.length; i++) {
+            var camera = this.scene.cameras[i]
+            this.vr_effect.render(this.scene, camera)
+        }
+    }
+    // Render normally
+    else {
+        var x = renderer.domElement.width
+        var y = renderer.domElement.height
 
-	renderer.setScissorTest(true)
+        renderer.setScissorTest(true)
 
-	for(var i = 0; i < this.scene.cameras.length; i++) {
-		var camera = this.scene.cameras[i]
+        for(var i = 0; i < this.scene.cameras.length; i++) {
+            var camera = this.scene.cameras[i]
 
-		if (camera.clear_color) {
-			renderer.clearColor()
-		}
+            if (camera.clear_color) {
+                renderer.clearColor()
+            }
 
-		if (camera.clear_depth) {
-			renderer.clearDepth()
-		}
+            if (camera.clear_depth) {
+                renderer.clearDepth()
+            }
 
-		renderer.setViewport(x * camera.offset.x, y * camera.offset.y, x * camera.viewport.x, y * camera.viewport.y)
-		renderer.setScissor(x * camera.offset.x, y * camera.offset.y, x * camera.viewport.x, y * camera.viewport.y)
+            renderer.setViewport(x * camera.offset.x, y * camera.offset.y, x * camera.viewport.x, y * camera.viewport.y)
+            renderer.setScissor(x * camera.offset.x, y * camera.offset.y, x * camera.viewport.x, y * camera.viewport.y)
 
-		renderer.render(this.scene, camera)
-	}
+            renderer.render(this.scene, camera)
+        }
 
-	renderer.setScissorTest(false)
+        renderer.setScissorTest(false)
+    }
 }
 
 // Screen program cameras
@@ -242,6 +288,11 @@ Program.prototype.addDefaultScene = function(material)
 //Dispose program data
 Program.prototype.dispose = function()
 {
+    // Geometry
+    for(var i in this.geometries) {
+        this.geometries[i].dispose()
+    }
+
 	// Textures
 	for(var i in this.textures)
 	{
