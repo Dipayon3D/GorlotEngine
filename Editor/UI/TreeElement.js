@@ -91,7 +91,7 @@ function TreeElement(container) {
 
 			// Context menu object
 			var menu = new ContextMenu()
-			menu.size.set(130, 20)
+			menu.size.set(140, 20)
 			menu.position.set(event.clientX - 5, event.clientY - 5)
 			
 			menu.addOption("Rename", function() {
@@ -130,6 +130,22 @@ function TreeElement(container) {
 					ObjectUtils.setMatrixAutoUpdate(self.obj, true)
 					Editor.updateObjectViews()
 				})
+
+                // Set object and children shadow casting mode
+                menu.addOption("Enable shadows", () => {
+                    ObjectUtils.setShadowCasting(self.obj, true)
+                    ObjectUtils.setShadowReceiving(self.obj, true)
+
+                    Editor.updateObjectViews()
+                })
+
+                // Set object and children shadow casting mode
+                menu.addOption("Disable shadows", () => {
+                    ObjectUtils.setShadowCasting(self.obj, false)
+                    ObjectUtils.setShadowReceiving(self.obj, false)
+
+                    Editor.updateObjectViews()
+                })
 
 				// Duplicate object
 				menu.addOption("Duplicate", function() {

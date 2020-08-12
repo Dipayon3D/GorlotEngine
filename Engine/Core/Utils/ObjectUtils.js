@@ -167,6 +167,8 @@ ObjectUtils.getRoot = function(obj)
 // Set matrix auto update value
 ObjectUtils.setMatrixAutoUpdate = function(obj, value)
 {
+    obj.matrixAutoUpdate = value
+
 	obj.traverse((child) => {
 		child.matrixAutoUpdate = value
 	})
@@ -175,6 +177,8 @@ ObjectUtils.setMatrixAutoUpdate = function(obj, value)
 //Set shadow receiving
 ObjectUtils.setShadowReceiving = function(obj, value)
 {
+    obj.receiveShadow = value
+
 	obj.traverse((child) => {
 		child.receiveShadow = value
 	})
@@ -183,6 +187,8 @@ ObjectUtils.setShadowReceiving = function(obj, value)
 // Set shadow casting
 ObjectUtils.setShadowCasting = function(obj, value)
 {
+    obj.castShadow = value
+
 	obj.traverse((child) => {
 		child.castShadow = value
 	})
