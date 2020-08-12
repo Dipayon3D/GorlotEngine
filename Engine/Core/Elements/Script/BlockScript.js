@@ -39,7 +39,7 @@ function BlockScript(nodes, uuid, obj_type)
 						links: null,
 					}
 				],
-				pos: [50, 352],
+				pos: [100, 100],
 				properties: {},
 				size: [120, 46],
 				type: "Events/BeginPlay"
@@ -58,7 +58,7 @@ function BlockScript(nodes, uuid, obj_type)
 						...NodesHelper.slots.output.passer
 					}
 				],
-				pos: [100, 429],
+				pos: [100, 200],
 				properties: {},
 				size: [120, 46],
 				type: "Events/EventTick"
