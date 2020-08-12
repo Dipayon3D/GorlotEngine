@@ -135,13 +135,7 @@ ParticleEditor.prototype.initNodeEditor = function() {
 		}, 100)
 	}
 
-	LiteGraph.NODE_TITLE_COLOR = "#FFF"
-	LiteGraph.NODE_TITLE_HEIGHT = 20
-	LiteGraph.NODE_TITLE_TEXT_Y = 15
-
 	this.graphCanvas = new LGraphCanvas(this.graphEditor.element, this.graph)
-	this.graphCanvas.use_gradients = true
-	this.graphCanvas.title_text_font = "bold 10px Verdana,Arial,sans serif"
 	this.graph.start(1000/60)
 }
 

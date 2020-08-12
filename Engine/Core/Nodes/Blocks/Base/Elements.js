@@ -1,11 +1,9 @@
 function ThisNode() {
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y"]]})
-	this.addOutput("This", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y_second"]]})
-	this.size = [NodesHelper.sizes.small[0]-20, NodesHelper.sizes.small[1]+20]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("This", "object")
 }
 ThisNode.title = "This"
-ThisNode.title_color = NodesHelper.titles.object
 ThisNode.collapsable = true
 ThisNode.blocks = "Blocks"
 ThisNode.prototype.resizable = false
@@ -18,13 +16,11 @@ ThisNode.prototype.onStart = function() {
 }
 
 function SceneNode() {
-    this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y"]]})
-    this.addOutput("Scene", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y_second"]]})
-    this.size = [NodesHelper.sizes.small[0]-20, NodesHelper.sizes.small[1]+20]
+    this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+    this.addOutput("Scene", "object")
 }
 SceneNode.title = "Scene"
-SceneNode.title_color = NodesHelper.titles.object
 SceneNode.collapsable = true
 SceneNode.prototype.resizable = false
 SceneNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
@@ -38,13 +34,11 @@ SceneNode.prototype.onStart = function() {
 }
 
 function ProgramNode() {
-    this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y"]]})
-    this.addOutput("Program", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y_second"]]})
-    this.size = [NodesHelper.sizes.small[0]-20, NodesHelper.sizes.small[1]+20]
+    this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+    this.addOutput("Program", "object")
 }
 ProgramNode.title = "Program"
-ProgramNode.title_color = NodesHelper.titles.object
 ProgramNode.collapsable = true
 ProgramNode.prototype.resizable = false
 ProgramNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
@@ -58,17 +52,14 @@ ProgramNode.prototype.onStart = function() {
 }
 
 function GetPositionNode() {
-	this.addInput("", LiteGraph.RectArea, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y]})
-	this.addOutput("Position", "vector", {...NodesHelper.slots.vector, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y_second]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Position", "vector")
 }
 GetPositionNode.title = "Get Position"
-GetPositionNode.title_color = NodesHelper.titles.object
 GetPositionNode.collapsable = true
 GetPositionNode.blocks = "Blocks"
 GetPositionNode.prototype.resizable = false
@@ -91,17 +82,14 @@ GetPositionNode.prototype.onAction = function(action, data) {
 }
 
 function GetRotationNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y]})
-	this.addOutput("Rotation", "euler", {...NodesHelper.slots.euler, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y_second]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Rotation", "euler")
 }
 GetRotationNode.title = "Get Rotation"
-GetRotationNode.title_color = NodesHelper.titles.object
 GetRotationNode.collapsable = true
 GetRotationNode.blocks = "Blocks"
 GetRotationNode.prototype.resizable = false
@@ -124,17 +112,14 @@ GetRotationNode.prototype.onAction = function(action, data) {
 }
 
 function GetScaleNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y]})
-	this.addOutput("Scale", "vector", {...NodesHelper.slots.vector, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y_second]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Scale", "vector")
 }
 GetScaleNode.title = "Get Scale"
-GetScaleNode.title_color = NodesHelper.titles.object
 GetScaleNode.collapsable = true
 GetScaleNode.blocks = "Blocks"
 GetScaleNode.prototype.resizable = false
@@ -157,18 +142,15 @@ GetScaleNode.prototype.onAction = function(action, data) {
 }
 
 function SetPositionNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
-	this.addInput("Position", "vector", {...NodesHelper.slots.vector, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_third"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
+	this.addInput("Position", "vector")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y]})
-	this.addOutput("New Position", "vector", {...NodesHelper.slots.vector, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y_second]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]+18]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("New Position", "vector")
 }
 SetPositionNode.title = "Set Position"
-SetPositionNode.title_color = NodesHelper.titles.object
 SetPositionNode.collapsable = true
 SetPositionNode.blocks = "Blocks"
 SetPositionNode.prototype.resizable = false
@@ -197,16 +179,15 @@ SetPositionNode.prototype.onAction = function(action, data) {
 }
 
 function SetRotationNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
-	this.addInput("Rotation", "euler", {...NodesHelper.slots.euler, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_third"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
+	this.addInput("Rotation", "euler")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y]})
-	this.addOutput("New Rotation", "euler", {...NodesHelper.slots.euler, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y_second]})
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("New Rotation", "euler")
 }
 SetRotationNode.title = "Set Rotation"
-SetRotationNode.title_color = NodesHelper.titles.object
 SetRotationNode.collapsable = true
 SetRotationNode.blocks = "Blocks"
 SetRotationNode.prototype.resizable = false
@@ -235,18 +216,15 @@ SetRotationNode.prototype.onAction = function(action, data) {
 }
 
 function SetScaleNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
-	this.addInput("Scale", "vector", {...NodesHelper.slots.euler, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_third"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
+	this.addInput("Scale", "vector")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y]})
-	this.addOutput("New Scale", "vector", {...NodesHelper.slots.vector, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position.y_second]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]+18]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("New Scale", "vector")
 }
 SetScaleNode.title = "Set Scale"
-SetScaleNode.title_color = NodesHelper.titles.object
 SetScaleNode.collapsable = true
 SetScaleNode.blocks = "Blocks"
 SetScaleNode.prototype.resizable = false

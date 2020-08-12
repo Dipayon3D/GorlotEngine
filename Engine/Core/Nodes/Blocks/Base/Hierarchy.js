@@ -1,16 +1,13 @@
 // Get All Child
 function GetAllChildrenNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position["y"]]})
-	this.addOutput("Children", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.output.position["pos"][0]+60, NodesHelper.slots.position["y_second"]]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Children", "array")
 }
 GetAllChildrenNode.title = "Get All Children"
-GetAllChildrenNode.title_color = NodesHelper.titles.hierarchy
 GetAllChildrenNode.collapsable = false
 GetAllChildrenNode.blocks = "Blocks"
 GetAllChildrenNode.prototype.resizable = false
@@ -34,22 +31,19 @@ GetAllChildrenNode.prototype.onAction = function(action, data) {
 
 // Get Children Through Name
 function GetChildByNameNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
-	this.addInput("Name", "string", {...NodesHelper.slots.string, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_third]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
+	this.addInput("Name", "string")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.position["y"]]})
-	this.addOutput("Child", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.output.position["pos"][0]+60, NodesHelper.slots.position["y_second"]]})
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Child", "object")
 
 	this.addProperty("name", "")
 	this.name_widget = this.addWidget("text", "", "", "name")
 	this.name_widget.width = 120
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1] + 40]
 }
 GetChildByNameNode.title = "Get Child By Name"
-GetChildByNameNode.title_color = NodesHelper.titles.hierarchy
 GetChildByNameNode.collapsable = false
 GetChildByNameNode.blocks = "Blocks"
 GetChildByNameNode.prototype.resizable = false
@@ -80,17 +74,14 @@ GetChildByNameNode.prototype.onAction = function(action, data) {
 
 // Get Parent
 function GetParentNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1 + 60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1 + 60, NodesHelper.slots.position["y"]]})
-	this.addOutput("Parent", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x1 + 60, NodesHelper.slots.position["y_second"]]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Parent", "object")
 }
 GetParentNode.title = "Get Parent"
-GetParentNode.title_color = NodesHelper.titles.hierarchy
 GetParentNode.collapsable = false
 GetParentNode.blocks = "Blocks"
 GetParentNode.resizable = false
@@ -114,17 +105,14 @@ GetParentNode.prototype.onAction = function(action, data) {
 
 // Is child
 function IsChildNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Target", "object")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1 + 60, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1 + 60, NodesHelper.slots.position["y"]]})
-	this.addOutput("Is Child?", "bool", {...NodesHelper.slots.bool, pos: [NodesHelper.slots.position.x1 + 60, NodesHelper.slots.position["y_second"]]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Is Child?", "bool")
 }
 IsChildNode.title = "Is Child"
-IsChildNode.title_color = NodesHelper.titles.hierarchy
 IsChildNode.collapsable = false
 IsChildNode.blocks = "Blocks"
 IsChildNode.resizable = false

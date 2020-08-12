@@ -1,10 +1,9 @@
 // Begin play
 function BeginPlayNode() {
 	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, ...NodesHelper.slots.output.position})
+	this.addOutput("", LiteGraph.EVENT)
 }
 BeginPlayNode.title = "Begin Play"
-BeginPlayNode.title_color = NodesHelper.titles.event
 BeginPlayNode.skip_list = true
 BeginPlayNode.collapsable = false
 BeginPlayNode.blocks = "Blocks"
@@ -20,10 +19,9 @@ BeginPlayNode.prototype.onStart = function() {
 // Event Tick
 function EventTickNode() {
 	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.passer)
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, ...NodesHelper.slots.output.position})
+	this.addOutput("", LiteGraph.EVENT)
 }
 EventTickNode.title = "Event Tick"
-EventTickNode.title_color = NodesHelper.titles.event
 EventTickNode.skip_list = true
 EventTickNode.collapsable = false
 EventTickNode.blocks = "Blocks"
@@ -40,12 +38,10 @@ EventTickNode.prototype.onExecute = function() {
 
 // On Game Start
 function OnGameStartNode() {
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, ...NodesHelper.slots.output.position})
-	this.size = [NodesHelper.sizes.small[0], NodesHelper.sizes.small[1]]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
 }
 OnGameStartNode.title = "On Game Start"
-OnGameStartNode.title_color = NodesHelper.titles.event
 OnGameStartNode.collapsable = false
 OnGameStartNode.blocks = "Blocks"
 OnGameStartNode.prototype.reiszable = false
@@ -56,13 +52,11 @@ OnGameStartNode.prototype.onStart = function() {
 
 // Event Destroy
 function EventDestroyedNode() {
-	this.addInput("Target", "object", {...NodesHelper.slots.object})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1, NodesHelper.slots.output.title_pos["pos"][1]]})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, ...NodesHelper.slots.output.position})
-	this.size = [NodesHelper.sizes.small[0], NodesHelper.sizes.small[1]]
+	this.addInput("Target", "object")
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
 }
 EventDestroyedNode.title = "On Destroyed"
-EventDestroyedNode.title_color = NodesHelper.titles.event
 EventDestroyedNode.collapsable = false
 EventDestroyedNode.blocks = "Blocks"
 EventDestroyedNode.prototype.resizable = false
@@ -83,11 +77,9 @@ EventDestroyedNode.prototype.onStart = function() {
 
 // Event Dispose
 function EventDisposeNode() {
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, ...NodesHelper.slots.output.position})
-	this.size = [NodesHelper.sizes.small[0], NodesHelper.sizes.small[1]]
+	this.addOutput("", LiteGraph.EVENT)
 }
 EventDisposeNode.title = "On Dispose"
-EventDisposeNode.title_color = NodesHelper.titles.event
 EventDisposeNode.collapsable = false
 EventDisposeNode.blocks = "Blocks"
 EventDisposeNode.prototype.resizable = false
@@ -99,20 +91,17 @@ EventDisposeNode.prototype.onDispose = function() {
 function EventListenerNode() {
 	this.addProperty("event", "event")
 
-	this.addInput("", LiteGraph.ACTION, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Object", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.input.position["pos"][0], NodesHelper.slots.input.position["pos"][1]+18]})
-	this.addInput("Data", "", {pos: [NodesHelper.slots.input.position["pos"][0], NodesHelper.slots.input.position["pos"][1]+36]})
-	this.addInput("Event", "string", {...NodesHelper.slots.string, pos: [NodesHelper.slots.input.position["pos"][0], NodesHelper.slots.input.position["pos"][1]+54]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Object", "object")
+	this.addInput("Data", "")
+	this.addInput("Event", "string")
 
 	this.event_widget = this.addWidget("text", "", this.properties.event, "event")
 	this.event_widget.width = 110
 
-	this.addOutput("On Fired", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.output.position["pos"][0]+60, NodesHelper.slots.output.position["pos"][1]]})
-
-	this.size = [NodesHelper.sizes.medium[0], NodesHelper.sizes.medium[1]+56]
+	this.addOutput("On Fired", LiteGraph.EVENT)
 }
 EventListenerNode.title = "Event Listener"
-EventListenerNode.title_color = NodesHelper.titles.event
 EventListenerNode.collapsable = false
 EventListenerNode.blocks = "Blocks"
 EventListenerNode.prototype.resizable = false
@@ -157,17 +146,14 @@ EventListenerNode.prototype.onDispose = function() {
 function FireEventNode() {
 	this.addProperty("event", "event")
 
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Object", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.input.position["pos"][0], NodesHelper.slots.position["y_second"]]})
-	this.addInput("Event", "string", {...NodesHelper.slots.string, pos: [NodesHelper.slots.input.position["pos"][0], NodesHelper.slots.position["y_third"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Object", "object")
+	this.addInput("Event", "string")
 
 	this.event_widget = this.addWidget("text", "", this.properties.event, "event")
 	this.event_widget.width = 110
-
-	this.size = [NodesHelper.sizes.medium[0]-40, NodesHelper.sizes.medium[1]+40]
 }
 FireEventNode.title = "Fire Event"
-FireEventNode.title_color = NodesHelper.titles.event
 FireEventNode.collapsable = false
 FireEventNode.blocks = "Blocks"
 FireEventNode.prototype.resizable = false
@@ -190,17 +176,14 @@ FireEventNode.prototype.onAction = function(action, data) {
 function TimeOutEvent() {
 	this.addProperty("time", "100")
 
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
-	this.addInput("Time", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.input.position["pos"][0], NodesHelper.slots.position["y_second"]]})
+	this.addInput("", LiteGraph.ACTION)
+	this.addInput("Time", "number")
 	var tim = this.addWidget("text", "Time", this.properties.time, "time")
 	tim.width = 140
 
-	this.addOutput("On TimeOut", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.output.position["pos"][0]+20, NodesHelper.slots.output.position["pos"][1]]})
-
-	this.size = [NodesHelper.sizes.medium[0]-40, NodesHelper.sizes.medium[1]+18]
+	this.addOutput("On TimeOut")
 }
 TimeOutEvent.title = "Time Out"
-TimeOutEvent.title_color = NodesHelper.titles.event
 TimeOutEvent.collapsable = false
 TimeOutEvent.blocks = "Blocks"
 TimeOutEvent.prototype.resizable = false
@@ -225,7 +208,7 @@ TimeOutEvent.prototype.addTimeout = function() {
 
 // Test Event
 function TestEvent() {
-	this.addInput("Event", LiteGraph.ACTION, NodesHelper.slots.input.event)
+	this.addInput("Event", LiteGraph.ACTION)
 	this.addInput("Input")
 }
 TestEvent.title = "Test"

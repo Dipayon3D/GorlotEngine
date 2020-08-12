@@ -1,18 +1,17 @@
 function VariableNode() {
 	this.properties = {name: "myname", container: VariableNode.LITEGRAPH}
 
-	this.addInput("", LiteGraph.EVENT, NodesHelper.slots.input.event)
+	this.addInput("", LiteGraph.EVENT)
 
-	this.addInput("In", "", {...NodesHelper.slots.variable, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("In", "")
 	this.name_widget = this.addWidget("string", "", this.properties.name, "name")
 	this.name_widget.width = 100
 
-	this.addOutput("Value", "", {...NodesHelper.slots.variable, pos: [NodesHelper.slots.position.x1+10, NodesHelper.slots.position.y]})
+	this.addOutput("Value", "")
 
 	this.size[0] = 130
 }
 VariableNode.title = "Variable"
-VariableNode.title_color = NodesHelper.titles.base
 VariableNode.collapsable = true
 VariableNode.blocks = "Blocks"
 VariableNode.prototype.resizable = false

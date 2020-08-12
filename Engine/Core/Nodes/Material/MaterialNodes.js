@@ -1,13 +1,13 @@
 function MaterialNode() {
-	this.addInput("Colour", "color", {...NodesHelper.slots.color, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Emissive", "color", {...NodesHelper.slots.color, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
-	this.addInput("Reflectivity", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_third]})
-	this.addInput("Shininess", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_fourth]})
-	this.addInput("Specular", "color", {...NodesHelper.slots.color, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_fifth]})
-	this.addInput("Wireframe", "bool", {...NodesHelper.slots.bool, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_sixth]})
-	this.addInput("Transparent", "bool", {...NodesHelper.slots.bool, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_seventh]})
-	this.addInput("Opacity", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_eighth]})
-	this.addInput("Affected By Fog", "bool", {...NodesHelper.slots.bool, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_ninth]})
+	this.addInput("Colour", "color")
+	this.addInput("Emissive", "color")
+	this.addInput("Reflectivity", "number")
+	this.addInput("Shininess", "number")
+	this.addInput("Specular", "color")
+	this.addInput("Wireframe", "bool")
+	this.addInput("Transparent", "bool")
+	this.addInput("Opacity", "number")
+	this.addInput("Affected By Fog", "bool")
 
 	this.serialize_widgets = true
 
@@ -35,7 +35,6 @@ function MaterialNode() {
 	this.addWidget("toggle", "Affected By Fog", this.properties.abf, "abf")
 }
 MaterialNode.title = "Material"
-MaterialNode.title_color = NodesHelper.titles.material
 MaterialNode.collapsable = false
 MaterialNode.skip_list = true
 MaterialNode.prototype.resizable = false
@@ -130,7 +129,6 @@ function MaterialSideNode() {
 	this.sides = this.properties.sides.split(";")
 }
 MaterialSideNode.title = "Side"
-MaterialSideNode.title_color = NodesHelper.titles.material
 MaterialSideNode.collapsable = true
 MaterialSideNode.prototype.resizable = false
 MaterialSideNode.prototype.onAdded = function() {
@@ -174,7 +172,6 @@ function MaterialDepthTestNode() {
 	this.properties = {test: false}
 }
 MaterialDepthTestNode.title = "Depth Test"
-MaterialDepthTestNode.title_color = NodesHelper.titles.material
 MaterialDepthTestNode.collapsable = true
 MaterialDepthTestNode.prototype.resizable = false
 MaterialDepthTestNode.prototype.onAdded = function() {
@@ -198,7 +195,6 @@ function MaterialAlphaTestNode() {
 	this.properties = {test: false}
 }
 MaterialAlphaTestNode.title = "Alpha Test"
-MaterialAlphaTestNode.title_color = NodesHelper.titles.material
 MaterialAlphaTestNode.collapsable = true
 MaterialAlphaTestNode.prototype.resizable = false
 MaterialAlphaTestNode.prototype.onAdded = function() {
@@ -224,7 +220,6 @@ function MaterialBlendingModeNode() {
 	this.modes = this.properties.modes.split(";")
 }
 MaterialBlendingModeNode.title = "Blending Mode"
-MaterialBlendingModeNode.title_color = NodesHelper.titles.material
 MaterialBlendingModeNode.collapsable = true
 MaterialBlendingModeNode.prototype.resizable = false
 MaterialBlendingModeNode.prototype.onAdded = function() {
@@ -272,7 +267,6 @@ function MaterialSkinningNode() {
 	this.properties = {skinning: false}
 }
 MaterialSkinningNode.title = "Skinning"
-MaterialSkinningNode.title_color = NodesHelper.titles.material
 MaterialSkinningNode.collapsable = true
 MaterialSkinningNode.prototype.resizable = false
 MaterialSkinningNode.prototype.onAdded = function() {
@@ -293,7 +287,6 @@ function MaterialMorphTargetsNode() {
 	this.properties = {morphTargets: false}
 }
 MaterialMorphTargetsNode.title = "Morph Targets"
-MaterialMorphTargetsNode.title_color = NodesHelper.titles.material
 MaterialMorphTargetsNode.collapsable = true
 MaterialMorphTargetsNode.prototype.resizable = false
 MaterialMorphTargetsNode.prototype.onAdded = function() {
@@ -310,11 +303,10 @@ MaterialMorphTargetsNode.prototype.onPropertyChanged = function() {
 }
 
 function MaterialColourNode() {
-	this.addInput("Colour", "color", {...NodesHelper.slots.color, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Colour", "color")
 	this.size = [120, 26]
 }
 MaterialColourNode.title = "Colour"
-MaterialColourNode.title_color = NodesHelper.titles.material
 MaterialColourNode.collapsable = true
 MaterialColourNode.prototype.resizable = false
 MaterialColourNode.prototype.onAdded = function() {
@@ -330,11 +322,10 @@ MaterialColourNode.prototype.onExecute = function() {
 }
 
 function MaterialMapNode() {
-	this.addInput("Map", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Map", "texture")
 	this.size = [120, 26]
 }
 MaterialMapNode.title = "Map"
-MaterialMapNode.title_color = NodesHelper.titles.material
 MaterialMapNode.collapsable = true
 MaterialMapNode.prototype.resizable = false
 MaterialMapNode.prototype.onAdded = function() {
@@ -350,11 +341,10 @@ MaterialMapNode.prototype.onExecute = function() {
 }
 
 function MaterialAlphaMapNode() {
-	this.addInput("Alpha", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Alpha", "texture")
 	this.size = [120, 26]
 }
 MaterialAlphaMapNode.title = "Alpha Map"
-MaterialAlphaMapNode.title_color = NodesHelper.titles.material
 MaterialAlphaMapNode.collapsable = true
 MaterialAlphaMapNode.prototype.resizable = false
 MaterialAlphaMapNode.prototype.onAdded = function() {
@@ -379,7 +369,6 @@ function MaterialShadingNode() {
 	this.serialize_widgets = true
 }
 MaterialShadingNode.title = "Shading"
-MaterialShadingNode.title_color = NodesHelper.titles.material
 MaterialShadingNode.collapsable = true
 MaterialShadingNode.prototype.resizable = false
 MaterialShadingNode.prototype.onAdded = function() {
@@ -413,12 +402,11 @@ MaterialShadingNode.prototype.onPropertyChanged = function(n, v) {
 function MaterialBumpMapNode() {
 	this.properties = {scale: 0}
 
-	this.addInput("Map", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Map", "texture")
 
 	this.serialize_widgets = true
 }
 MaterialBumpMapNode.title = "Bump"
-MaterialBumpMapNode.title_color = NodesHelper.titles.material
 MaterialBumpMapNode.collapsable = true
 MaterialBumpMapNode.prototype.resizable = false
 MaterialBumpMapNode.prototype.onAdded = function() {
@@ -446,12 +434,11 @@ MaterialBumpMapNode.prototype.onPropertyChanged = function() {
 function MaterialNormalNode() {
 	this.properties = {scalex: 1, scaley: 1}
 
-	this.addInput("Map", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Map", "texture")
 
 	this.serialize_widgets = true
 }
 MaterialNormalNode.title = "Normal"
-MaterialNormalNode.title_color = NodesHelper.titles.material
 MaterialNormalNode.collapsable = true
 MaterialNormalNode.prototype.resizable = false
 MaterialNormalNode.prototype.onAdded = function() {
@@ -482,12 +469,11 @@ MaterialNormalNode.prototype.onPropertyChanged = function() {
 function MaterialDisplacementMapNode() {
 	this.properties = {scalex: 0, bias: 0}
 
-	this.addInput("Map", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Map", "texture")
 
 	this.serialize_widgets = true
 }
 MaterialDisplacementMapNode.title = "Displacement"
-MaterialDisplacementMapNode.title_color = NodesHelper.titles.material
 MaterialDisplacementMapNode.collapsable = true
 MaterialDisplacementMapNode.prototype.resizable = false
 MaterialDisplacementMapNode.prototype.onAdded = function() {
@@ -516,10 +502,9 @@ MaterialDisplacementMapNode.prototype.onPropertyChanged = function(n, v) {
 }
 
 function MaterialSpecularMapNode() {
-	this.addInput("Map", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Map", "texture")
 }
 MaterialSpecularMapNode.title = "Specular"
-MaterialSpecularMapNode.title_color = NodesHelper.titles.material
 MaterialSpecularMapNode.collapsable = true
 MaterialSpecularMapNode.prototype.resizable = false
 MaterialSpecularMapNode.prototype.onAdded = function() {
@@ -537,13 +522,12 @@ MaterialSpecularMapNode.prototype.onExecute = function() {
 function MaterialEmissiveMapNode() {
 	this.properties = {intensity: 0}
 
-	this.addInput("Map", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Colour", "color", {...NodesHelper.slots.color, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("Map", "texture")
+	this.addInput("Colour", "color")
 
 	this.serialize_widgets = true
 }
 MaterialEmissiveMapNode.title = "Emissive"
-MaterialEmissiveMapNode.title_color = NodesHelper.titles.material
 MaterialEmissiveMapNode.collapsable = true
 MaterialEmissiveMapNode.prototype.resizable = false
 MaterialEmissiveMapNode.prototype.onAdded = function() {
@@ -573,10 +557,9 @@ MaterialEmissiveMapNode.prototype.onPropertyChanged = function(n, v) {
 function MaterialShaderNode() {
 	this.properties = {mat: null}
 
-	this.addInput("Uniforms", "json", {...NodesHelper.slots.json, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Uniforms", "json")
 }
 MaterialShaderNode.title = "Shader"
-MaterialShaderNode.title_color = NodesHelper.titles.material
 MaterialShaderNode.collapsable = true
 MaterialShaderNode.skip_list = true
 MaterialShaderNode.prototype.resizable = false

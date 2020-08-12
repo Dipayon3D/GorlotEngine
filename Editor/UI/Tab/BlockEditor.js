@@ -88,14 +88,8 @@ BlockEditor.prototype.initNodeEditor = function() {
 	this.graph = new LGraph(this.nodes)
 
 	var self = this
-
-	LiteGraph.NODE_TITLE_COLOR = "#FFF"
-	LiteGraph.NODE_TITLE_HEIGHT = 20
-	LiteGraph.NODE_TITLE_TEXT_Y = 15
 	
 	this.graphCanvas = new LGraphCanvas(this.canvas.element, this.graph)
-	this.graphCanvas.use_gradients = true
-	this.graphCanvas.title_text_font = "bold 10px Verdana,Arial,sans serif"
 }
 
 // Activate code editor

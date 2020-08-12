@@ -1,13 +1,11 @@
 function ANode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 ANode.title = "A"
-ANode.title_color = NodesHelper.titles.input
 ANode.collapsable = true
 ANode.blocks = "Blocks"
 ANode.prototype.resizable = false
@@ -25,15 +23,13 @@ ANode.prototype.onExecute = function() {
 }
 
 function AltNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 AltNode.title = "Alt"
-AltNode.title_color = NodesHelper.titles.input
 AltNode.collapsable = true
 AltNode.blocks = "Blocks"
 AltNode.prototype.resizable = false
@@ -51,15 +47,13 @@ AltNode.prototype.onExecute = function() {
 }
 
 function BNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 BNode.title = "B"
-BNode.title_color = NodesHelper.titles.input
 BNode.collapsable = true
 BNode.blocks = "Blocks"
 BNode.prototype.resizable = false
@@ -77,15 +71,13 @@ BNode.prototype.onExecute = function() {
 }
 
 function BackspaceNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 BackspaceNode.title = "Backspace"
-BackspaceNode.title_color = NodesHelper.titles.input
 BackspaceNode.collapsable = true
 BackspaceNode.blocks = "Blocks"
 BackspaceNode.prototype.resizable = false
@@ -103,15 +95,13 @@ BackspaceNode.prototype.onExecute = function() {
 }
 
 function CNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 CNode.title = "C"
-CNode.title_color = NodesHelper.titles.input
 CNode.collapsable = true
 CNode.blocks = "Blocks"
 CNode.prototype.resizable = false
@@ -129,15 +119,13 @@ CNode.prototype.onExecute = function() {
 }
 
 function CapsLockNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 CapsLockNode.title = "CapsLock"
-CapsLockNode.title_color = NodesHelper.titles.input
 CapsLockNode.collapsable = true
 CapsLockNode.blocks = "Blocks"
 CapsLockNode.prototype.resizable = false
@@ -155,15 +143,13 @@ CapsLockNode.prototype.onExecute = function() {
 }
 
 function CtrlNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 CtrlNode.title = "Ctrl"
-CtrlNode.title_color = NodesHelper.titles.input
 CtrlNode.collapsable = true
 CtrlNode.blocks = "Blocks"
 CtrlNode.prototype.resizable = false
@@ -181,15 +167,13 @@ CtrlNode.prototype.onExecute = function() {
 }
 
 function DNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 DNode.title = "D"
-DNode.title_color = NodesHelper.titles.input
 DNode.collapsable = true
 DNode.blocks = "Blocks"
 DNode.prototype.resizable = false
@@ -207,15 +191,13 @@ DNode.prototype.onExecute = function() {
 }
 
 function DelNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 DelNode.title = "Del"
-DelNode.title_color = NodesHelper.titles.input
 DelNode.collapsable = true
 DelNode.blocks = "Blocks"
 DelNode.prototype.resizable = false
@@ -233,15 +215,13 @@ DelNode.prototype.onExecute = function() {
 }
 
 function DownNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 DownNode.title = "Down"
-DownNode.title_color = NodesHelper.titles.input
 DownNode.collapsable = true
 DownNode.blocks = "Blocks"
 DownNode.prototype.resizable = false
@@ -259,15 +239,13 @@ DownNode.prototype.onExecute = function() {
 }
 
 function ENode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 ENode.title = "E"
-ENode.title_color = NodesHelper.titles.input
 ENode.collapsable = true
 ENode.blocks = "Blocks"
 ENode.prototype.resizable = false
@@ -285,15 +263,13 @@ ENode.prototype.onExecute = function() {
 }
 
 function EndNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 EndNode.title = "End"
-EndNode.title_color = NodesHelper.titles.input
 EndNode.collapsable = true
 EndNode.blocks = "Blocks"
 EndNode.prototype.resizable = false
@@ -311,15 +287,13 @@ EndNode.prototype.onExecute = function() {
 }
 
 function EnterNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 EnterNode.title = "Enter"
-EnterNode.title_color = NodesHelper.titles.input
 EnterNode.collapsable = true
 EnterNode.blocks = "Blocks"
 EnterNode.prototype.resizable = false
@@ -337,15 +311,13 @@ EnterNode.prototype.onExecute = function() {
 }
 
 function EscNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 EscNode.title = "Esc"
-EscNode.title_color = NodesHelper.titles.input
 EscNode.collapsable = true
 EscNode.blocks = "Blocks"
 EscNode.prototype.resizable = false
@@ -363,15 +335,13 @@ EscNode.prototype.onExecute = function() {
 }
 
 function FNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 FNode.title = "F"
-FNode.title_color = NodesHelper.titles.input
 FNode.collapsable = true
 FNode.blocks = "Blocks"
 FNode.prototype.resizable = false
@@ -389,15 +359,13 @@ FNode.prototype.onExecute = function() {
 }
 
 function F1Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F1Node.title = "F1"
-F1Node.title_color = NodesHelper.titles.input
 F1Node.collapsable = true
 F1Node.blocks = "Blocks"
 F1Node.prototype.resizable = false
@@ -415,15 +383,13 @@ F1Node.prototype.onExecute = function() {
 }
 
 function F2Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F2Node.title = "F2"
-F2Node.title_color = NodesHelper.titles.input
 F2Node.collapsable = true
 F2Node.blocks = "Blocks"
 F2Node.prototype.resizable = false
@@ -441,15 +407,13 @@ F2Node.prototype.onExecute = function() {
 }
 
 function F3Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F3Node.title = "F3"
-F3Node.title_color = NodesHelper.titles.input
 F3Node.collapsable = true
 F3Node.blocks = "Blocks"
 F3Node.prototype.resizable = false
@@ -467,15 +431,13 @@ F3Node.prototype.onExecute = function() {
 }
 
 function F4Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F4Node.title = "F4"
-F4Node.title_color = NodesHelper.titles.input
 F4Node.collapsable = true
 F4Node.blocks = "Blocks"
 F4Node.prototype.resizable = false
@@ -493,15 +455,13 @@ F4Node.prototype.onExecute = function() {
 }
 
 function F5Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F5Node.title = "F5"
-F5Node.title_color = NodesHelper.titles.input
 F5Node.collapsable = true
 F5Node.blocks = "Blocks"
 F5Node.prototype.resizable = false
@@ -519,15 +479,13 @@ F5Node.prototype.onExecute = function() {
 }
 
 function F6Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F6Node.title = "F6"
-F6Node.title_color = NodesHelper.titles.input
 F6Node.collapsable = true
 F6Node.blocks = "Blocks"
 F6Node.prototype.resizable = false
@@ -545,15 +503,13 @@ F6Node.prototype.onExecute = function() {
 }
 
 function F7Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F7Node.title = "F7"
-F7Node.title_color = NodesHelper.titles.input
 F7Node.collapsable = true
 F7Node.blocks = "Blocks"
 F7Node.prototype.resizable = false
@@ -571,15 +527,13 @@ F7Node.prototype.onExecute = function() {
 }
 
 function F8Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F8Node.title = "F8"
-F8Node.title_color = NodesHelper.titles.input
 F8Node.collapsable = true
 F8Node.blocks = "Blocks"
 F8Node.prototype.resizable = false
@@ -597,15 +551,13 @@ F8Node.prototype.onExecute = function() {
 }
 
 function F9Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F9Node.title = "F9"
-F9Node.title_color = NodesHelper.titles.input
 F9Node.collapsable = true
 F9Node.blocks = "Blocks"
 F9Node.prototype.resizable = false
@@ -623,15 +575,13 @@ F9Node.prototype.onExecute = function() {
 }
 
 function F10Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F10Node.title = "F10"
-F10Node.title_color = NodesHelper.titles.input
 F10Node.collapsable = true
 F10Node.blocks = "Blocks"
 F10Node.prototype.resizable = false
@@ -649,15 +599,13 @@ F10Node.prototype.onExecute = function() {
 }
 
 function F11Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F11Node.title = "F11"
-F11Node.title_color = NodesHelper.titles.input
 F11Node.collapsable = true
 F11Node.blocks = "Blocks"
 F11Node.prototype.resizable = false
@@ -675,15 +623,13 @@ F11Node.prototype.onExecute = function() {
 }
 
 function F12Node() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 F12Node.title = "F12"
-F12Node.title_color = NodesHelper.titles.input
 F12Node.collapsable = true
 F12Node.blocks = "Blocks"
 F12Node.prototype.resizable = false
@@ -701,15 +647,13 @@ F12Node.prototype.onExecute = function() {
 }
 
 function GNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 GNode.title = "G"
-GNode.title_color = NodesHelper.titles.input
 GNode.collapsable = true
 GNode.blocks = "Blocks"
 GNode.prototype.resizable = false
@@ -727,15 +671,13 @@ GNode.prototype.onExecute = function() {
 }
 
 function HNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 HNode.title = "H"
-HNode.title_color = NodesHelper.titles.input
 HNode.collapsable = true
 HNode.blocks = "Blocks"
 HNode.prototype.resizable = false
@@ -753,15 +695,13 @@ HNode.prototype.onExecute = function() {
 }
 
 function HomeNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 HomeNode.title = "Home"
-HomeNode.title_color = NodesHelper.titles.input
 HomeNode.collapsable = true
 HomeNode.blocks = "Blocks"
 HomeNode.prototype.resizable = false
@@ -779,15 +719,13 @@ HomeNode.prototype.onExecute = function() {
 }
 
 function INode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 INode.title = "I"
-INode.title_color = NodesHelper.titles.input
 INode.collapsable = true
 INode.blocks = "Blocks"
 INode.prototype.resizable = false
@@ -805,15 +743,13 @@ INode.prototype.onExecute = function() {
 }
 
 function InsertNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 InsertNode.title = "Insert"
-InsertNode.title_color = NodesHelper.titles.input
 InsertNode.collapsable = true
 InsertNode.blocks = "Blocks"
 InsertNode.prototype.resizable = false
@@ -831,15 +767,13 @@ InsertNode.prototype.onExecute = function() {
 }
 
 function JNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 JNode.title = "J"
-JNode.title_color = NodesHelper.titles.input
 JNode.collapsable = true
 JNode.blocks = "Blocks"
 JNode.prototype.resizable = false
@@ -857,15 +791,13 @@ JNode.prototype.onExecute = function() {
 }
 
 function KNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 KNode.title = "K"
-KNode.title_color = NodesHelper.titles.input
 KNode.collapsable = true
 KNode.blocks = "Blocks"
 KNode.prototype.resizable = false
@@ -883,15 +815,13 @@ KNode.prototype.onExecute = function() {
 }
 
 function LNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 LNode.title = "L"
-LNode.title_color = NodesHelper.titles.input
 LNode.collapsable = true
 LNode.blocks = "Blocks"
 LNode.prototype.resizable = false
@@ -909,15 +839,13 @@ LNode.prototype.onExecute = function() {
 }
 
 function LeftNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 LeftNode.title = "Left"
-LeftNode.title_color = NodesHelper.titles.input
 LeftNode.collapsable = true
 LeftNode.blocks = "Blocks"
 LeftNode.prototype.resizable = false
@@ -935,15 +863,13 @@ LeftNode.prototype.onExecute = function() {
 }
 
 function MNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 MNode.title = "M"
-MNode.title_color = NodesHelper.titles.input
 MNode.collapsable = true
 MNode.blocks = "Blocks"
 MNode.prototype.resizable = false
@@ -961,15 +887,13 @@ MNode.prototype.onExecute = function() {
 }
 
 function NNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 NNode.title = "N"
-NNode.title_color = NodesHelper.titles.input
 NNode.collapsable = true
 NNode.blocks = "Blocks"
 NNode.prototype.resizable = false
@@ -987,15 +911,13 @@ NNode.prototype.onExecute = function() {
 }
 
 function ONode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 ONode.title = "O"
-ONode.title_color = NodesHelper.titles.input
 ONode.collapsable = true
 ONode.blocks = "Blocks"
 ONode.prototype.resizable = false
@@ -1013,15 +935,13 @@ ONode.prototype.onExecute = function() {
 }
 
 function PNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 PNode.title = "P"
-PNode.title_color = NodesHelper.titles.input
 PNode.collapsable = true
 PNode.blocks = "Blocks"
 PNode.prototype.resizable = false
@@ -1039,15 +959,13 @@ PNode.prototype.onExecute = function() {
 }
 
 function PageUpNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 PageUpNode.title = "PageUp"
-PageUpNode.title_color = NodesHelper.titles.input
 PageUpNode.collapsable = true
 PageUpNode.blocks = "Blocks"
 PageUpNode.prototype.resizable = false
@@ -1065,15 +983,13 @@ PageUpNode.prototype.onExecute = function() {
 }
 
 function PageDownNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 PageDownNode.title = "PageDown"
-PageDownNode.title_color = NodesHelper.titles.input
 PageDownNode.collapsable = true
 PageDownNode.blocks = "Blocks"
 PageDownNode.prototype.resizable = false
@@ -1091,15 +1007,13 @@ PageDownNode.prototype.onExecute = function() {
 }
 
 function QNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 QNode.title = "Q"
-QNode.title_color = NodesHelper.titles.input
 QNode.collapsable = true
 QNode.blocks = "Blocks"
 QNode.prototype.resizable = false
@@ -1117,15 +1031,13 @@ QNode.prototype.onExecute = function() {
 }
 
 function RNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 RNode.title = "R"
-RNode.title_color = NodesHelper.titles.input
 RNode.collapsable = true
 RNode.blocks = "Blocks"
 RNode.prototype.resizable = false
@@ -1143,15 +1055,13 @@ RNode.prototype.onExecute = function() {
 }
 
 function RightNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 RightNode.title = "Right"
-RightNode.title_color = NodesHelper.titles.input
 RightNode.collapsable = true
 RightNode.blocks = "Blocks"
 RightNode.prototype.resizable = false
@@ -1169,15 +1079,13 @@ RightNode.prototype.onExecute = function() {
 }
 
 function SNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 SNode.title = "S"
-SNode.title_color = NodesHelper.titles.input
 SNode.collapsable = true
 SNode.blocks = "Blocks"
 SNode.prototype.resizable = false
@@ -1195,15 +1103,13 @@ SNode.prototype.onExecute = function() {
 }
 
 function ShiftNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 ShiftNode.title = "Shift"
-ShiftNode.title_color = NodesHelper.titles.input
 ShiftNode.collapsable = true
 ShiftNode.blocks = "Blocks"
 ShiftNode.prototype.resizable = false
@@ -1221,15 +1127,13 @@ ShiftNode.prototype.onExecute = function() {
 }
 
 function SpacebarNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 SpacebarNode.title = "Spacebar"
-SpacebarNode.title_color = NodesHelper.titles.input
 SpacebarNode.collapsable = true
 SpacebarNode.blocks = "Blocks"
 SpacebarNode.prototype.resizable = false
@@ -1247,15 +1151,13 @@ SpacebarNode.prototype.onExecute = function() {
 }
 
 function TNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 TNode.title = "T"
-TNode.title_color = NodesHelper.titles.input
 TNode.collapsable = true
 TNode.blocks = "Blocks"
 TNode.prototype.resizable = false
@@ -1273,15 +1175,13 @@ TNode.prototype.onExecute = function() {
 }
 
 function TabNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 TabNode.title = "Tab"
-TabNode.title_color = NodesHelper.titles.input
 TabNode.collapsable = true
 TabNode.blocks = "Blocks"
 TabNode.prototype.resizable = false
@@ -1299,15 +1199,13 @@ TabNode.prototype.onExecute = function() {
 }
 
 function UNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 UNode.title = "U"
-UNode.title_color = NodesHelper.titles.input
 UNode.collapsable = true
 UNode.blocks = "Blocks"
 UNode.prototype.resizable = false
@@ -1325,15 +1223,13 @@ UNode.prototype.onExecute = function() {
 }
 
 function UpNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 UpNode.title = "Up"
-UpNode.title_color = NodesHelper.titles.input
 UpNode.collapsable = true
 UpNode.blocks = "Blocks"
 UpNode.prototype.resizable = false
@@ -1351,15 +1247,13 @@ UpNode.prototype.onExecute = function() {
 }
 
 function VNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 VNode.title = "V"
-VNode.title_color = NodesHelper.titles.input
 VNode.collapsable = true
 VNode.blocks = "Blocks"
 VNode.prototype.resizable = false
@@ -1377,15 +1271,13 @@ VNode.prototype.onExecute = function() {
 }
 
 function WNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 WNode.title = "W"
-WNode.title_color = NodesHelper.titles.input
 WNode.collapsable = true
 WNode.blocks = "Blocks"
 WNode.prototype.resizable = false
@@ -1403,15 +1295,13 @@ WNode.prototype.onExecute = function() {
 }
 
 function XNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 XNode.title = "X"
-XNode.title_color = NodesHelper.titles.input
 XNode.collapsable = true
 XNode.blocks = "Blocks"
 XNode.prototype.resizable = false
@@ -1429,15 +1319,13 @@ XNode.prototype.onExecute = function() {
 }
 
 function YNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 YNode.title = "Y"
-YNode.title_color = NodesHelper.titles.input
 YNode.collapsable = true
 YNode.blocks = "Blocks"
 YNode.prototype.resizable = false
@@ -1455,15 +1343,13 @@ YNode.prototype.onExecute = function() {
 }
 
 function ZNode() {
-	this.addOutput("Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y1]})
-	this.addOutput("Just Pressed", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_second]})
-	this.addOutput("Released", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_third]})
+	this.addOutput("Pressed", LiteGraph.EVENT)
+	this.addOutput("Just Pressed", LiteGraph.EVENT)
+	this.addOutput("Released", LiteGraph.EVENT)
 
-	this.addOutput("Key", "key", {...NodesHelper.slots.keyinput, pos: [NodesHelper.slots.position.x1-10, NodesHelper.slots.position.y_fourth]})
-	this.size[0] = NodesHelper.sizes.small[0]-10
+	this.addOutput("Key", "key")
 }
 ZNode.title = "Z"
-ZNode.title_color = NodesHelper.titles.input
 ZNode.collapsable = true
 ZNode.blocks = "Blocks"
 ZNode.prototype.resizable = false

@@ -1,27 +1,16 @@
 function ArrayNode() {
-	this.addInput("", LiteGraph.EVENT, NodesHelper.slots.event)
+	this.addInput("", LiteGraph.EVENT)
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer})
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event})
-	this.addOutput("Array", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x1, NodesHelper.slots.position.y_second]})
-	this.size = [NodesHelper.sizes.small[0], NodesHelper.sizes.small[1]+16]
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("Array", "array")
 }
 ArrayNode.title = "Array"
-ArrayNode.title_color = NodesHelper.titles.array
 ArrayNode.collapsable = false
 ArrayNode.prototype.resizable = false
 ArrayNode.prototype.onGetInputs = function() {
-	var item =  [["Item", null, {...NodesHelper.slots.array}]]
+	var item =  [["Item", null]]
 	return item
-}
-ArrayNode.prototype.onInputAdded = function() {
-	this.size[0] = NodesHelper.sizes.small[0]
-}
-ArrayNode.prototype.onInputRemoved = function() {
-	this.size[0] = NodesHelper.sizes.small[0]
-}
-ArrayNode.prototype.onOutputRemoved = function() {
-	this.size[0] = NodesHelper.sizes.small[0]
 }
 ArrayNode.prototype.onExecute = function() {
 	if (this.isInputConnected(0))
@@ -54,16 +43,13 @@ ArrayNode.prototype.createArray = function() {
 }
 
 function ArrayPushNode() {
-	this.addInput("", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Array", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
-	this.addInput("Element", "", {pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_third]})
+	this.addInput("", LiteGraph.EVENT)
+	this.addInput("Array", "array")
+	this.addInput("Element", "")
 
-	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.event, pos: [NodesHelper.slots.position.x1, NodesHelper.slots.position.y]})
-
-	this.size = [NodesHelper.sizes.small[0], NodesHelper.sizes.small[1]+36]
+	this.addOutput("", LiteGraph.EVENT)
 }
 ArrayPushNode.title = "Push"
-ArrayPushNode.title_color = NodesHelper.titles.array
 ArrayPushNode.collapsable = false
 ArrayPushNode.prototype.resizable = false
 ArrayPushNode.prototype.onAction = function() {

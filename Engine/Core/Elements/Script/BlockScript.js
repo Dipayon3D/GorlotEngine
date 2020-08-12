@@ -37,12 +37,11 @@ function BlockScript(nodes, uuid, obj_type)
 						name: "",
 						type: -1,
 						links: null,
-						...NodesHelper.slots.output.event
 					}
 				],
-				pos: [100, 352],
+				pos: [50, 352],
 				properties: {},
-				size: [120, 26],
+				size: [120, 46],
 				type: "Events/BeginPlay"
 			},
 			{
@@ -61,7 +60,7 @@ function BlockScript(nodes, uuid, obj_type)
 				],
 				pos: [100, 429],
 				properties: {},
-				size: [120, 26],
+				size: [120, 46],
 				type: "Events/EventTick"
 			}
 		],

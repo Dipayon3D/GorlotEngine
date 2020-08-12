@@ -1,15 +1,14 @@
 function ParticlesNode() {
-	this.addInput("Direction", "string", {...NodesHelper.slots.string, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Count", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
-	this.addInput("Rate", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_third]})
-	this.addInput("Duration", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_fourth]})
-	this.addInput("Wiggle", "number", {...NodesHelper.slots.number, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_fifth]})
+	this.addInput("Direction", "string")
+	this.addInput("Count", "number")
+	this.addInput("Rate", "number")
+	this.addInput("Duration", "number")
+	this.addInput("Wiggle", "number")
 
 	this.serialize_widgets = true
 	this.properties = {direction: "Forward", directions: "Forward;Backward", count: 2000, rate: 2000, duration: 0, wiggle: 0}
 }
 ParticlesNode.title = "Particles"
-ParticlesNode.title_color = NodesHelper.titles.particles
 ParticlesNode.skip_list = true
 ParticlesNode.collapsable = false
 ParticlesNode.prototype.resizable = false
@@ -72,11 +71,10 @@ ParticlesNode.prototype.onPropertyChanged = function(n, v) {
 
 function ParticlesTextureNode() {
 	this.serialize_widgets = true
-	this.addInput("Texture", "texture", {...NodesHelper.slots.texture, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
+	this.addInput("Texture", "texture")
 	this.size = [120, 26]
 }
 ParticlesTextureNode.title = "Texture"
-ParticlesTextureNode.title_color = NodesHelper.titles.particles
 ParticlesTextureNode.collapsable = true
 ParticlesTextureNode.prototype.resizable = false
 ParticlesTextureNode.prototype.onAdded = function() {
@@ -96,7 +94,6 @@ function ParticlesBlendingModeNode() {
 	this.properties = {blending: "NaN", modes: "None;Normal;Additive;Subtractive;Multiply"}
 }
 ParticlesBlendingModeNode.title = "Blending"
-ParticlesBlendingModeNode.title_color = NodesHelper.titles.particles
 ParticlesBlendingModeNode.collapsable = true
 ParticlesBlendingModeNode.prototype.resizable = false
 ParticlesBlendingModeNode.prototype.onAdded = function() {
@@ -147,7 +144,6 @@ function ParticlesEmitterTypeNode() {
 	this.properties = {type: "NaN", types: "Box;Sphere;Disc"}
 }
 ParticlesEmitterTypeNode.title = "Emitter Type"
-ParticlesEmitterTypeNode.title_color = NodesHelper.titles.particles
 ParticlesEmitterTypeNode.collapsable = true
 ParticlesEmitterTypeNode.prototype.resizable = false
 ParticlesEmitterTypeNode.prototype.onAdded = function() {
@@ -186,7 +182,6 @@ function ParticlesMaxAgeNode() {
 	this.properties = {value: 0, spread: 0}
 }
 ParticlesMaxAgeNode.title = "Max Age"
-ParticlesMaxAgeNode.title_color = NodesHelper.titles.particles
 ParticlesMaxAgeNode.collapsable = true
 ParticlesMaxAgeNode.prototype.resizable = false
 ParticlesMaxAgeNode.prototype.onAdded = function() {
@@ -218,7 +213,6 @@ function ParticlesPositionNode() {
 	this.properties = {x: 0, y: 0, z: 0, spreadx: 0, spready: 0, spreadz: 0}
 }
 ParticlesPositionNode.title = "Position"
-ParticlesPositionNode.title_color = NodesHelper.titles.particles
 ParticlesPositionNode.collapsable = true
 ParticlesPositionNode.prototype.resizable = false
 ParticlesPositionNode.prototype.onAdded = function() {
@@ -257,7 +251,6 @@ function ParticlesVelocityNode() {
 	this.properties = {x: 0, y: 0, z: 0, spreadx: 0, spready: 0, spreadz: 0}
 }
 ParticlesVelocityNode.title = "Velocity"
-ParticlesVelocityNode.title_color = NodesHelper.titles.particles
 ParticlesVelocityNode.collapsable = true
 ParticlesVelocityNode.prototype.resizable = false
 ParticlesVelocityNode.prototype.onAdded = function() {
@@ -297,7 +290,6 @@ function ParticlesAccelerationNode() {
 	this.properties = {x: 0, y: 0, z: 0, spreadx: 0, spready: 0, spreadz: 0}
 }
 ParticlesAccelerationNode.title = "Acceleration"
-ParticlesAccelerationNode.title_color = NodesHelper.titles.particles
 ParticlesAccelerationNode.collapsable = true
 ParticlesAccelerationNode.prototype.resizable = false
 ParticlesAccelerationNode.prototype.onAdded = function() {
@@ -336,7 +328,6 @@ function ParticlesWiggleNode() {
 	this.properties = {wiggle: 0, spread: 0}
 }
 ParticlesWiggleNode.title = "Wiggle"
-ParticlesWiggleNode.title_color = NodesHelper.titles.particles
 ParticlesWiggleNode.collapsable = true
 ParticlesWiggleNode.prototype.resizable = false
 ParticlesWiggleNode.prototype.onAdded = function() {
@@ -359,11 +350,10 @@ ParticlesWiggleNode.prototype.onPropertyChanged = function(n, v) {
 }
 
 function ParticlesOpacityNode() {
-	this.addInput("Value", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Spread", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("Value", "array")
+	this.addInput("Spread", "array")
 }
 ParticlesOpacityNode.title = "Opacity"
-ParticlesOpacityNode.title_color = NodesHelper.titles.particles
 ParticlesOpacityNode.collapsable = true
 ParticlesOpacityNode.prototype.resizable = false
 ParticlesOpacityNode.prototype.onAdded = function() {
@@ -383,11 +373,10 @@ ParticlesOpacityNode.prototype.onExecute = function() {
 }
 
 function ParticlesScaleNode() {
-	this.addInput("Value", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Spread", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("Value", "array")
+	this.addInput("Spread", "array")
 }
 ParticlesScaleNode.title = "Scale"
-ParticlesScaleNode.title_color = NodesHelper.titles.particles
 ParticlesScaleNode.collapsable = true
 ParticlesScaleNode.prototype.resizable = false
 ParticlesScaleNode.prototype.onAdded = function() {
@@ -407,11 +396,10 @@ ParticlesScaleNode.prototype.onExecute = function() {
 }
 
 function ParticlesRotationNode() {
-	this.addInput("Value", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Spread", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("Value", "array")
+	this.addInput("Spread", "array")
 }
 ParticlesRotationNode.title = "Rotation"
-ParticlesRotationNode.title_color = NodesHelper.titles.particles
 ParticlesRotationNode.collapsable = true
 ParticlesRotationNode.prototype.resizable = false
 ParticlesRotationNode.prototype.onAdded = function() {
@@ -431,11 +419,10 @@ ParticlesRotationNode.prototype.onExecute = function() {
 }
 
 function ParticlesColourNode() {
-	this.addInput("Value", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y]})
-	this.addInput("Spread", "array", {...NodesHelper.slots.array, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position.y_second]})
+	this.addInput("Value", "array")
+	this.addInput("Spread", "array")
 }
 ParticlesColourNode.title = "Colour"
-ParticlesColourNode.title_color = NodesHelper.titles.particles
 ParticlesColourNode.collapsable = true
 ParticlesColourNode.prototype.resizable = false
 ParticlesColourNode.prototype.onAdded = function() {
