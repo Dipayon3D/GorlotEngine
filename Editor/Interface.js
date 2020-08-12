@@ -164,7 +164,19 @@ Interface.initialize = function() {
 		FileSystem.chooseFile((files) => {
 			if (files.length > 0) {
 				var file = files[0].path
+                var path = FileSystem.getFileName(file)
+
+                var mtl = FileSystem.getNameWithoutExtension(file) + ".mtl"
 				var loader = new THREE.OBJLoader()
+
+                if(FileSystem.fileExists(mtl)) {
+                    var mtl_loader = new THREE.MTLLoader()
+                    mtl_loader.setPath(path)
+                    var materials = mtl_loader.parse(FileSystem.readFile(mtl))
+
+                    loader.setMaterials(materials)
+                }
+
 				var obj = loader.parse(FileSystem.readFile(file))
 				Editor.addToScene(obj)
 			}

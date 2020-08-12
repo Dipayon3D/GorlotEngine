@@ -89,9 +89,8 @@ BlockScript.prototype.initialize = function()
 	var self = this
 	this.graph = new LGraph(this.nodes)
 
-	this.graph.config.scene = ObjectUtils.getScene(this)
-
 	if (this.graph.config.type === "scene") {
+        this.graph.config.scene = ObjectUtils.getScene(this)
 		this.graph.config.self = this
 	} else if(this.graph.config.type === "class") {
 		var scene = (Editor.program_running !== undefined && Editor.program_running !== null) ? Editor.program_running.scene : Main.program.scene
@@ -103,6 +102,10 @@ BlockScript.prototype.initialize = function()
 			}
 		})
 	}
+
+    if(this.graph.config.scene !== undefined && this.graph.config.scene.parent instanceof Program) {
+        this.graph.config.program = this.graph.config.scene.parent
+    }
 
 	//this.graph.runStep(1)
 

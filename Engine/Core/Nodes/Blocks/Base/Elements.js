@@ -17,8 +17,48 @@ ThisNode.prototype.onStart = function() {
 	this.triggerSlot(1)
 }
 
+function SceneNode() {
+    this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.output.title_pos["pos"][1]]})
+	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y"]]})
+    this.addOutput("Scene", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y_second"]]})
+    this.size = [NodesHelper.sizes.small[0]-20, NodesHelper.sizes.small[1]+20]
+}
+SceneNode.title = "Scene"
+SceneNode.title_color = NodesHelper.titles.object
+SceneNode.collapsable = true
+SceneNode.prototype.resizable = false
+SceneNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
+SceneNode.prototype.onStart = function() {
+    if(this.graph.config.scene !== undefined) {
+        this.setOutputData(2, this.graph.config.scene)
+
+        this.triggerSlot(0, this.graph.config.scene)
+        this.triggerSlot(1)
+    }
+}
+
+function ProgramNode() {
+    this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.output.title_pos["pos"][1]]})
+	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.event, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y"]]})
+    this.addOutput("Program", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x1-20, NodesHelper.slots.position["y_second"]]})
+    this.size = [NodesHelper.sizes.small[0]-20, NodesHelper.sizes.small[1]+20]
+}
+ProgramNode.title = "Program"
+ProgramNode.title_color = NodesHelper.titles.object
+ProgramNode.collapsable = true
+ProgramNode.prototype.resizable = false
+ProgramNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
+ProgramNode.prototype.onStart = function() {
+    if(this.graph.config.program !== undefined) {
+        this.setOutputData(2, this.graph.config.program)
+
+        this.triggerSlot(0, this.graph.config.program)
+        this.triggerSlot(1)
+    }
+}
+
 function GetPositionNode() {
-	this.addInput("", LiteGraph.ACTION, NodesHelper.slots.input.event)
+	this.addInput("", LiteGraph.RectArea, NodesHelper.slots.input.event)
 	this.addInput("Target", "object", {...NodesHelper.slots.object, pos: [NodesHelper.slots.position.x, NodesHelper.slots.position["y_second"]]})
 
 	this.addOutput("", LiteGraph.EVENT, {...NodesHelper.slots.output.passer, pos: [NodesHelper.slots.position.x1+60, NodesHelper.slots.output.title_pos["pos"][1]]})
@@ -235,11 +275,14 @@ SetScaleNode.prototype.onAction = function(action, data) {
 }
 
 function registerObjects() {
-	LiteGraph.registerNodeType("Objects/This", ThisNode)
-	LiteGraph.registerNodeType("Objects/GetPosition", GetPositionNode)
-	LiteGraph.registerNodeType("Objects/GetRotation", GetRotationNode)
-	LiteGraph.registerNodeType("Objects/GetScale", GetScaleNode)
-	LiteGraph.registerNodeType("Objects/SetPosition", SetPositionNode)
-	LiteGraph.registerNodeType("Objects/SetRotation", SetRotationNode)
-	LiteGraph.registerNodeType("Objects/SetScale", SetScaleNode)
+	LiteGraph.registerNodeType("Elements/This", ThisNode)
+	LiteGraph.registerNodeType("Elements/Scene", SceneNode)
+	LiteGraph.registerNodeType("Elements/Program", ProgramNode)
+
+	LiteGraph.registerNodeType("Elements/Objects/GetPosition", GetPositionNode)
+	LiteGraph.registerNodeType("Elements/Objects/GetRotation", GetRotationNode)
+	LiteGraph.registerNodeType("Elements/Objects/GetScale", GetScaleNode)
+	LiteGraph.registerNodeType("Elements/Objects/SetPosition", SetPositionNode)
+	LiteGraph.registerNodeType("Elements/Objects/SetRotation", SetRotationNode)
+	LiteGraph.registerNodeType("Elements/Objects/SetScale", SetScaleNode)
 }

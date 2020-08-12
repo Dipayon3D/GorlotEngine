@@ -1,5 +1,4 @@
 function VariableNode() {
-
 	this.properties = {name: "myname", container: VariableNode.LITEGRAPH}
 
 	this.addInput("", LiteGraph.EVENT, NodesHelper.slots.input.event)
@@ -17,13 +16,10 @@ VariableNode.title_color = NodesHelper.titles.base
 VariableNode.collapsable = true
 VariableNode.blocks = "Blocks"
 VariableNode.prototype.resizable = false
-
 VariableNode.LITEGRAPH = 0 // Between all graphs
 VariableNode.GRAPH = 1 // Only inside this graph
 VariableNode.GLOBALSCOPE = 2 // Attached to window
-
 VariableNode["@container"] = {type: "enum", values: {"litegraph": VariableNode.LITEGRAPH, "graph": VariableNode.GRAPH, "global": VariableNode.GLOBALSCOPE}}
-
 VariableNode.prototype.getContainer = function() {
 	switch(this.properties.container) {
 		case VariableNode.GRAPH:
@@ -40,7 +36,6 @@ VariableNode.prototype.getContainer = function() {
 			break
 	}
 }
-
 VariableNode.prototype.onAction = function(action, data) {
 	var container = this.getContainer()
 
@@ -53,7 +48,6 @@ VariableNode.prototype.onAction = function(action, data) {
 
 	this.setOutputData(0, container[this.properties.name])
 }
-
 VariableNode.prototype.getTitle = function() {
 	return this.properties.name
 }
