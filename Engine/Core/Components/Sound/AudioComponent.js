@@ -41,6 +41,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
     this.static.setOnChange(() => {
         if(this.obj !== null) {
             self.obj.matrixAutoUpdate = !(self.static.getValue())
+            Editor.history.push(self.obj, Action.CHANGED)
         }
     })
     this.form.add(this.static)
@@ -55,6 +56,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.playbackRate.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.playbackRate = self.playbackRate.getValue()
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.playbackRate)
@@ -67,6 +69,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.autoplay.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.autoplay = self.autoplay.getValue()
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.autoplay)
@@ -79,6 +82,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.loop.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.loop = self.loop.getValue()
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.loop)

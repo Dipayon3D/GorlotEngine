@@ -41,6 +41,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	this.visible.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.visible = self.visible.getValue()
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.visible)
@@ -53,6 +54,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	this.static.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.matrixAutoUpdate = !(self.static.getValue())
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.static)
@@ -65,6 +67,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	this.cast_shadow.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.castShadow = self.cast_shadow.getValue()
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.cast_shadow)
@@ -77,6 +80,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	this.receive_shadow.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.receiveShadow = self.receive_shadow.getValue()
+            Editor.history.push(self.obj, Action.CHANGED)
 		}
 	})
 	this.form.add(this.receive_shadow)
