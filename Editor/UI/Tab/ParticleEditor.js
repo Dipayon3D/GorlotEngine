@@ -4,16 +4,12 @@ function ParticleEditor(parent) {
 	// Parent
     this.parent = (parent !== undefined) ? parent : document.body
 
-	// ID
-	var id = "particle_editor" + ParticleEditor.id
-	ParticleEditor.id++
-
+    // Registers only the particles nodes
 	Register.unregisterAll()
 	Register.registerParticlesNodes()
 
 	// Create Element
 	this.element = document.createElement("div")
-	this.element.id = id
 	this.element.style.position = "absolute"
 
 	this.element.ondrop = function(e) {
@@ -85,7 +81,6 @@ function ParticleEditor(parent) {
 
 	this.parent.appendChild(this.element)
 }
-ParticleEditor.id = 0
 
 // Update container object data
 ParticleEditor.prototype.updateMetadata = function(container) {

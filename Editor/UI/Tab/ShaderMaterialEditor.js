@@ -4,13 +4,8 @@ function ShaderMaterialEditor(parent) {
 	// Parent
     this.parent = (parent !== undefined) ? parent : document.body
 
-	// ID
-	var id = "shaderMaterial_editor" + ShaderMaterialEditor.id
-	ShaderMaterialEditor.id++
-
 	// Create element
 	this.element = document.createElement("div")
-	this.element.id = id
 	this.element.style.position = "absolute"
 
 	this.element.ondrop = function(e) {
@@ -347,5 +342,3 @@ ShaderMaterialEditor.prototype.updateInterface = function() {
 	this.element.style.width = this.size.x + "px"
 	this.element.style.height = this.size.y + "px"
 }
-
-ShaderMaterialEditor.id = 0

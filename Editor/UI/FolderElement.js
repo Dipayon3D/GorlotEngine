@@ -11,10 +11,6 @@ function FolderElement(container) {
 
 	this.parent = this.container.element
 
-	// ID
-	var id = "folderEl" + FolderElement.id
-	FolderElement.id++
-
 	// Create element
 	this.element = document.createElement("div")
 	this.element.draggable = true
@@ -98,8 +94,6 @@ function FolderElement(container) {
 
 	this.parent.appendChild(this.element)
 }
-
-FolderElement.id = 0
 
 FolderElement.prototype.setFolder = function(folder) {
 	this.folder = folder

@@ -4,13 +4,8 @@ function BlockEditor(parent) {
 	// Parent
     this.parent = (parent !== undefined) ? parent : document.body
 
-	// ID
-	var id = "block_editor" + BlockEditor.id
-	BlockEditor.id++
-
 	// Create element
 	this.element = document.createElement("div")
-	this.element.id = id
 	this.element.style.position = "absolute"
 	this.element.style.pointerEvents = "auto"
 
@@ -67,8 +62,6 @@ function BlockEditor(parent) {
 
 	this.parent.appendChild(this.element)
 }
-
-BlockEditor.id = 0
 
 // Attach Blocks to the editor
 BlockEditor.prototype.attachBlocks = function(blocks) {

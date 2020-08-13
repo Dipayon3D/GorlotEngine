@@ -10,6 +10,7 @@ function File() {
     this.data = null
 }
 
+// JSON serialisation
 File.prototype.toJSON = function(meta) {
     var data = {}
     data.name = this.name

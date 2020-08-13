@@ -4,16 +4,12 @@ function MaterialEditor(parent) {
 	// Parent
     this.parent = (parent !== undefined) ? parent : document.body
 
-	// id
-	var id = "material_editor" + MaterialEditor.id
-	MaterialEditor.id++
-
+    // Registers only the material nodes
 	Register.unregisterAll()
 	Register.registerMaterialNodes()
 
 	// Create element
 	this.element = document.createElement("div")
-	this.element.id = id
 	this.element.style.position = "absolute"
 
 	this.element.ondrop = function(event)
@@ -78,9 +74,6 @@ function MaterialEditor(parent) {
 	// Add element to document
 	this.parent.appendChild(this.element)
 }
-
-// Material editor counter
-MaterialEditor.id = 0
 
 // Attach material to material editor
 MaterialEditor.prototype.attachMaterial = function(material, material_file) {

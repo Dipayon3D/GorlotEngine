@@ -26,7 +26,7 @@ Video.prototype.setPath = function(path) {
 	}
 }
 
-// Create JSON description
+// JSON serialisation
 Video.prototype.toJSON = function(meta) {
 
 	if (meta.videos[this.uuid] !== undefined) {

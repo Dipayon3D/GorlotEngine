@@ -4,14 +4,9 @@ function AssetExplorer(parent)
 {
     // Parent
     this.parent = (parent !== undefined) ? parent : document.body
-	
-	//ID
-	var id = "asset_explorer" + AssetExplorer.id;
-	AssetExplorer.id++;
 
 	//Create element
 	this.element = document.createElement("div");
-	this.element.id = id;
 	this.element.style.position = "absolute";
 	this.element.style.overflow = "auto";
 	this.element.style.cursor = "default";
@@ -83,9 +78,6 @@ function AssetExplorer(parent)
 	//Add element to document
 	this.parent.appendChild(this.element);
 }
-
-//AssetExplorer conter
-AssetExplorer.id = 0;
 
 //Remove all files
 AssetExplorer.prototype.clear = function()

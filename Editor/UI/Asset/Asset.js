@@ -5,10 +5,6 @@ function Asset(parent)
 	//Parent
     this.parent = (parent !== undefined) ? parent : document.body
 	
-	//ID
-	var id = "asset" + Asset.id;
-	Asset.id++;
-
 	// Element
 	this.element = document.createElement("div");
 	this.element.style.position = "absolute";
@@ -62,9 +58,6 @@ function Asset(parent)
 
 	this.path = "/"
 }
-
-//Asset ID counter
-Asset.id = 0;
 
 //Set parent
 Asset.prototype.setParent = function(parent)

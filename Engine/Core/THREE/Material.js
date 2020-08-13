@@ -1,6 +1,7 @@
 "use strict"
 
 THREE.Material.prototype.nodes = {}
+THREE.Material.prototype.path = "/"
 
 THREE.Material.prototype.dispose = function() {
     function disposeTexture(texture) {

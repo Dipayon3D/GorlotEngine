@@ -218,7 +218,7 @@ Font.prototype.generateShapes = function(text, size, divisions)
 	}
 }
 
-// Create JSON description
+// JSON serialisation
 Font.prototype.toJSON = function(meta) {
 
 	if (meta.fonts[this.uuid] !== undefined) {

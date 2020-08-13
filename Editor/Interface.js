@@ -70,7 +70,7 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
 	asset_material.addOption("Phong Material", () => {
 		var material = new MeshPhongMaterial()
@@ -78,7 +78,7 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
 	asset_material.addOption("Basic Material", () => {
 		var material = new MeshBasicMaterial()
@@ -86,22 +86,7 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
-
-    asset_material.addOption("Toon Material", () => {
-        var material = new MeshToonMaterial()
-        material.name = "toon"
-        Editor.program.addMaterial(material)
-        Editor.updateObjectViews()
-    })
-
-	asset_material.addOption("Lambert Material", () => {
-		var material = new MeshLambertMaterial()
-		material.name = "lambert"
-		material.path = Editor.CURRENT_PATH
-		Editor.program.addMaterial(material)
-		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
 	asset_material.addOption("Sprite Material", () => {
 		var material = new SpriteMaterial({color: 0xffffff})
@@ -109,7 +94,22 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
+
+    asset_material.addOption("Toon Material", () => {
+        var material = new MeshToonMaterial()
+        material.name = "toon"
+        Editor.program.addMaterial(material)
+        Editor.updateObjectViews()
+    }, Interface.file_dir + "Icons/Misc/Material.png")
+
+	asset_material.addOption("Lambert Material", () => {
+		var material = new MeshLambertMaterial()
+		material.name = "lambert"
+		material.path = Editor.CURRENT_PATH
+		Editor.program.addMaterial(material)
+		Editor.updateObjectViews()
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
 	var asset_material_others = asset_material.addMenu("Others")
 	asset_material_others.addOption("Shader Material", () => {
@@ -118,7 +118,7 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
 	asset_material_others.addOption("Normal Material", () => {
 		var material = new MeshNormalMaterial()
@@ -126,7 +126,7 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
 	asset_material_others.addOption("Depth Material", () => {
 		var material = new MeshDepthMaterial()
@@ -134,7 +134,7 @@ Interface.initialize = function() {
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	})
+	}, Interface.file_dir + "Icons/Misc/Material.png")
 
     Interface.asset_new.addOption("Folder", () => {
 		var folder = new Folder()
@@ -157,188 +157,172 @@ Interface.initialize = function() {
 	Interface.asset_file.size.set(100, Interface.asset_explorer_bar.size.y)
 	Interface.asset_file.position.set(100, 0)
 
-	var import_models = Interface.asset_file.addMenu("3D Models", Interface.file_dir + "Icons/Models/Models.png")
-
-	// Import an OBJ file
-	import_models.addOption("Wavefront", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-                var path = FileSystem.getFileName(file)
-
-                var mtl = FileSystem.getNameWithoutExtension(file) + ".mtl"
-				var loader = new THREE.OBJLoader()
-
-                if(FileSystem.fileExists(mtl)) {
-                    var mtl_loader = new THREE.MTLLoader()
-                    mtl_loader.setPath(path)
-                    var materials = mtl_loader.parse(FileSystem.readFile(mtl))
-
-                    loader.setMaterials(materials)
-                }
-
-				var obj = loader.parse(FileSystem.readFile(file))
-				Editor.addToScene(obj)
-			}
-		}, ".obj")
-	})
-
-	// Import a collada file
-	import_models.addOption("Collada", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.ColladaLoader()
-				loader.options.convertUpAxis = true
-				var collada = loader.parse(FileSystem.readFile(file))
-				var scene = collada.scene
-				Editor.addToScene(scene)
-			}
-		}, ".dae")
-	})
-
-	// ThreeJS file format menu
-	var import_models_three = import_models.addMenu("three.js")
-
-	// ThreeJS Object Loader
-	import_models_three.addOption("Object Loader", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.ObjectLoader()
-				var object = loader.parse(JSON.parse(FileSystem.readFile(file)))
-				Editor.addToScene(object)
-			}
-		}, ".json")
-	})
-
-	// ThreeJS JSON Loader
-	import_models_three.addOption("JSON Loader", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.JSONLoader()
-				var data = loader.parse(JSON.parse(FileSystem.readFile(file)))
-				var materials = data.materials
-				var geometry = data.geometry
-
-				// Create material object
-				var material = null
-				if (material === undefined || material.length === 0) {
-					material = new MeshStandardMaterial()
-					material.name = "standard"
-				} else if (materials.length === 1) {
-					material = material[0]
-				} else if (materials.length > 1) {
-					material = new THREE.MultiMaterial(materials)
-				}
-
-				// Create model
-				var model = null
-				if (geometry.bones.length > 0) {
-					model = new SkinnedMesh(geometry, material)
-				} else {
-					model = new Mesh(geometry, material)
-				}
-
-				Editor.addToScene(model)
-			}
-		}, ".json")
-	})
-
-	// GLTF File Loader
-	import_models.addOption("GLTF", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.GLTFLoader()
-				var gltf = loader.parse(FileSystem.readFile(file))
-
-				if (gltf.scene !== undefined) {
-					Editor.addToScene(gltf.scene)
-				}
-			}
-		}, ".gltf")
-	})
-
-	// AWD File Loader
-	import_models.addOption("AWD", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.AWDLoader()
-				var awd = loader.parse(FileSystem.readFileArrayBuffer(file))
-				Editor.addToScene(awd)
-			}
-		}, ".awd")
-	})
-
-	// PLY File Loader
-	import_models.addOption("PLY", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.PLYLoader()
-				var geometry = loader.parse(FileSystem,readFile(file))
-				Editor.addToScene(new Mesh(geometry))
-			}
-		}, ".ply")
-	})
-
-	// VTK File loader
-	import_models.addOption("VTK", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.VTKLoader()
-				var geometry = loader.parse(FileSystem.readFileArrayBuffer(file))
-				Editor.addToScene(new Mesh(geometry))
-			}
-		}, ".vtk, .vtp")
-	})
-
-	// VRML File Loader
-	import_models.addOption("VRML", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.VRMLLoader()
-				var scene = loader.parse(FileSystem.readFile(file))
-
-				for(var i = 0; i < scene.children.length; i++) {
-					Editor.addToScene(scene.children[i])
-				}
-
-			}
-		}, ".wrl, .vrml")
-	})
-
-	// FBX
-	import_models.addOption("FBX", () => {
-		FileSystem.chooseFile((files) => {
-			if (files.length > 0) {
-				var file = files[0].path
-				var loader = new THREE.FBXLoader()
-				var obj = loader.parse(FileSystem.readFile(file))
-				Editor.addToScene(obj)
-			}
-		}, ".fbx")
-	})
-
-    // PCD File Loader
-    import_models.addOption("PCD", () => {
+    // 3D Models Loader
+    Interface.asset_file.addOption("3D Models", () => {
         FileSystem.chooseFile((files) => {
             if(files.length > 0) {
                 var file = files[0].path
+                var path = FileSystem.getFilePath(file)
+                var extension = FileSystem.getFileExtension(file)
 
-                var loader = new THREE.PCDLoader()
-                var pcd = loader.parse(FileSystem.readFileArrayBuffer(file), file)
-                pcd.name = FileSystem.getFileName(file)
-                pcd.material.name = "points"
-                Editor.addToScene(pcd)
+                // Wavefront OBJ
+                if(extension === "obj") {
+                    var mtl = FileSystem.getNameWithoutExtension(file) + ".mtl"
+                    var loader = new THREE.OBJLoader()
+
+                    if(FileSystem.fileExists(mtl)) {
+                        var mtl_loader = new THREE.MTLLoader()
+                        mtl_loader.setPath(path)
+                        var materials = mtl_loader.parse(FileSystem.readFile(mtl))
+
+                        loader.setMaterials(materials)
+                    }
+
+                    var obj = loader.parse(FileSystem.readFile(file))
+
+                    // TODO: Clean this
+                    if(obj.children.length > 0) {
+                        for(var i in obj.children) {
+                            var child = obj.children[i]
+
+                            if(child.material !== undefined && child.material instanceof THREE.Material) {
+                                child.material.setPath(Editor.CURRENT_PATH)
+                            }
+                        }
+                    }
+
+                    Editor.addToScene(obj)
+                }
+                // Collada
+                else if(extension === "dae") {
+                    var loader = new THREE.ColladaLoader()
+                    loader.options.convertUpAxis = true
+                    var collada = loader.parse(FileSystem.readFile(file))
+                    var scene = collada.scene
+    
+                    // TODO: Clean this
+                    var children = scene.children
+                    if(children.length > 0) {
+                        for(var i in children) {
+                            var child = children[i]
+                            if(child.children.length > 0) {
+                                for(var k in child.children) {
+                                    var _child = child.children[k]
+                                    if(_child.material !== undefined) {
+                                        _child.material.setPath(Editor.CURRENT_PATH)
+                                        console.log(_child.material)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Editor.addToScene(scene)
+                }
+                // GLTF
+                else if(extension === "gltf") {
+                    var loader = new THREE.GLTFLoader()
+                    var gltf = loader.parse(FileSystem.readFile(file))
+                    
+                    // TODO: Store materials in Editor.CURRENT_PATH
+
+                    if(gltf.scene !== undefined) {
+                        Editor.addToScene(gltf.scene)
+                    }
+                }
+                // AWD
+                else if(extension === "awd") {
+                    var loader = new THREE.AWDLoader()
+                    var awd = loader.parse(FileSystem.readFileArrayBuffer(file))
+
+                    // TODO: Store materials in Editor.CURRENT_PATH
+                    
+                    Editor.addToScene(awd)
+                }
+                // PLY
+                else if(extension === "ply") {
+                    var loader = new THREE.PLYLoader()
+                    var geometry = loader.parse(FileSystem.readFile(file))
+
+                    // TODO: Store materials in Editor.CURRENT_PATH
+
+                    Editor.addToScene(new Mesh(geometry))
+                }
+                // VTK
+                else if(extension === "vtk" || extension === "vtp") {
+                    var loader = new THREE.VTKLoader()
+                    var geometry = loader.parse(FileSystem.readFileArrayBuffer(file))
+
+                    // TODO: Store materials in Editor.CURRENT_PATH
+                    
+                    Editor.addToScene(new Mesh(geometry))
+                }
+                // VRML
+                else if(extension === "wrl" || extension === "vrml") {
+                    var loader = new THREE.VRMLLoader()
+                    var scene = loader.parse(FileSystem.readFile(file))
+
+                    // TODO: Store materials in Editor.CURRENT_PATH
+
+                    for(var i = 0; i < scene.children.length; i++) {
+                        Editor.addToScene(scene.children[i])
+                    }
+                }
+                // FBX
+                else if(extension === "fbx") {
+                    var loader = new THREE.FBXLoader()
+                    var obj = loader.parse(FileSystem.readFile(file))
+
+                    // TODO: Store materials in Editor.CURRENT_PATH
+
+                    Editor.addToScene(obj)
+                }
+                // PCD Point Cloud Data
+                else if(extension === "pcd") {
+                    var loader = new THREE.PCDLoader()
+                    var pcd = loader.parse(FileSystem.readFileArrayBuffer(file), file)
+                    pcd.name = FileSystem.getFileName(file)
+                    pcd.material.name = "points"
+                    pcd.material.setPath(Editor.CURRENT_PATH)
+                    Editor.addToScene(pcd)
+                }
+                // THREE JSON Model
+                else if(extension === "json"){
+                    var loader = new THREE.JSONLoader()
+                    var data = loader.parse(JSON.parse(FileSystem.readFile(file)))
+                    var materials = data.materials
+                    var geometry = data.geometry
+
+                    // Create Material object
+                    var material = null
+
+                    if(materials === undefined || materials.length === 0) {
+                        material = new MeshStandardMaterial()
+                        material.name = "standard"
+                        material.path = Editor.CURRENT_PATH
+                    } else if(materials.length === 1) {
+                        material = materials[0]
+                        material.path = Editor.CURRENT_PATH
+                    } else if(materials.length > 1) {
+                        material = THREE.MultiMaterial(materials)
+
+                        // TODO: Store materials in Editor.CURRENT_PATH
+
+                    }
+
+                    // Create model
+                    var model = null
+                    if(geometry.bones.length > 0) {
+                        model = new SkinnedMesh(geomerty, material)
+                    } else {
+                        model = new Mesh(geometry, material)
+                    }
+
+                    Editor.addToScene(model)
+                }
             }
-        }, ".pcd")
-    })
+        }, ".obj, .dae, .gltf, .awd, .ply, .vtk, .vtp, .wrl, .vrml, .fbx, .pcd, .json")
+    }, Interface.file_dir + "Icons/Models/Models.png")
 
     // Textures menu
     var import_texture = Interface.asset_file.addMenu("Texture", Interface.file_dir + "Icons/Assets/Image.png")

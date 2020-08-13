@@ -162,7 +162,6 @@ FileSystem.chooseFile = function(callback, filter, saveas) {
 	}
 
 	chooser.onchange = function(e) {
-        console.log("onchange")
 		if (callback !== undefined) {
 			callback(chooser.files)
 		}
@@ -179,9 +178,9 @@ FileSystem.fileExists = function(file) {
     return false
 }
 
-// Get file name from file path string
+// Get file name from file path string (always in lowercase)
 FileSystem.getFileName = function(file) {
-	return file.substring(file.lastIndexOf("/") + 1, file.lastIndexOf("."))
+	return file.substring(file.lastIndexOf("/") + 1, file.lastIndexOf(".")).toLowerCase()
 }
 
 // Get file name without extension

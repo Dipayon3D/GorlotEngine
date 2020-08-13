@@ -8,10 +8,6 @@ function FolderTree(parent) {
 		this.parent = parent
 	}
 
-	// ID
-	var id = "fTree" + FolderTree.id
-	FolderTree.id++
-
 	// Create Element
 	this.element = document.createElement("div")
 	this.element.style.position = "absolute"
@@ -38,9 +34,6 @@ function FolderTree(parent) {
 	// Add element to document
 	this.parent.appendChild(this.element)
 }
-
-// FolderTree Counter
-FolderTree.id = 0
 
 FolderTree.prototype.update = function() {
 

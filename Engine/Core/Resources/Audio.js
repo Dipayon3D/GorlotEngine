@@ -1,6 +1,5 @@
 "use strict"
 
-// Audio constructor
 function Audio(url) {
 	this.name = "audio"
 	this.uuid = THREE.Math.generateUUID()
@@ -25,7 +24,7 @@ Audio.prototype.setPath = function(path) {
 	}
 }
 
-// Create JSON description
+// JSON serialisation
 Audio.prototype.toJSON = function(meta) {
 	
 	if (meta.audio[this.uuid] !== undefined) {

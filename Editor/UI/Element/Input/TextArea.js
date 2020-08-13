@@ -4,10 +4,6 @@ function TextArea(parent) {
     // Parent
     this.parent = (parent !== undefined) ? parent : document.body
 
-    // ID
-    var id = "txt_area" + TextArea.id
-    TextArea.id++
-
     // Create element
     this.element = document.createElement("textarea")
     this.element.style.overflow = "auto"
@@ -26,9 +22,6 @@ function TextArea(parent) {
     // Add element to document
     this.parent.appendChild(this.element)
 }
-
-// TextArea ID counter
-TextArea.id = 0
 
 // Set if element is disabled
 TextArea.prototype.setDisabled = function(value) {

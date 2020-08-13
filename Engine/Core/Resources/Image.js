@@ -82,7 +82,7 @@ GORLOT.Image.prototype.encodeData = function()
     }
 }
 
-//JSON serialization
+// JSON serialisation
 GORLOT.Image.prototype.toJSON = function(meta)
 {
 	if(meta.images[this.uuid] !== undefined)

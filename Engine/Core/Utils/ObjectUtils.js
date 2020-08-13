@@ -55,7 +55,7 @@ ObjectUtils.getMaterials = function(obj, materials) {
 	// Traverse obj children
 	obj.traverse((child) => {
 		// Check if child has material
-		if(!(child.material === undefined || child.hidden || child instanceof Sky || child instanceof SpineAnimation)) {
+		if(!(child.material === undefined || child.hidden || child instanceof Sky || child instanceof ParticleEmitter || child instanceof SpineAnimation)) {
             if(child.material instanceof THREE.Material)
 			{
 				add(child.material);
@@ -125,10 +125,10 @@ ObjectUtils.getTextures = function(obj, textures) {
                 }
             }
 		}
-		else if(child instanceof ParticleEmitter)
-		{
-			add(child.group.texture);
-		}
+
+        if(child.texture !== undefined) {
+            add(child.texture)
+        }
 	})
 
 	return textures;

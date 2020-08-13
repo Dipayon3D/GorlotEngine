@@ -5,13 +5,8 @@ function Canvas(parent)
 	//Parent
     this.parent = (parent !== undefined) ? parent : document.body
 	
-	//ID
-	var id = "canvas" + Canvas.id;
-	Canvas.id++;
-
 	//Create canvas
 	this.element = document.createElement("canvas");
-	this.element.id = id;
 	this.element.style.position = "absolute";
 
 	this.element.ondrop = function(event)
@@ -33,9 +28,6 @@ function Canvas(parent)
 	//Add element to document
 	this.parent.appendChild(this.element);
 }
-
-//Canvas counter
-Canvas.id = 0;
 
 //Remove element
 Canvas.prototype.destroy = function()

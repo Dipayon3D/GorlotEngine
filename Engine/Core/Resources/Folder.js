@@ -13,6 +13,7 @@ Folder.prototype.setPath = function(path) {
 	}
 }
 
+// JSON serialisation
 Folder.prototype.toJSON = function(meta) {
 	var data = {}
 
