@@ -500,27 +500,25 @@ Editor.update = function()
 	{
 		//Close tab, Save and load project
 		if(Keyboard.keyPressed(Keyboard.CTRL)) {
-            if(Interface.panel !== null && !Interface.panel.focused) {
-                if(Keyboard.keyJustPressed(Keyboard.S))
-                {
-                    if(Editor.open_file === null) {
-                        Interface.saveProgram()
-                    } else {
-                        Editor.saveProgram(undefined, false)
-                    }
+            if(Keyboard.keyJustPressed(Keyboard.S))
+            {
+                if(Editor.open_file === null) {
+                    Interface.saveProgram()
+                } else {
+                    Editor.saveProgram(undefined, false)
                 }
-                else if(Keyboard.keyJustPressed(Keyboard.O))
-                {
-                    Interface.loadProgram()
-                }
-                else if(Keyboard.keyJustPressed(Keyboard.W) || Keyboard.keyJustPressed(Keyboard.F4))
-                {
-                    Interface.tab.closeActual()
-                } else if (Keyboard.keyJustPressed(Keyboard.TAB) || Keyboard.keyJustPressed(Keyboard.PAGE_DOWN)) {
-                    Interface.tab.selectNextTab()
-                } else if (Keyboard.keyJustPressed(Keyboard.PAGE_UP)) {
-                    Interface.tab.selectPreviousTab()
-                }
+            }
+            else if(Keyboard.keyJustPressed(Keyboard.O))
+            {
+                Interface.loadProgram()
+            }
+            else if(Keyboard.keyJustPressed(Keyboard.W) || Keyboard.keyJustPressed(Keyboard.F4))
+            {
+                Interface.tab.closeActual()
+            } else if (Keyboard.keyJustPressed(Keyboard.TAB) || Keyboard.keyJustPressed(Keyboard.PAGE_DOWN)) {
+                Interface.tab.selectNextTab()
+            } else if (Keyboard.keyJustPressed(Keyboard.PAGE_UP)) {
+                Interface.tab.selectPreviousTab()
             }
         }
 	}
