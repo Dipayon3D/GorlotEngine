@@ -407,9 +407,6 @@ Editor.initialize = function() {
 	Editor.program = null
 	Editor.program_running = null
 
-	// VR effect and controls
-	Editor.vr_controls = new VRControls()
-
 	// Renderer and canvas
 	Editor.renderer = null
 	Editor.canvas = null
