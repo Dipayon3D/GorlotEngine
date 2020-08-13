@@ -294,9 +294,6 @@ include("Editor/UI/Tab/MaterialEditor.js")
 include("Editor/UI/Tab/BlockEditor.js")
 include("Editor/UI/Tab/ShaderMaterialEditor.js")
 
-include("Editor/UI/Panels/EditorPanel.js")
-include("Editor/UI/Panels/BoxGeometryPanel.js")
-
 include("Editor/Tools/TransformControls.js")
 include("Editor/Tools/GizmoMaterial.js")
 include("Editor/Tools/GizmoLineMaterial.js")
