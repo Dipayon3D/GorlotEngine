@@ -1,7 +1,7 @@
 "use strict"
 
 function PositionalAudio(audio) {
-    THREE.PositionalAudio.call(this, PositionalAudio.listener)
+    THREE.PositionalAudio.call(this, AudioEmitter.listener)
 
     this.name = "audio"
     this.type = "PositionalAudio"
@@ -28,9 +28,6 @@ function PositionalAudio(audio) {
 	this.defaultComponents.push(new ElementComponent())
 	this.defaultComponents.push(new AudioComponent())
 }
-
-// Default audio listener
-PositionalAudio.listener = new THREE.AudioListener()
 
 // Super prototypes
 PositionalAudio.prototype = Object.create(THREE.Audio.prototype)

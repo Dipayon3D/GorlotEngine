@@ -5,13 +5,8 @@ function TabGroup(parent)
 	// Parent
     this.parent = (parent !== undefined) ? parent : document.body
 	
-	//ID
-	var id = "tab_group" + TabGroup.id
-	TabGroup.id++
-
 	// Element
 	this.element = document.createElement("div")
-	this.element.id = id
 	this.element.style.position = "absolute"
 	this.element.style.overflow = "hidden"
 	this.element.style.backgroundColor = Editor.theme.panel_color
@@ -63,9 +58,6 @@ function TabGroup(parent)
 	//Add element to document
 	this.parent.appendChild(this.element)
 }
-
-// TabGroup counter
-TabGroup.id = 0
 
 // Button alignment
 TabGroup.TOP = 0

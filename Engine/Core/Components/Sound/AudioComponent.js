@@ -33,6 +33,20 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.form.addText(this.component_name)
 	this.form.nextRow()
 
+	// Playback Rate
+	this.form.addText("Playback Speed")
+	this.playbackRate = new NumberBox(this.form.element)
+	this.playbackRate.size.set(60, 18)
+	this.playbackRate.setStep(0.01)
+	this.playbackRate.setRange(0, Number.MAX_SAFE_INTEGER)
+	this.playbackRate.setOnChange(() => {
+		if (self.obj !== null) {
+			self.obj.playbackRate = self.playbackRate.getValue()
+		}
+	})
+	this.form.add(this.playbackRate)
+	this.form.nextRow()
+
 	// Auto play
 	this.autoplay = new CheckBox(this.form.element)
 	this.autoplay.setText("Autoplay")
@@ -55,20 +69,6 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 		}
 	})
 	this.form.add(this.loop)
-	this.form.nextRow()
-
-	// Playback Rate
-	this.form.addText("Playback Speed")
-	this.playbackRate = new NumberBox(this.form.element)
-	this.playbackRate.size.set(60, 18)
-	this.playbackRate.setStep(0.01)
-	this.playbackRate.setRange(0, Number.MAX_SAFE_INTEGER)
-	this.playbackRate.setOnChange(() => {
-		if (self.obj !== null) {
-			self.obj.playbackRate = self.playbackRate.getValue()
-		}
-	})
-	this.form.add(this.playbackRate)
 	this.form.nextRow()
 
 	// Set position and update interface

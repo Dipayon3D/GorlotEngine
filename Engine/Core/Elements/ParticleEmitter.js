@@ -48,6 +48,10 @@ function ParticleEmitter(group, emitter)
 			},
 			maxParticleCount: 2000,
 			blending: THREE.AdditiveBlending,
+            fog: true,
+            depthWrite: false,
+            depthTest: true,
+            transparent : false,
 			hasPerspective: true
 		});
 	}
@@ -69,14 +73,14 @@ function ParticleEmitter(group, emitter)
 
 			maxAge:
 			{
-				value: 2,
+				value: 3,
 				spread: 0
 			},
 
 			velocity:
 			{
 				value: new THREE.Vector3(0, 25, 0),
-				spread: new THREE.Vector3(10, 7.5, 10)
+				spread: new THREE.Vector3(10, 10, 10)
 			},
 
 			acceleration:
@@ -137,10 +141,22 @@ ParticleEmitter.prototype.updateNodes = function(nodes) {
 //Dispose particle emitter
 ParticleEmitter.prototype.dispose = function()
 {
+    this.group.texture.dispose()
+
 	for(var i = 0; i < this.children.length; i++)
 	{
 		this.children[i].dispose();
 	}
+}
+
+// Update Matrix World
+ParticleEmitter.prototype.updateMatrix = function() {
+    this.matrix.makeRotationFromQuaternion(this.quaternion)
+    this.matrix.scale(this.scale)
+    this.matrix.setPosition(this.position)
+    //this.emitter.position.value = this.position
+
+    this.matrixWorldNeedsUpdate = true
 }
 
 // JSON serialiser

@@ -8,7 +8,9 @@ Editor.componentManager = []
 // NWJS Modules
 try {
 	Editor.fs = require("fs")
+    Editor.os = require('os')
 	Editor.gui = require("nw.gui")
+
 	Editor.clipboard = Editor.gui.Clipboard.get()
 	Editor.args = Editor.gui.App.argv
 } catch(e) {
@@ -291,6 +293,9 @@ include("Editor/UI/Tab/AboutTab.js")
 include("Editor/UI/Tab/MaterialEditor.js")
 include("Editor/UI/Tab/BlockEditor.js")
 include("Editor/UI/Tab/ShaderMaterialEditor.js")
+
+include("Editor/UI/Panels/EditorPanel.js")
+include("Editor/UI/Panels/BoxGeometryPanel.js")
 
 include("Editor/Tools/TransformControls.js")
 include("Editor/Tools/GizmoMaterial.js")
@@ -723,6 +728,7 @@ Editor.render = function()
 			renderer.setScissor(offset, 10, width, height)
 			renderer.clear()
 
+            // Preview selected camera
 			if (Editor.selected_object instanceof THREE.Camera) {
 				var camera = Editor.selected_object
 				camera.aspect = width / height
@@ -732,7 +738,9 @@ Editor.render = function()
 				renderer.setScissor(offset + width * camera.offset.x, 10 + height * camera.offset.y, width * camera.viewport.x, height * camera.viewport.y)
 
 				renderer.render(Editor.program.scene, camera)
-			} else {
+			}
+            // Preview all the cameras in use
+            else {
 				var scene = Editor.program.scene
 				for(var i = 0; i < scene.cameras.length; i++) {
 					var camera = scene.cameras[i]
@@ -855,6 +863,7 @@ Editor.copyObject = function(obj)
 	}
 	else if(Editor.selected_object !== null && !(Editor.selected_object instanceof Program || Editor.selected_object instanceof Scene))
 	{
+        // If no object is passed, copy selected object
 		if(Editor.clipboard !== undefined)
 		{
 			Editor.clipboard.set(JSON.stringify(Editor.selected_object.toJSON()), "text")
@@ -1159,26 +1168,29 @@ Editor.selectObjectHelper = function() {
 			Editor.object_helper.add(new THREE.CameraHelper(Editor.selected_object))
 			Editor.object_helper.add(new ObjectIconHelper(Editor.selected_object, Interface.file_dir + "Icons/Camera/Camera.png"))
 		}
-		// Directional light
-		else if(Editor.selected_object instanceof THREE.DirectionalLight) {
-			Editor.object_helper.add(new THREE.DirectionalLightHelper(Editor.selected_object, 1))
-		}
-		// Point light
-		else if(Editor.selected_object instanceof THREE.PointLight) {
-			Editor.object_helper.add(new THREE.PointLightHelper(Editor.selected_object, 1))
-		}
-        // RectArea Light
-        else if(Editor.selected_object instanceof THREE.RectAreaLight) {
-            Editor.object_helper.add(new RectAreaLightHelper(Editor.selected_object))
+        // Light
+        else if(Editor.selected_object instanceof THREE.Light) {
+            // Directional light
+            if(Editor.selected_object instanceof THREE.DirectionalLight) {
+                Editor.object_helper.add(new THREE.DirectionalLightHelper(Editor.selected_object, 1))
+            }
+            // Point light
+            else if(Editor.selected_object instanceof THREE.PointLight) {
+                Editor.object_helper.add(new THREE.PointLightHelper(Editor.selected_object, 1))
+            }
+            // RectArea Light
+            else if(Editor.selected_object instanceof THREE.RectAreaLight) {
+                Editor.object_helper.add(new RectAreaLightHelper(Editor.selected_object))
+            }
+            // Spot light
+            else if(Editor.selected_object instanceof THREE.SpotLight) {
+                Editor.object_helper.add(new THREE.SpotLightHelper(Editor.selected_object))
+            }
+            // Hemisphere light
+            else if(Editor.selected_object instanceof THREE.HemisphereLight) {
+                Editor.object_helper.add(new THREE.HemisphereLightHelper(Editor.selected_object, 1))
+            }
         }
-		// Spot light
-		else if(Editor.selected_object instanceof THREE.SpotLight) {
-			Editor.object_helper.add(new THREE.SpotLightHelper(Editor.selected_object))
-		}
-		// Hemisphere light
-		else if(Editor.selected_object instanceof THREE.HemisphereLight) {
-			Editor.object_helper.add(new THREE.HemisphereLightHelper(Editor.selected_object, 1))
-		}
 		// Particle
 		else if(Editor.selected_object instanceof ParticleEmitter) {
 			Editor.object_helper.add(new ParticleEmitterHelper(Editor.selected_object))
@@ -1188,18 +1200,16 @@ Editor.selectObjectHelper = function() {
 			Editor.object_helper.add(new PhysicsObjectHelper(Editor.selected_object))
 		}
 		// Scripts
-		else if (Editor.selected_object instanceof Script || Editor.selected_object instanceof AudioEmitter || Editor.selected_object instanceof BlockScript) {
+		else if (Editor.selected_object instanceof Script || Editor.selected_object instanceof THREE.Audio || Editor.selected_object instanceof BlockScript) {
 			Editor.object_helper.add(new ObjectIconHelper(Editor.selected_object, ObjectIcons.get(Editor.selected_object.type)))
 		}
 		// Animated Mesh
 		else if (Editor.selected_object instanceof THREE.SkinnedMesh) {
-			Editor.object_helper.add(new BoundingBoxHelper(Editor.selected_object, 0xFFFF00))
-			Editor.object_helper.add(new WireframeHelper(Editor.selected_object))
+            Editor.object_helper.add(new WireframeHelper(Editor.selected_object, 0xFFFF00))
 			Editor.object_helper.add(new THREE.SkeletonHelper(Editor.selected_object))
 		}
 		// Mesh
 		else if (Editor.selected_object instanceof THREE.Mesh) {
-			Editor.object_helper.add(new BoundingBoxHelper(Editor.selected_object, 0xFFFF00))
 			Editor.object_helper.add(new WireframeHelper(Editor.selected_object))
 		}
 		// Object Caller
