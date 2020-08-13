@@ -164,6 +164,11 @@ include("Engine/Core/Components/Lights/LightComponent.js")
 include("Engine/Core/Components/Lights/SkyComponent.js")
 
 include("Engine/Core/Components/Geometry/GeometryForm.js")
+include("Engine/Core/Components/Geometry/BoxGeometryComponent.js")
+include("Engine/Core/Components/Geometry/ConeGeometryComponent.js")
+include("Engine/Core/Components/Geometry/PlaneGeometryComponent.js")
+include("Engine/Core/Components/Geometry/SphereGeometryComponent.js")
+include("Engine/Core/Components/Geometry/TorusGeometryComponent.js")
 
 // Nodes
 include("Engine/Core/Nodes/Register.js")

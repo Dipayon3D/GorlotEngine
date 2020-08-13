@@ -3,7 +3,7 @@
 function GeometryForm() {
     Component.call(this)
 
-    this.component_name = "GeometryForm"
+    this.component_name = "Geometry Form"
     this.className = "GeometryForm"
 
     this.values = {
@@ -38,9 +38,15 @@ GeometryForm.prototype.initUI = function(pos, obj) {
         var geometry = obj.geometry
 
         if(geometry instanceof THREE.BoxGeometry || geometry instanceof THREE.BoxBufferGeometry) {
-        } else {
-            this.form.addText("This component can only be added in \"Box\" geometries.")
-            this.form.nextRow()
+            new BoxGeometryComponent(this.form, this.obj)
+        } else if(geometry instanceof THREE.ConeGeometry || geometry instanceof THREE.ConeBufferGeometry) {
+            new ConeGeometryComponent(this.form, this.obj)
+        } else if(geometry instanceof THREE.PlaneGeometry || geometry instanceof THREE.PlaneBufferGeometry) {
+            new PlaneGeometryComponent(this.form, this.obj)
+        } else if(geometry instanceof THREE.SphereGeometry || geometry instanceof THREE.SphereBufferGeometry) {
+            new SphereGeometryComponent(this.form, this.obj)
+        } else if(geometry instanceof THREE.TorusGeometry || geometry instanceof THREE.TorusBufferGeometry) {
+            new TorusGeometryComponent(this.form, this.obj)
         }
     } else {
         this.form.addText("This component can only be added in Meshes")
@@ -52,7 +58,6 @@ GeometryForm.prototype.initUI = function(pos, obj) {
     this.form.updateInterface()
 
     this.widgetsPos.y += this.form.size.y
-    this.addResetButton()
     this.addDeleteButton()
 
     return this.element
