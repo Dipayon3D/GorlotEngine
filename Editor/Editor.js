@@ -163,6 +163,8 @@ include("Engine/Core/Components/Cameras/CameraComponent.js")
 include("Engine/Core/Components/Lights/LightComponent.js")
 include("Engine/Core/Components/Lights/SkyComponent.js")
 
+include("Engine/Core/Components/Geometry/GeometryForm.js")
+
 // Nodes
 include("Engine/Core/Nodes/Register.js")
 include("Engine/Core/Nodes/NodesHelper.js")
@@ -320,6 +322,8 @@ include("Editor/History/Action.js")
 include("Editor/DragBuffer.js")
 include("Editor/Interface.js")
 include("Editor/Settings.js")
+
+include("Editor/ComponentManager.js")
 
 // Editor state
 Editor.STATE_IDLE = 8

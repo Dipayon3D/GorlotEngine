@@ -7,6 +7,7 @@ function AudioComponent() {
 	this.className = "AudioComponent"
 
 	this.values = {
+        static: false,
 		autoplay: true,
 		loop: true,
 		playbackRate: 1
@@ -32,6 +33,18 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	// Displays this component name
 	this.form.addText(this.component_name)
 	this.form.nextRow()
+
+    // Static
+    this.static = new CheckBox(this.form.element)
+    this.static.setText("Static Object")
+    this.static.size.set(200, 15)
+    this.static.setOnChange(() => {
+        if(this.obj !== null) {
+            self.obj.matrixAutoUpdate = !(self.static.getValue())
+        }
+    })
+    this.form.add(this.static)
+    this.form.nextRow()
 
 	// Playback Rate
 	this.form.addText("Playback Speed")
@@ -82,12 +95,14 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 }
 
 AudioComponent.prototype.updateData = function() {
+    this.static.setValue(this.obj.matrixAutoUpdate)
 	this.autoplay.setValue(this.obj.autoplay)
 	this.loop.setValue(this.obj.loop)
 	this.playbackRate.setValue(this.obj.playbackRate)
 }
 
 AudioComponent.prototype.onReset = function() {
+    this.obj.matrixAutoUpdate = this.values.static
 	this.obj.autoplay = this.values.autoplay
 	this.obj.loop = this.values.loop
 	this.obj.playbackRate = this.values.playbackRate

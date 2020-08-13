@@ -29,9 +29,6 @@ function Panel(parent) {
 	this.position = new THREE.Vector2(0, 0)
 	this.visible = true
 
-    // Self pointer
-    var self = this
-
     // Mouse inside panel
     this.focused = false
 
@@ -69,6 +66,8 @@ Panel.prototype.attachObject = function(obj) {
 	if (obj instanceof THREE.Object3D) {
 		this.obj = obj
 		this.updateComponents()
+
+        var self = this
 
 		// Add component
 		this.add = new Button(this.element)

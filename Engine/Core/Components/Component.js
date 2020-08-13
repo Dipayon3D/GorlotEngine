@@ -42,7 +42,17 @@ Component.prototype.addResetButton = function() {
 }
 
 Component.prototype.onDelete = function() {
+    // By default, simply deletes the component
+    if(this.obj !== null) {
+        for(var i = 0; i < this.obj.components.length; i++) {
+            if(this.obj.components[i] === this) {
+                this.obj.components.splice(i, 1)
+            }
+        }
 
+        this.clearElement()
+        Interface.panel.updateComponents()
+    }
 }
 
 Component.prototype.onReset = function() {
