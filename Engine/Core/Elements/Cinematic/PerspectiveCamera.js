@@ -67,7 +67,7 @@ PerspectiveCamera.prototype.updateProjectionMatrix = function() {
 		left += this.near * this.filmOffset / this.getFilmWidth()
 	}
 
-    this.projectionMatrix.makeFrustum(left, left + width, top - height, top, this.near, this.far)
+    this.projectionMatrix.makePerspective(left, left + width, top, top - height, this.near, this.far)
     //this.projectionMatrix.makePerspective(left, left + width, top, top - height, this.near, this.far);
 }
 
