@@ -2,7 +2,12 @@
 
 function GorlotApp(canvas) {
 
+    // Program and renderer
 	this.program = null
+    this.renderer = null
+
+    // Fullscreen control
+    this.fullscreen = false
 
 	// Create canvas
 	if(canvas === undefined) {
@@ -32,18 +37,7 @@ function GorlotApp(canvas) {
             canvas.webkitRequestPointLock()
         }
     }
-
-	// WebGL renderer
-	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, antialias: true})
-	this.renderer.autoClear = false
-	this.renderer.shadowMap.enabled = true
-	this.renderer.shadowMap.type = THREE.PCFShadowMap
-	this.renderer.setPixelRatio(window.devicePixelRatio || 1.0)
-	this.renderer.setSize(this.canvas.width, this.canvas.height)
 }
-
-// Fullscreen control
-GorlotApp.fullscreen = false
 
 // Load program from file
 GorlotApp.prototype.loadProgram = function(fname) {
@@ -59,6 +53,13 @@ GorlotApp.prototype.run = function() {
 		console.warn("GorlotApp: No program is loaded")
 		return
 	}
+
+    // WebGL Renderer
+    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true })
+    this.renderer.autoClear = false
+    this.renderer.shadowMap.enabled = true
+    this.renderer.shadowMap.type = THREE.PCFShadowMap
+    this.renderer.setSize(this.canvas.width, this.canvas.height)
 
 	// Mouse and keyboard input
 	Keyboard.initialize()
@@ -128,9 +129,10 @@ GorlotApp.prototype.exit = function() {
 	}
 
     // If running on nwjs close all windows
-	if (GorlotApp.gui !== undefined) {
-		GorlotApp.gui.App.closeAllWindows()
-		GorlotApp.gui.App.quit()
+    var ui = require("nw.gui")
+	if (gui !== undefined) {
+		gui.App.closeAllWindows()
+		gui.App.quit()
 	}
 }
 
@@ -143,7 +145,7 @@ GorlotApp.prototype.resize = function() {
 		this.canvas.height = window.innerHeight
 	}
 
-	if (this.renderer !== null && this.renderer !== undefined) {
+	if (this.program !== null && this.renderer !== null) {
 		this.renderer.setSize(this.canvas.width, this.canvas.height)
 		this.program.resize(this.canvas.width, this.canvas.height)
 	}
@@ -160,10 +162,10 @@ GorlotApp.prototype.setOnExit = function(callback) {
 }
 
 // Set fullscreen mode
-GorlotApp.setFullscreen = function(fullscreen, element) {
-	GorlotApp.fullscreen = fullscreen
+GorlotApp.prototype.setFullscreen = function(fullscreen, element) {
+	this.fullscreen = fullscreen
 
-	if(fullscreen) {
+	if(this.fullscreen) {
 		if(element === undefined) {
 			element = document.body
 		}

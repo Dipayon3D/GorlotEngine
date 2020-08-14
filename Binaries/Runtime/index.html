@@ -30,10 +30,10 @@
 			// Fullscreen
 			function toggleFullscreen() {
                 if (GorlotApp.fullscreen) {
-                    GorlotApp.setFullscreen(false)
+                    app.setFullscreen(false)
 					app.resize()
 				} else {
-					Runtime.setFullscreen(true)
+					app.setFullscreen(true)
 					app.resize()
 				}
 			}
@@ -44,9 +44,9 @@
                     vr = !vr
 
                     if(vr) {
-                        GorlotApp.program.displayVR()
+                        app.program.displayVR()
                     } else {
-                        GorlotApp.program.exitVR()
+                        app.program.exitVR()
                     }
                 }
 			}
