@@ -12,4 +12,5 @@ V 0.0.1-alpha
 	First sight upon the Blocks system
 	Blocks Editor
 	50+ New Blocks
-	Added program.sendDataApp and app.setOnDataReceived for communication
+	Geometry modifier
+	Camera draw order

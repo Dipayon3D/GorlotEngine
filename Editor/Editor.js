@@ -463,7 +463,7 @@ Editor.initialize = function() {
 
 	// Editor Camera
 	Editor.camera_mode = Editor.CAMERA_PERSPECTIVE
-	Editor.camera_rotation = new Vector2(0, 0)
+	Editor.camera_rotation = new THREE.Vector2(0, 0)
 	Editor.setCameraMode(Editor.CAMERA_PERSPECTIVE)
 
 	// Check if some .isp is passed as argument

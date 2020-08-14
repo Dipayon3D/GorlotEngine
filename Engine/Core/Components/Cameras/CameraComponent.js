@@ -5,11 +5,13 @@ function CameraComponent() {
 
 	this.component_name = "Camera"
 	this.className = "CameraComponent"
+    this.scene = null
 
 	this.values = {
 		fov: 60,
-		default: false,
+		use: false,
 		near: 0.1,
+        offset: [0,0],
 		far: 100000,
 		size: 3,
 		mode: 0,
@@ -31,6 +33,7 @@ CameraComponent.prototype.initUI = function(pos, obj) {
 	// Self pointer
 	var self = this
 	this.obj = obj
+    this.scene = ObjectUtils.getScene(this.obj)
 
 	// Form
 	this.form = new Form(this.element)
@@ -173,24 +176,36 @@ CameraComponent.prototype.initUI = function(pos, obj) {
 	this.form.add(this.clear_depth)
 	this.form.nextRow()
 
-	// Select camera as scene default
-	this.default = new CheckBox(this.form.element)
-	this.default.setText("Use camera")
-	this.default.size.set(200, 15)
-	this.default.setOnChange(() => {
-		if (self.obj !== null) {
-			var scene = ObjectUtils.getScene(self.obj)
-			if (scene !== null) {
-				if (self.default.getValue()) {
-					scene.addCamera(self.obj)
-				} else {
-					scene.removeCamera(self.obj)
-				}
-			}
+	// Camera used
+	this.use = new CheckBox(this.form.element)
+	this.use.setText("Use camera")
+	this.use.size.set(200, 15)
+	this.use.setOnChange(() => {
+		if (self.obj !== null && self.scene !== null) {
+            if (self.use.getValue()) {
+                self.scene.addCamera(self.obj)
+            } else {
+                self.scene.removeCamera(self.obj)
+            }
 		}
 	})
-	this.form.add(this.default)
+	this.form.add(this.use)
 	this.form.nextRow()
+
+    // Order
+    this.form.addText("Draw Order")
+    this.order = new NumberBox(this.form.element)
+    this.order.size.set(80, 18)
+    this.order.setRange(0, Number.MAX_SAFE_INTEGER)
+    this.order.setStep(1)
+    this.order.setOnChange(() => {
+        if(self.obj !== null && self.scene !== null) {
+            self.obj.order = self.order.getValue()
+            self.scene.updateCameraOrder()
+        }
+    })
+    this.form.add(this.order)
+    this.form.nextRow()
 
 	this.form.position.copy(this.widgetsPos)
 	this.form.updateInterface()
@@ -218,7 +233,8 @@ CameraComponent.prototype.updateData = function() {
 	this.clear_color.setValue(this.obj.clear_color)
 	this.clear_depth.setValue(this.obj.clear_depth)
 
-	this.default.setValue(ObjectUtils.getScene(this.obj).cameras.indexOf(this.obj) !== -1)
+    this.order.setValue(this.obj.order)
+    this.use.setValue(this.scene.cameras.indexOf(this.obj) !== -1)
 }
 
 CameraComponent.prototype.onReset = function() {
@@ -238,12 +254,11 @@ CameraComponent.prototype.onReset = function() {
 	this.obj.clear_color = this.values.clearColor
 	this.obj.clear_depth = this.values.clearDepth
 
-	var scene = ObjectUtils.getScene(this.obj)
-	if (scene !== null) {
+	if (this.scene !== null) {
 		// By default there is no initial camera
-		var index = scene.cameras.indexOf(this.obj)
-		if (index > -1) {
-			scene.cameras.splice(index, 1)
+		var index = this.scene.cameras.indexOf(this.obj)
+		if (index !== -1) {
+            this.scene.removeCamera(this.obj)
 		}
 	}
 
