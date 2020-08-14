@@ -8,6 +8,7 @@ function GorlotApp(canvas) {
 
     // Fullscreen control
     this.fullscreen = false
+    this.vr = false
 
 	// Create canvas
 	if(canvas === undefined) {
@@ -42,8 +43,23 @@ function GorlotApp(canvas) {
 // Load program from file
 GorlotApp.prototype.loadProgram = function(fname) {
 	var loader = new ObjectLoader()
-	var data = JSON.parse(FileSystem.readFile(fname))
-	this.program =  loader.parse(data)
+    var data = FileSystem.readFile(fname)
+    this.program = loader.parse(JSON.parse(data))
+}
+
+// Load and run program (async)
+GorlotApp.prototype.loadRunProgram = function(fname, callback) {
+    var loader = new ObjectLoader()
+    var app = this
+
+    FileSystem.readFile(fname, false, (data) => {
+        app.program = loader.parse(JSON.parse(data))
+        app.run()
+
+        if(callback !== undefined) {
+            callback()
+        }
+    })
 }
 
 // Start Gorlot program
@@ -161,9 +177,33 @@ GorlotApp.prototype.setOnExit = function(callback) {
 	this.onExit = callback
 }
 
+// Check if VR is available
+GorlotApp.prototype.vrAvailable = function() {
+    return this.program.vr && GORLOT.WebVRAvailable()
+}
+
+// Toggle VR
+GorlotApp.prototype.toggleVR = function() {
+    if(this.program.vr) {
+        if(this.vr) {
+            this.program.exitVR()
+            this.vr = false
+        } else {
+            this.program.displayVR()
+            this.vr = true
+        }
+    } else {
+        console.warn("GorlotApp: Loaded program is not VR enabled")
+    }
+}
+
 // Set fullscreen mode
 GorlotApp.prototype.setFullscreen = function(fullscreen, element) {
-	this.fullscreen = fullscreen
+    if(fullscreen !== undefined) {
+        this.fullscreen = fullscreen
+    } else {
+        this.fullscreen = !this.fullscreen
+    }
 
 	if(this.fullscreen) {
 		if(element === undefined) {
