@@ -46,15 +46,6 @@ include("Engine/Libraries/litegraph/litegraph.js")
 include("Engine/Core/Global.js")
 include("Engine/Core/FileSystem.js")
 
-include("Engine/Core/THREE/Object3D.js")
-include("Engine/Core/THREE/Vector3.js")
-include("Engine/Core/THREE/Vector2.js")
-include("Engine/Core/THREE/Texture.js")
-include("Engine/Core/THREE/LightShadow.js")
-include("Engine/Core/THREE/Fog.js")
-include("Engine/Core/THREE/Material.js")
-include("Engine/Core/THREE/MultiMaterial.js")
-
 include("Engine/Input/Key.js")
 include("Engine/Input/Keyboard.js")
 include("Engine/Input/Mouse.js")
@@ -174,6 +165,16 @@ include("Engine/Core/Components/Geometry/SphereGeometryComponent.js")
 include("Engine/Core/Components/Geometry/TorusGeometryComponent.js")
 include("Engine/Core/Components/Geometry/CylinderGeometryComponent.js")
 include("Engine/Core/Components/Geometry/TetrahedronGeometryComponent.js")
+
+// THREE Modifiers
+include("Engine/Core/THREE/Object3D.js")
+include("Engine/Core/THREE/Vector3.js")
+include("Engine/Core/THREE/Vector2.js")
+include("Engine/Core/THREE/Texture.js")
+include("Engine/Core/THREE/LightShadow.js")
+include("Engine/Core/THREE/Fog.js")
+include("Engine/Core/THREE/Material.js")
+include("Engine/Core/THREE/MultiMaterial.js")
 
 // Nodes
 include("Engine/Core/Nodes/Register.js")

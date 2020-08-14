@@ -3,6 +3,15 @@
 //Folded attribute
 THREE.Object3D.prototype.folded = false
 
+// Components
+THREE.Object3D.prototype.components = []
+THREE.Object3D.prototype.defaultComponents = []
+
+if (THREE.Object3D.prototype.defaultComponents.length === 0) {
+    THREE.Object3D.prototype.defaultComponents.push(new ElementComponent())
+    THREE.Object3D.prototype.defaultComponents.push(new ObjectComponent())
+}
+
 //Hidden attribute (hidden objects are not serialised and dont show up in the editor)
 THREE.Object3D.prototype.hidden = false
 
