@@ -39,6 +39,7 @@ function TextureBox(parent)
 	this.video = document.createElement("video")
 	this.video.autoplay = true
 	this.video.loop = true
+	this.video.volume = true
 	this.video.style.pointerEvents = "none"
 	this.video.style.position = "absolute"
 	this.video.style.left = "0px"
