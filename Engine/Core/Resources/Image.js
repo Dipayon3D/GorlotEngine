@@ -28,7 +28,7 @@ GORLOT.Image = function(url)
 
 			this.encoding = "jpeg"
 			this.format = "base64"
-			this.data = canvas.toDataURL("image/jpeg", 0.8)
+			this.data = canvas.toDataURL("image/jpeg", 0.9)
 		} else {
 			this.format = "url"
 			this.data = url
@@ -77,7 +77,7 @@ GORLOT.Image.prototype.encodeData = function()
         {
             this.format = "base64"
             this.encoding = "jpeg"
-            this.data = canvas.toDataURL("image/jpeg", 0.8)
+            this.data = canvas.toDataURL("image/jpeg", 0.9)
         }
     }
 }

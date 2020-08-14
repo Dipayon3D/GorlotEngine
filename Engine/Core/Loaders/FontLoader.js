@@ -12,7 +12,7 @@ FontLoader.fileIsFont = function(fname) {
 
 FontLoader.prototype.load = function(url, onLoad, onProgress, onError)
 {
-	var loader = new THREE.XHRLoader(this.manager);
+	var loader = new THREE.FileLoader(this.manager);
 	loader.load(url, function(text)
 	{
 		onLoad(new Font(JSON.parse(text)));

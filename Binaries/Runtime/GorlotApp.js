@@ -40,15 +40,8 @@ function GorlotApp(canvas) {
     }
 }
 
-// Load program from file
-GorlotApp.prototype.loadProgram = function(fname) {
-	var loader = new ObjectLoader()
-    var data = FileSystem.readFile(fname)
-    this.program = loader.parse(JSON.parse(data))
-}
-
 // Load and run program (async)
-GorlotApp.prototype.loadRunProgram = function(fname, callback) {
+GorlotApp.prototype.loadRunProgram = function(fname, onLoad, onProgress) {
     var loader = new ObjectLoader()
     var app = this
 
@@ -56,10 +49,17 @@ GorlotApp.prototype.loadRunProgram = function(fname, callback) {
         app.program = loader.parse(JSON.parse(data))
         app.run()
 
-        if(callback !== undefined) {
-            callback()
+        if(onLoad !== undefined) {
+            onLoad()
         }
-    })
+    }, onProgress)
+}
+
+// Load program from file
+GorlotApp.prototype.loadProgram = function(fname) {
+    var loader = new ObjectLoader()
+    var data = FileSystem.readFile(fname)
+    this.program = loader.parse(JSON.parse(data))
 }
 
 // Start Gorlot program

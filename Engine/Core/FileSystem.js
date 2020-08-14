@@ -7,7 +7,7 @@ try {
 } catch(e) {}
 
 // Read text file
-FileSystem.readFile = function(fname, sync, callback) {
+FileSystem.readFile = function(fname, sync, onLoad, onProgress) {
 	if (sync === undefined) {
 		sync = true
 	}
@@ -17,7 +17,7 @@ FileSystem.readFile = function(fname, sync, callback) {
 		if (sync) {
 			return FileSystem.fs.readFileSync(fname, "utf8")
 		} else {
-			FileSystem.fs.readFile(fname, "utf8", callback)
+			FileSystem.fs.readFile(fname, "utf8", onLoad)
 		}
 	} else {
 		var file = new XMLHttpRequest()
@@ -25,11 +25,18 @@ FileSystem.readFile = function(fname, sync, callback) {
 		file.open("GET", fname, !sync)
 		file.onload = function() {
 			if (file.status === 200 || file.status === 0) {
-				if (callback !== undefined) {
-					callback(file.responseText)
+				if (onLoad !== undefined) {
+					onLoad(file.responseText)
 				}
 			}
 		}
+
+        if(onProgress !== undefined) {
+            file.onProgress = (event) => {
+                onProgress(event)
+            }
+        }
+
 		file.send(null)
 
 		return file.responseText
