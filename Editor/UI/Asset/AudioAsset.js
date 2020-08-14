@@ -23,8 +23,11 @@ function AudioAsset(parent) {
 
 		context.addOption("Rename", () => {
 			if (self.audio !== null) {
-				self.audio.name = prompt("Rename audio", self.audio.name)
-				Editor.updateObjectViews()
+                var name = prompt("Rename audio", self.audio.name)
+                if(name !== null && name !== "") {
+                    self.audio.name = name
+                    Editor.updateObjectViews()
+                }
 			}
 		})
 

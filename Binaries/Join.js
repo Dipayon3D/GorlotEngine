@@ -96,9 +96,12 @@ include("Engine/Core/Elements/Physics/PhysicsObject.js")
 include("Engine/Core/Elements/Spine/SpineAnimation.js")
 include("Engine/Core/Elements/Spine/SpineTexture.js")
 
-include("Engine/Core/Elements/Bone.js")
-include("Engine/Core/Elements/Empty.js")
-include("Engine/Core/Elements/ParticleEmitter.js")
+include("Engine/Core/Elements/Animation/Bone.js")
+
+include("Engine/Core/Elements/Misc/Empty.js")
+
+include("Engine/Core/Elements/Particle/ParticleEmitter.js")
+
 include("Engine/Core/Elements/Program.js")
 include("Engine/Core/Elements/Scene.js")
 

@@ -23,8 +23,11 @@ function FontAsset(parent) {
 
 		context.addOption("Rename", () => {
 			if (self.font !== null) {
-				self.font.name = prompt("Rename font", self.font.name)
-				Editor.updateObjectViews()
+                var name = prompt("Rename font", self.obj.name)
+                if(name !== null && name !== "") {
+                    self.font.name = name
+                    Editor.updateObjectViews()
+                }
 			}
 		})
 

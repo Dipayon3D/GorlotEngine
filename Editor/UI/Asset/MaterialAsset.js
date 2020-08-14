@@ -71,9 +71,12 @@ function MaterialAsset(parent) {
 		
 		context.addOption("Rename", function() {
 			if(self.material !== null) {
-				self.material.name = prompt("Rename material", self.material.name)
-				self.updateMetadata()
-                Editor.updateTabsData()
+                var name = prompt("Rename material", self.material.name)
+                if(name !== null && name !== "") {
+                    self.material.name = name
+                    self.updateMetadata()
+                    Editor.updateTabsData()
+                }
 			}
 		})
 		

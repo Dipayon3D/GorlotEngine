@@ -24,9 +24,12 @@ function BlockAsset(parent) {
 
 		context.addOption("Rename", () => {
 			if (self.blocks !== null) {
-				self.blocks.name = prompt("Rename blocks", self.blocks.name)
-				self.updateMetadata()
-                Editor.updateTabsData()
+                var name = prompt("Rename blocks", self.blocks.name)
+                if(name !== null && name !== "") {
+                    self.blocks.name = name
+                    self.updateMetadata()
+                    Editor.updateTabsData()
+                }
 			}
 		})
 

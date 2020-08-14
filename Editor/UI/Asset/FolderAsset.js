@@ -25,7 +25,7 @@ function FolderAsset(parent, type) {
 			if (self.folder !== null) {
 				var newName = prompt("Rename folder", self.folder.name)
 
-				if(newName !== null) {
+				if(newName !== null && newName !== "") {
 					for(var i = 0; i < Interface.asset_explorer.files.length; i++) {
 						var file = Interface.asset_explorer.files[i]
 	

@@ -114,9 +114,12 @@ include("Engine/Core/Elements/Physics/PhysicsObject.js")
 include("Engine/Core/Elements/Spine/SpineAnimation.js")
 include("Engine/Core/Elements/Spine/SpineTexture.js")
 
-include("Engine/Core/Elements/Bone.js")
-include("Engine/Core/Elements/Empty.js")
-include("Engine/Core/Elements/ParticleEmitter.js")
+include("Engine/Core/Elements/Animation/Bone.js")
+
+include("Engine/Core/Elements/Misc/Empty.js")
+
+include("Engine/Core/Elements/Particle/ParticleEmitter.js")
+
 include("Engine/Core/Elements/Program.js")
 include("Engine/Core/Elements/Scene.js")
 
@@ -535,6 +538,14 @@ Editor.update = function()
 			Editor.deleteObject()
 		} else if(Keyboard.keyJustPressed(Keyboard.F5)) {
             Editor.setState(Editor.STATE_TESTING)
+        } else if(Keyboard.keyJustPressed(Keyboard.F2)) {
+            if(Editor.selected_object !== null) {
+                var name = prompt("Rename object", Editor.selected_object.name)
+                if(name !== null && name !== "") {
+                    Editor.selected_object.name = name
+                    Editor.updateObjectViews()
+                }
+            }
         } else if(Keyboard.keyPressed(Keyboard.CTRL)) {
             if(Interface.panel !== null && !Interface.panel.focused) {
                 if(Keyboard.keyJustPressed(Keyboard.C)) {

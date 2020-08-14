@@ -18,8 +18,11 @@ function TextureAsset(parent) {
 		
 		context.addOption("Rename", function() {
 			if(self.texture !== null) {
-				self.texture.name = prompt("Rename texture", self.texture.name)
-				Editor.updateObjectViews()
+                var name = prompt("Rename texture", self.texture.name)
+                if(name !== null && name !== "") {
+                    self.texture.name = name
+                    Editor.updateObjectViews()
+                }
 			}
 		})
 		

@@ -492,7 +492,7 @@ Interface.initialize = function() {
 	Interface.effects_tab.element.style.backgroundColor = Editor.theme.bar_color
 	Interface.effects_tab.element.style.overflowY = "auto"
 
-	Interface.physics_tab = Interface.left_tabs.addTab("Physics", Interface.file_dir + "Icons/Physics/Physics.png", false)
+	Interface.physics_tab = Interface.left_tabs.addTab("Physics", Interface.file_dir + "Icons/Misc/Physics.png", false)
 	Interface.physics_tab.element.style.backgroundColor = Editor.theme.bar_color
 	Interface.physics_tab.element.style.overflowY = "auto"
 
