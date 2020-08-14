@@ -151,6 +151,7 @@ include("Engine/Core/Components/Geometry/ConeGeometryComponent.js")
 include("Engine/Core/Components/Geometry/PlaneGeometryComponent.js")
 include("Engine/Core/Components/Geometry/SphereGeometryComponent.js")
 include("Engine/Core/Components/Geometry/TorusGeometryComponent.js")
+include("Engine/Core/Components/Geometry/CylinderGeometryComponent.js")
 
 // Nodes
 include("Engine/Core/Nodes/Register.js")

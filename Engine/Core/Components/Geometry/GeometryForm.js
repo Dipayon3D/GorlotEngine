@@ -47,6 +47,8 @@ GeometryForm.prototype.initUI = function(pos, obj) {
             new SphereGeometryComponent(this.form, this.obj)
         } else if(geometry instanceof THREE.TorusGeometry || geometry instanceof THREE.TorusBufferGeometry) {
             new TorusGeometryComponent(this.form, this.obj)
+        } else if(geometry instanceof THREE.CylinderGeometry || geometry instanceof THREE.CylinderBufferGeometry) {
+            new CylinderGeometryComponent(this.form, this.obj)
         }
     } else {
         this.form.addText("This component can only be added in Meshes")
