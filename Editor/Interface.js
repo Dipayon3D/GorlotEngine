@@ -661,7 +661,7 @@ Interface.initialize = function() {
 	tetra.size.set(sizex, 45)
 	tetra.setText("Tetrahedron")
 	tetra.setCallback(() => {
-		var geometry = new THREE.TetrahedronGeometry(1, 0)
+		var geometry = new THREE.TetrahedronBufferGeometry(1, 0)
 		var model = new Mesh(geometry, Editor.default_material)
 		model.name = "tetrahedron"
 		Editor.addToScene(model)
