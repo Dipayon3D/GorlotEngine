@@ -48,7 +48,7 @@ Form.prototype.addText = function(text, width)
 
     if(width === undefined) {
         element.fit_content = false
-        element.size.set(100, 20)
+        element.size.set(200, 20)
     } else {
         element.size.set(width, 20)
     }

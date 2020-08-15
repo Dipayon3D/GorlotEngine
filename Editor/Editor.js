@@ -300,12 +300,15 @@ include("Editor/UI/Theme/ThemeDark.js")
 
 include("Editor/UI/Tab/ScriptEditor.js")
 include("Editor/UI/Tab/SceneEditor.js")
-include("Editor/UI/Tab/SettingsTab.js")
 include("Editor/UI/Tab/ParticleEditor.js")
 include("Editor/UI/Tab/AboutTab.js")
 include("Editor/UI/Tab/MaterialEditor.js")
 include("Editor/UI/Tab/BlockEditor.js")
 include("Editor/UI/Tab/ShaderMaterialEditor.js")
+
+include("Editor/UI/Tab/Settings/SettingsTab.js")
+include("Editor/UI/Tab/Settings/CodeSettingsTab.js")
+include("Editor/UI/Tab/Settings/GeneralSettingsTab.js")
 
 include("Editor/Tools/TransformControls.js")
 include("Editor/Tools/GizmoMaterial.js")
