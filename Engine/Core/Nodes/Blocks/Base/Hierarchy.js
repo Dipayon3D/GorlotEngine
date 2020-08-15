@@ -8,9 +8,6 @@ function GetAllChildrenNode() {
 	this.addOutput("Children", "array")
 }
 GetAllChildrenNode.title = "Get All Children"
-GetAllChildrenNode.collapsable = false
-GetAllChildrenNode.blocks = "Blocks"
-GetAllChildrenNode.prototype.resizable = false
 GetAllChildrenNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GetAllChildrenNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -44,9 +41,6 @@ function GetChildByNameNode() {
 	this.name_widget.width = 120
 }
 GetChildByNameNode.title = "Get Child By Name"
-GetChildByNameNode.collapsable = false
-GetChildByNameNode.blocks = "Blocks"
-GetChildByNameNode.prototype.resizable = false
 GetChildByNameNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GetChildByNameNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -82,9 +76,6 @@ function GetParentNode() {
 	this.addOutput("Parent", "object")
 }
 GetParentNode.title = "Get Parent"
-GetParentNode.collapsable = false
-GetParentNode.blocks = "Blocks"
-GetParentNode.resizable = false
 GetParentNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GetParentNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -113,9 +104,6 @@ function IsChildNode() {
 	this.addOutput("Is Child?", "bool")
 }
 IsChildNode.title = "Is Child"
-IsChildNode.collapsable = false
-IsChildNode.blocks = "Blocks"
-IsChildNode.resizable = false
 IsChildNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 IsChildNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)

@@ -13,8 +13,6 @@ function VariableNode() {
 }
 VariableNode.title = "Variable"
 VariableNode.collapsable = true
-VariableNode.blocks = "Blocks"
-VariableNode.prototype.resizable = false
 VariableNode.LITEGRAPH = 0 // Between all graphs
 VariableNode.GRAPH = 1 // Only inside this graph
 VariableNode.GLOBALSCOPE = 2 // Attached to window

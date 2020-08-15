@@ -5,8 +5,6 @@ function ThisNode() {
 }
 ThisNode.title = "This"
 ThisNode.collapsable = true
-ThisNode.blocks = "Blocks"
-ThisNode.prototype.resizable = false
 ThisNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ThisNode.prototype.onStart = function() {
 	this.setOutputData(2, this.graph.config.self)
@@ -22,7 +20,6 @@ function SceneNode() {
 }
 SceneNode.title = "Scene"
 SceneNode.collapsable = true
-SceneNode.prototype.resizable = false
 SceneNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 SceneNode.prototype.onStart = function() {
     if(this.graph.config.scene !== undefined) {
@@ -40,7 +37,6 @@ function ProgramNode() {
 }
 ProgramNode.title = "Program"
 ProgramNode.collapsable = true
-ProgramNode.prototype.resizable = false
 ProgramNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ProgramNode.prototype.onStart = function() {
     if(this.graph.config.program !== undefined) {
@@ -61,8 +57,6 @@ function GetPositionNode() {
 }
 GetPositionNode.title = "Get Position"
 GetPositionNode.collapsable = true
-GetPositionNode.blocks = "Blocks"
-GetPositionNode.prototype.resizable = false
 GetPositionNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GetPositionNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -91,8 +85,6 @@ function GetRotationNode() {
 }
 GetRotationNode.title = "Get Rotation"
 GetRotationNode.collapsable = true
-GetRotationNode.blocks = "Blocks"
-GetRotationNode.prototype.resizable = false
 GetRotationNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GetRotationNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -121,8 +113,6 @@ function GetScaleNode() {
 }
 GetScaleNode.title = "Get Scale"
 GetScaleNode.collapsable = true
-GetScaleNode.blocks = "Blocks"
-GetScaleNode.prototype.resizable = false
 GetScaleNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GetScaleNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -152,8 +142,6 @@ function SetPositionNode() {
 }
 SetPositionNode.title = "Set Position"
 SetPositionNode.collapsable = true
-SetPositionNode.blocks = "Blocks"
-SetPositionNode.prototype.resizable = false
 SetPositionNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 SetPositionNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -189,8 +177,6 @@ function SetRotationNode() {
 }
 SetRotationNode.title = "Set Rotation"
 SetRotationNode.collapsable = true
-SetRotationNode.blocks = "Blocks"
-SetRotationNode.prototype.resizable = false
 SetRotationNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 SetRotationNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)
@@ -226,8 +212,6 @@ function SetScaleNode() {
 }
 SetScaleNode.title = "Set Scale"
 SetScaleNode.collapsable = true
-SetScaleNode.blocks = "Blocks"
-SetScaleNode.prototype.resizable = false
 SetScaleNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 SetScaleNode.prototype.onAction = function(action, data) {
 	var target = this.getInputData(1)

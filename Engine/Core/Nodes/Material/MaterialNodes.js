@@ -35,9 +35,7 @@ function MaterialNode() {
 	this.addWidget("toggle", "Affected By Fog", this.properties.abf, "abf")
 }
 MaterialNode.title = "Material"
-MaterialNode.collapsable = false
 MaterialNode.skip_list = true
-MaterialNode.prototype.resizable = false
 MaterialNode.prototype.onPropertyChanged = function(n, v) {
 	if (this.graph && this.graph.onNodeConnectionChange) {
 		this.graph.onNodeConnectionChange()
@@ -129,8 +127,6 @@ function MaterialSideNode() {
 	this.sides = this.properties.sides.split(";")
 }
 MaterialSideNode.title = "Side"
-MaterialSideNode.collapsable = true
-MaterialSideNode.prototype.resizable = false
 MaterialSideNode.prototype.onAdded = function() {
 	var self = this
 
@@ -172,8 +168,6 @@ function MaterialDepthTestNode() {
 	this.properties = {test: false}
 }
 MaterialDepthTestNode.title = "Depth Test"
-MaterialDepthTestNode.collapsable = true
-MaterialDepthTestNode.prototype.resizable = false
 MaterialDepthTestNode.prototype.onAdded = function() {
 	this.properties.test = this.graph.extra.material.depthTest
 
@@ -195,8 +189,6 @@ function MaterialAlphaTestNode() {
 	this.properties = {test: false}
 }
 MaterialAlphaTestNode.title = "Alpha Test"
-MaterialAlphaTestNode.collapsable = true
-MaterialAlphaTestNode.prototype.resizable = false
 MaterialAlphaTestNode.prototype.onAdded = function() {
 	this.properties.test = this.graph.extra.material.alphaTest
 
@@ -220,8 +212,6 @@ function MaterialBlendingModeNode() {
 	this.modes = this.properties.modes.split(";")
 }
 MaterialBlendingModeNode.title = "Blending Mode"
-MaterialBlendingModeNode.collapsable = true
-MaterialBlendingModeNode.prototype.resizable = false
 MaterialBlendingModeNode.prototype.onAdded = function() {
 	var self = this
 
@@ -267,8 +257,6 @@ function MaterialSkinningNode() {
 	this.properties = {skinning: false}
 }
 MaterialSkinningNode.title = "Skinning"
-MaterialSkinningNode.collapsable = true
-MaterialSkinningNode.prototype.resizable = false
 MaterialSkinningNode.prototype.onAdded = function() {
 	this.properties.skinning = this.graph.extra.material.skinning
 
@@ -287,8 +275,6 @@ function MaterialMorphTargetsNode() {
 	this.properties = {morphTargets: false}
 }
 MaterialMorphTargetsNode.title = "Morph Targets"
-MaterialMorphTargetsNode.collapsable = true
-MaterialMorphTargetsNode.prototype.resizable = false
 MaterialMorphTargetsNode.prototype.onAdded = function() {
 	this.properties.morphTargets = this.graph.extra.material.morphTargets
 
@@ -307,8 +293,6 @@ function MaterialColourNode() {
 	this.size = [120, 26]
 }
 MaterialColourNode.title = "Colour"
-MaterialColourNode.collapsable = true
-MaterialColourNode.prototype.resizable = false
 MaterialColourNode.prototype.onAdded = function() {
 	this.mat = this.graph.extra.material
 }
@@ -326,8 +310,6 @@ function MaterialMapNode() {
 	this.size = [120, 26]
 }
 MaterialMapNode.title = "Map"
-MaterialMapNode.collapsable = true
-MaterialMapNode.prototype.resizable = false
 MaterialMapNode.prototype.onAdded = function() {
 	this.mat = this.graph.extra.material
 }
@@ -345,8 +327,6 @@ function MaterialAlphaMapNode() {
 	this.size = [120, 26]
 }
 MaterialAlphaMapNode.title = "Alpha Map"
-MaterialAlphaMapNode.collapsable = true
-MaterialAlphaMapNode.prototype.resizable = false
 MaterialAlphaMapNode.prototype.onAdded = function() {
 	this.mat = this.graph.extra.material
 }
@@ -369,8 +349,6 @@ function MaterialShadingNode() {
 	this.serialize_widgets = true
 }
 MaterialShadingNode.title = "Shading"
-MaterialShadingNode.collapsable = true
-MaterialShadingNode.prototype.resizable = false
 MaterialShadingNode.prototype.onAdded = function() {
 	var self = this
 
@@ -407,8 +385,6 @@ function MaterialBumpMapNode() {
 	this.serialize_widgets = true
 }
 MaterialBumpMapNode.title = "Bump"
-MaterialBumpMapNode.collapsable = true
-MaterialBumpMapNode.prototype.resizable = false
 MaterialBumpMapNode.prototype.onAdded = function() {
 	var self = this
 	this.material = this.graph.extra.material
@@ -439,8 +415,6 @@ function MaterialNormalNode() {
 	this.serialize_widgets = true
 }
 MaterialNormalNode.title = "Normal"
-MaterialNormalNode.collapsable = true
-MaterialNormalNode.prototype.resizable = false
 MaterialNormalNode.prototype.onAdded = function() {
 	var self = this
 	this.material = this.graph.extra.material
@@ -474,8 +448,6 @@ function MaterialDisplacementMapNode() {
 	this.serialize_widgets = true
 }
 MaterialDisplacementMapNode.title = "Displacement"
-MaterialDisplacementMapNode.collapsable = true
-MaterialDisplacementMapNode.prototype.resizable = false
 MaterialDisplacementMapNode.prototype.onAdded = function() {
 	var self = this
 	this.material = this.graph.extra.material
@@ -505,8 +477,6 @@ function MaterialSpecularMapNode() {
 	this.addInput("Map", "texture")
 }
 MaterialSpecularMapNode.title = "Specular"
-MaterialSpecularMapNode.collapsable = true
-MaterialSpecularMapNode.prototype.resizable = false
 MaterialSpecularMapNode.prototype.onAdded = function() {
 	this.material = this.graph.extra.material
 }
@@ -528,8 +498,6 @@ function MaterialEmissiveMapNode() {
 	this.serialize_widgets = true
 }
 MaterialEmissiveMapNode.title = "Emissive"
-MaterialEmissiveMapNode.collapsable = true
-MaterialEmissiveMapNode.prototype.resizable = false
 MaterialEmissiveMapNode.prototype.onAdded = function() {
 	this.material = this.graph.extra.material
 
@@ -560,9 +528,7 @@ function MaterialShaderNode() {
 	this.addInput("Uniforms", "json")
 }
 MaterialShaderNode.title = "Shader"
-MaterialShaderNode.collapsable = true
 MaterialShaderNode.skip_list = true
-MaterialShaderNode.prototype.resizable = false
 MaterialShaderNode.prototype.onDblClick = function() {
 	var mat = this.graph.extra.material
 	var file = this.graph.extra.file

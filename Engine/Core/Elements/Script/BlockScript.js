@@ -106,9 +106,9 @@ BlockScript.prototype.initialize = function()
         this.graph.config.program = this.graph.config.scene.parent
     }
 
-	//this.graph.runStep(1)
-
-	setTimeout(() => {self.graph.start()}, 100)
+	this.graph.runStep(1)
+    this.graph.start()
+	//setTimeout(() => {self.graph.start()}, 100)
 	
 	//Initialize children
 	for(var i = 0; i < this.children.length; i++)

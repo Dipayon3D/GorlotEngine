@@ -10,8 +10,6 @@ function ParticlesNode() {
 }
 ParticlesNode.title = "Particles"
 ParticlesNode.skip_list = true
-ParticlesNode.collapsable = false
-ParticlesNode.prototype.resizable = false
 ParticlesNode.prototype.onAdded = function() {
 	var self = this
 	var emitter = this.graph.extra.particles.emitter
@@ -75,8 +73,6 @@ function ParticlesTextureNode() {
 	this.size = [120, 26]
 }
 ParticlesTextureNode.title = "Texture"
-ParticlesTextureNode.collapsable = true
-ParticlesTextureNode.prototype.resizable = false
 ParticlesTextureNode.prototype.onAdded = function() {
 	this.group = this.graph.extra.particles.group
 }
@@ -94,8 +90,6 @@ function ParticlesBlendingModeNode() {
 	this.properties = {blending: "NaN", modes: "None;Normal;Additive;Subtractive;Multiply"}
 }
 ParticlesBlendingModeNode.title = "Blending"
-ParticlesBlendingModeNode.collapsable = true
-ParticlesBlendingModeNode.prototype.resizable = false
 ParticlesBlendingModeNode.prototype.onAdded = function() {
 	this.group = this.graph.extra.particles.group
 	this.blending = this.group.blending
@@ -144,8 +138,6 @@ function ParticlesEmitterTypeNode() {
 	this.properties = {type: "NaN", types: "Box;Sphere;Disc"}
 }
 ParticlesEmitterTypeNode.title = "Emitter Type"
-ParticlesEmitterTypeNode.collapsable = true
-ParticlesEmitterTypeNode.prototype.resizable = false
 ParticlesEmitterTypeNode.prototype.onAdded = function() {
 	this.emitter = this.graph.extra.particles.emitter
 
@@ -182,8 +174,6 @@ function ParticlesMaxAgeNode() {
 	this.properties = {value: 0, spread: 0}
 }
 ParticlesMaxAgeNode.title = "Max Age"
-ParticlesMaxAgeNode.collapsable = true
-ParticlesMaxAgeNode.prototype.resizable = false
 ParticlesMaxAgeNode.prototype.onAdded = function() {
 	this.maxAge = this.graph.extra.particles.emitter.maxAge
 	this.value = this.maxAge.value
@@ -213,8 +203,6 @@ function ParticlesPositionNode() {
 	this.properties = {x: 0, y: 0, z: 0, spreadx: 0, spready: 0, spreadz: 0}
 }
 ParticlesPositionNode.title = "Position"
-ParticlesPositionNode.collapsable = true
-ParticlesPositionNode.prototype.resizable = false
 ParticlesPositionNode.prototype.onAdded = function() {
 	this.position = this.graph.extra.particles.emitter.position
 
@@ -251,8 +239,6 @@ function ParticlesVelocityNode() {
 	this.properties = {x: 0, y: 0, z: 0, spreadx: 0, spready: 0, spreadz: 0}
 }
 ParticlesVelocityNode.title = "Velocity"
-ParticlesVelocityNode.collapsable = true
-ParticlesVelocityNode.prototype.resizable = false
 ParticlesVelocityNode.prototype.onAdded = function() {
 	this.velocity = this.graph.extra.particles.emitter.velocity
 
@@ -290,8 +276,6 @@ function ParticlesAccelerationNode() {
 	this.properties = {x: 0, y: 0, z: 0, spreadx: 0, spready: 0, spreadz: 0}
 }
 ParticlesAccelerationNode.title = "Acceleration"
-ParticlesAccelerationNode.collapsable = true
-ParticlesAccelerationNode.prototype.resizable = false
 ParticlesAccelerationNode.prototype.onAdded = function() {
 	this.acceleration = this.graph.extra.particles.emitter.velocity
 
@@ -328,8 +312,6 @@ function ParticlesWiggleNode() {
 	this.properties = {wiggle: 0, spread: 0}
 }
 ParticlesWiggleNode.title = "Wiggle"
-ParticlesWiggleNode.collapsable = true
-ParticlesWiggleNode.prototype.resizable = false
 ParticlesWiggleNode.prototype.onAdded = function() {
 	this.wiggle = this.graph.extra.particles.emitter.wiggle
 
@@ -354,8 +336,6 @@ function ParticlesOpacityNode() {
 	this.addInput("Spread", "array")
 }
 ParticlesOpacityNode.title = "Opacity"
-ParticlesOpacityNode.collapsable = true
-ParticlesOpacityNode.prototype.resizable = false
 ParticlesOpacityNode.prototype.onAdded = function() {
 	this.opacity = this.graph.extra.particles.emitter.opacity
 }
@@ -377,8 +357,6 @@ function ParticlesScaleNode() {
 	this.addInput("Spread", "array")
 }
 ParticlesScaleNode.title = "Scale"
-ParticlesScaleNode.collapsable = true
-ParticlesScaleNode.prototype.resizable = false
 ParticlesScaleNode.prototype.onAdded = function() {
 	this.scale = this.graph.extra.particles.emitter.size
 }
@@ -400,8 +378,6 @@ function ParticlesRotationNode() {
 	this.addInput("Spread", "array")
 }
 ParticlesRotationNode.title = "Rotation"
-ParticlesRotationNode.collapsable = true
-ParticlesRotationNode.prototype.resizable = false
 ParticlesRotationNode.prototype.onAdded = function() {
 	this.rotation = this.graph.extra.particles.emitter.angle
 }
@@ -423,8 +399,6 @@ function ParticlesColourNode() {
 	this.addInput("Spread", "array")
 }
 ParticlesColourNode.title = "Colour"
-ParticlesColourNode.collapsable = true
-ParticlesColourNode.prototype.resizable = false
 ParticlesColourNode.prototype.onAdded = function() {
 	this.colour = this.graph.extra.particles.emitter.color
 }

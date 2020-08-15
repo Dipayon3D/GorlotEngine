@@ -10,13 +10,12 @@ function VectorNode() {
 	this.addWidget("number", "Y", this.properties.y, "y")
 	this.addWidget("number", "Z", this.properties.z, "z")
 
-	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
 	this.addOutput("", LiteGraph.EVENT)
 	this.addOutput("Vector", "vector")
 }
 VectorNode.title = "Vector"
 VectorNode.collapsable = true
-VectorNode.prototype.resizable = false
 VectorNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 VectorNode.prototype.onAction = function() {
 	this.createVector()
@@ -52,13 +51,12 @@ function VectorThreeToTwoNode() {
 	this.addInput("", LiteGraph.ACTION)
 	this.addInput("Vector", "vector")
 
-	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
 	this.addOutput("", LiteGraph.EVENT)
 	this.addOutput("Vector", "vector")
 }
 VectorThreeToTwoNode.title = "Vector3 To Vector2"
 VectorThreeToTwoNode.collapsable = true
-VectorThreeToTwoNode.prototype.resizable = false
 VectorThreeToTwoNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 VectorThreeToTwoNode.prototype.onAction = function(action, data) {
 	var v = this.getInputData(1)
@@ -78,13 +76,12 @@ function VectorAddNode() {
 	this.addInput("Vector 1", "vector")
 	this.addInput("Vector 2", "vector")
 
-	this.addOutput("", LiteGraph.EVENT)
+	this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
 	this.addOutput("", LiteGraph.EVENT)
 	this.addOutput("Out", "vector")
 }
 VectorAddNode.title = "Add"
 VectorAddNode.collapsable = true
-VectorAddNode.prototype.resizable = false
 VectorAddNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 VectorAddNode.prototype.onAction = function(action, data) {
 	var v1 = this.getInputData(1)

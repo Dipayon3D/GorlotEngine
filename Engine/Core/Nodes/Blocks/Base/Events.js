@@ -5,9 +5,6 @@ function BeginPlayNode() {
 }
 BeginPlayNode.title = "Begin Play"
 BeginPlayNode.skip_list = true
-BeginPlayNode.collapsable = false
-BeginPlayNode.blocks = "Blocks"
-BeginPlayNode.prototype.resizable = false
 BeginPlayNode.prototype.ignore_remove = true
 BeginPlayNode.prototype.clonable = false
 BeginPlayNode.prototype.getMenuOptions = () => {return []}
@@ -23,9 +20,6 @@ function EventTickNode() {
 }
 EventTickNode.title = "Event Tick"
 EventTickNode.skip_list = true
-EventTickNode.collapsable = false
-EventTickNode.blocks = "Blocks"
-EventTickNode.prototype.resizable = false
 EventTickNode.prototype.ignore_remove = true
 EventTickNode.prototype.clonable = false
 EventTickNode.prototype.getMenuOptions = () => {return []}
@@ -42,8 +36,6 @@ function OnGameStartNode() {
 	this.addOutput("", LiteGraph.EVENT)
 }
 OnGameStartNode.title = "On Game Start"
-OnGameStartNode.collapsable = false
-OnGameStartNode.blocks = "Blocks"
 OnGameStartNode.prototype.reiszable = false
 OnGameStartNode.prototype.onStart = function() {
 	this.triggerSlot(0, "GameStart")
@@ -57,9 +49,6 @@ function EventDestroyedNode() {
 	this.addOutput("", LiteGraph.EVENT)
 }
 EventDestroyedNode.title = "On Destroyed"
-EventDestroyedNode.collapsable = false
-EventDestroyedNode.blocks = "Blocks"
-EventDestroyedNode.prototype.resizable = false
 EventDestroyedNode.prototype.onStart = function() {
 	
 	var obj = this.getInputData(0)
@@ -80,9 +69,6 @@ function EventDisposeNode() {
 	this.addOutput("", LiteGraph.EVENT)
 }
 EventDisposeNode.title = "On Dispose"
-EventDisposeNode.collapsable = false
-EventDisposeNode.blocks = "Blocks"
-EventDisposeNode.prototype.resizable = false
 EventDisposeNode.prototype.onDispose = function() {
 	this.triggerSlot(0)
 }
@@ -102,9 +88,6 @@ function EventListenerNode() {
 	this.addOutput("On Fired", LiteGraph.EVENT)
 }
 EventListenerNode.title = "Event Listener"
-EventListenerNode.collapsable = false
-EventListenerNode.blocks = "Blocks"
-EventListenerNode.prototype.resizable = false
 EventListenerNode.prototype.onStart = function() {
 	if (this.inputs[0].link === null) {
 		this.addListener()
@@ -154,9 +137,6 @@ function FireEventNode() {
 	this.event_widget.width = 110
 }
 FireEventNode.title = "Fire Event"
-FireEventNode.collapsable = false
-FireEventNode.blocks = "Blocks"
-FireEventNode.prototype.resizable = false
 FireEventNode.prototype.onAction = function(action, data) {
 	this.object = this.getInputData(1)
 	this.event = this.getInputData(2)
@@ -173,7 +153,7 @@ FireEventNode.prototype.onAction = function(action, data) {
 }
 
 // Timeout Event
-function TimeOutEvent() {
+function TimeOutEventNode() {
 	this.addProperty("time", "100")
 
 	this.addInput("", LiteGraph.ACTION)
@@ -181,20 +161,17 @@ function TimeOutEvent() {
 	var tim = this.addWidget("text", "Time", this.properties.time, "time")
 	tim.width = 140
 
-	this.addOutput("On TimeOut")
+	this.addOutput("On TimeOut", LiteGraph.EVENT)
 }
-TimeOutEvent.title = "Time Out"
-TimeOutEvent.collapsable = false
-TimeOutEvent.blocks = "Blocks"
-TimeOutEvent.prototype.resizable = false
-TimeOutEvent.prototype.onStart = function() {
+TimeOutEventNode.title = "Time Out"
+TimeOutEventNode.prototype.onStart = function() {
 	if (this.inputs[0].link === null)
 		this.addTimeout()
 }
-TimeOutEvent.prototype.onAction = function(action, data) {
+TimeOutEventNode.prototype.onAction = function(action, data) {
 	this.addTimeout()
 }
-TimeOutEvent.prototype.addTimeout = function() {
+TimeOutEventNode.prototype.addTimeout = function() {
 	var time = this.getInputData(1)
 
 	if (time === undefined)
@@ -206,13 +183,41 @@ TimeOutEvent.prototype.addTimeout = function() {
 	}, parseInt(time))
 }
 
+// Passer Event
+function PasserEventNode() {
+    this.addOutput("", LiteGraph.EVENT)
+}
+PasserEventNode.title = "Passer"
+PasserEventNode.prototype.onGetInputs = function() {
+    return [["Action", LiteGraph.ACTION]]
+}
+PasserEventNode.prototype.onAction = function(action, data) {
+    this.triggerSlot(0, (data !== undefined) ? data : null)
+}
+
+// Branch
+function BranchEventNode() {
+    this.addInput("In", LiteGraph.ACTION)
+    this.addInput("Condition", "boolean")
+    this.addOutput("True", LiteGraph.EVENT)
+    this.addOutput("False", LiteGraph.EVENT)
+}
+BranchEventNode.title = "Branch"
+BranchEventNode.prototype.onAction = function(action, data) {
+    var value = this.getInputData(1)
+
+    if(value === undefined)
+        return
+
+    this.triggerSlot((value === true) ? 0 : 1, (data !== undefined) ? data : null)
+}
+
 // Test Event
 function TestEvent() {
 	this.addInput("Event", LiteGraph.ACTION)
 	this.addInput("Input")
 }
 TestEvent.title = "Test"
-TestEvent.blocks = "Blocks"
 TestEvent.prototype.onAction = function(action, data) {
 	console.log(action, data)
 	console.log(this.getInputData(1))
@@ -226,6 +231,8 @@ function registerEvents() {
 	LiteGraph.registerNodeType("Events/EventDispose", EventDisposeNode)
 	LiteGraph.registerNodeType("Events/EventListener", EventListenerNode)
 	LiteGraph.registerNodeType("Events/FireEvent", FireEventNode)
-	LiteGraph.registerNodeType("Events/TimeOut", TimeOutEvent)
+	LiteGraph.registerNodeType("Events/TimeOut", TimeOutEventNode)
+	LiteGraph.registerNodeType("Events/Passer", PasserEventNode)
+	LiteGraph.registerNodeType("Events/Branch", BranchEventNode)
 	LiteGraph.registerNodeType("Events/TestEvent", TestEvent)
 }

@@ -6,8 +6,6 @@ function ArrayNode() {
 	this.addOutput("Array", "array")
 }
 ArrayNode.title = "Array"
-ArrayNode.collapsable = false
-ArrayNode.prototype.resizable = false
 ArrayNode.prototype.onGetInputs = function() {
 	var item =  [["Item", null]]
 	return item
@@ -50,8 +48,6 @@ function ArrayPushNode() {
 	this.addOutput("", LiteGraph.EVENT)
 }
 ArrayPushNode.title = "Push"
-ArrayPushNode.collapsable = false
-ArrayPushNode.prototype.resizable = false
 ArrayPushNode.prototype.onAction = function() {
 	if (this.getInputData(2) !== undefined) {
 		var ar = this.getInputData(1)

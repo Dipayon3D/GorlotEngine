@@ -7,8 +7,6 @@ function ANode() {
 }
 ANode.title = "A"
 ANode.collapsable = true
-ANode.blocks = "Blocks"
-ANode.prototype.resizable = false
 ANode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ANode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.A)
@@ -31,8 +29,6 @@ function AltNode() {
 }
 AltNode.title = "Alt"
 AltNode.collapsable = true
-AltNode.blocks = "Blocks"
-AltNode.prototype.resizable = false
 AltNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 AltNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.ALT)
@@ -55,8 +51,6 @@ function BNode() {
 }
 BNode.title = "B"
 BNode.collapsable = true
-BNode.blocks = "Blocks"
-BNode.prototype.resizable = false
 BNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 BNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.B)
@@ -79,8 +73,6 @@ function BackspaceNode() {
 }
 BackspaceNode.title = "Backspace"
 BackspaceNode.collapsable = true
-BackspaceNode.blocks = "Blocks"
-BackspaceNode.prototype.resizable = false
 BackspaceNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 BackspaceNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.BACKSPACE)
@@ -103,8 +95,6 @@ function CNode() {
 }
 CNode.title = "C"
 CNode.collapsable = true
-CNode.blocks = "Blocks"
-CNode.prototype.resizable = false
 CNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 CNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.C)
@@ -127,8 +117,6 @@ function CapsLockNode() {
 }
 CapsLockNode.title = "CapsLock"
 CapsLockNode.collapsable = true
-CapsLockNode.blocks = "Blocks"
-CapsLockNode.prototype.resizable = false
 CapsLockNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 CapsLockNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.CAPS_LOCK)
@@ -151,8 +139,6 @@ function CtrlNode() {
 }
 CtrlNode.title = "Ctrl"
 CtrlNode.collapsable = true
-CtrlNode.blocks = "Blocks"
-CtrlNode.prototype.resizable = false
 CtrlNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 CtrlNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.CTRL)
@@ -175,8 +161,6 @@ function DNode() {
 }
 DNode.title = "D"
 DNode.collapsable = true
-DNode.blocks = "Blocks"
-DNode.prototype.resizable = false
 DNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 DNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.D)
@@ -199,8 +183,6 @@ function DelNode() {
 }
 DelNode.title = "Del"
 DelNode.collapsable = true
-DelNode.blocks = "Blocks"
-DelNode.prototype.resizable = false
 DelNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 DelNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.DEL)
@@ -223,8 +205,6 @@ function DownNode() {
 }
 DownNode.title = "Down"
 DownNode.collapsable = true
-DownNode.blocks = "Blocks"
-DownNode.prototype.resizable = false
 DownNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 DownNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.DOWN)
@@ -247,8 +227,6 @@ function ENode() {
 }
 ENode.title = "E"
 ENode.collapsable = true
-ENode.blocks = "Blocks"
-ENode.prototype.resizable = false
 ENode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ENode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.E)
@@ -271,8 +249,6 @@ function EndNode() {
 }
 EndNode.title = "End"
 EndNode.collapsable = true
-EndNode.blocks = "Blocks"
-EndNode.prototype.resizable = false
 EndNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 EndNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.END)
@@ -295,8 +271,6 @@ function EnterNode() {
 }
 EnterNode.title = "Enter"
 EnterNode.collapsable = true
-EnterNode.blocks = "Blocks"
-EnterNode.prototype.resizable = false
 EnterNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 EnterNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.ENTER)
@@ -319,8 +293,6 @@ function EscNode() {
 }
 EscNode.title = "Esc"
 EscNode.collapsable = true
-EscNode.blocks = "Blocks"
-EscNode.prototype.resizable = false
 EscNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 EscNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.ESC)
@@ -343,8 +315,6 @@ function FNode() {
 }
 FNode.title = "F"
 FNode.collapsable = true
-FNode.blocks = "Blocks"
-FNode.prototype.resizable = false
 FNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 FNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F)
@@ -367,8 +337,6 @@ function F1Node() {
 }
 F1Node.title = "F1"
 F1Node.collapsable = true
-F1Node.blocks = "Blocks"
-F1Node.prototype.resizable = false
 F1Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F1Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F1)
@@ -391,8 +359,6 @@ function F2Node() {
 }
 F2Node.title = "F2"
 F2Node.collapsable = true
-F2Node.blocks = "Blocks"
-F2Node.prototype.resizable = false
 F2Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F2Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F2)
@@ -415,8 +381,6 @@ function F3Node() {
 }
 F3Node.title = "F3"
 F3Node.collapsable = true
-F3Node.blocks = "Blocks"
-F3Node.prototype.resizable = false
 F3Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F3Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F3)
@@ -439,8 +403,6 @@ function F4Node() {
 }
 F4Node.title = "F4"
 F4Node.collapsable = true
-F4Node.blocks = "Blocks"
-F4Node.prototype.resizable = false
 F4Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F4Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F4)
@@ -463,8 +425,6 @@ function F5Node() {
 }
 F5Node.title = "F5"
 F5Node.collapsable = true
-F5Node.blocks = "Blocks"
-F5Node.prototype.resizable = false
 F5Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F5Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F5)
@@ -487,8 +447,6 @@ function F6Node() {
 }
 F6Node.title = "F6"
 F6Node.collapsable = true
-F6Node.blocks = "Blocks"
-F6Node.prototype.resizable = false
 F6Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F6Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F6)
@@ -511,8 +469,6 @@ function F7Node() {
 }
 F7Node.title = "F7"
 F7Node.collapsable = true
-F7Node.blocks = "Blocks"
-F7Node.prototype.resizable = false
 F7Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F7Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F7)
@@ -535,8 +491,6 @@ function F8Node() {
 }
 F8Node.title = "F8"
 F8Node.collapsable = true
-F8Node.blocks = "Blocks"
-F8Node.prototype.resizable = false
 F8Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F8Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F8)
@@ -559,8 +513,6 @@ function F9Node() {
 }
 F9Node.title = "F9"
 F9Node.collapsable = true
-F9Node.blocks = "Blocks"
-F9Node.prototype.resizable = false
 F9Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F9Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F9)
@@ -583,8 +535,6 @@ function F10Node() {
 }
 F10Node.title = "F10"
 F10Node.collapsable = true
-F10Node.blocks = "Blocks"
-F10Node.prototype.resizable = false
 F10Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F10Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F10)
@@ -607,8 +557,6 @@ function F11Node() {
 }
 F11Node.title = "F11"
 F11Node.collapsable = true
-F11Node.blocks = "Blocks"
-F11Node.prototype.resizable = false
 F11Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F11Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F11)
@@ -631,8 +579,6 @@ function F12Node() {
 }
 F12Node.title = "F12"
 F12Node.collapsable = true
-F12Node.blocks = "Blocks"
-F12Node.prototype.resizable = false
 F12Node.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 F12Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F12)
@@ -655,8 +601,6 @@ function GNode() {
 }
 GNode.title = "G"
 GNode.collapsable = true
-GNode.blocks = "Blocks"
-GNode.prototype.resizable = false
 GNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 GNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.G)
@@ -679,8 +623,6 @@ function HNode() {
 }
 HNode.title = "H"
 HNode.collapsable = true
-HNode.blocks = "Blocks"
-HNode.prototype.resizable = false
 HNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 HNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.H)
@@ -703,8 +645,6 @@ function HomeNode() {
 }
 HomeNode.title = "Home"
 HomeNode.collapsable = true
-HomeNode.blocks = "Blocks"
-HomeNode.prototype.resizable = false
 HomeNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 HomeNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.HOME)
@@ -727,8 +667,6 @@ function INode() {
 }
 INode.title = "I"
 INode.collapsable = true
-INode.blocks = "Blocks"
-INode.prototype.resizable = false
 INode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 INode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.I)
@@ -751,8 +689,6 @@ function InsertNode() {
 }
 InsertNode.title = "Insert"
 InsertNode.collapsable = true
-InsertNode.blocks = "Blocks"
-InsertNode.prototype.resizable = false
 InsertNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 InsertNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.INSERT)
@@ -775,8 +711,6 @@ function JNode() {
 }
 JNode.title = "J"
 JNode.collapsable = true
-JNode.blocks = "Blocks"
-JNode.prototype.resizable = false
 JNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 JNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.J)
@@ -799,8 +733,6 @@ function KNode() {
 }
 KNode.title = "K"
 KNode.collapsable = true
-KNode.blocks = "Blocks"
-KNode.prototype.resizable = false
 KNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 KNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.K)
@@ -823,8 +755,6 @@ function LNode() {
 }
 LNode.title = "L"
 LNode.collapsable = true
-LNode.blocks = "Blocks"
-LNode.prototype.resizable = false
 LNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 LNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.L)
@@ -847,8 +777,6 @@ function LeftNode() {
 }
 LeftNode.title = "Left"
 LeftNode.collapsable = true
-LeftNode.blocks = "Blocks"
-LeftNode.prototype.resizable = false
 LeftNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 LeftNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.LEFT)
@@ -871,8 +799,6 @@ function MNode() {
 }
 MNode.title = "M"
 MNode.collapsable = true
-MNode.blocks = "Blocks"
-MNode.prototype.resizable = false
 MNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 MNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.M)
@@ -895,8 +821,6 @@ function NNode() {
 }
 NNode.title = "N"
 NNode.collapsable = true
-NNode.blocks = "Blocks"
-NNode.prototype.resizable = false
 NNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 NNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.N)
@@ -919,8 +843,6 @@ function ONode() {
 }
 ONode.title = "O"
 ONode.collapsable = true
-ONode.blocks = "Blocks"
-ONode.prototype.resizable = false
 ONode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ONode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.O)
@@ -943,8 +865,6 @@ function PNode() {
 }
 PNode.title = "P"
 PNode.collapsable = true
-PNode.blocks = "Blocks"
-PNode.prototype.resizable = false
 PNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 PNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.P)
@@ -967,8 +887,6 @@ function PageUpNode() {
 }
 PageUpNode.title = "PageUp"
 PageUpNode.collapsable = true
-PageUpNode.blocks = "Blocks"
-PageUpNode.prototype.resizable = false
 PageUpNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 PageUpNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.PAGE_UP)
@@ -991,8 +909,6 @@ function PageDownNode() {
 }
 PageDownNode.title = "PageDown"
 PageDownNode.collapsable = true
-PageDownNode.blocks = "Blocks"
-PageDownNode.prototype.resizable = false
 PageDownNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 PageDownNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.PAGE_DOWN)
@@ -1015,8 +931,6 @@ function QNode() {
 }
 QNode.title = "Q"
 QNode.collapsable = true
-QNode.blocks = "Blocks"
-QNode.prototype.resizable = false
 QNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 QNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.Q)
@@ -1039,8 +953,6 @@ function RNode() {
 }
 RNode.title = "R"
 RNode.collapsable = true
-RNode.blocks = "Blocks"
-RNode.prototype.resizable = false
 RNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 RNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.R)
@@ -1063,8 +975,6 @@ function RightNode() {
 }
 RightNode.title = "Right"
 RightNode.collapsable = true
-RightNode.blocks = "Blocks"
-RightNode.prototype.resizable = false
 RightNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 RightNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.RIGHT)
@@ -1087,8 +997,6 @@ function SNode() {
 }
 SNode.title = "S"
 SNode.collapsable = true
-SNode.blocks = "Blocks"
-SNode.prototype.resizable = false
 SNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 SNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.S)
@@ -1111,8 +1019,6 @@ function ShiftNode() {
 }
 ShiftNode.title = "Shift"
 ShiftNode.collapsable = true
-ShiftNode.blocks = "Blocks"
-ShiftNode.prototype.resizable = false
 ShiftNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ShiftNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.SHIFT)
@@ -1135,8 +1041,6 @@ function SpacebarNode() {
 }
 SpacebarNode.title = "Spacebar"
 SpacebarNode.collapsable = true
-SpacebarNode.blocks = "Blocks"
-SpacebarNode.prototype.resizable = false
 SpacebarNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 SpacebarNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.SPACEBAR)
@@ -1159,8 +1063,6 @@ function TNode() {
 }
 TNode.title = "T"
 TNode.collapsable = true
-TNode.blocks = "Blocks"
-TNode.prototype.resizable = false
 TNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 TNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.T)
@@ -1183,8 +1085,6 @@ function TabNode() {
 }
 TabNode.title = "Tab"
 TabNode.collapsable = true
-TabNode.blocks = "Blocks"
-TabNode.prototype.resizable = false
 TabNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 TabNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.TAB)
@@ -1207,8 +1107,6 @@ function UNode() {
 }
 UNode.title = "U"
 UNode.collapsable = true
-UNode.blocks = "Blocks"
-UNode.prototype.resizable = false
 UNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 UNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.U)
@@ -1231,8 +1129,6 @@ function UpNode() {
 }
 UpNode.title = "Up"
 UpNode.collapsable = true
-UpNode.blocks = "Blocks"
-UpNode.prototype.resizable = false
 UpNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 UpNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.UP)
@@ -1255,8 +1151,6 @@ function VNode() {
 }
 VNode.title = "V"
 VNode.collapsable = true
-VNode.blocks = "Blocks"
-VNode.prototype.resizable = false
 VNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 VNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.V)
@@ -1279,8 +1173,6 @@ function WNode() {
 }
 WNode.title = "W"
 WNode.collapsable = true
-WNode.blocks = "Blocks"
-WNode.prototype.resizable = false
 WNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 WNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.W)
@@ -1303,8 +1195,6 @@ function XNode() {
 }
 XNode.title = "X"
 XNode.collapsable = true
-XNode.blocks = "Blocks"
-XNode.prototype.resizable = false
 XNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 XNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.X)
@@ -1327,8 +1217,6 @@ function YNode() {
 }
 YNode.title = "Y"
 YNode.collapsable = true
-YNode.blocks = "Blocks"
-YNode.prototype.resizable = false
 YNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 YNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.Y)
@@ -1351,8 +1239,6 @@ function ZNode() {
 }
 ZNode.title = "Z"
 ZNode.collapsable = true
-ZNode.blocks = "Blocks"
-ZNode.prototype.resizable = false
 ZNode.prototype.getSlotMenuOptions = NodesHelper.getSlotMenuOptions
 ZNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.Z)

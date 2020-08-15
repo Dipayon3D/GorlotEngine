@@ -9,8 +9,6 @@ function ColourNode() {
 
 }
 ColourNode.title = "Colour"
-ColourNode.collapsable = false
-ColourNode.prototype.resizable = false
 ColourNode.prototype.onStart = function() {
 	var r = this.properties["r"]
 	var g = this.properties["g"]
