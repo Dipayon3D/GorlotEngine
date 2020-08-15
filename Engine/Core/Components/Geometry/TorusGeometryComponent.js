@@ -65,7 +65,7 @@ function TorusGeometryComponent(form, obj) {
 
     // Buffer
     this.buffer = new CheckBox(this.form.element)
-    this.buffer.setText("Buffered")
+    this.form.addText("Buffered")
     this.buffer.size.set(200, 15)
     this.buffer.setOnChange(updateGeometry)
     this.form.add(this.buffer)

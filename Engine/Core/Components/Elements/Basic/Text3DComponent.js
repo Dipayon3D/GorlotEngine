@@ -95,7 +95,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
 
         // Bevel
         this.bevel = new CheckBox(this.form.element)
-        this.bevel.setText("Bevel")
+        this.form.addText("Bevel")
         this.bevel.size.set(200, 15)
         this.bevel.setOnChange(() => {
                 if (self.obj !== null) {

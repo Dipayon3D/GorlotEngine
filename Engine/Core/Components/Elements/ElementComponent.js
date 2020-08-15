@@ -41,6 +41,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	this.name.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.name = self.name.getText()
+            Editor.history.push(self.obj, Action.CHANGED)
 			Editor.updateObjectViews()
 		}
 	})

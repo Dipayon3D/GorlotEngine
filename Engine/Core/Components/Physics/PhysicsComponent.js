@@ -97,7 +97,7 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 
 	// Allow sleep
 	this.allowSleep = new CheckBox(this.form.element)
-	this.allowSleep.setText("Allow Sleep")
+	this.form.addText("Allow Sleep")
 	this.allowSleep.size.set(150, 15)
 	this.allowSleep.setOnChange(() => {
 		if (self.obj !== null) {
@@ -135,7 +135,7 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 
 	// Fixed rotation
 	this.fixedRotation = new CheckBox(this.form.element)
-	this.fixedRotation.setText("Fixed Rotation")
+	this.form.addText("Fixed Rotation")
 	this.fixedRotation.size.set(150, 15)
 	this.fixedRotation.setOnChange(() => {
 		if (self.obj !== null) {

@@ -154,7 +154,7 @@ CameraComponent.prototype.initUI = function(pos, obj) {
 
 	// Clear color
 	this.clear_color = new CheckBox(this.form.element)
-	this.clear_color.setText("Clear colour")
+	this.form.addText("Clear colour")
 	this.clear_color.size.set(200, 15)
 	this.clear_color.setOnChange(() => {
 		if (self.obj !== null) {
@@ -166,7 +166,7 @@ CameraComponent.prototype.initUI = function(pos, obj) {
 
 	// Clear depth
 	this.clear_depth = new CheckBox(this.form.element)
-	this.clear_depth.setText("Clear depth")
+	this.form.addText("Clear depth")
 	this.clear_depth.size.set(200, 15)
 	this.clear_depth.setOnChange(() => {
 		if (self.obj !== null) {
@@ -178,7 +178,7 @@ CameraComponent.prototype.initUI = function(pos, obj) {
 
 	// Camera used
 	this.use = new CheckBox(this.form.element)
-	this.use.setText("Use camera")
+	this.form.addText("Use camera")
 	this.use.size.set(200, 15)
 	this.use.setOnChange(() => {
 		if (self.obj !== null && self.scene !== null) {

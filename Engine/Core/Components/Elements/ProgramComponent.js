@@ -84,7 +84,7 @@ ProgramComponent.prototype.initUI = function(pos, obj) {
 
 	// Mouse Lock
 	this.lock_pointer = new CheckBox(this.form.element)
-	this.lock_pointer.setText("Lock Pointer")
+	this.form.addText("Lock Pointer")
 	this.lock_pointer.size.set(50, 15)
 	this.lock_pointer.setOnChange(() => {
 		if (self.obj !== null) {
@@ -100,7 +100,7 @@ ProgramComponent.prototype.initUI = function(pos, obj) {
 
 	// VR Enabled
 	this.vr = new CheckBox(this.form.element)
-	this.vr.setText("VR Enabled")
+	this.form.addText("VR Enabled")
 	this.vr.size.set(50, 15)
 	this.vr.setOnChange(() => {
 		if (self.obj !== null) {
@@ -130,7 +130,7 @@ ProgramComponent.prototype.initUI = function(pos, obj) {
 
     // Antialiasing
     this.antialiasing = new CheckBox(this.form.element)
-    this.antialiasing.setText("Antialiasing")
+    this.form.addText("Antialiasing")
     this.antialiasing.size.set(50, 15)
     this.antialiasing.setOnChange(() => {
         if(self.obj !== null) {
@@ -142,7 +142,7 @@ ProgramComponent.prototype.initUI = function(pos, obj) {
 
     // Shadows
     this.shadows = new CheckBox(this.form.element)
-    this.shadows.setText("Shadows")
+    this.form.addText("Shadows")
     this.shadows.size.set(50, 15)
     this.shadows.setOnChange(() => {
         if(self.obj !== null) {

@@ -46,7 +46,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
 
         // Auto update
         this.auto_update = new CheckBox(this.form.element)
-        this.auto_update.setText("Auto Update")
+        this.form.addText("Auto Update")
         this.auto_update.size.set(200, 15)
         this.auto_update.setOnChange(() => {
                 if(self.obj !== null) {
@@ -131,7 +131,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
 
         // Cast Shadow
         this.cast_shadow = new CheckBox(this.form.element)
-        this.cast_shadow.setText("Cast shadows")
+        this.form.addText("Cast shadows")
         this.cast_shadow.size.set(200, 15)
         this.cast_shadow.position.set(5, 85)
         this.cast_shadow.updateInterface()

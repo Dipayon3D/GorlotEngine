@@ -51,7 +51,7 @@ function PlaneGeometryComponent(form, obj) {
 
     // Buffer
     this.buffer = new CheckBox(this.form.element)
-    this.buffer.setText("Buffer")
+    this.form.addText("Buffer")
     this.buffer.size.set(200, 15)
     this.buffer.setOnChange(updateGeometry)
     this.form.add(this.buffer)

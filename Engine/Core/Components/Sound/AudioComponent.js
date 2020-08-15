@@ -36,7 +36,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 
     // Static
     this.static = new CheckBox(this.form.element)
-    this.static.setText("Static Object")
+    this.form.addText("Static Object")
     this.static.size.set(200, 15)
     this.static.setOnChange(() => {
         if(this.obj !== null) {
@@ -64,7 +64,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 
 	// Auto play
 	this.autoplay = new CheckBox(this.form.element)
-	this.autoplay.setText("Autoplay")
+	this.form.addText("Autoplay")
 	this.autoplay.size.set(150, 15)
 	this.autoplay.setOnChange(() => {
 		if (self.obj !== null) {
@@ -77,7 +77,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 
 	// Loop
 	this.loop = new CheckBox(this.form.element)
-	this.loop.setText("Loop")
+	this.form.addText("Loop")
 	this.loop.size.set(150, 15)
 	this.loop.setOnChange(() => {
 		if (self.obj !== null) {

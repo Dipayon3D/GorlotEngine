@@ -60,7 +60,7 @@ function CylinderGeometryComponent(form, obj) {
 
     // Buffered
     this.buffer = new CheckBox(this.form.element)
-    this.buffer.setText("Buffered")
+    this.form.addText("Buffered")
     this.buffer.size.set(20, 15)
     this.buffer.setOnChange(updateGeometry)
     this.form.add(this.buffer)

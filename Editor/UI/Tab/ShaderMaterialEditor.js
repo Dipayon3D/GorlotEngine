@@ -137,7 +137,7 @@ function ShaderMaterialEditor(parent) {
 
 	// Sky enabled
 	this.sky_enabled = new CheckBox(this.preview.div_b)
-	this.sky_enabled.setText("Enable Sky")
+	this.form.addText("Enable Sky")
 	this.sky_enabled.size.set(200, 15)
 	this.sky_enabled.position.set(5, 60)
 	this.sky_enabled.setValue(true)

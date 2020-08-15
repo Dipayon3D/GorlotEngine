@@ -61,10 +61,10 @@ function MaterialEditor(parent) {
 	this.scene.add(new PointLight(0x666666))
 	this.scene.add(new AmbientLight(0x555555))
 
-	this.obj = new THREE.Mesh(new THREE.SphereBufferGeometry(1, 64, 64), null)
-	this.obj.position.set(0, 0, -2.5)
-	this.obj.visible = false
-	this.scene.add(this.obj)
+	this.mesh = new THREE.Mesh(new THREE.SphereBufferGeometry(1, 64, 64), null)
+	this.mesh.position.set(0, 0, -2.5)
+	this.mesh.visible = false
+	this.scene.add(this.mesh)
 
 	this.sprite = new THREE.Sprite(null)
 	this.sprite.position.set(0, 0, -1.5)
@@ -81,10 +81,10 @@ MaterialEditor.prototype.attachMaterial = function(material, material_file) {
 	if(material instanceof THREE.SpriteMaterial) {
 		this.sprite.material = material
 		this.sprite.visible = true
-		this.obj.visible = false
+		this.mesh.visible = false
 	} else {
-		this.obj.material = material
-		this.obj.visible = true
+		this.mesh.material = material
+		this.mesh.visible = true
 		this.sprite.visible = false
 	}
 
@@ -233,7 +233,7 @@ MaterialEditor.prototype.updateMaterial = function() {
 		}
 	}
 
-	this.obj.material = this.material
+	this.mesh.material = this.material
 
 	this.material.updateNodes(this.graph.serialize())
 }
@@ -256,19 +256,19 @@ MaterialEditor.prototype.update = function() {
 		if(Mouse.buttonPressed(Mouse.LEFT)) {
 			var delta = new THREE.Quaternion()
 			delta.setFromEuler(new THREE.Euler(Mouse.delta.y * 0.005, Mouse.delta.x * 0.005, 0, 'XYZ'))
-			this.obj.quaternion.multiplyQuaternions(delta, this.obj.quaternion)
+			this.mesh.quaternion.multiplyQuaternions(delta, this.mesh.quaternion)
 		}
 
 		// Change Geometry
 		if (Mouse.buttonJustPressed(Mouse.RIGHT)) {
-			if (this.obj.geometry instanceof THREE.SphereBufferGeometry)
-				this.obj.geometry = new THREE.TorusBufferGeometry(0.8, 0.4, 32, 64)
-			else if (this.obj.geometry instanceof THREE.TorusBufferGeometry)
-				this.obj.geometry = new THREE.BoxBufferGeometry(1, 1, 1, 64, 64, 64)
-			else if (this.obj.geometry instanceof THREE.BoxBufferGeometry)
-				this.obj.geometry = new THREE.TorusKnotBufferGeometry(0.7, 0.3, 128, 64)
-			else if (this.obj.geometry instanceof THREE.TorusKnotBufferGeometry)
-				this.obj.geometry = new THREE.SphereBufferGeometry(1, 64, 64)
+			if (this.mesh.geometry instanceof THREE.SphereBufferGeometry)
+				this.mesh.geometry = new THREE.TorusBufferGeometry(0.8, 0.4, 32, 64)
+			else if (this.mesh.geometry instanceof THREE.TorusBufferGeometry)
+				this.mesh.geometry = new THREE.BoxBufferGeometry(1, 1, 1, 64, 64, 64)
+			else if (this.mesh.geometry instanceof THREE.BoxBufferGeometry)
+				this.mesh.geometry = new THREE.TorusKnotBufferGeometry(0.7, 0.3, 128, 64)
+			else if (this.mesh.geometry instanceof THREE.TorusKnotBufferGeometry)
+				this.mesh.geometry = new THREE.SphereBufferGeometry(1, 64, 64)
 		}
 
 		// Zoom

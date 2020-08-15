@@ -140,7 +140,7 @@ LightComponent.prototype.initUI = function(pos, obj) {
 		this.form.nextRow()
 
 		this.cast_shadow = new CheckBox(this.form.element)
-		this.cast_shadow.setText("Cast Shadow")
+		this.form.addText("Cast Shadow")
 		this.cast_shadow.size.set(200, 15)
 		this.cast_shadow.position.set(5, 85)
 		this.cast_shadow.updateInterface()
