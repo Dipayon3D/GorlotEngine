@@ -1,46 +1,7 @@
 "use strict"
 
-function BlockEditor(parent) {
-	// Parent
-    this.parent = (parent !== undefined) ? parent : document.body
-
-	// Create element
-	this.element = document.createElement("div")
-	this.element.style.position = "absolute"
-	this.element.style.pointerEvents = "auto"
-
-	this.element.ondrop = function(e) {
-		e.preventDefault()
-	}
-
-	this.element.ondragover = function(e) {
-		e.preventDefault()
-	}
-
-	// Top bar
-	this.top_bar = new Bar(this.element)
-	this.top_bar.size.y = 50
-
-	this.add_var = new ButtonImage(this.element)
-	this.add_var.position.set(0, 0)
-	this.add_var.size.set(50, this.top_bar.size.y)
-	this.add_var.setImage(Interface.file_dir + "Icons/Blocks/NewVar.png")
-	this.add_var.setAltText("Variable")
-	this.add_var.updateInterface()
-
-	this.add_func = new ButtonImage(this.element)
-	this.add_func.position.set(50, 0)
-	this.add_func.size.set(50, this.top_bar.size.y)
-	this.add_func.setImage(Interface.file_dir + "Icons/Blocks/NewFunc.png")
-	this.add_func.setAltText("Function")
-	this.add_func.updateInterface()
-
-	this.obj_var = new ButtonImage(this.element)
-	this.obj_var.position.set(100, 0)
-	this.obj_var.size.set(50, this.top_bar.size.y)
-	this.obj_var.setImage(Interface.file_dir + "Icons/Models/Models.png")
-	this.obj_var.setAltText("Object to Variable")
-	this.obj_var.updateInterface()
+function BlockEditor(parent, closeable, container, index) {
+    TabElement.call(this, parent, closeable, container, index, "Block Editor", "Editor/Files/Icons/Script/Blocks.png")
 
 	// Canvas
 	this.canvas = new Canvas(this.element)
@@ -49,23 +10,15 @@ function BlockEditor(parent) {
 
 	this.graph = null
 
-	// Element attributes
-	this.children = []
-	this.fit_parent = false
-	this.size = new THREE.Vector2(0, 0)
-	this.position = new THREE.Vector2(0, 0)
-	this.visible = true
-
 	// Blocks file
 	this.blocks = null
 	this.nodes = null
-
-	this.parent.appendChild(this.element)
 }
 
-// Attach Blocks to the editor
-BlockEditor.prototype.attachBlocks = function(blocks) {
+BlockEditor.prototype = Object.create(TabElement.prototype)
 
+// Attach Blocks to the editor
+BlockEditor.prototype.attach = function(blocks) {
 	Register.unregisterAll()
 	Register.registerBlocksNodes()
 
@@ -76,12 +29,14 @@ BlockEditor.prototype.attachBlocks = function(blocks) {
 	this.initNodeEditor()
 }
 
+// Check if blocks attached to tab
+BlockEditor.prototype.isAttached = function(blocks) {
+    return this.blocks === blocks
+}
+
 // Initialise node editor
 BlockEditor.prototype.initNodeEditor = function() {
 	this.graph = new LGraph(this.nodes)
-
-	var self = this
-	
 	this.graphCanvas = new LGraphCanvas(this.canvas.element, this.graph)
 }
 
@@ -91,25 +46,19 @@ BlockEditor.prototype.activate = function() {
 	Editor.resetEditingFlags()
 }
 
-// Remove element
-BlockEditor.prototype.destroy = function() {
-	try {
-		this.parent.removeChild(this.element)
-	} catch(e) {}
-}
-
 // On close
 BlockEditor.prototype.close = function() {
+    TabElement.prototype.close.call(this)
 	this.updateBlocks()
 }
 
 // Update container metadata
-BlockEditor.prototype.updateMetadata = function(container) {
+BlockEditor.prototype.updateMetadata = function() {
 	if (this.blocks !== null) {
 		var blocks = this.blocks
 
 		// Set container name
-		container.setName(blocks.name)
+		this.setName(blocks.name)
 
 		// Check if particle exists in program
 		var found = false
@@ -121,7 +70,7 @@ BlockEditor.prototype.updateMetadata = function(container) {
 
 		// If not found, close tab
 		if (!found) {
-			container.close()
+			this.close()
 		}
 	}
 }
@@ -142,26 +91,11 @@ BlockEditor.prototype.update = function() {
 
 // Update interface
 BlockEditor.prototype.updateInterface = function() {
-	// Fit parent
-	if (this.fit_parent) {
-		this.size.x = this.parent.offsetWidth
-		this.size.y = this.parent.offsetHeight
-	}
-
-	// Set visibility
-	if (this.visible) {
-		this.element.style.visibility = "visible"
-	} else {
-		this.element.style.visibility = "hidden"
-	}
-
-	// Update elements
-	this.top_bar.size.x = this.size.x
-	this.top_bar.updateInterface()
+    TabElement.prototype.updateInterface.call(this)
 
 	// Update canvas
 	this.canvas.visible = this.visible
-	this.canvas.position.set(0, this.top_bar.size.y)
-	this.canvas.size.set(this.size.x, this.size.y-this.top_bar.size.y)
+	this.canvas.position.set(0, 0)
+	this.canvas.size.set(this.size.x, this.size.y)
 	this.canvas.updateInterface()
 }

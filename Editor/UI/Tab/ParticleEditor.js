@@ -1,24 +1,7 @@
 "use strict"
 
-function ParticleEditor(parent) {
-	// Parent
-    this.parent = (parent !== undefined) ? parent : document.body
-
-    // Registers only the particles nodes
-	Register.unregisterAll()
-	Register.registerParticlesNodes()
-
-	// Create Element
-	this.element = document.createElement("div")
-	this.element.style.position = "absolute"
-
-	this.element.ondrop = function(e) {
-		e.preventDefault()
-	}
-
-	this.element.ondragover = function(e) {
-		e.preventDefault()
-	}
+function ParticleEditor(parent, closeable, container, index) {
+    TabElement.call(this, parent, closeable, container, index, "Particle", "Editor/Files/Icons/Effects/Particles.png")
 
 	// Main container
 	this.main = new DualDivisionResizable(this.element)
@@ -42,10 +25,6 @@ function ParticleEditor(parent) {
 
 	// Element attributes
 	this.children = []
-	this.fit_parent = false
-	this.size = new THREE.Vector2(0, 0)
-	this.position = new THREE.Vector2(0, 0)
-	this.visible = true
 
 	// Particle renderer and scene
 	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas.element, antialias: Settings.render.antialiasing})
@@ -78,17 +57,14 @@ function ParticleEditor(parent) {
 	this.graphEditor = new Canvas(this.main.div_b)
 	this.graphEditor.updateInterface()
 	this.graph = null
-
-	this.parent.appendChild(this.element)
 }
 
+ParticleEditor.prototype = Object.create(TabElement.prototype)
+
 // Update container object data
-ParticleEditor.prototype.updateMetadata = function(container) {
+ParticleEditor.prototype.updateMetadata = function() {
 	if (this.particle !== null) {
 		var particle = this.particle
-
-		// Set container name
-		container.setName(particle.name)
 
 		// Check if particle exists in program
 		var found = false
@@ -100,18 +76,23 @@ ParticleEditor.prototype.updateMetadata = function(container) {
 
 		// If not found, close tab
 		if (!found) {
-			container.close()
+			this.close()
 		}
 	}
 }
 
 // Attach particle to particle editor
-ParticleEditor.prototype.attachParticle = function(particle) {
+ParticleEditor.prototype.attach = function(particle) {
 	// Attach particle
 	this.particle = particle
 	this.nodes = this.particle.nodes
 	this.updateRuntimeParticle()
 	this.initNodeEditor()
+}
+
+// Check if particle is attached to tab
+ParticleEditor.prototype.isAttached = function(particle) {
+    return this.particle === particle
 }
 
 // Initialiase node editor
@@ -170,15 +151,10 @@ ParticleEditor.prototype.activate = function() {
 	Mouse.setCanvas(this.canvas.element)
 }
 
-// Remove element
-ParticleEditor.prototype.destroy = function() {
-	try {
-		this.parent.removeChild(this.element)
-	} catch (e) {}
-}
-
 // On close
 ParticleEditor.prototype.close = function() {
+    TabElement.prototype.close.call(this)
+
 	if (this.graph !== null) {
 		this.graph.stop()
 
@@ -229,18 +205,7 @@ ParticleEditor.prototype.update = function() {
 
 // Update division size
 ParticleEditor.prototype.updateInterface = function() {
-	// Fit parent
-	if (this.fit_parent) {
-		this.size.x = this.parent.offsetWidth
-		this.size.y = this.parent.offsetHeight
-	}
-
-	// Set visibility
-	if (this.visible) {
-		this.element.style.visibility = "visible"
-	} else {
-		this.element.style.visibility = "hidden"
-	}
+    TabElement.prototype.updateInterface.call(this)
 
 	// Update main container
 	this.main.visible = this.visible
@@ -271,6 +236,4 @@ ParticleEditor.prototype.updateInterface = function() {
 	// Update element
 	this.element.style.top = this.position.y + "px"
 	this.element.style.left = this.position.x + "px"
-	this.element.style.width = this.size.x + "px"
-	this.element.style.height = this.size.y + "px"
 }

@@ -87,10 +87,8 @@ ImageBox.prototype.updateInterface = function()
 	//Set visibility
 	if(this.visible)
 	{
-		if((this.parent.style.visibility === "visible" || this.parent.visible)) {
-			this.element.style.visibility = "visible";
-			this.img.style.visibility = "visible";
-		}
+        this.element.style.visibility = "visible";
+        this.img.style.visibility = "visible";
 	}
 	else
 	{

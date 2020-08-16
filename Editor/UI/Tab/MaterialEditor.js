@@ -1,29 +1,11 @@
 "use strict"
 
-function MaterialEditor(parent) {
-	// Parent
-    this.parent = (parent !== undefined) ? parent : document.body
+function MaterialEditor(parent, closeable, container, index) {
+    TabElement.call(this, parent, closeable, container, index, "Material Editor", "Editor/Files/Icons/Misc/Material.png")
 
     // Registers only the material nodes
 	Register.unregisterAll()
 	Register.registerMaterialNodes()
-
-	// Create element
-	this.element = document.createElement("div")
-	this.element.style.position = "absolute"
-
-	this.element.ondrop = function(event)
-	{
-		event.preventDefault()
-	}
-
-	this.element.ondragover = function(event)
-	{
-		event.preventDefault()
-	}
-
-	// Self pointer
-	var self = this
 
 	// Graph canvas
 	this.graph_canvas = new Canvas(this.element)
@@ -35,15 +17,11 @@ function MaterialEditor(parent) {
 
 	this.graph = null
 
-	// Element atributes
-	this.children = []
-	this.fit_parent = false
-	this.size = new THREE.Vector2(0,0)
-	this.position = new THREE.Vector2(0,0)
-	this.visible = true
-	
+    // Element attributes
+    this.children = []
+
 	// Material UI File element
-	this.material_file = null
+	this.asset = null
 
 	// Attached material
 	this.material = null
@@ -70,13 +48,17 @@ function MaterialEditor(parent) {
 	this.sprite.position.set(0, 0, -1.5)
 	this.sprite.visible = false
 	this.scene.add(this.sprite)
+}
 
-	// Add element to document
-	this.parent.appendChild(this.element)
+MaterialEditor.prototype = Object.create(TabElement.prototype)
+
+// Check if material is attached to tab
+MaterialEditor.prototype.isAttached = function(material) {
+    return this.material === material
 }
 
 // Attach material to material editor
-MaterialEditor.prototype.attachMaterial = function(material, material_file) {
+MaterialEditor.prototype.attach = function(material, asset) {
 	// Check is if sprite material and ajust preview
 	if(material instanceof THREE.SpriteMaterial) {
 		this.sprite.material = material
@@ -89,12 +71,13 @@ MaterialEditor.prototype.attachMaterial = function(material, material_file) {
 	}
 
 	// Store material file pointer
-	if(material_file !== undefined) {
-		this.material_file = material_file
+	if(asset !== undefined) {
+		this.asset = asset
 	}
 
 	// Store material
 	this.material = material
+    this.updateMetadata()
 
 	// The default material nodes
 	this.defaultNodes = {
@@ -168,6 +151,11 @@ MaterialEditor.prototype.initNodeEditor = function() {
 	this.graph.start(1000/60)
 }
 
+// Check if material is attached to tab
+MaterialEditor.prototype.isAttached = function(material) {
+    return this.material === material
+}
+
 // Activate material editor
 MaterialEditor.prototype.activate = function() {
 	Editor.setState(Editor.STATE_IDLE)
@@ -175,16 +163,10 @@ MaterialEditor.prototype.activate = function() {
 	Editor.resetEditingFlags()
 }
 
-// Remove element
-MaterialEditor.prototype.destroy = function() {
-	try {
-		this.parent.removeChild(this.element)
-	}
-	catch(e){}
-}
-
 // On close
 MaterialEditor.prototype.close = function() {
+    TabElement.prototype.close.call(this)
+
 	if (this.graph !== null) {
 		this.graph.stop()
 		delete this.graph.extra
@@ -194,13 +176,13 @@ MaterialEditor.prototype.close = function() {
 }
 
 //Update container object data
-MaterialEditor.prototype.updateMetadata = function(container) {
+MaterialEditor.prototype.updateMetadata = function() {
 	if(this.material !== null) {
 		var material = this.material
 
 		// Set container name
 		if(material.name !== undefined) {
-			container.setName(material.name)
+			this.setName(material.name)
 		}
 
 		// Check if scene exists in program
@@ -215,7 +197,7 @@ MaterialEditor.prototype.updateMetadata = function(container) {
 
 		// If not found close tab
 		if(!found) {
-			container.close()
+			this.close()
 		}
 	}
 }
@@ -283,18 +265,7 @@ MaterialEditor.prototype.update = function() {
 
 // Update division Size
 MaterialEditor.prototype.updateInterface = function() {
-	// Fit parent
-	if(this.fit_parent) {
-		this.size.x = this.parent.offsetWidth
-		this.size.y = this.parent.offsetHeight
-	}
-	
-	// Set visibility
-	if(this.visible) {
-		this.element.style.visibility = "visible"
-	} else {
-		this.element.style.visibility = "hidden"
-	}
+    TabElement.prototype.updateInterface.call(this)
 
 	// Update graph canvas
 	this.graph_canvas.visible = this.visible

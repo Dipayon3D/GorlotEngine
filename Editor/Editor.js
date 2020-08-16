@@ -310,6 +310,13 @@ include("Editor/UI/Tab/Settings/SettingsTab.js")
 include("Editor/UI/Tab/Settings/CodeSettingsTab.js")
 include("Editor/UI/Tab/Settings/GeneralSettingsTab.js")
 
+include("Editor/Interface/ObjectChooser/ObjectChooserBasicTab.js")
+include("Editor/Interface/ObjectChooser/ObjectChooserLightingTab.js")
+include("Editor/Interface/ObjectChooser/ObjectChooserCinematicTab.js")
+include("Editor/Interface/ObjectChooser/ObjectChooserEffectsTab.js")
+include("Editor/Interface/ObjectChooser/ObjectChooserPhysicsTab.js")
+include("Editor/Interface/ObjectChooser/ObjectChooserDeviceTab.js")
+
 include("Editor/Tools/TransformControls.js")
 include("Editor/Tools/GizmoMaterial.js")
 include("Editor/Tools/GizmoLineMaterial.js")
@@ -334,10 +341,11 @@ include("Editor/History/History.js")
 include("Editor/History/Action.js")
 
 include("Editor/DragBuffer.js")
-include("Editor/Interface.js")
 include("Editor/Settings.js")
 
 include("Editor/ComponentManager.js")
+
+include("Editor/Interface/Interface.js")
 
 // Editor state
 Editor.STATE_IDLE = 8
@@ -1174,6 +1182,13 @@ Editor.selectTool = function(tool)
 	} else {
 		Editor.tool = null
 	}
+
+    if(Editor.program !== null) {
+        var tab = Interface.tab.getTab(SceneEditor, Editor.program.scene)
+        if(tab !== null) {
+            tab.updateInterface()
+        }
+    }
 }
 
 // Select helper to debug selected object data
@@ -1347,10 +1362,8 @@ Editor.createNewProgram = function()
 	if(Interface.tab !== undefined)
 	{
 		Interface.tab.clear()
-		var scene = Interface.tab.addTab("scene", Interface.file_dir + "Icons/Tab/Scene.png", true)
-		var canvas = new SceneEditor(scene.element)
-		canvas.setScene(Editor.program.scene)
-		scene.attachComponent(canvas)
+        var scene = Interface.tab.addTab(SceneEditor, true)
+        scene.attach(Editor.program.scene)
 		Interface.tab.selectTab(0)
 	}
 }
@@ -1405,10 +1418,8 @@ Editor.loadProgram = function(fname)
 	//Add new scene tab to interface
 	if(Editor.program.scene !== null)
 	{
-		var scene = Interface.tab.addTab("scene", Interface.file_dir + "Icons/Tab/Scene.png", true);
-		var editor = new SceneEditor(scene.element);
-		editor.setScene(Editor.program.scene);
-		scene.attachComponent(editor);
+        var scene = Interface.tab.add(SceneEditor, true)
+        scene.attach(Editor.program.scene)
 		Interface.tab.selectTab(0);
 	}
 }

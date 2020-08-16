@@ -1,25 +1,10 @@
 "use strict";
 
-function AboutTab(parent)
+function AboutTab(parent, closeable, container, index)
 {
-	//Parent
-    this.parent = (parent !== undefined) ? parent : document.body
+    TabElement.call(this, parent, closeable, container, index, "About", "Editor/Files/Icons/Misc/About.png")
 	
-	//Create element
-	this.element = document.createElement("div");
-	this.element.style.position = "absolute";
-	this.element.style.cursor = "default";
 	this.element.style.backgroundColor = Editor.theme.bar_color;
-
-	this.element.ondrop = function(event)
-	{
-		event.preventDefault();
-	};
-
-	this.element.ondragover = function(event)
-	{
-		event.preventDefault();
-	};
 
 	//Logo
 	this.logo = new ImageBox(this.element);
@@ -73,19 +58,9 @@ function AboutTab(parent)
 	this.madewith.setImage("Editor/Files/Logo/MadeWith.png");
 	this.madewith.size.set(540, 60);
 	this.madewith.position.set(0, 0);
-
-	//Element atributes
-	this.fit_parent = false;
-	this.size = new THREE.Vector2(0,0);
-	this.position = new THREE.Vector2(0,0);
-	this.visible = true;
-	
-	//Add element to document
-	this.parent.appendChild(this.element);
 }
 
-//Update container object data
-AboutTab.prototype.updateMetadata = function(container){}
+AboutTab.prototype = Object.create(TabElement.prototype)
 
 //Activate
 AboutTab.prototype.activate = function()
@@ -93,29 +68,9 @@ AboutTab.prototype.activate = function()
 	Editor.setState(Editor.STATE_IDLE);
 }
 
-//Remove element
-AboutTab.prototype.destroy = function()
-{
-	try
-	{
-		this.parent.removeChild(this.element);
-	}
-	catch(e){}
-}
-
-//Update tab
-AboutTab.prototype.update = function(){}
-
 //Update division Size
 AboutTab.prototype.updateInterface = function()
 {
-	//Fit parent
-	if(this.fit_parent)
-	{
-		this.size.x = this.parent.offsetWidth;
-		this.size.y = this.parent.offsetHeight; 
-	}
-	
 	//Set visibility
 	if(this.visible)
 	{
@@ -126,7 +81,7 @@ AboutTab.prototype.updateInterface = function()
 		this.element.style.visibility = "hidden";
 	}
 	
-	//Update about elements
+	// About elements
 	this.logo.visible = this.visible;
 	this.logo.position.set((this.size.x-this.logo.size.x)/2, (this.size.y*0.5-this.logo.size.y)/2);
 	this.logo.updateInterface();

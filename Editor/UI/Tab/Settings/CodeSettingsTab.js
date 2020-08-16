@@ -1,23 +1,7 @@
 "use strict"
 
-function CodeSettingsTab(parent) {
-    // Parent
-    this.parent = (parent !== undefined) ? parent : document.body
-
-    // Create element
-    this.element = document.createElement("div")
-    this.element.style.overflow = "auto"
-    this.element.style.position = "absolute"
-
-    // Prevent Drop event
-    this.element.ondrop = function(event) {
-        event.preventDefault()
-    }
-
-    // Prevent default when object dragged over
-    this.element.ondragover = function(event) {
-        event.preventDefault()
-    }
+function CodeSettingsTab(parent, closeable, container, index) {
+    TabElement.call(this, parent, closeable, container, index, "Code", "Editor/Files/Icons/Script/Script.png")
 
     // Self pointer
     var self = this
@@ -75,9 +59,9 @@ function CodeSettingsTab(parent) {
     this.form.nextRow()
 
     // Show line numbers
-    this.code_line_numbers = new CheckBox(this.form.element)
     this.form.addText("Show line numbers")
-    this.code_line_numbers.size.set(200, 16)
+    this.code_line_numbers = new CheckBox(this.form.element)
+    this.code_line_numbers.size.set(20, 16)
     this.code_line_numbers.setOnChange(() => {
         Settings.code.line_numbers = self.code_line_numbers.getValue()
     })
@@ -85,9 +69,9 @@ function CodeSettingsTab(parent) {
     this.form.nextRow()
 
     // Line wrapping
-    this.code_line_wrapping = new CheckBox(this.form.element)
     this.form.addText("Line wrap")
-    this.code_line_wrapping.size.set(200, 16)
+    this.code_line_wrapping = new CheckBox(this.form.element)
+    this.code_line_wrapping.size.set(20, 16)
     this.code_line_wrapping.setOnChange(() => {
         Settings.code.line_wrapping = self.code_line_wrapping.getValue()
     })
@@ -95,9 +79,9 @@ function CodeSettingsTab(parent) {
     this.form.nextRow()
 
     // Auto close brackets
-    this.code_auto_close_brackets = new CheckBox(this.form.element)
     this.form.addText("Auto close brackets")
-    this.code_auto_close_brackets.size.set(200, 16)
+    this.code_auto_close_brackets = new CheckBox(this.form.element)
+    this.code_auto_close_brackets.size.set(20, 16)
     this.code_auto_close_brackets.setOnChange(() => {
         Settings.code.auto_close_brackets = self.code_auto_close_brackets.getValue()
     })
@@ -105,27 +89,17 @@ function CodeSettingsTab(parent) {
     this.form.nextRow()
 
     // Highlight active line
-    this.code_highlight_active_line = new CheckBox(this.form.element)
     this.form.addText("Highlight line")
-    this.code_highlight_active_line.size.set(200, 16)
+    this.code_highlight_active_line = new CheckBox(this.form.element)
+    this.code_highlight_active_line.size.set(20, 16)
     this.code_highlight_active_line.setOnChange(() => {
         Settings.code.highlight_active_line = self.code_highlight_active_line.getValue()
     })
     this.form.add(this.code_highlight_active_line)
     this.form.nextRow()
-
-    // Element attributes
-    this.fit_parent = false
-    this.size = new THREE.Vector2(0, 0)
-    this.position = new THREE.Vector2(0, 0)
-    this.visible = true
-
-    // Add element to document
-    this.parent.appendChild(this.element)
 }
 
-// Update container object data
-CodeSettingsTab.prototype.updateMetadata = function(container) {}
+CodeSettingsTab.prototype = Object.create(TabElement.prototype)
 
 // Activate
 CodeSettingsTab.prototype.activate = function() {
@@ -140,24 +114,8 @@ CodeSettingsTab.prototype.activate = function() {
 	this.code_highlight_active_line.setValue(Settings.code.highlight_active_line)
 }
 
-// Remove element
-CodeSettingsTab.prototype.destroy = function() {
-    try {
-        this.parent.removeChild(this.element)
-    } catch(e) {}
-}
-
-// Update tab
-CodeSettingsTab.prototype.update = function() {}
-
 // Update division size
 CodeSettingsTab.prototype.updateInterface = function() {
-    // Fit parent
-    if(this.fit_parent) {
-        this.size.x = this.parent.offsetWidth
-        this.size.y = this.parent.offsetHeight
-    }
-
     // Set visibility
     if(this.visible) {
         this.element.style.visibility = "visible"

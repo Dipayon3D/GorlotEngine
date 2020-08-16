@@ -81,34 +81,12 @@ function BlockAsset(parent) {
 	// Double click
 	this.element.ondblclick = function() {
 		if (self.blocks instanceof BlockScript) {
-			var wind = Editor.openWindow({title: "Blocks Editor", width: 1280, height: 720})
-			var blocks = new BlockEditor(wind.document.body)
-			blocks.fit_parent = true
-			blocks.attachBlocks(self.blocks)
-
-			wind.window.component = blocks
-
-			wind.window.onload = function() {
-				wind.window.component.updateInterface()
-				
-				wind.window.onresize = function() {
-					wind.window.component.updateInterface()
-				}
-
-				wind.window.onblur = function() {
-					wind.window.component.updateBlocks()
-				}
-
-				wind.window.onfocus = function() {
-					Register.registerBlocksNodes()
-					wind.window.component.updateBlocks()
-				}
-
-				wind.window.onbeforeunload = function() {
-					wind.window.component.updateBlocks()		
-				}
-			}
-
+            var tab = Interface.tab.getTab(BlockEditor, self.blocks)
+            if(tab === null) {
+                tab = Interface.tab.addTab(BlockEditor, true)
+                tab.attach(self.blocks)
+            }
+            tab.select()
 		}
 	}
 }

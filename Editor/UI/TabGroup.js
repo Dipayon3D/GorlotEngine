@@ -79,9 +79,9 @@ TabGroup.prototype.getActual = function()
 {
 	if(this.selected > -1)
 	{
-		if(this.options[this.selected].component !== null)
+		if(this.options[this.selected] !== null)
 		{
-			return this.options[this.selected].component
+			return this.options[this.selected]
 		}
 	}
 
@@ -95,7 +95,6 @@ TabGroup.prototype.closeActual = function()
 	{
 		if(this.options[this.selected].closeable)
 		{
-			this.options[this.options_selected].close()
 			this.removeTab(this.selected)
 		}
 	}
@@ -135,9 +134,9 @@ TabGroup.prototype.selectPreviousTab = function() {
 }
 
 // Add new option to tab grounp
-TabGroup.prototype.addTab = function(name, image, closeable)
+TabGroup.prototype.addTab = function(TabConstructor, closeable)
 {
-	var tab = new TabElement(this.tab, name, image, closeable, this, this.options.length)
+	var tab = new TabConstructor(this.tab, closeable, this, this.options.length)
 	var button = new TabButton(this.buttons, tab)
 	tab.button = button
 
@@ -148,6 +147,19 @@ TabGroup.prototype.addTab = function(name, image, closeable)
 	}
 
 	return tab
+}
+
+// Get tab from tab type and attached object if there is any
+TabGroup.prototype.getTab = function(type, obj) {
+    for(var i = 0; i < this.options.length; i++) {
+        if(this.options[i] instanceof type) {
+            if(obj !== undefined || this.options[i].isAttached(obj)) {
+                return this.options[i]
+            }
+        }
+    }
+
+    return null
 }
 
 //Remove tab from group

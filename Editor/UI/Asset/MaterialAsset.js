@@ -35,31 +35,12 @@ function MaterialAsset(parent) {
 	// Double click
 	this.element.ondblclick = function() {
 		if(self.material instanceof THREE.Material) {
-			// Check if there is already a tab with this material attached
-			var found = false
-			for(var i = 0; i < Interface.tab.options.length; i++) {
-				if(Interface.tab.options[i].component instanceof MaterialEditor) {
-					if(Interface.tab.options[i].component.material === self.material) {
-						found = true
-						Interface.tab.selectTab(i)
-						break
-					}
-				}
-			}
-
-			// If not found open new tab
-			if(!found) {
-				self.restoreMaterial()
-
-				var tab = Interface.tab.addTab(self.material.name, Interface.file_dir + "Icons/Misc/Material.png", true)
-				var material_editor
-
-				material_editor = new MaterialEditor()
-
-				material_editor.attachMaterial(self.material, self)
-				tab.attachComponent(material_editor)
-				tab.select()
-			}
+            var tab = Interface.tab.getTab(MaterialEditor, self.material)
+            if(tab === null) {
+                tab = Interface.tab.addTab(MaterialEditor, true)
+                tab.attach(self.material)
+            }
+            tab.select()
 		}
 	}
 

@@ -1,15 +1,14 @@
 "use strict"
 
 function FolderElement(container) {
-
-	// Component
-	if (container === undefined) {
-		this.container = null
-	} else {
+	// Container
+	if (container !== undefined) {
 		this.container = container
+        this.parent = this.container.element
+	} else {
+		this.container = null
+        this.parent = null
 	}
-
-	this.parent = this.container.element
 
 	// Create element
 	this.element = document.createElement("div")

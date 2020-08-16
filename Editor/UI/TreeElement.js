@@ -1,13 +1,14 @@
 "use strict";
 
 function TreeElement(container) {
-	// Component
-	if(container === undefined) {
-		this.container = null
-	} else {
+	// Container
+	if(container !== undefined) {
 		this.container = container
+        this.parent = this.container.element
+	} else {
+		this.container = null
+        this.parent = null
 	}
-	this.parent = this.container.element
 	
 	// Create element
 	this.element = document.createElement("div")
@@ -219,111 +220,58 @@ function TreeElement(container) {
 	// Double click event
 	this.element.ondblclick = function() {
 		if(self.obj instanceof Script) {
-			// Check if there is already a tab with this script attached
-			var found = false
-			for(var i = 0; i < Interface.tab.options.length; i++) {
-				if(Interface.tab.options[i].component instanceof ScriptEditor) {
-					if(Interface.tab.options[i].component.script === self.obj) {
-						found = true
-						Interface.tab.selectTab(i)
-						break
-					}
-				}
-			}
-
-			// If not found open new tab
-			if(!found) {
-				// Add new Code Editor tab
-				var tab = Interface.tab.addTab(self.obj.name, Interface.file_dir + "Icons/Tab/Code.png", true)
-				var code = new ScriptEditor()
-				code.attachScript(self.obj)
-				tab.attachComponent(code)
-				
-				// Select added tab
-				tab.select()
-			}
+            openScriptTab()
 		}
 		else if(self.obj instanceof Scene) {
-			// Check if there is already a tab with this scene attached
-			var found = false
-			for(var i = 0; i < Interface.tab.options.length; i++) {
-				if(Interface.tab.options[i].component instanceof SceneEditor) {
-					// If found select it
-					if(Interface.tab.options[i].component.scene === self.obj) {
-						found = true
-						Interface.tab.selectTab(i)
-						break
-					}
-				}
-			}
-
-			// If no tab is found create new one with a scene container
-			if(!found) {
-				// Scene Canvas
-				var tab = Interface.tab.addTab(self.obj.name, Interface.file_dir + "Icons/Tab/Scene.png", true)
-				var container = new SceneEditor(tab.element)
-				container.setScene(self.obj)
-				tab.attachComponent(container)
-
-				// Select tab
-				tab.select()
-			}
+            openSceneTab()
 		}
 		else if(self.obj instanceof ParticleEmitter) {
-			// Check if there is already a tab with this particle emitter attached
-			var found = false
-			for(var i = 0; i < Interface.tab.options.length; i++) {
-				if(Interface.tab.options[i].component instanceof ParticleEditor) {
-					if(Interface.tab.options[i].component.particle === self.obj) {
-						found = true
-						Interface.tab.selectTab(i)
-						break
-					}
-				}
-			}
-
-			// If not found open new tab
-			if(!found) {
-				// Add new Particle Editor tab
-				var tab = Interface.tab.addTab(self.obj.name, Interface.file_dir + "Icons/Effects/Particles.png", true)
-				var particle = new ParticleEditor()
-				particle.attachParticle(self.obj)
-				tab.attachComponent(particle)
-				
-				// Select added tab
-				tab.select()
-			}
+            openParticleTab()
 		}
 		else if (self.obj instanceof BlockScript) {
-			var wind = Editor.openWindow({title: "Blocks Editor", width: 1280, height: 720})
-			var blocks = new BlockEditor(wind.document.body)
-			blocks.fit_parent = true
-			blocks.attachBlocks(self.obj)
-
-			wind.window.component = blocks
-
-			wind.window.onload = function() {
-				wind.window.component.updateInterface()
-
-				wind.window.onresize = function() {
-					wind.window.component.updateInterface()
-				}
-
-				wind.window.onblur = function() {
-					wind.window.component.updateBlocks()
-				}
-
-				wind.window.obfocus = function() {
-					Register.registerBlocksNodes()
-					wind.window.component.updateBlocks()
-				}
-
-				wind.window.onbeforeunload = function() {
-					wind.window.component.updateBlocks()
-				}
-			}
+            openBlockTab()
 		}
-	};
+	}
+
+    // Open new script tab
+    var openScriptTab = function() {
+        var tab = Interface.tab.getTab(ScriptEditor, self.obj)
+        if(tab === null) {
+            tab = Interface.tab.addTab(ScriptEditor, true)
+            tab.attach(self.obj)
+        }
+        tab.select()
+    }
+
+    // Open new scene tab
+    var openSceneTab = function() {
+        var tab = Interface.tab.getTab(SceneEditor, self.obj)
+        if(tab === null) {
+            tab = Interface.tab.addTab(SceneEditor, true)
+            tab.attach(self.obj)
+        }
+        tab.select()
+    }
+
+    // Open particle tab
+    var openParticleTab = function() {
+        var tab = Interface.tab.getTab(ParticleEditor, self.obj)
+        if(tab === null) {
+            tab = Interface.tab.addTab(ParticleEditor, true)
+            tab.attach(self.obj)
+        }
+        tab.select()
+    }
+
+    // Open block editor tab
+    var openBlockTab = function() {
+        var tab = Interface.tab.getTab(BlockEditor, self.obj)
+        if(tab === null) {
+            tab = Interface.tab.addTab(BlockEditor, true)
+            tab.attach(self.obj)
+        }
+        tab.select()
+    }
 
 	// Arrow click
 	this.arrow.img.style.pointerEvents = "visible"

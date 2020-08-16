@@ -1,23 +1,7 @@
 "use strict"
 
-function GeneralSettingsTab(parent) {
-    // Parent
-    this.parent = (parent !== undefined) ? parent : document.body
-
-    // Create element
-    this.element = document.createElement("div")
-    this.element.style.overflow = "auto"
-    this.element.style.position = "absolute"
-
-    // Prevent drop event
-    this.element.ondrop = function(event) {
-        event.preventDefault()
-    }
-
-    // Prevent default when object dragged over
-    this.element.ondragover = function(event) {
-        event.preventDefault()
-    }
+function GeneralSettingsTab(parent, closeable, container, index) {
+    TabElement.call(this, parent, closeable, container, index, "General", "Editor/Files/Icons/Misc/Tool.png")
 
     // Self pointer
     var self = this
@@ -49,9 +33,9 @@ function GeneralSettingsTab(parent) {
     }
 
     // Show stats
-    this.show_stats = new CheckBox(this.form.element)
     this.form.addText("Show performance info")
-    this.show_stats.size.set(200, 16)
+    this.show_stats = new CheckBox(this.form.element)
+    this.show_stats.size.set(20, 16)
     this.show_stats.setOnChange(() => {
         Settings.general.show_stats = self.show_stats.getValue()
     })
@@ -67,9 +51,9 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Enable grid
-    this.grid_enabled = new CheckBox(this.form.element)
     this.form.addText("Show grid")
-    this.grid_enabled.size.set(200, 16)
+    this.grid_enabled = new CheckBox(this.form.element)
+    this.grid_enabled.size.set(20, 16)
     this.grid_enabled.setOnChange(() => {
         Settings.editor.grid_enabled = self.grid_enabled.getValue()
         Editor.grid_helper.visible = Settings.editor.grid_helper
@@ -106,9 +90,9 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Enable axis
-    this.axis_enabled = new CheckBox(this.form.element)
     this.form.addText("Show Axis")
-    this.axis_enabled.size.set(200, 16)
+    this.axis_enabled = new CheckBox(this.form.element)
+    this.axis_enabled.size.set(20, 16)
     this.axis_enabled.setOnChange(() => {
         Settings.editor.axis_enabled = self.axis_enabled.getValue()
         Editor.axis_helper.visible = Settings.editor.axis_helper
@@ -117,9 +101,9 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Mouse lock on camera move
-    this.lock_mouse = new CheckBox(this.form.element)
     this.form.addText("Lock mouse editor")
-    this.lock_mouse.size.set(200, 16)
+    this.lock_mouse = new CheckBox(this.form.element)
+    this.lock_mouse.size.set(20, 16)
     this.lock_mouse.setOnChange(() => {
         Settings.editor.lock_mouse = self.lock_mouse.getValue()
     })
@@ -142,9 +126,9 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Enable camera preview
-    this.camera_preview_enabled = new CheckBox(this.form.element)
     this.form.addText("Camera preview")
-    this.camera_preview_enabled.size.set(200, 16)
+    this.camera_preview_enabled = new CheckBox(this.form.element)
+    this.camera_preview_enabled.size.set(20, 16)
     this.camera_preview_enabled.setOnChange(() => {
         Settings.editor.camera_preview_enabled = self.camera_preview_enabled.getValue()
     })
@@ -197,9 +181,9 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Use project settings
-    this.follow_project = new CheckBox(this.form.element)
     this.form.addText("Follow project settings")
-    this.follow_project.size.set(200, 16)
+    this.follow_project = new CheckBox(this.form.element)
+    this.follow_project.size.set(20, 16)
     this.follow_project.setOnChange(() => {
         Settings.render.follow_project = self.follow_project.getValue()
     })
@@ -207,9 +191,9 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Antialiasing
-    this.antialiasing = new CheckBox(this.form.element)
     this.form.addText("Antialiasing")
-    this.antialiasing.size.set(200, 16)
+    this.antialiasing = new CheckBox(this.form.element)
+    this.antialiasing.size.set(20, 16)
     this.antialiasing.setOnChange(() => {
         Settings.render.antialiasing = self.antialiasing.getValue()
     })
@@ -217,8 +201,8 @@ function GeneralSettingsTab(parent) {
     this.form.nextRow()
 
     // Shadows
-    this.shadows = new CheckBox(this.form.element)
     this.form.addText("Shadows")
+    this.shadows = new CheckBox(this.form.element)
     this.form.size.set(50, 15)
     this.shadows.setOnChange(() => {
         Settings.render.shadows = self.shadows.getValue()
@@ -238,16 +222,9 @@ function GeneralSettingsTab(parent) {
     })
     this.form.add(this.shadows_type)
     this.form.nextRow()
-
-    // Element attributes
-    this.fit_parent = false
-    this.size = new THREE.Vector2(0, 0)
-    this.position = new THREE.Vector2(0, 0)
-    this.visible = true
-
-    // Add element to document
-    this.parent.appendChild(this.element)
 }
+
+GeneralSettingsTab.prototype = Object.create(TabElement.prototype)
 
 // Update container object data
 GeneralSettingsTab.prototype.updateMetadata = function(container) {}
@@ -278,24 +255,8 @@ GeneralSettingsTab.prototype.activate = function() {
 	this.shadows_type.setValue(Settings.render.shadows_type)
 }
 
-// Remove element
-GeneralSettingsTab.prototype.destroy = function() {
-    try {
-        this.parent.removeChild(this.element)
-    } catch(e) {}
-}
-
-// Update tab
-GeneralSettingsTab.prototype.update = function() {}
-
 // Update division size
 GeneralSettingsTab.prototype.updateInterface = function() {
-    // Fit parent
-    if(this.fit_parent) {
-        this.size.x = this.parent.offsetWidth
-        this.size.y = this.parent.offsetHeight
-    }
-
     // Set visibility
     if(this.visible) {
         this.element.style.visibility = "visible"
