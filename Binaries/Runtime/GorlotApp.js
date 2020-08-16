@@ -143,13 +143,6 @@ GorlotApp.prototype.exit = function() {
 	if (this.onExit !== undefined) {
 		this.onExit()
 	}
-
-    // If running on nwjs close all windows
-    var ui = require("nw.gui")
-	if (gui !== undefined) {
-		gui.App.closeAllWindows()
-		gui.App.quit()
-	}
 }
 
 // Resize to fit window
