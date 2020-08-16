@@ -319,10 +319,12 @@ Program.prototype.receiveDataApp = function(data) {
         if(child instanceof Script) {
             if(child.script !== null && child.script.onAppData !== undefined) {
                 child.appData(data)
+                found = true
             }
         } else if(child instanceof BlockScript) {
             if(child.graph !== null) {
                 child.graph.sendEventToAllNodes("onAppData", data)
+                found = true
             }
         }
     })
