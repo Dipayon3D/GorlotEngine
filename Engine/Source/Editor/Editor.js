@@ -1439,10 +1439,10 @@ Editor.setOpenFile = function(fname) {
 Editor.exportWebProject = function(dir)
 {
 	FileSystem.makeDirectory(dir)
-	FileSystem.copyFile("Binaries/Runtime/vr.png", dir + "/vr.png")
-	FileSystem.copyFile("Binaries/Runtime/fullscreen.png", dir + "/fullscreen.png")
-	FileSystem.copyFile("Binaries/Runtime/index.html", dir + "/index.html")
-	FileSystem.copyFile("Binaries/Gorlot.min.js", dir + "/Gorlot.min.js")
+	FileSystem.copyFile("../Binaries/Runtime/vr.png", dir + "/vr.png")
+	FileSystem.copyFile("../Binaries/Runtime/fullscreen.png", dir + "/fullscreen.png")
+	FileSystem.copyFile("../Binaries/Runtime/index.html", dir + "/index.html")
+	FileSystem.copyFile("../Binaries/Gorlot.min.js", dir + "/Gorlot.min.js")
 
 	Editor.saveProgram(dir + "/app.isp", true, true)
 }
