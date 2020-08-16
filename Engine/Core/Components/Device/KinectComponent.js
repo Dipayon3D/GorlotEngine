@@ -34,7 +34,7 @@ KinectComponent.prototype.initUI = function(pos, obj) {
 	// Debug model
 	this.debug_model = new CheckBox(this.form.element)
 	this.form.addText("Debug model")
-	this.debug_model.size.set(200, 15)
+	this.debug_model.size.set(20, 15)
 	this.debug_model.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.debug_model = self.debug_model.getValue()

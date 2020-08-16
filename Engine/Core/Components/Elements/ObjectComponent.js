@@ -37,7 +37,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	// Visible
 	this.visible = new CheckBox(this.form.element)
 	this.form.addText("Visible")
-	this.visible.size.set(200, 15)
+	this.visible.size.set(20, 15)
 	this.visible.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.visible = self.visible.getValue()
@@ -50,7 +50,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	// Static
 	this.static = new CheckBox(this.form.element)
 	this.form.addText("Static Object")
-	this.static.size.set(200, 15)
+	this.static.size.set(20, 15)
 	this.static.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.matrixAutoUpdate = !(self.static.getValue())
@@ -63,7 +63,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	// Cast shadow
 	this.cast_shadow = new CheckBox(this.form.element)
 	this.form.addText("Cast Shadow")
-	this.cast_shadow.size.set(200, 15)
+	this.cast_shadow.size.set(20, 15)
 	this.cast_shadow.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.castShadow = self.cast_shadow.getValue()
@@ -76,7 +76,7 @@ ObjectComponent.prototype.initUI = function(pos, obj) {
 	// Receive Shadow
 	this.receive_shadow = new CheckBox(this.form.element)
 	this.form.addText("Receive Shadow")
-	this.receive_shadow.size.set(200, 15)
+	this.receive_shadow.size.set(20, 15)
 	this.receive_shadow.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.receiveShadow = self.receive_shadow.getValue()

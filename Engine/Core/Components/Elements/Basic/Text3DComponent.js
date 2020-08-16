@@ -64,7 +64,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         this.form.add(this.size)
 
         // Height
-        this.form.addText("Thickness")
+        this.form.addText("Thickness", true)
         this.height = new NumberBox(this.form.element)
         this.height.size.set(60, 18)
         this.height.setRange(0, Number.MAX_SAFE_INTEGER)
@@ -96,7 +96,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         // Bevel
         this.bevel = new CheckBox(this.form.element)
         this.form.addText("Bevel")
-        this.bevel.size.set(200, 15)
+        this.bevel.size.set(20, 15)
         this.bevel.setOnChange(() => {
                 if (self.obj !== null) {
                         self.obj.bevel = self.bevel.getValue()

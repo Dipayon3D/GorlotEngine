@@ -17,14 +17,14 @@ function CylinderGeometryComponent(form, obj) {
 
     // Radius
     this.form.addText("Radius")
-    this.form.addText("Top")
+    this.form.addText("Top", true)
     this.radiusTop = new NumberBox(this.form.element)
     this.radiusTop.size.set(40, 18)
     this.radiusTop.setStep(0.1)
     this.radiusTop.setOnChange(updateGeometry)
     this.form.add(this.radiusTop)
 
-    this.form.addText("Bottom")
+    this.form.addText("Bottom", true)
     this.radiusBottom = new NumberBox(this.form.element)
     this.radiusBottom.size.set(40, 18)
     this.radiusBottom.setStep(0.1)
@@ -43,14 +43,14 @@ function CylinderGeometryComponent(form, obj) {
 
     // Segments
     this.form.addText("Segments")
-    this.form.addText("Radial")
+    this.form.addText("Radial", true)
     this.radialSegments = new NumberBox(this.form.element)
     this.radialSegments.size.set(40, 18)
     this.radialSegments.setStep(1)
     this.radialSegments.setOnChange(updateGeometry)
     this.form.add(this.radialSegments)
 
-    this.form.addText("Height")
+    this.form.addText("Height", true)
     this.heightSegments = new NumberBox(this.form.element)
     this.heightSegments.size.set(40, 18)
     this.heightSegments.setStep(1)

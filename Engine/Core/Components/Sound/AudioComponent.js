@@ -37,7 +37,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
     // Static
     this.static = new CheckBox(this.form.element)
     this.form.addText("Static Object")
-    this.static.size.set(200, 15)
+    this.static.size.set(20, 15)
     this.static.setOnChange(() => {
         if(this.obj !== null) {
             self.obj.matrixAutoUpdate = !(self.static.getValue())

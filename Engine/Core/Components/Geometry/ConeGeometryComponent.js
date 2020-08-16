@@ -34,14 +34,14 @@ function ConeGeometryComponent(form, obj) {
     
     // Segments
     this.form.addText("Segments")
-    this.form.addText("Radial")
+    this.form.addText("Radial", true)
     this.radialSegments = new NumberBox(this.form.element)
     this.radialSegments.size.set(40, 18)
     this.radialSegments.setStep(1)
     this.radialSegments.setOnChange(updateGeometry)
     this.form.add(this.radialSegments)
 
-    this.form.addText("Height")
+    this.form.addText("Height", true)
     this.heightSegments = new NumberBox(this.form.element)
     this.heightSegments.size.set(40, 18)
     this.heightSegments.setStep(1)
@@ -52,7 +52,7 @@ function ConeGeometryComponent(form, obj) {
     // Buffer
     this.buffer = new CheckBox(this.form.element)
     this.form.addText("Buffered")
-    this.buffer.size.set(200, 15)
+    this.buffer.size.set(20, 15)
     this.buffer.setOnChange(updateGeometry)
     this.form.add(this.buffer)
     this.form.nextRow()

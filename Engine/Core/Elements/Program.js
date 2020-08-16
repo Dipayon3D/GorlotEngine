@@ -311,19 +311,34 @@ Program.prototype.dispose = function()
 	}
 }
 
-// Communicate
+// Receive external data and pass it to all script and blocks instances
+Program.prototype.receiveDataApp = function(data) {
+    var found = false
+
+    // TODO: This
+    
+    if(!found) {
+        if(typeof data === "object") {
+            console.warn("Program: No script or blocks with data receive event found", JSON.stringify(data))
+        } else {
+            console.warn("Program: No script or blocks with data receive event found", data)
+        }
+    }
+}
+
+// Send data to external app instance
 Program.prototype.sendDataApp = function(data) {
     if(this.app !== null) {
         if(this.app.onDataReceived !== undefined) {
             this.gorlot.onDataReceived(data)
         } else {
-            console.warn("Program: App data communication", data)
+            console.warn("Program: No app available", JSON.stringify(data))
         }
     } else {
         if(typeof data === "object") {
             alert(JSON.stringify(data))
         } else {
-            alert(data)
+            console.warn("Program: No app available", data)
         }
     }
 }

@@ -50,7 +50,7 @@ SceneComponent.prototype.initUI = function(pos, obj) {
 	//Select scene as default
 	this.default = new CheckBox(this.form.element)
 	this.form.addText("Default Scene")
-	this.default.size.set(200, 15)
+	this.default.size.set(20, 15)
 	this.default.setOnChange(() => {
 		if (self.obj !== null) {
 			var program = self.obj.parent
