@@ -315,8 +315,19 @@ Program.prototype.dispose = function()
 Program.prototype.receiveDataApp = function(data) {
     var found = false
 
-    // TODO: This
+    this.traverse((child) => {
+        if(child instanceof Script) {
+            if(child.script !== null && child.script.onAppData !== undefined) {
+                child.appData(data)
+            }
+        } else if(child instanceof BlockScript) {
+            if(child.graph !== null) {
+                child.graph.sendEventToAllNodes("onAppData", data)
+            }
+        }
+    })
     
+    // Show warning message
     if(!found) {
         if(typeof data === "object") {
             console.warn("Program: No script or blocks with data receive event found", JSON.stringify(data))

@@ -167,6 +167,13 @@ GorlotApp.prototype.resize = function() {
 	}
 }
 
+// Send data to running application
+GorlotApp.prototype.sendData = function(data) {
+    if(this.program !== null ) {
+        this.program.receiveDataApp()
+    }
+}
+
 // Set on data receive callback (callback receives data as argument)
 GorlotApp.prototype.setOnDataReceived = function(callback) {
     this.onDataReceived = callback

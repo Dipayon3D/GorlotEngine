@@ -36,10 +36,23 @@ function OnGameStartNode() {
 	this.addOutput("", LiteGraph.EVENT)
 }
 OnGameStartNode.title = "On Game Start"
-OnGameStartNode.prototype.reiszable = false
 OnGameStartNode.prototype.onStart = function() {
 	this.triggerSlot(0, "GameStart")
 	this.triggerSlot(1)
+}
+
+// On external data received
+function OnAppDataNode() {
+    this.addOutput("", LiteGraph.EVENT, NodesHelper.slots.output.passer)
+    this.addOutput("", LiteGraph.EVENT)
+    this.addOutput("Data")
+}
+OnAppDataNode.title = "On Data Received"
+OnAppDataNode.prototype.onAppData = function(data) {
+    this.setOutputData(2, data)
+
+    this.triggerSlot(0, data)
+    this.triggerSlot(1)
 }
 
 // Event Destroy
@@ -227,6 +240,7 @@ function registerEvents() {
 	LiteGraph.registerNodeType("Events/BeginPlay", BeginPlayNode)
 	LiteGraph.registerNodeType("Events/EventTick", EventTickNode)
 	LiteGraph.registerNodeType("Events/OnGameStart", OnGameStartNode)
+	LiteGraph.registerNodeType("Events/OnAppData", OnAppDataNode)
 	LiteGraph.registerNodeType("Events/EventDestroyed", EventDestroyedNode)
 	LiteGraph.registerNodeType("Events/EventDispose", EventDisposeNode)
 	LiteGraph.registerNodeType("Events/EventListener", EventListenerNode)
