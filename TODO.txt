@@ -8,3 +8,4 @@
 - Prebuilt fire and water
 - Terrain
 - Unity like terrain editor
+- Create and edit prefabs
