@@ -32,7 +32,8 @@ function MaterialEditor(parent, closeable, container, index) {
 	this.renderer.setSize(this.canvas.size.x, this.canvas.size.y)
 
 	// Material camera
-    this.camera = new THREE.PerspectiveCamera(90, this.canvas.size.x/this.canvas.size.y)
+    this.camera = new OrthographicCamera(2.15, 1)
+    //this.camera = new THREE.PerspectiveCamera(90, this.canvas.size.x/this.canvas.size.y)
 
 	// Material preview scene
 	this.scene = new THREE.Scene()

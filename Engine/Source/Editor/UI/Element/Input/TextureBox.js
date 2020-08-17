@@ -91,7 +91,6 @@ function TextureBox(parent)
 	// Form
 	this.form = new Form(this.element);
     this.form.default_text_width = 60
-	this.form.position.set(105, 0);
 	this.form.spacing.set(10, 5);
 
 	//Use texture
@@ -247,8 +246,12 @@ TextureBox.prototype.updatePreview = function() {
 		this.video.src = ""
 		this.img.visibility = "visible"
 		this.img.src = texture.image.src
-	}
-	else if (texture instanceof VideoTexture || texture instanceof WebcamTexture) {
+	} else if(texture instanceof CanvasTexture) {
+        this.video.visibility = "hidden"
+        this.video.src = ""
+        this.img.visibility = "visible"
+        this.img.src = texture.image.toDataURL()
+    } else if (texture instanceof VideoTexture || texture instanceof WebcamTexture) {
 		this.img.visibility = "hidden"
 		this.img.src = ""
 		this.video.visibility = "visible"
@@ -293,6 +296,8 @@ TextureBox.prototype.updateInterface = function()
 	this.alpha.height = this.size.y;
 
 	// Auxiliar form
+    this.form.position.set(this.size.y + 5, 0)
+    this.form.size.set(this.size.x - this.form.position.x, this.size.y)
 	this.form.visible = this.visible;
 	this.form.updateInterface();
 

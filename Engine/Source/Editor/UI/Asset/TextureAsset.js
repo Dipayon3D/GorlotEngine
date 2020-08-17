@@ -109,6 +109,7 @@ TextureAsset.prototype.setTexture = function(texture) {
     this.texture = texture
 
 	if(texture instanceof VideoTexture || texture instanceof WebcamTexture) {
+        // Video
         this.preview = document.createElement("video")
         this.preview.draggable = true
         this.preview.style.position = "absolute"
@@ -122,7 +123,15 @@ TextureAsset.prototype.setTexture = function(texture) {
         }
 
         this.element.appendChild(this.preview)
+    } else if(texture instanceof CanvasTexture) {
+        // Canvas Texture
+        this.preview = document.createElement("img")
+        this.preview.style.position = "absolute"
+        this.preview.style.top = "5px"
+        this.preview.src = texture.image.toDataURL()
+        this.element.appendChild(this.preview)
     } else if(texture instanceof THREE.Texture) {
+        // Image
         this.preview = document.createElement("img")
         this.preview.style.position = "absolute"
         this.preview.style.top = "5px"

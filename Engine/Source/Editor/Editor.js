@@ -260,6 +260,7 @@ include("Editor/UI/Element/Canvas.js")
 include("Editor/UI/Element/DualDivisionResizable.js")
 include("Editor/UI/Element/ButtonImageToggle.js")
 include("Editor/UI/Element/Form.js")
+include("Editor/UI/Element/AudioPlayer.js")
 
 include("Editor/UI/Element/Input/Graph.js")
 include("Editor/UI/Element/Input/CodeEditor.js")
