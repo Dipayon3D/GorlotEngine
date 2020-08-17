@@ -4,3 +4,7 @@
 - Modify blocks and scripts variables in their components
 - Component creator (by using forms)
 - Create a hub where components can be downloaded (for example, windows, linux and mac nwjs for exporting to those platforms)
+- Navmesh and IA pathfinding
+- Prebuilt fire and water
+- Terrain
+- Unity like terrain editor
