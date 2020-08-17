@@ -343,6 +343,7 @@ include("Editor/History/Action.js")
 include("Editor/DragBuffer.js")
 include("Editor/Settings.js")
 
+// Internal console
 include("Editor/UI/Tab/ConsoleTab.js")
 include("Editor/Console.js")
 

@@ -40,7 +40,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         // Text
         this.form.addText("Text")
         this.text = new TextArea(this.form.element)
-        this.text.size.set(200, 60)
+        this.text.size.set(190, 60)
         this.text.setOnChange(() => {
                 if(self.obj !== null) {
                         self.obj.setText(self.text.getText())
@@ -62,9 +62,10 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
             }
         })
         this.form.add(this.size)
+        this.form.nextRow()
 
         // Height
-        this.form.addText("Thickness", true)
+        this.form.addText("Thickness")
         this.height = new NumberBox(this.form.element)
         this.height.size.set(60, 18)
         this.height.setRange(0, Number.MAX_SAFE_INTEGER)
@@ -79,7 +80,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         this.form.nextRow()
 
         // Curve segments
-        this.form.addText("Curve Segments")
+        this.form.addText("Curve Detail")
         this.curve_segments = new NumberBox(this.form.element)
         this.curve_segments.size.set(60, 18)
         this.curve_segments.setRange(0, Number.MAX_SAFE_INTEGER)
@@ -94,8 +95,12 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         this.form.nextRow()
 
         // Bevel
-        this.bevel = new CheckBox(this.form.element)
+
         this.form.addText("Bevel")
+        this.form.nextRow()
+
+        this.bevel = new CheckBox(this.form.element)
+        this.form.addText("Enabled")
         this.bevel.size.set(20, 15)
         this.bevel.setOnChange(() => {
                 if (self.obj !== null) {
@@ -107,7 +112,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         this.form.nextRow()
 
         // Bevel thickness
-        this.form.addText("Bevel Thickness")
+        this.form.addText("Thickness")
         this.bevel_thickness = new NumberBox(this.form.element)
         this.bevel_thickness.size.set(60, 18)
         this.bevel_thickness.setRange(0, Number.MAX_SAFE_INTEGER)
@@ -122,7 +127,7 @@ Text3DComponent.prototype.initUI = function(pos, obj) {
         this.form.nextRow()
 
         // Bevel size
-        this.form.addText("Bevel Size")
+        this.form.addText("Size")
         this.bevel_size = new NumberBox(this.form.element)
         this.bevel_size.size.set(60, 18)
         this.bevel_size.setRange(0, Number.MAX_SAFE_INTEGER)

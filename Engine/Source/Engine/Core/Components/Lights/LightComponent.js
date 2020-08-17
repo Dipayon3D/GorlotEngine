@@ -197,6 +197,7 @@ LightComponent.prototype.initUI = function(pos, obj) {
 			}
 		})
 		this.form.add(this.shadow_near)
+        this.form.nextRow()
 
 		// ShadowMap Camera Far
 		this.form.addText("Far")
@@ -225,6 +226,7 @@ LightComponent.prototype.initUI = function(pos, obj) {
 				}
 			})
 			this.form.add(this.shadow_left)
+            this.form.nextRow()
 	
 			// ShadowMap Camera right
 			this.form.addText("Right")
@@ -252,6 +254,7 @@ LightComponent.prototype.initUI = function(pos, obj) {
 				}
 			})
 			this.form.add(this.shadow_top)
+            this.form.nextRow()
 	
 			// ShadowMap Camera bottom
 			this.form.addText("Bottom")

@@ -37,7 +37,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object name
 	this.form.addText("Name")
 	this.name = new TextBox(this.form.element)
-	this.name.size.set(200, 18)
+	this.name.size.set(190, 18)
 	this.name.setOnChange(() => {
 		if (self.obj !== null) {
 			self.obj.name = self.name.getText()
@@ -51,7 +51,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object UUID
 	this.form.addText("UUID")
 	this.uuid = new TextBox(this.form.element)
-	this.uuid.size.set(248, 18)
+	this.uuid.size.set(190, 18)
 	this.uuid.setDisabled(true)
 	this.form.add(this.uuid)
 	this.form.nextRow()
@@ -64,6 +64,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object Position
 	this.form.addText("Position")
 	this.position = new CoordinatesBox(this.form.element)
+    this.position.size.set(190, 18)
     this.position.setStep(0.01)
 	this.position.setOnChange(() => {
 		if (self.obj !== null) {
@@ -78,6 +79,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object Rotation
 	this.form.addText("Rotation")
 	this.rotation = new CoordinatesBox(this.form.element)
+    this.rotation.size.set(190, 18)
     this.rotation.setStep(0.01)
 	this.rotation.setOnChange(() => {
 		if (self.obj !== null) {
@@ -92,6 +94,7 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	// Object Scale
 	this.form.addText("Scale")
 	this.scale = new CoordinatesBox(this.form.element)
+    this.scale.size.set(190, 18)
     this.scale.setStep(0.01)
 	this.scale.setOnChange(() => {
 		if (self.obj !== null) {

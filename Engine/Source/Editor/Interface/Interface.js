@@ -542,6 +542,15 @@ Interface.initialize = function() {
 		Interface.loadProgram()
 	})
 
+    // Console
+    Interface.file.addOption("Console", () => {
+        var tab = Interface.tab.getTab(ConsoleTab)
+        if(tab === null ){
+            tab = Interface.tab.addTab(ConsoleTab, true)
+        }
+        tab.select()
+    }, Interface.file_dir + "Icons/Misc/Console.png")
+
 	var publish = Interface.file.addMenu("Export")
 
 	publish.addOption("Web", () => {
@@ -704,6 +713,10 @@ Interface.updateInterface = function() {
 	Interface.explorer_resizable.updateInterface()
 
 	Interface.tree_view.updateInterface()
+
+    if(Interface.panel !== null) {
+        Interface.panel.updateInterface()
+    }
 
 	// ------------------------------------ Asset Explorer ------------------------------------
 	Interface.asset_explorer_div.size.x = size.x - Interface.explorer.size.x

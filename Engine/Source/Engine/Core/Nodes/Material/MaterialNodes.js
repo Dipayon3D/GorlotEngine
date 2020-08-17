@@ -533,28 +533,12 @@ MaterialShaderNode.prototype.onDblClick = function() {
 	var mat = this.graph.extra.material
 	var file = this.graph.extra.file
 
-	if (mat instanceof THREE.ShaderMaterial) {
-		// Check if there is already a tab with this material attached
-		var found = false
-		for(var i = 0; i < Interface.tab.options.length; i++) {
-			if (Interface.tab.options[i].component instanceof ShaderMaterialEditor) {
-				if (Interface.tab.options[i].component.material === mat) {
-					found = true
-					Interface.tab.selectTab(i)
-					break
-				}
-			}
-		}
-
-		// If not found, open new tab
-		if (!found) {
-			var tab = Interface.tab.addTab(mat.name, Interface.file_dir + "Icons/Misc/material.png", true)
-			var material_editor = new ShaderMaterialEditor()
-			material_editor.attachMaterial(mat, file)
-			tab.attachComponent(material_editor)
-			tab.select()
-		}
-	}
+    var tab = Interface.tab.getTab(ShaderMaterialEditor, self.mat)
+    if(tab === null ) {
+        tab = Interface.tab.addTab(ShaderMaterialEditor, true)
+        tab.attach(mat, file)
+    }
+    tab.select()
 }
 
 function registerMaterialNodes() {

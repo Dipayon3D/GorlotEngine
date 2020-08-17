@@ -144,7 +144,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
         this.form.nextRow()
 
         // Shadow resolution
-        this.form.addText("Resolution")
+        this.form.addText("Resolution",)
         this.shadow_width = new DropdownList(this.form.element)
         this.shadow_width.size.set(60, 18)
         this.shadow_width.setOnChange(() => {
@@ -154,7 +154,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
                 }
         })
         this.form.add(this.shadow_width)
-        this.form.addText("x")
+        this.form.addText("x", true)
         this.shadow_height = new DropdownList(this.form.element)
         this.shadow_height.size.set(60, 18)
         this.shadow_height.setOnChange(() => {
@@ -184,6 +184,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
                 }
         })
         this.form.add(this.shadow_near)
+        this.form.nextRow()
 
         // Shadowmap camera far
         this.form.addText("Far")
@@ -211,6 +212,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
                 }
         })
         this.form.add(this.shadow_left)
+        this.form.nextRow()
 
         // Shadowmap camera right
         this.form.addText("Right")
@@ -238,6 +240,7 @@ SkyComponent.prototype.initUI = function(pos, obj) {
                 }
         })
         this.form.add(this.shadow_top)
+        this.form.nextRow()
 
         // Shadowmap camera bottom
         this.form.addText("Bottom")

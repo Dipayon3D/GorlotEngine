@@ -1,20 +1,7 @@
 "use strict"
 
-function ShaderMaterialEditor(parent) {
-	// Parent
-    this.parent = (parent !== undefined) ? parent : document.body
-
-	// Create element
-	this.element = document.createElement("div")
-	this.element.style.position = "absolute"
-
-	this.element.ondrop = function(e) {
-		e.preventDefault()
-	}
-
-	this.element.ondragover = function(e) {
-		e.preventDefault()
-	}
+function ShaderMaterialEditor(parent, closeable, container, index) {
+    TabElement.call(this, parent, closeable, container, index, "Shader Material", "Editor/Files/Icons/Misc/Material.png")
 
 	// Main container
 	this.main = new DualDivisionResizable(this.element)
@@ -135,11 +122,18 @@ function ShaderMaterialEditor(parent) {
 	})
 	this.children.push(this.test_model)
 
+    text = new Text(this.preview.div_b)
+    text.setAlignment(Text.LEFT)
+    text.setText("Sky Enabled")
+    text.position.set(10, 68)
+    text.fit_content = true
+    text.updateInterface()
+    this.children.push(text)
+
 	// Sky enabled
 	this.sky_enabled = new CheckBox(this.preview.div_b)
-	this.form.addText("Enable Sky")
 	this.sky_enabled.size.set(20, 15)
-	this.sky_enabled.position.set(5, 60)
+	this.sky_enabled.position.set(90, 60)
 	this.sky_enabled.setValue(true)
 	this.sky_enabled.updateInterface()
 	this.sky_enabled.setOnChange(() => {
@@ -184,8 +178,14 @@ function ShaderMaterialEditor(parent) {
 	this.parent.appendChild(this.element)
 }
 
+ShaderMaterialEditor.prototype = Object.create(TabElement.prototype)
+
+ShaderMaterialEditor.prototype.isAttached = function(material) {
+    return this.material === material
+}
+
 // Attach material to material editor
-ShaderMaterialEditor.prototype.attachMaterial = function(material, material_file) {
+ShaderMaterialEditor.prototype.attach = function(material, material_file) {
 	this.obj.material = material
 	this.obj.visible = true
 
@@ -209,20 +209,13 @@ ShaderMaterialEditor.prototype.activate = function() {
 }
 
 // Remove element
-ShaderMaterialEditor.prototype.destroy = function() {
-	try {
-		this.parent.removeChild(this.element)
-	} catch(e) {}
-}
-
-// Remove element
-ShaderMaterialEditor.prototype.updateMetadata = function(container) {
+ShaderMaterialEditor.prototype.updateMetadata = function() {
 	if (this.material !== null) {
 		var material = this.material
 
 		// Set container name
 		if (material.name !== undefined) {
-			container.setName(material.name)
+			this.setName(material.name)
 		}
 
 		// Check if scene exists in program
@@ -237,7 +230,7 @@ ShaderMaterialEditor.prototype.updateMetadata = function(container) {
 
 		// If not found, close tab
 		if (!found) {
-			container.close()
+			this.close()
 		}
 	}
 }
@@ -284,18 +277,7 @@ ShaderMaterialEditor.prototype.update = function() {
 
 // Update division size
 ShaderMaterialEditor.prototype.updateInterface = function() {
-	// Fit parent
-	if (this.fit_parent) {
-		this.size.x = this.parent.offsetWidth
-		this.size.y = this.parent.offsetHeight
-	}
-
-	// Set visibility
-	if (this.visible) {
-		this.element.style.visibility = "visible"
-	} else {
-		this.element.style.visibility = "hidden"
-	}
+    TabElement.prototype.updateInterface.call(this)
 
 	// Update main container
 	this.main.visible = this.visible
@@ -335,10 +317,4 @@ ShaderMaterialEditor.prototype.updateInterface = function() {
 		this.children[i].visible = this.visible
 		this.children[i].updateInterface()
 	}
-
-	// Update element
-	this.element.style.top = this.position.y + "px"
-	this.element.style.left = this.position.x + "px"
-	this.element.style.width = this.size.x + "px"
-	this.element.style.height = this.size.y + "px"
 }
