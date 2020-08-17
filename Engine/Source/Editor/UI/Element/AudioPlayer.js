@@ -52,63 +52,37 @@ function AudioPlayer(parent) {
     this.startTime = 0
     this.playing = false
 
+    this.loop = false
     this.dragging = false
-/*
-}
 
-AudioPlayer.prototype.onMouseDown = function(event) {
-    this.dragging = true
-    this.startX = event.pageX
-    this.startLeft = parseInt(this.scrubber.style.left || 0, 10)
-}
-
-AudioPlayer.prototype.onDrag = function(event) {
-    if(!this.dragging) {
-        return
-    }
-
-    var width = this.track.offsetWidth
-    var height = this.startLeft + (event.pageX - this.startX)
-    position = Math.max(Math.min(width, position), 0)
-
-    this.scrubber.style.left = position + "px"
-}
-
-AudioPlayer.prototype.onMouseUp = function() {
-    if(this.dragging) {
-        var width = this.track.offsetWidth
-        var left = parseInt(this.scrubber.style.left || 0, 10)
-        var time = left / width * this.buffer.duration
-        this.seek(time)
-        this.dragging = false
-    }
-}
-*/
+    // Self pointer
+    var self = this
 
     // Update elements
     function draw() {
-        if(this.buffer !== null ) {
-            if(this.playing) {
-                this.time = this.context.currentTime
-                
-                if(this.time >= this.buffer.duration) {
-                    this.pause()
-                }
+        if(self.playing) {
+            self.time = self.context.currentTime - self.startTime
+
+            if(self.time >= self.buffer.duration) {
+                self.pause()
             }
-
-            var progress = this.time / this.buffer.duration
-            var position = progress * (this.size.x - this.size.y)
-
-            this.progress.style.width = position + "px"
-            this.scrubber.style.left = position + "px"
         }
 
-        if(this.parent !== null) {
-            requestAnimationFrame(draw.bind(this))
+        if(Keyboard.keyPressed(Keyboard.Y)) {
+            console.log("Context")
+            console.log(self.context)
+            console.log("Buffer")
+            console.log(self.buffer)
+            console.log("Source")
+            console.log(self.source)
+        }
+
+        if(self.parent !== null ){
+            requestAnimationFrame(draw)
         }
     }
 
-    draw.bind(this)()
+    draw()
 
     // Attributes
     this.visible = true
@@ -165,9 +139,9 @@ AudioPlayer.prototype.play = function(time) {
 // Pause audio
 AudioPlayer.prototype.pause = function() {
     if(this.playing) {
+        this.playing = false
         this.source.stop()
         this.time = this.context.currentTime - this.startTime
-        this.playing = false
 
         this.button.style.backgroundColor = "#FF0000"
     }

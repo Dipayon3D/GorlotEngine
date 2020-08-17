@@ -9,7 +9,7 @@ ArraybufferUtils.fromBinaryString = function(str) {
 	var view = new Uint8Array(array)
 
 	for(var i = 0; i < length; i++) {
-		view[i] = str.charCodeAt()
+		view[i] = str.charCodeAt(i)
 	}
 
 	return array
