@@ -27,6 +27,16 @@ function TabGroup(parent)
 	this.buttons.style.position = "absolute"
 	this.element.appendChild(this.buttons)
 
+    this.buttons.ondrop = function(event) {
+        // TODO: Reorder tabs
+        event.preventDefault()
+    }
+
+    this.buttons.ondragover = function(event) {
+        // TODO: Reorder tabs
+        event.preventDefault()
+    }
+
 	// Tab
 	this.tab = document.createElement("div")
 	this.tab.style.position = "absolute"

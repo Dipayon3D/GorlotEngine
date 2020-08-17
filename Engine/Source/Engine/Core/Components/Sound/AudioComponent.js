@@ -35,8 +35,9 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.form.nextRow()
 
     // Audio player
+    this.form.addText("Audio")
     this.player = new AudioPlayer(this.form.element)
-    this.player.size.set(240, 40)
+    this.player.size.set(190, 20)
     this.form.add(this.player)
     this.form.nextRow()
 
@@ -105,10 +106,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 }
 
 AudioComponent.prototype.updateData = function() {
-    var player = this.player
-    this.player.setAudioBuffer(this.obj.audio.data, () => {
-        player.play()
-    })
+    this.player.setAudioBuffer(this.obj.audio.data)
 
     this.static.setValue(this.obj.matrixAutoUpdate)
 	this.autoplay.setValue(this.obj.autoplay)

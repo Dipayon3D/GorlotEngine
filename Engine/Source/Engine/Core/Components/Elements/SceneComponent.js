@@ -174,6 +174,9 @@ SceneComponent.prototype.initUI = function(pos, obj) {
 	this.form.nextRow()
 
 	// Physics World
+    this.form.addSeparator()
+    this.form.nextRow()
+
 	this.form.addText("Physics World")
 	this.form.nextRow()
 

@@ -63,10 +63,8 @@ function FolderElement(container) {
 
 	// Mouse leave event
 	this.element.onmouseleave = function(e) {
-		if (Editor.CURRENT_PATH !== self.folder.path + self.folder.name + "/") {
-			this.style.cursor = "default"
-			this.style.backgroundColor = Editor.theme.button_light_color
-		}
+        this.style.cursor = "default"
+        this.style.backgroundColor = Editor.theme.button_light_color
 	}
 
 	// On drop any element
