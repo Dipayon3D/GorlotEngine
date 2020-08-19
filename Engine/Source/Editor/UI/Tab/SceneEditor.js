@@ -333,23 +333,18 @@ SceneEditor.prototype = Object.create(TabElement.prototype)
 // Update container object data
 SceneEditor.prototype.updateMetadata = function() {
 	if(this.scene !== null) {
-		var scene = this.scene
+        this.setName(this.scene.name)
 
-		// Set container name
-		this.setName(scene.name)
+        var scenes = Editor.program.children
+        for(var i = 0; i < scenes.length; i++) {
+            if(this.scene.uuid === scenes[i].uuid) {
+                return
+            }
 
-		// Check if scene exists in program
-		var found = false
-		Editor.program.traverse(function(obj) {
-			if(obj.uuid === scene.uuid) {
-				found = true
-			}
-		})
-
-		// If not found close tab
-		if(!found) {
-			this.close()
-		}
+            if(i >= scenes.length) {
+                this.close()
+            }
+        }
 	}
 }
 

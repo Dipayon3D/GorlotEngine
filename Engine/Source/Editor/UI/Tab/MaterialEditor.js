@@ -179,27 +179,13 @@ MaterialEditor.prototype.close = function() {
 //Update container object data
 MaterialEditor.prototype.updateMetadata = function() {
 	if(this.material !== null) {
-		var material = this.material
+        if(this.material.name !== undefined) {
+            this.setName(this.material.name)
+        }
 
-		// Set container name
-		if(material.name !== undefined) {
-			this.setName(material.name)
-		}
-
-		// Check if scene exists in program
-		var found = false
-		var materials = Editor.program.materials
-		for(var i in materials) {
-			if(materials[i].uuid === material.uuid) {
-				found = true
-				break
-			}
-		}
-
-		// If not found close tab
-		if(!found) {
-			this.close()
-		}
+        if(Editor.program.materials[this.material.uuid] === undefined) {
+            this.close()
+        }
 	}
 }
 
