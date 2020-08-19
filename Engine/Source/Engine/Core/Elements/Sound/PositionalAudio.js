@@ -8,8 +8,10 @@ function PositionalAudio(audio) {
 
     this.audio = (audio !== undefined) ? audio : null
 
+    this.volume = 1.0
+
     this.autoplay = true
-    this.playbackRate = 1
+    this.playbackRate = 1.0
     this.startTime = 0
     this.loop = true
 
@@ -41,6 +43,8 @@ PositionalAudio.prototype.initialize = function() {
             self.setBuffer(buffer)
         })
     }
+
+    this.setVolume(this.volume)
 
     // Get cameras
     var node = this
@@ -85,10 +89,18 @@ PositionalAudio.prototype.dispose = function() {
     }
 }
 
-// Update world matrix
-PositionalAudio.prototype.updateMatrixWorld = function(force) {
-    Object3D.prototype.updateMatrixWorld.call(this, force)
+// Set volume
+PositionalAudio.prototype.setVolume = function(value) {
+    this.volume = value
+    this.gain.gain.value = value
+
+    return this
 }
+
+// Update world matrix
+/*PositionalAudio.prototype.updateMatrixWorld = function(force) {
+    Object3D.prototype.updateMatrixWorld.call(this, force)
+}*/
 
 // Create JSON description
 PositionalAudio.prototype.toJSON = function(meta) {
@@ -98,6 +110,7 @@ PositionalAudio.prototype.toJSON = function(meta) {
     })
 
     data.object.audio = audio.uuid
+    data.object.volume = this.volume
     data.object.autoplay = this.autoplay
     data.object.startTime = this.startTime
     data.object.playbackRate = this.playbackRate

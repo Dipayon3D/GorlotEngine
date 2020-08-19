@@ -7,6 +7,7 @@ function AudioComponent() {
 	this.className = "AudioComponent"
 
 	this.values = {
+        volume: 1.0,
         static: false,
 		autoplay: true,
 		loop: true,
@@ -41,21 +42,22 @@ AudioComponent.prototype.initUI = function(pos, obj) {
     this.form.add(this.player)
     this.form.nextRow()
 
-    // Static
-    this.form.addText("Static Object")
-    this.static = new CheckBox(this.form.element)
-    this.static.size.set(20, 15)
-    this.static.setOnChange(() => {
-        if(this.obj !== null) {
-            self.obj.matrixAutoUpdate = !(self.static.getValue())
-            Editor.history.push(self.obj, Action.CHANGED)
+    // Volume
+    this.form.addText("Volume")
+    this.volume = new Slider(this.form.element)
+    this.volume.size.set(80, 18)
+    this.volume.setRange(0, 1)
+    this.volume.setStep(0.01)
+    this.volume.setOnChange(() => {
+        if(self.obj !== null) {
+            self.obj.volume = self.volume.getValue()
         }
     })
-    this.form.add(this.static)
+    this.form.add(this.volume)
     this.form.nextRow()
 
 	// Playback Rate
-	this.form.addText("Playback Speed")
+	this.form.addText("Speed")
 	this.playbackRate = new NumberBox(this.form.element)
 	this.playbackRate.size.set(60, 18)
 	this.playbackRate.setStep(0.01)
@@ -95,6 +97,19 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 	this.form.add(this.loop)
 	this.form.nextRow()
 
+    // Static
+    this.form.addText("Static Object")
+    this.static = new CheckBox(this.form.element)
+    this.static.size.set(20, 15)
+    this.static.setOnChange(() => {
+        if(this.obj !== null) {
+            self.obj.matrixAutoUpdate = !(self.static.getValue())
+            Editor.history.push(self.obj, Action.CHANGED)
+        }
+    })
+    this.form.add(this.static)
+    this.form.nextRow()
+
 	// Set position and update interface
 	this.form.position.copy(this.widgetsPos)
 	this.form.updateInterface()
@@ -107,7 +122,7 @@ AudioComponent.prototype.initUI = function(pos, obj) {
 
 AudioComponent.prototype.updateData = function() {
     this.player.setAudioBuffer(this.obj.audio.data)
-
+    this.volume.setValue(this.obj.volume)
     this.static.setValue(this.obj.matrixAutoUpdate)
 	this.autoplay.setValue(this.obj.autoplay)
 	this.loop.setValue(this.obj.loop)
@@ -115,6 +130,7 @@ AudioComponent.prototype.updateData = function() {
 }
 
 AudioComponent.prototype.onReset = function() {
+    this.obj.volume = this.values.volume
     this.obj.matrixAutoUpdate = this.values.static
 	this.obj.autoplay = this.values.autoplay
 	this.obj.loop = this.values.loop

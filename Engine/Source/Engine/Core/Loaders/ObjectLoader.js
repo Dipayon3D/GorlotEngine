@@ -364,6 +364,9 @@ ObjectLoader.prototype.parseObject = function(data, geometries, materials, textu
 			object.startTime = data.startTime;
 			object.playbackRate = data.playbackRate;
             object.loop = (data.source !== undefined) ? data.source.loop : data.loop;
+            if(data.volume !== undefined) {
+                object.volume = data.volume
+            }
 			break;
 
         case "PositionalAudio":
@@ -372,6 +375,9 @@ ObjectLoader.prototype.parseObject = function(data, geometries, materials, textu
             object.startTime = data.startTime
             object.playbackRate = data.playbackRate
             object.loop = (data.source !== undefined) ? data.source.loop : data.loop
+            if(data.volume !== undefined) {
+                object.volume = data.volume
+            }
             break
 
 		case "Physics":

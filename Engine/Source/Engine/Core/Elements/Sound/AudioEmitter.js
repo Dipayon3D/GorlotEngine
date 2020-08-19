@@ -11,11 +11,13 @@ function AudioEmitter(audio)
     this.matrixAutoUpdate = false
 
 	this.audio = (audio !== undefined) ? audio : Editor.default_audio
+    this.volume = 1.0
 
 	this.autoplay = true;
-	this.playbackRate = 1;
+	this.playbackRate = 1.0;
 	this.startTime = 0;
 	this.loop = true;
+
     this.isPlaying = false
     this.hasPlaybackControl = true
 
@@ -43,6 +45,8 @@ AudioEmitter.prototype.initialize = function()
 		})
 	}
 
+    this.setVolume(this.volume)
+
 	// Initialise children
 	for(var i = 0; i < this.children.length; i++)
 	{
@@ -66,16 +70,24 @@ AudioEmitter.prototype.dispose = function()
 	}
 }
 
+// Set sound volume
+AudioEmitter.prototype.setVolume = function(value) {
+    this.volume = value
+    this.gain.gain.value = value
+
+    return this
+}
+
 // Create JSON description
 AudioEmitter.prototype.toJSON = function(meta)
 {
-
-        var audio = this.audio
-        var data = THREE.Object3D.prototype.toJSON.call(this, meta, (meta, object) => {
-                audio = audio.toJSON(meta)
-        })
+    var audio = this.audio
+    var data = THREE.Object3D.prototype.toJSON.call(this, meta, (meta, object) => {
+            audio = audio.toJSON(meta)
+    })
 
 	data.object.audio = audio.uuid
+    data.object.volume = this.volume
 	data.object.autoplay = this.autoplay;
 	data.object.startTime = this.startTime;
 	data.object.playbackRate = this.playbackRate;
