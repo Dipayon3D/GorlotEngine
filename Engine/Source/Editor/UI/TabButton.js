@@ -72,7 +72,7 @@ function TabButton(parent, tab) {
 	this.close_button.visible = this.closeable
 	this.close_button.size.set(10, 10)
 	this.close_button.position.set(130, 10)
-	this.close_button.setImage("Editor/Files/Icons/Misc/Close.png")
+	this.close_button.setImage("Source/Editor/Files/Icons/Misc/Close.png")
 	this.close_button.setCallback(function() {
 		tab.close()
 	})

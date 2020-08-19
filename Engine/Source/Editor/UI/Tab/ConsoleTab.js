@@ -1,7 +1,7 @@
 "use strict"
 
 function ConsoleTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Console", "Editor/Files/Icons/Misc/Console.png")
+    TabElement.call(this, parent, closeable, container, index, "Console", "Source/Editor/Files/Icons/Misc/Console.png")
     
     // TODO: This
 }

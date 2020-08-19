@@ -1,7 +1,7 @@
 "use strict"
 
 function ObjectChooserLightingTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Lighting", "Editor/Files/Icons/Lights/Point.png")
+    TabElement.call(this, parent, closeable, container, index, "Lighting", "Source/Editor/Files/Icons/Lights/Point.png")
 
     this.items = []
     this.icons = []

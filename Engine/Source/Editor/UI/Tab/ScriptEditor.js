@@ -2,7 +2,7 @@
 
 function ScriptEditor(parent, closeable, container, index)
 {
-    TabElement.call(this, parent, closeable, container, index, "Script", "Editor/Files/Icons/Misc/Code.png")
+    TabElement.call(this, parent, closeable, container, index, "Script", "Source/Editor/Files/Icons/Misc/Code.png")
 
 	//Codemirror editor
 	this.code = new CodeMirror(this.element,

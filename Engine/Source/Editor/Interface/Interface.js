@@ -5,7 +5,7 @@ function Interface() {}
 // Initialise interface
 Interface.initialize = function() {
 	// File directory
-	Interface.file_dir = "Editor/Files/"
+	Interface.file_dir = "Source/Editor/Files/"
 
 	// ------------------------------------ Tab Container ------------------------------------
 	Interface.tab = new TabGroup()
@@ -508,7 +508,7 @@ Interface.initialize = function() {
 
 	// Editor Logo
 	Interface.image = new ImageBox()
-	Interface.image.setImage("Editor/Files/Logo.png")
+	Interface.image.setImage("Source/Editor/Files/Logo.png")
 	Interface.image.size.set(108, 18)
 	Interface.image.updateInterface()
 

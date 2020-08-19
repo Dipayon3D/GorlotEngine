@@ -20,7 +20,7 @@ function TextureBox(parent)
 	//Alpha background
 	this.alpha = document.createElement("img");
 	this.alpha.style.pointerEvents = "none"
-	this.alpha.src = "Editor/Files/Alpha.png";
+	this.alpha.src = "Source/Editor/Files/Alpha.png";
 	this.alpha.style.position = "absolute";
 	this.alpha.style.left = "0px";
 	this.alpha.style.top = "0px";

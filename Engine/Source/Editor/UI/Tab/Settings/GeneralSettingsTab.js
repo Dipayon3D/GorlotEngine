@@ -1,7 +1,7 @@
 "use strict"
 
 function GeneralSettingsTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "General", "Editor/Files/Icons/Misc/Tool.png")
+    TabElement.call(this, parent, closeable, container, index, "General", "Source/Editor/Files/Icons/Misc/Tool.png")
 
     this.element.style.overflow = "auto"
 

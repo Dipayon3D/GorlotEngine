@@ -1,7 +1,7 @@
 "use strict"
 
 function SceneEditor(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Scene", "Editor/Files/Icons/Misc/Scene.png")
+    TabElement.call(this, parent, closeable, container, index, "Scene", "Source/Editor/Files/Icons/Misc/Scene.png")
 
 	// Canvas
 	this.canvas = document.createElement("canvas")
@@ -157,7 +157,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Fullscreen button
 	this.fullscreen_button = new ButtonImage(this.element)
 	this.fullscreen_button.size.set(25, 25)
-	this.fullscreen_button.setImage("Editor/Files/Icons/Misc/Fullscreen.png")
+	this.fullscreen_button.setImage("Source/Editor/Files/Icons/Misc/Fullscreen.png")
 	this.fullscreen_button.visible = false
 	this.fullscreen_button.updateInterface()
 	this.fullscreen_button.element.onmouseenter = function() {
@@ -176,7 +176,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Select tool
 	this.tool_select_button = new ButtonImage(this.element)
 	this.tool_select_button.size.set(15, 15)
-	this.tool_select_button.setImage("Editor/Files/Icons/Tools/Select.png")
+	this.tool_select_button.setImage("Source/Editor/Files/Icons/Tools/Select.png")
     this.tool_select_button.setAltText("Select tool")
 	this.tool_select_button.visible = false
 	this.tool_select_button.updateInterface()
@@ -197,7 +197,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Move tool
 	this.tool_move_button = new ButtonImage(this.element)
 	this.tool_move_button.size.set(15, 15)
-	this.tool_move_button.setImage("Editor/Files/Icons/Tools/Move.png")
+	this.tool_move_button.setImage("Source/Editor/Files/Icons/Tools/Move.png")
     this.tool_move_button.setAltText("Move tool")
 	this.tool_move_button.visible = false
 	this.tool_move_button.updateInterface()
@@ -220,7 +220,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Rotate tool
 	this.tool_rotate_button = new ButtonImage(this.element)
 	this.tool_rotate_button.size.set(15, 15)
-	this.tool_rotate_button.setImage("Editor/Files/Icons/Tools/Rotate.png")
+	this.tool_rotate_button.setImage("Source/Editor/Files/Icons/Tools/Rotate.png")
     this.tool_rotate_button.setAltText("Rotate tool")
 	this.tool_rotate_button.visible = false
 	this.tool_rotate_button.updateInterface()
@@ -243,7 +243,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Scale tool
 	this.tool_scale_button = new ButtonImage(this.element)
 	this.tool_scale_button.size.set(15, 15)
-	this.tool_scale_button.setImage("Editor/Files/Icons/Tools/Resize.png")
+	this.tool_scale_button.setImage("Source/Editor/Files/Icons/Tools/Resize.png")
     this.tool_scale_button.setAltText("Scale tool")
 	this.tool_scale_button.visible = false
 	this.tool_scale_button.updateInterface()
@@ -266,7 +266,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Switch 2D
 	this.camera_button2d = new ButtonImage(this.element)
 	this.camera_button2d.size.set(15, 15)
-	this.camera_button2d.setImage("Editor/Files/Icons/Misc/2D.png")
+	this.camera_button2d.setImage("Source/Editor/Files/Icons/Misc/2D.png")
     this.camera_button2d.setAltText("Change camera to 2D mode")
 	this.camera_button2d.visible = true
 	this.camera_button2d.updateInterface()
@@ -290,7 +290,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// Switch 3D
 	this.camera_button3d = new ButtonImage(this.element)
 	this.camera_button3d.size.set(15, 15)
-	this.camera_button3d.setImage("Editor/Files/Icons/Misc/3D.png")
+	this.camera_button3d.setImage("Source/Editor/Files/Icons/Misc/3D.png")
     this.camera_button3d.setAltText("Change camera to 3D mode")
 	this.camera_button3d.visible = true
 	this.camera_button3d.updateInterface()
@@ -314,7 +314,7 @@ function SceneEditor(parent, closeable, container, index) {
 	// VR button
 	this.vr_button = new ButtonImage(this.element)
 	this.vr_button.size.set(25, 25)
-	this.vr_button.setImage("Editor/Files/Icons/Misc/VR.png")
+	this.vr_button.setImage("Source/Editor/Files/Icons/Misc/VR.png")
 	this.vr_button.visible = false
 	this.vr_button.updateInterface()
 	this.vr_button.element.onmouseenter = function() {

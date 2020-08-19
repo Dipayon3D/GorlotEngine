@@ -1,7 +1,7 @@
 "use strict"
 
 function SettingsTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Settings", "Editor/Files/Icons/Misc/Settings.png")
+    TabElement.call(this, parent, closeable, container, index, "Settings", "Source/Editor/Files/Icons/Misc/Settings.png")
 
     // Options tab container
     this.tab = new TabGroup(this.element)

@@ -1,7 +1,7 @@
 "use strict"
 
 function ObjectChooserBasicTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Basic", "Editor/Files/Icons/Models/Models.png")
+    TabElement.call(this, parent, closeable, container, index, "Basic", "Source/Editor/Files/Icons/Models/Models.png")
 
     this.items = []
     this.icons = []

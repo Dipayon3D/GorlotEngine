@@ -33,7 +33,7 @@ function FolderElement(container) {
 	this.icon = new ImageBox(this.element)
 	this.icon.size.set(15, 15)
 	this.icon.position.set(5, 3)
-	this.icon.setImage("Editor/Files/Icons/Misc/Folder.png")
+	this.icon.setImage("Source/Editor/Files/Icons/Misc/Folder.png")
 	this.icon.updateInterface()
 
 	// Text

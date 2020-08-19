@@ -1,7 +1,7 @@
 "use strict"
 
 function ObjectChooserCinematicTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Cinematic", "Editor/Files/Icons/Camera/Camera.png")
+    TabElement.call(this, parent, closeable, container, index, "Cinematic", "Source/Editor/Files/Icons/Camera/Camera.png")
 
     this.items = []
     this.icons = []

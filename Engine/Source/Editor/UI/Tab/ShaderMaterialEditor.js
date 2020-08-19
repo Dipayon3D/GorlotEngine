@@ -1,7 +1,7 @@
 "use strict"
 
 function ShaderMaterialEditor(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Shader Material", "Editor/Files/Icons/Misc/Material.png")
+    TabElement.call(this, parent, closeable, container, index, "Shader Material", "Source/Editor/Files/Icons/Misc/Material.png")
 
 	// Main container
 	this.main = new DualDivisionResizable(this.element)

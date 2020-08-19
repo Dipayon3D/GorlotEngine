@@ -1,7 +1,7 @@
 "use strict"
 
 function ObjectChooserDeviceTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Device", "Editor/Files/Icons/Hw/Hw.png")
+    TabElement.call(this, parent, closeable, container, index, "Device", "Source/Editor/Files/Icons/Hw/Hw.png")
 
     this.items = []
     this.icons = []

@@ -1,7 +1,7 @@
 "use strict"
 
 function CodeSettingsTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Code Editor", "Editor/Files/Icons/Script/Script.png")
+    TabElement.call(this, parent, closeable, container, index, "Code Editor", "Source/Editor/Files/Icons/Script/Script.png")
 
     this.element.style.overflow = "auto"
 

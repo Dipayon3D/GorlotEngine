@@ -7,50 +7,50 @@ function ObjectIcons(){}
 ObjectIcons.icons = []
 
 //Default icon
-ObjectIcons.icons["Object3D"] = "Editor/Files/Icons/Tab/Scene.png"
+ObjectIcons.icons["Object3D"] = "Source/Editor/Files/Icons/Tab/Scene.png"
 
 //Devices
-ObjectIcons.icons["Kinect"] = "Editor/Files/Icons/Hw/Kinect.png"
-ObjectIcons.icons["LeapDevice"] = "Editor/Files/Icons/Hw/Leap.png"
+ObjectIcons.icons["Kinect"] = "Source/Editor/Files/Icons/Hw/Kinect.png"
+ObjectIcons.icons["LeapDevice"] = "Source/Editor/Files/Icons/Hw/Leap.png"
 
 //Ligths
-ObjectIcons.icons["Sky"] = "Editor/Files/Icons/Lights/Sky.png"
-ObjectIcons.icons["SpotLight"] = "Editor/Files/Icons/Lights/Spot.png"
-ObjectIcons.icons["PointLight"] = "Editor/Files/Icons/Lights/Point.png"
-ObjectIcons.icons["HemisphereLight"] = "Editor/Files/Icons/Lights/Hemisphere.png"
-ObjectIcons.icons["DirectionalLight"] = "Editor/Files/Icons/Lights/Directional.png"
-ObjectIcons.icons["AmbientLight"] = "Editor/Files/Icons/Lights/Ambient.png"
-ObjectIcons.icons["RectAreaLight"] = "Editor/Files/Icons/Lights/RectArea.png"
+ObjectIcons.icons["Sky"] = "Source/Editor/Files/Icons/Lights/Sky.png"
+ObjectIcons.icons["SpotLight"] = "Source/Editor/Files/Icons/Lights/Spot.png"
+ObjectIcons.icons["PointLight"] = "Source/Editor/Files/Icons/Lights/Point.png"
+ObjectIcons.icons["HemisphereLight"] = "Source/Editor/Files/Icons/Lights/Hemisphere.png"
+ObjectIcons.icons["DirectionalLight"] = "Source/Editor/Files/Icons/Lights/Directional.png"
+ObjectIcons.icons["AmbientLight"] = "Source/Editor/Files/Icons/Lights/Ambient.png"
+ObjectIcons.icons["RectAreaLight"] = "Source/Editor/Files/Icons/Lights/RectArea.png"
 
 //Cameras
-ObjectIcons.icons["PerspectiveCamera"] = "Editor/Files/Icons/Camera/Perspective.png"
-ObjectIcons.icons["OrthographicCamera"] = "Editor/Files/Icons/Camera/Orthographic.png"
+ObjectIcons.icons["PerspectiveCamera"] = "Source/Editor/Files/Icons/Camera/Perspective.png"
+ObjectIcons.icons["OrthographicCamera"] = "Source/Editor/Files/Icons/Camera/Orthographic.png"
 
 //Objects
-ObjectIcons.icons["SpineAnimation"] = "Editor/Files/Icons/Animation/Spine.png"
-ObjectIcons.icons["Mesh"] = "Editor/Files/Icons/Models/Cube.png"
-ObjectIcons.icons["SkinnedMesh"] = "Editor/Files/Icons/Animation/Skeleton.png"
-ObjectIcons.icons["ParticleEmitter"] = "Editor/Files/Icons/Effects/Particles.png"
-ObjectIcons.icons["Script"] = "Editor/Files/Icons/Script/Script.png"
-ObjectIcons.icons["BlockScript"] = "Editor/Files/Icons/Script/Blocks.png"
-ObjectIcons.icons["Sprite"] = "Editor/Files/Icons/Assets/Image.png"
-ObjectIcons.icons["Text3D"] = "Editor/Files/Icons/Models/Text.png"
-ObjectIcons.icons["Points"] = "Editor/Files/Icons/Models/Points.png"
+ObjectIcons.icons["SpineAnimation"] = "Source/Editor/Files/Icons/Animation/Spine.png"
+ObjectIcons.icons["Mesh"] = "Source/Editor/Files/Icons/Models/Cube.png"
+ObjectIcons.icons["SkinnedMesh"] = "Source/Editor/Files/Icons/Animation/Skeleton.png"
+ObjectIcons.icons["ParticleEmitter"] = "Source/Editor/Files/Icons/Effects/Particles.png"
+ObjectIcons.icons["Script"] = "Source/Editor/Files/Icons/Script/Script.png"
+ObjectIcons.icons["BlockScript"] = "Source/Editor/Files/Icons/Script/Blocks.png"
+ObjectIcons.icons["Sprite"] = "Source/Editor/Files/Icons/Assets/Image.png"
+ObjectIcons.icons["Text3D"] = "Source/Editor/Files/Icons/Models/Text.png"
+ObjectIcons.icons["Points"] = "Source/Editor/Files/Icons/Models/Points.png"
 
 //Program
-ObjectIcons.icons["Program"] = "Editor/Files/Icons/Script/Script.png"
-ObjectIcons.icons["Scene"] = "Editor/Files/Icons/Models/Models.png"
+ObjectIcons.icons["Program"] = "Source/Editor/Files/Icons/Script/Script.png"
+ObjectIcons.icons["Scene"] = "Source/Editor/Files/Icons/Models/Models.png"
 
 //Audio
-ObjectIcons.icons["Audio"] = "Editor/Files/Icons/Assets/Audio.png"
-ObjectIcons.icons["PositionalAudio"] = "Editor/Files/Icons/Assets/AudioPositional.png"
+ObjectIcons.icons["Audio"] = "Source/Editor/Files/Icons/Assets/Audio.png"
+ObjectIcons.icons["PositionalAudio"] = "Source/Editor/Files/Icons/Assets/AudioPositional.png"
 
 //Physics
-ObjectIcons.icons["Physics"] = "Editor/Files/Icons/Misc/Physics.png"
+ObjectIcons.icons["Physics"] = "Source/Editor/Files/Icons/Misc/Physics.png"
 
 //Others
-ObjectIcons.icons["Bone"] = "Editor/Files/Icons/Animation/Bone.png"
-ObjectIcons.icons["Group"] = "Editor/Files/Icons/Effects/Empty.png"
+ObjectIcons.icons["Bone"] = "Source/Editor/Files/Icons/Animation/Bone.png"
+ObjectIcons.icons["Group"] = "Source/Editor/Files/Icons/Effects/Empty.png"
 
 //Get icon path from object type
 ObjectIcons.get = function(type)

@@ -188,7 +188,7 @@ DropdownMenu.prototype.addMenu = function(name, icon)
 	}
 
 	var arrow = new ImageBox(menu.element);
-	arrow.setImage("Editor/Files/Icons/Misc/ArrowRight.png");
+	arrow.setImage("Source/Editor/Files/Icons/Misc/ArrowRight.png");
 	arrow.size.set(12, 12);
 	arrow.position.set(this.options_size.x - 20, 3);
 	menu.add(arrow);

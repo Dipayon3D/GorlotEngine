@@ -1,7 +1,7 @@
 "use strict"
 
 function ParticleEditor(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Particle", "Editor/Files/Icons/Effects/Particles.png")
+    TabElement.call(this, parent, closeable, container, index, "Particle", "Source/Editor/Files/Icons/Effects/Particles.png")
 
 	// Main container
 	this.main = new DualDivisionResizable(this.element)

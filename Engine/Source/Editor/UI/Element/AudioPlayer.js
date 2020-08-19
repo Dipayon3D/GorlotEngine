@@ -41,7 +41,7 @@ function AudioPlayer(parent) {
     this.icon.style.top = "10%"
     this.icon.style.width = "80%"
     this.icon.style.height = "80%"
-    this.icon.src = "Editor/Files/Icons/Misc/Play.png"
+    this.icon.src = "Source/Editor/Files/Icons/Misc/Play.png"
     this.button.appendChild(this.icon)
 
 	//Track
@@ -213,7 +213,7 @@ AudioPlayer.prototype.play = function(time) {
 	this.source.start(this.context.currentTime, this.time)
 	this.playing = true
 
-    this.icon.src = "Editor/Files/Icons/Misc/Pause.png"
+    this.icon.src = "Source/Editor/Files/Icons/Misc/Pause.png"
 }
 
 //Pause audio
@@ -223,7 +223,7 @@ AudioPlayer.prototype.pause = function() {
 		this.source.stop()
 		this.time = this.context.currentTime - this.start_time
 
-        this.icon.src = "Editor/Files/Icons/Misc/Play.png"
+        this.icon.src = "Source/Editor/Files/Icons/Misc/Play.png"
 	}
 }
 
@@ -234,7 +234,7 @@ AudioPlayer.prototype.stop = function() {
 		this.time = 0
 		this.playing = false
 
-        this.icon.src = "Editor/Files/Icons/Misc/Play.png"
+        this.icon.src = "Source/Editor/Files/Icons/Misc/Play.png"
 	}
 }
 

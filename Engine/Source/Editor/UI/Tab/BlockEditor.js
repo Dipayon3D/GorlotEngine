@@ -1,7 +1,7 @@
 "use strict"
 
 function BlockEditor(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Block Editor", "Editor/Files/Icons/Script/Blocks.png")
+    TabElement.call(this, parent, closeable, container, index, "Block Editor", "Source/Editor/Files/Icons/Script/Blocks.png")
 
 	// Canvas
 	this.canvas = new Canvas(this.element)

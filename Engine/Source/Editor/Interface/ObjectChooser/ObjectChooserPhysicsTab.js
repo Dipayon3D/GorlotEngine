@@ -1,7 +1,7 @@
 "use strict"
 
 function ObjectChooserPhysicsTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Physics", "Editor/Files/Icons/Misc/Physics.png")
+    TabElement.call(this, parent, closeable, container, index, "Physics", "Source/Editor/Files/Icons/Misc/Physics.png")
 
     this.items = []
     this.icons = []

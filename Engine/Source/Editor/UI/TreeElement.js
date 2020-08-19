@@ -33,7 +33,7 @@ function TreeElement(container) {
 	this.arrow = new ImageBox(this.element)
 	this.arrow.size.set(15, 15)
 	this.arrow.position.set(5, 3)
-	this.arrow.setImage("Editor/Files/Icons/Misc/ArrowDown.png")
+	this.arrow.setImage("Source/Editor/Files/Icons/Misc/ArrowDown.png")
 	this.arrow.updateInterface()
 
 	// Icon
@@ -292,7 +292,7 @@ TreeElement.prototype.setObject = function(obj) {
 	this.folded = obj.folded
 
 	if(obj.folded) {
-		this.arrow.setImage("Editor/Files/Icons/Misc/ArrowRight.png")
+		this.arrow.setImage("Source/Editor/Files/Icons/Misc/ArrowRight.png")
 	}
 }
 
@@ -352,11 +352,11 @@ TreeElement.prototype.updateFoldedState = function() {
 	}
 
 	if(this.folded) {
-		this.arrow.setImage("Editor/Files/Icons/Misc/ArrowRight.png")
+		this.arrow.setImage("Source/Editor/Files/Icons/Misc/ArrowRight.png")
 		this.container.updateChildPosition()
 		this.container.updateInterface()
 	} else {
-		this.arrow.setImage("Editor/Files/Icons/Misc/ArrowDown.png")
+		this.arrow.setImage("Source/Editor/Files/Icons/Misc/ArrowDown.png")
 		this.container.updateChildPosition()
 		this.container.updateInterface()
 	}

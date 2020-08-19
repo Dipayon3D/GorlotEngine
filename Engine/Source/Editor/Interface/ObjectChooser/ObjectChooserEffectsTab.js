@@ -1,7 +1,7 @@
 "use strict"
 
 function ObjectChooserEffectsTab(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Effects", "Editor/Files/Icons/Effects/Particles.png")
+    TabElement.call(this, parent, closeable, container, index, "Effects", "Source/Editor/Files/Icons/Effects/Particles.png")
 
     this.items = []
     this.icons = []

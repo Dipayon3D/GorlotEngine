@@ -2,13 +2,13 @@
 
 function AboutTab(parent, closeable, container, index)
 {
-    TabElement.call(this, parent, closeable, container, index, "About", "Editor/Files/Icons/Misc/About.png")
+    TabElement.call(this, parent, closeable, container, index, "About", "Source/Editor/Files/Icons/Misc/About.png")
 	
 	this.element.style.backgroundColor = Editor.theme.bar_color;
 
 	//Logo
 	this.logo = new ImageBox(this.element);
-	this.logo.setImage("Editor/Files/Logo.png");
+	this.logo.setImage("Source/Editor/Files/Logo.png");
 	this.logo.size.set(390, 65);
 
 	//Version info
@@ -55,7 +55,7 @@ function AboutTab(parent, closeable, container, index)
 
 	//Made with
 	this.madewith = new ImageBox(this.element);
-	this.madewith.setImage("Editor/Files/Logo/MadeWith.png");
+	this.madewith.setImage("Source/Editor/Files/Logo/MadeWith.png");
 	this.madewith.size.set(540, 60);
 	this.madewith.position.set(0, 0);
 }

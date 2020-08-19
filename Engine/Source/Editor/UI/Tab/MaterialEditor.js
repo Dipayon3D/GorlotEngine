@@ -1,7 +1,7 @@
 "use strict"
 
 function MaterialEditor(parent, closeable, container, index) {
-    TabElement.call(this, parent, closeable, container, index, "Material Editor", "Editor/Files/Icons/Misc/Material.png")
+    TabElement.call(this, parent, closeable, container, index, "Material Editor", "Source/Editor/Files/Icons/Misc/Material.png")
 
     // Registers only the material nodes
 	Register.unregisterAll()
