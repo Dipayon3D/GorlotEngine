@@ -36,7 +36,6 @@ function FolderTree(parent) {
 }
 
 FolderTree.prototype.update = function() {
-
 	var pos = 20
 
 	var genesis = new FolderElement(this)

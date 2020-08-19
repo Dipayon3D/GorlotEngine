@@ -49,12 +49,14 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 	this.form.nextRow()
 
 	// Object UUID
-	this.form.addText("UUID")
-	this.uuid = new TextBox(this.form.element)
-	this.uuid.size.set(190, 18)
-	this.uuid.setDisabled(true)
-	this.form.add(this.uuid)
-	this.form.nextRow()
+    if(Settings.general.show_uuid) {
+        this.form.addText("UUID")
+        this.uuid = new TextBox(this.form.element)
+        this.uuid.size.set(190, 18)
+        this.uuid.setDisabled(true)
+        this.form.add(this.uuid)
+        this.form.nextRow()
+    }
 
 	// Object Type
 	this.form.addText("Type")
@@ -134,7 +136,11 @@ ElementComponent.prototype.initUI = function(pos, obj) {
 
 ElementComponent.prototype.updateData = function() {
 	this.name.setText(this.obj.name)
-	this.uuid.setText(this.obj.uuid)
+
+    if(this.uuid !== undefined) {
+        this.uuid.setText(this.obj.uuid)
+    }
+
 	this.position.setValue(this.obj.position.x, this.obj.position.y, this.obj.position.z)
 	this.rotation.setValue(this.obj.rotation.x, this.obj.rotation.y, this.obj.rotation.z)
 	this.scale.setValue(this.obj.scale.x, this.obj.scale.y, this.obj.scale.z)

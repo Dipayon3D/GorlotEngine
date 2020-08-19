@@ -18,10 +18,12 @@ function AssetExplorer(parent)
         // Dragged file into Asset Explorer
         if(event.dataTransfer.files.length > 0) {
             var file = event.dataTransfer.files[0]
+            var name = FileSystem.getFileName(file.path)
 
             // Image
             if(file.type.startsWith("image")) {
                 var texture = new Texture(file.path)
+                texture.name = name
                 texture.setPath(Editor.CURRENT_PATH)
                 Editor.program.addTexture(texture)
                 Editor.updateAssetExplorer()
@@ -29,6 +31,7 @@ function AssetExplorer(parent)
             // Video
             else if(file.type.startsWith("video")) {
                 var texture = new VideoTexture(file.path)
+                texture.name = name
                 texture.setPath(Editor.CURRENT_PATH)
                 Editor.program.addTexture(texture)
                 Editor.updateAssetExplorer()
@@ -36,6 +39,7 @@ function AssetExplorer(parent)
             // Audio
             else if(file.type.startsWith("audio")) {
                 var texture = new Audio(file.path)
+                texture.name = name
                 texture.setPath(Editor.CURRENT_PATH)
                 Editor.program.addTexture(texture)
                 Editor.updateAssetExplorer()
@@ -47,22 +51,6 @@ function AssetExplorer(parent)
 	{
 		event.preventDefault();
 	};
-
-    /*this.element.oncontextmenu = function(e) {
-        var context = new ContextMenu()
-        context.size.set(130, 20)
-        context.position.set(e.clientX - 5, e.clientY - 5)
-
-        context.addOption("Select All", () => {
-            alert("Not implemented yet")
-            // TODO: This
-        })
-
-        context.addOption("Paste", () => {
-            alert("Not implemented yet")
-            // TODO: This
-        })
-    }*/
 
 	//Element atributes
 	this.fit_parent = false;

@@ -42,6 +42,7 @@ function SceneEditor(parent, closeable, container, index) {
 			// Dragged file into object
 			if (intersections.length > 0 && event.dataTransfer.files.length > 0) {
 				var file = event.dataTransfer.files[0]
+                var name = FileSystem.getFileName(file.path)
                 var object = intersections[0].object
 
 				// Image
@@ -49,8 +50,10 @@ function SceneEditor(parent, closeable, container, index) {
 					if (object instanceof THREE.Mesh) {
 						// Create new material with selected image
 						var texture = new Texture(file.path)
+                        texture.name = name
+                        
 						var material = new MeshStandardMaterial({map: texture, color: 0xffffff, roughness: 0.6, metalness: 0.2})
-						material.name = file.name
+						material.name = name
                         material.path = Editor.CURRENT_PATH
 						object.material = material
 
@@ -59,8 +62,10 @@ function SceneEditor(parent, closeable, container, index) {
 					} else if (object instanceof THREE.Sprite) {
 						// Create new material with selected image
 						var texture = new Texture(file.path)
+                        texture.name = name
+
 						var material = new SpriteMaterial({map: texture, color: 0xffffff})
-						material.name = file.name
+						material.name = name
                         material.path = Editor.CURRENT_PATH
 						object.material = material
 
@@ -71,15 +76,19 @@ function SceneEditor(parent, closeable, container, index) {
 				else if (file.type.startsWith("video")) {
 					if (object instanceof THREE.Mesh) {
 						var texture = new VideoTexture(file.path)
+                        texture.name = name
+
 						var material = new MeshStandardMaterial({map: texture, color: 0xffffff, roughness: 0.6, metalness: 0.2})
-						material.name = file.name
+						material.name = name
                         material.path = Editor.CURRENT_PATH
 						object.material = material
 						Editor.updateObjectViews()
 					} else if (object instanceof THREE.Sprite) {
 						var texture = new VideoTexture(file.path)
+                        texture.name = name
+
 						var material = new SpriteMaterial({map: texture, color: 0xffffff})
-						material.name = file.name
+						material.name = name
                         material.path = Editor.CURRENT_PATH
 						Editor.updateObjectViews()
 					}
