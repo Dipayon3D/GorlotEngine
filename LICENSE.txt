@@ -12,4 +12,4 @@ license remains GPL.
 
 The productions made using GorlotEngine are licensed under the MIT license.
 Which lets you to deal with the code without limitations
-(this includes BUT NOT LIMITED TO publish your creations and keep the source code private)
+(this includes BUT NOT LIMITED TO publish and sell your creations and keep the source code private)

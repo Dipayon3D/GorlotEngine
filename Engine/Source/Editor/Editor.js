@@ -141,6 +141,7 @@ include("Source/Engine/Core/Components/Sound/AudioComponent.js")
 include("Source/Engine/Core/Components/Physics/PhysicsComponent.js")
 
 include("Source/Engine/Core/Components/Scripts/ScriptComponent.js")
+include("Source/Engine/Core/Components/Scripts/BlockComponent.js")
 
 include("Source/Engine/Core/Components/Elements/ElementComponent.js")
 include("Source/Engine/Core/Components/Elements/ObjectComponent.js")

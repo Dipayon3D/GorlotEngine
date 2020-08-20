@@ -71,6 +71,10 @@ Component.prototype.update = function() {
 
 }
 
+Component.prototype.dispose = function() {
+
+}
+
 Component.prototype.updateInterface = function() {
 	this.element.style.width = this.form.size.x + "px"
 	this.form.updateInterface()

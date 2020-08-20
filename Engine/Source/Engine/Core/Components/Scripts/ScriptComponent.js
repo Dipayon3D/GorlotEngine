@@ -3,12 +3,8 @@
 function ScriptComponent() {
 	Component.call(this)
 
-   this.component_name = "Script"
-        this.className = "ScriptComponent"
-
-        this.values = {
-                mode: Script.INIT
-        }
+    this.component_name = "Script"
+    this.className = "ScriptComponent"
 }
 
 ScriptComponent.prototype = Object.create(Component.prototype)
