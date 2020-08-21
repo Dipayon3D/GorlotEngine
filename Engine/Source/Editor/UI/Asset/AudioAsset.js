@@ -4,7 +4,7 @@ function AudioAsset(parent) {
 	Asset.call(this, parent)
 
 	this.audio = null
-    this.setIcon(Interface.file_dir + "Icons/Assets/Audio.png")
+    this.setIcon(Interface.fileDir + "Icons/Assets/Audio.png")
 
 	// Self pointer
 	var self = this
@@ -33,7 +33,7 @@ function AudioAsset(parent) {
 
 		context.addOption("Delete", () => {
 			if (self.audio !== null && confirm("Delete audio?")) {
-                Editor.program.removeAudio(self.audio, Editor.default_audio)
+                Editor.program.removeAudio(self.audio, Editor.defaultAudio)
                 Editor.updateObjectViews()
 			}
 		})
@@ -81,7 +81,7 @@ AudioAsset.prototype.setAudio = function(audio) {
 AudioAsset.prototype.updateMetadata = function() {
 	if (this.audio !== null) {
         // TODO: Audio preview graph
-		this.image.src = Interface.file_dir + "Icons/Assets/Audio.png"
+		this.image.src = Interface.fileDir + "Icons/Assets/Audio.png"
 
 		this.setText(this.audio.name)
 		this.path = this.audio.path

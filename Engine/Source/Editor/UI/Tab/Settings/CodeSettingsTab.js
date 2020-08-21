@@ -10,7 +10,7 @@ function CodeSettingsTab(parent, closeable, container, index) {
 
     // Form
     this.form = new Form(this.element)
-    this.form.default_text_width = 125
+    this.form.defaultTextWidth = 125
     this.form.position.set(5, 5)
     this.form.spacing.set(5, 5)
 
@@ -20,85 +20,85 @@ function CodeSettingsTab(parent, closeable, container, index) {
 
     // Code theme
     this.form.addText("Editor Theme")
-    this.code_theme = new DropdownList(this.form.element)
-    this.code_theme.size.set(120, 20)
-    this.code_theme.setOnChange(() => {
-        Settings.code.theme = self.code_theme.getValue()
+    this.codeTheme = new DropdownList(this.form.element)
+    this.codeTheme.size.set(120, 20)
+    this.codeTheme.setOnChange(() => {
+        Settings.code.theme = self.codeTheme.getValue()
     })
-    this.form.add(this.code_theme)
+    this.form.add(this.codeTheme)
     this.form.nextRow()
 
     // Get codemirror themes available
-    var files = FileSystem.getFilesDirectory("Engine/Libraries/codemirror/theme/")
+    var files = FileSystem.getFilesDirectory("Libraries/codemirror/theme/")
     for(var i = 0; i < files.length; i++) {
         var theme = files[i].replace(".css", "")
-        this.code_theme.addValue(theme, theme)
+        this.codeTheme.addValue(theme, theme)
     }
 
     // Code keymap
     this.form.addText("Key bindings")
-    this.code_keymap = new DropdownList(this.form.element)
-    this.code_keymap.size.set(120, 20)
-    this.code_keymap.addValue("codemirror", "default")
-    this.code_keymap.addValue("sublime", "sublime")
-    this.code_keymap.addValue("vim", "vim")
-    this.code_keymap.addValue("emacs", "emacs")
-    this.code_keymap.setOnChange(() => {
-        Settings.code.keymap = self.code_keymap.getValue()
+    this.codeKeymap = new DropdownList(this.form.element)
+    this.codeKeymap.size.set(120, 20)
+    this.codeKeymap.addValue("codemirror", "default")
+    this.codeKeymap.addValue("sublime", "sublime")
+    this.codeKeymap.addValue("vim", "vim")
+    this.codeKeymap.addValue("emacs", "emacs")
+    this.codeKeymap.setOnChange(() => {
+        Settings.code.keymap = self.codeKeymap.getValue()
     })
-    this.form.add(this.code_keymap)
+    this.form.add(this.codeKeymap)
     this.form.nextRow()
 
     // Code font size
     this.form.addText("Font size")
-    this.code_font_size = new NumberBox(this.form.element)
-    this.code_font_size.size.set(60, 18)
-    this.code_font_size.setRange(5, 9999)
-    this.code_font_size.setStep(1)
-    this.code_font_size.setOnChange(() => {
-        Settings.code.font_size = self.code_font_size.getValue()
+    this.codeFontSize = new NumberBox(this.form.element)
+    this.codeFontSize.size.set(60, 18)
+    this.codeFontSize.setRange(5, 9999)
+    this.codeFontSize.setStep(1)
+    this.codeFontSize.setOnChange(() => {
+        Settings.code.fontFize = self.codeFontSize.getValue()
     })
-    this.form.add(this.code_font_size)
+    this.form.add(this.codeFontSize)
     this.form.nextRow()
 
     // Show line numbers
     this.form.addText("Show line numbers")
-    this.code_line_numbers = new CheckBox(this.form.element)
-    this.code_line_numbers.size.set(20, 16)
-    this.code_line_numbers.setOnChange(() => {
-        Settings.code.line_numbers = self.code_line_numbers.getValue()
+    this.codeLineNumbers = new CheckBox(this.form.element)
+    this.codeLineNumbers.size.set(20, 16)
+    this.codeLineNumbers.setOnChange(() => {
+        Settings.code.lineNumbers = self.codeLineNumbers.getValue()
     })
-    this.form.add(this.code_line_numbers)
+    this.form.add(this.codeLineNumbers)
     this.form.nextRow()
 
     // Line wrapping
     this.form.addText("Line wrap")
-    this.code_line_wrapping = new CheckBox(this.form.element)
-    this.code_line_wrapping.size.set(20, 16)
-    this.code_line_wrapping.setOnChange(() => {
-        Settings.code.line_wrapping = self.code_line_wrapping.getValue()
+    this.codeLineWrapping = new CheckBox(this.form.element)
+    this.codeLineWrapping.size.set(20, 16)
+    this.codeLineWrapping.setOnChange(() => {
+        Settings.code.lineWrapping = self.codeLineWrapping.getValue()
     })
-    this.form.add(this.code_line_wrapping)
+    this.form.add(this.codeLineWrapping)
     this.form.nextRow()
 
     // Auto close brackets
     this.form.addText("Auto close brackets")
-    this.code_auto_close_brackets = new CheckBox(this.form.element)
-    this.code_auto_close_brackets.size.set(20, 16)
-    this.code_auto_close_brackets.setOnChange(() => {
-        Settings.code.auto_close_brackets = self.code_auto_close_brackets.getValue()
+    this.codeAutoCloseBrackets = new CheckBox(this.form.element)
+    this.codeAutoCloseBrackets.size.set(20, 16)
+    this.codeAutoCloseBrackets.setOnChange(() => {
+        Settings.code.autoCloseBrackets = self.codeAutoCloseBrackets.getValue()
     })
-    this.form.add(this.code_auto_close_brackets)
+    this.form.add(this.codeAutoCloseBrackets)
     this.form.nextRow()
 
     // Highlight active line
     this.form.addText("Highlight line")
-    this.code_highlight_active_line = new CheckBox(this.form.element)
-    this.code_highlight_active_line.size.set(20, 16)
-    this.code_highlight_active_line.setOnChange(() => {
-        Settings.code.highlight_active_line = self.code_highlight_active_line.getValue()
+    this.codeHighlightActiveLine = new CheckBox(this.form.element)
+    this.codeHighlightActiveLine.size.set(20, 16)
+    this.codeHighlightActiveLine.setOnChange(() => {
+        Settings.code.highlightActiveLine = self.codeHighlightActiveLine.getValue()
     })
-    this.form.add(this.code_highlight_active_line)
+    this.form.add(this.codeHighlightActiveLine)
     this.form.nextRow()
 }
 
@@ -108,13 +108,13 @@ CodeSettingsTab.prototype = Object.create(TabElement.prototype)
 CodeSettingsTab.prototype.activate = function() {
     Editor.setState(Editor.STATE_IDLE)
 
-	this.code_theme.setValue(Settings.code.theme)
-	this.code_font_size.setValue(Settings.code.font_size)
-	this.code_keymap.setValue(Settings.code.keymap)
-	this.code_line_numbers.setValue(Settings.code.line_numbers)
-	this.code_line_wrapping.setValue(Settings.code.line_wrapping)
-	this.code_auto_close_brackets.setValue(Settings.code.auto_close_brackets)
-	this.code_highlight_active_line.setValue(Settings.code.highlight_active_line)
+	this.codeTheme.setValue(Settings.code.theme)
+	this.codeFontSize.setValue(Settings.code.fontSize)
+	this.codeKeymap.setValue(Settings.code.keymap)
+	this.codeLineNumbers.setValue(Settings.code.lineNumbers)
+	this.codeLineWrapping.setValue(Settings.code.lineWrapping)
+	this.codeAutoCloseBrackets.setValue(Settings.code.autoCloseBrackets)
+	this.codeHighlightActiveLine.setValue(Settings.code.highlightActiveLine)
 }
 
 // Update division size

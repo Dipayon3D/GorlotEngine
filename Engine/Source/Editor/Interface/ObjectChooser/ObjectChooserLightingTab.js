@@ -10,31 +10,31 @@ function ObjectChooserLightingTab(parent, closeable, container, index) {
     this.form.position.set(0, 0)
     this.form.spacing.set(0, 0)
 
-    this.point = this.addElement("Point", Interface.file_dir + "Icons/Lights/Point.png", () => {
+    this.point = this.addElement("Point", Interface.fileDir + "Icons/Lights/Point.png", () => {
         Editor.addToScene(new PointLight(0x444444))
     })
 
-    this.ambient = this.addElement("Ambient", Interface.file_dir + "Icons/Lights/Ambient.png", () => {
+    this.ambient = this.addElement("Ambient", Interface.fileDir + "Icons/Lights/Ambient.png", () => {
         Editor.addToScene(new AmbientLight(0x444444))
     })
 
-    this.spot = this.addElement("Spot", Interface.file_dir + "Icons/Lights/Spot.png", () => {
+    this.spot = this.addElement("Spot", Interface.fileDir + "Icons/Lights/Spot.png", () => {
         Editor.addToScene(new SpotLight(0x444444))
     })
 
-    this.directional = this.addElement("Directional", Interface.file_dir + "Icons/Lights/Directional.png", () => {
+    this.directional = this.addElement("Directional", Interface.fileDir + "Icons/Lights/Directional.png", () => {
         Editor.addToScene(new DirectionalLight(0x444444))
     })
 
-    this.hemisphere = this.addElement("Hemisphere", Interface.file_dir + "Icons/Lights/Hemisphere.png", () => {
+    this.hemisphere = this.addElement("Hemisphere", Interface.fileDir + "Icons/Lights/Hemisphere.png", () => {
         Editor.addToScene(new HemisphereLight(0x444444))
     })
 
-    this.rect = this.addElement("Rect Area", Interface.file_dir + "Icons/Lights/RectArea.png", () => {
+    this.rect = this.addElement("Rect Area", Interface.fileDir + "Icons/Lights/RectArea.png", () => {
         Editor.addToScene(new RectAreaLight(0x444444, 100, 1, 1))
     })
 
-    this.sky = this.addElement("Sky", Interface.file_dir + "Icons/Lights/Sky.png", () => {
+    this.sky = this.addElement("Sky", Interface.fileDir + "Icons/Lights/Sky.png", () => {
         Editor.addToScene(new Sky())
     })
 }

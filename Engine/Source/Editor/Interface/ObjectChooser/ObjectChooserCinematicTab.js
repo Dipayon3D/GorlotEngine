@@ -10,11 +10,11 @@ function ObjectChooserCinematicTab(parent, closeable, container, index) {
     this.form.position.set(0, 0)
     this.form.spacing.set(0, 0)
 
-    this.perspective = this.addElement("Perspective", Interface.file_dir + "Icons/Camera/Perspective.png", () => {
+    this.perspective = this.addElement("Perspective", Interface.fileDir + "Icons/Camera/Perspective.png", () => {
         Editor.addToScene(new PerspectiveCamera(60, Editor.canvas.width/Editor.canvas.height))
     })
 
-    this.orthographic = this.addElement("Orthographic", Interface.file_dir + "Icons/Camera/Orthographic.png", () => {
+    this.orthographic = this.addElement("Orthographic", Interface.fileDir + "Icons/Camera/Orthographic.png", () => {
         Editor.addToScene(new OrthographicCamera(3, 2, OrthographicCamera.RESIZE_HORIZONTAL))
     })
 }

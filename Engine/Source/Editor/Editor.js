@@ -18,7 +18,7 @@ try {
 }
 
 // Gorlot global
-include("Source/Engine/Gorlot.js")
+include("Source/Runtime/Gorlot.js")
 
 // Runtime dependencies
 include("Libraries/THREE/three.min.js")
@@ -43,163 +43,163 @@ include("Libraries/Opentype/opentype.min.js")
 include("Libraries/litegraph/litegraph.js")
 
 // Core runtime modules
-include("Source/Engine/Core/Global.js")
-include("Source/Engine/Core/FileSystem.js")
+include("Source/Runtime/Global.js")
+include("Source/Runtime/FileSystem.js")
 
-include("Source/Engine/Input/Key.js")
-include("Source/Engine/Input/Keyboard.js")
-include("Source/Engine/Input/Mouse.js")
+include("Source/Runtime/Input/Key.js")
+include("Source/Runtime/Input/Keyboard.js")
+include("Source/Runtime/Input/Mouse.js")
 
-include("Source/Engine/Core/WebVR/VRControls.js")
+include("Source/Runtime/WebVR/VRControls.js")
 
-include("Source/Engine/Core/Resources/Font.js")
-include("Source/Engine/Core/Resources/Video.js")
-include("Source/Engine/Core/Resources/Audio.js")
-include("Source/Engine/Core/Resources/Image.js")
-include("Source/Engine/Core/Resources/Folder.js")
+include("Source/Runtime/Resources/Font.js")
+include("Source/Runtime/Resources/Video.js")
+include("Source/Runtime/Resources/Audio.js")
+include("Source/Runtime/Resources/Image.js")
+include("Source/Runtime/Resources/Folder.js")
 
-include("Source/Engine/Core/Texture/CanvasTexture.js")
-include("Source/Engine/Core/Texture/VideoTexture.js")
-include("Source/Engine/Core/Texture/WebcamTexture.js")
-include("Source/Engine/Core/Texture/Texture.js")
+include("Source/Runtime/Texture/CanvasTexture.js")
+include("Source/Runtime/Texture/VideoTexture.js")
+include("Source/Runtime/Texture/WebcamTexture.js")
+include("Source/Runtime/Texture/Texture.js")
 
-include("Source/Engine/Core/Loaders/FontLoader.js")
-include("Source/Engine/Core/Loaders/ImageLoader.js")
-include("Source/Engine/Core/Loaders/VideoLoader.js")
+include("Source/Runtime/Loaders/FontLoader.js")
+include("Source/Runtime/Loaders/ImageLoader.js")
+include("Source/Runtime/Loaders/VideoLoader.js")
 
-include("Source/Engine/Core/Loaders/AudioLoader.js")
-include("Source/Engine/Core/Loaders/TextureLoader.js")
-include("Source/Engine/Core/Loaders/ObjectLoader.js")
-include("Source/Engine/Core/Loaders/MaterialLoader.js")
-include("Source/Engine/Core/Loaders/TTFLoader.js")
+include("Source/Runtime/Loaders/AudioLoader.js")
+include("Source/Runtime/Loaders/TextureLoader.js")
+include("Source/Runtime/Loaders/ObjectLoader.js")
+include("Source/Runtime/Loaders/MaterialLoader.js")
+include("Source/Runtime/Loaders/TTFLoader.js")
 
-include("Source/Engine/Core/Elements/Device/LeapMotion.js")
-include("Source/Engine/Core/Elements/Device/KinectDevice.js")
+include("Source/Runtime/Objects/Device/LeapMotion.js")
+include("Source/Runtime/Objects/Device/KinectDevice.js")
 
-include("Source/Engine/Core/Elements/Basic/Mesh.js")
-include("Source/Engine/Core/Elements/Basic/SkinnedMesh.js")
-include("Source/Engine/Core/Elements/Basic/Text3D.js")
+include("Source/Runtime/Objects/Basic/Mesh.js")
+include("Source/Runtime/Objects/Basic/SkinnedMesh.js")
+include("Source/Runtime/Objects/Basic/Text3D.js")
 
-include("Source/Engine/Core/Elements/Sprite/Sprite.js")
-include("Source/Engine/Core/Elements/Sprite/TextSprite.js")
+include("Source/Runtime/Objects/Sprite/Sprite.js")
+include("Source/Runtime/Objects/Sprite/TextSprite.js")
 
-include("Source/Engine/Core/Elements/Lighting/PointLight.js")
-include("Source/Engine/Core/Elements/Lighting/SpotLight.js")
-include("Source/Engine/Core/Elements/Lighting/AmbientLight.js")
-include("Source/Engine/Core/Elements/Lighting/DirectionalLight.js")
-include("Source/Engine/Core/Elements/Lighting/HemisphereLight.js")
-include("Source/Engine/Core/Elements/Lighting/RectAreaLight.js")
-include("Source/Engine/Core/Elements/Lighting/Sky.js")
+include("Source/Runtime/Objects/Lighting/PointLight.js")
+include("Source/Runtime/Objects/Lighting/SpotLight.js")
+include("Source/Runtime/Objects/Lighting/AmbientLight.js")
+include("Source/Runtime/Objects/Lighting/DirectionalLight.js")
+include("Source/Runtime/Objects/Lighting/HemisphereLight.js")
+include("Source/Runtime/Objects/Lighting/RectAreaLight.js")
+include("Source/Runtime/Objects/Lighting/Sky.js")
 
-include("Source/Engine/Core/Elements/Cinematic/PerspectiveCamera.js")
-include("Source/Engine/Core/Elements/Cinematic/OrthographicCamera.js")
+include("Source/Runtime/Objects/Cinematic/PerspectiveCamera.js")
+include("Source/Runtime/Objects/Cinematic/OrthographicCamera.js")
 
-include("Source/Engine/Core/Elements/Sound/AudioEmitter.js")
-include("Source/Engine/Core/Elements/Sound/PositionalAudio.js")
+include("Source/Runtime/Objects/Sound/AudioEmitter.js")
+include("Source/Runtime/Objects/Sound/PositionalAudio.js")
 
-include("Source/Engine/Core/Elements/Script/Script.js")
-include("Source/Engine/Core/Elements/Script/BlockScript.js")
+include("Source/Runtime/Objects/Script/Script.js")
+include("Source/Runtime/Objects/Script/BlockScript.js")
 
-include("Source/Engine/Core/Elements/Physics/PhysicsObject.js")
+include("Source/Runtime/Objects/Physics/PhysicsObject.js")
 
-include("Source/Engine/Core/Elements/Spine/SpineAnimation.js")
-include("Source/Engine/Core/Elements/Spine/SpineTexture.js")
+include("Source/Runtime/Objects/Spine/SpineAnimation.js")
+include("Source/Runtime/Objects/Spine/SpineTexture.js")
 
-include("Source/Engine/Core/Elements/Animation/Bone.js")
+include("Source/Runtime/Objects/Animation/Bone.js")
 
-include("Source/Engine/Core/Elements/Misc/Empty.js")
+include("Source/Runtime/Objects/Misc/Empty.js")
 
-include("Source/Engine/Core/Elements/Particle/ParticleEmitter.js")
+include("Source/Runtime/Objects/Particle/ParticleEmitter.js")
 
-include("Source/Engine/Core/Elements/Program.js")
-include("Source/Engine/Core/Elements/Scene.js")
+include("Source/Runtime/Objects/Program.js")
+include("Source/Runtime/Objects/Scene.js")
 
-include("Source/Engine/Core/Elements/Special/ObjectCaller.js")
+include("Source/Runtime/Objects/Special/ObjectCaller.js")
 
-include("Source/Engine/Core/Utils/Base64Utils.js")
-include("Source/Engine/Core/Utils/ArraybufferUtils.js")
-include("Source/Engine/Core/Utils/MathUtils.js")
-include("Source/Engine/Core/Utils/ObjectUtils.js")
-include("Source/Engine/Core/Utils/BufferUtils.js")
+include("Source/Runtime/Utils/Base64Utils.js")
+include("Source/Runtime/Utils/ArraybufferUtils.js")
+include("Source/Runtime/Utils/MathUtils.js")
+include("Source/Runtime/Utils/ObjectUtils.js")
+include("Source/Runtime/Utils/BufferUtils.js")
 
 // Assets
-include("Source/Engine/Core/Assets/Materials/MeshBasicMaterial.js")
-include("Source/Engine/Core/Assets/Materials/MeshLambertMaterial.js")
-include("Source/Engine/Core/Assets/Materials/MeshNormalMaterial.js")
-include("Source/Engine/Core/Assets/Materials/MeshPhongMaterial.js")
-include("Source/Engine/Core/Assets/Materials/MeshShaderMaterial.js")
-include("Source/Engine/Core/Assets/Materials/MeshStandardMaterial.js")
-include("Source/Engine/Core/Assets/Materials/MeshToonMaterial.js")
-include("Source/Engine/Core/Assets/Materials/SpriteMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshBasicMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshLambertMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshNormalMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshPhongMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshShaderMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshStandardMaterial.js")
+include("Source/Runtime/Assets/Materials/MeshToonMaterial.js")
+include("Source/Runtime/Assets/Materials/SpriteMaterial.js")
 
 // Components
-include("Source/Engine/Core/Components/Panel.js")
-include("Source/Engine/Core/Components/Component.js")
+include("Source/Runtime/Components/Panel.js")
+include("Source/Runtime/Components/Component.js")
 
-include("Source/Engine/Core/Components/Sound/AudioComponent.js")
+include("Source/Runtime/Components/Sound/AudioComponent.js")
 
-include("Source/Engine/Core/Components/Physics/PhysicsComponent.js")
+include("Source/Runtime/Components/Physics/PhysicsComponent.js")
 
-include("Source/Engine/Core/Components/Scripts/ScriptComponent.js")
-include("Source/Engine/Core/Components/Scripts/BlockComponent.js")
+include("Source/Runtime/Components/Scripts/ScriptComponent.js")
+include("Source/Runtime/Components/Scripts/BlockComponent.js")
 
-include("Source/Engine/Core/Components/Elements/ElementComponent.js")
-include("Source/Engine/Core/Components/Elements/ObjectComponent.js")
-include("Source/Engine/Core/Components/Elements/ProgramComponent.js")
-include("Source/Engine/Core/Components/Elements/SceneComponent.js")
+include("Source/Runtime/Components/Elements/ElementComponent.js")
+include("Source/Runtime/Components/Elements/ObjectComponent.js")
+include("Source/Runtime/Components/Elements/ProgramComponent.js")
+include("Source/Runtime/Components/Elements/SceneComponent.js")
 
-include("Source/Engine/Core/Components/Elements/Basic/Text3DComponent.js")
+include("Source/Runtime/Components/Elements/Basic/Text3DComponent.js")
 
-include("Source/Engine/Core/Components/Device/KinectComponent.js")
-include("Source/Engine/Core/Components/Device/LeapComponent.js")
+include("Source/Runtime/Components/Device/KinectComponent.js")
+include("Source/Runtime/Components/Device/LeapComponent.js")
 
-include("Source/Engine/Core/Components/Cameras/CameraComponent.js")
+include("Source/Runtime/Components/Cameras/CameraComponent.js")
 
-include("Source/Engine/Core/Components/Lights/LightComponent.js")
-include("Source/Engine/Core/Components/Lights/SkyComponent.js")
+include("Source/Runtime/Components/Lights/LightComponent.js")
+include("Source/Runtime/Components/Lights/SkyComponent.js")
 
-include("Source/Engine/Core/Components/Geometry/GeometryForm.js")
-include("Source/Engine/Core/Components/Geometry/BoxGeometryComponent.js")
-include("Source/Engine/Core/Components/Geometry/ConeGeometryComponent.js")
-include("Source/Engine/Core/Components/Geometry/PlaneGeometryComponent.js")
-include("Source/Engine/Core/Components/Geometry/SphereGeometryComponent.js")
-include("Source/Engine/Core/Components/Geometry/TorusGeometryComponent.js")
-include("Source/Engine/Core/Components/Geometry/CylinderGeometryComponent.js")
-include("Source/Engine/Core/Components/Geometry/TetrahedronGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/GeometryForm.js")
+include("Source/Runtime/Components/Geometry/BoxGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/ConeGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/PlaneGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/SphereGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/TorusGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/CylinderGeometryComponent.js")
+include("Source/Runtime/Components/Geometry/TetrahedronGeometryComponent.js")
 
 // THREE Modifiers
-include("Source/Engine/Core/THREE/Object3D.js")
-include("Source/Engine/Core/THREE/Vector3.js")
-include("Source/Engine/Core/THREE/Vector2.js")
-include("Source/Engine/Core/THREE/Texture.js")
-include("Source/Engine/Core/THREE/LightShadow.js")
-include("Source/Engine/Core/THREE/Fog.js")
-include("Source/Engine/Core/THREE/Material.js")
-include("Source/Engine/Core/THREE/MultiMaterial.js")
+include("Source/Runtime/THREE/Object3D.js")
+include("Source/Runtime/THREE/Vector3.js")
+include("Source/Runtime/THREE/Vector2.js")
+include("Source/Runtime/THREE/Texture.js")
+include("Source/Runtime/THREE/LightShadow.js")
+include("Source/Runtime/THREE/Fog.js")
+include("Source/Runtime/THREE/Material.js")
+include("Source/Runtime/THREE/MultiMaterial.js")
 
 // Nodes
-include("Source/Engine/Core/Nodes/Register.js")
-include("Source/Engine/Core/Nodes/NodesHelper.js")
+include("Source/Runtime/Nodes/Register.js")
+include("Source/Runtime/Nodes/NodesHelper.js")
 
 // Blocks
-include("Source/Engine/Core/Nodes/Blocks/Base/Base.js")
-include("Source/Engine/Core/Nodes/Blocks/Base/Events.js")
-include("Source/Engine/Core/Nodes/Blocks/Base/Lists.js")
-include("Source/Engine/Core/Nodes/Blocks/Base/Widgets.js")
-include("Source/Engine/Core/Nodes/Blocks/Base/Elements.js")
-include("Source/Engine/Core/Nodes/Blocks/Base/Hierarchy.js")
+include("Source/Runtime/Nodes/Blocks/Base/Base.js")
+include("Source/Runtime/Nodes/Blocks/Base/Events.js")
+include("Source/Runtime/Nodes/Blocks/Base/Lists.js")
+include("Source/Runtime/Nodes/Blocks/Base/Widgets.js")
+include("Source/Runtime/Nodes/Blocks/Base/Elements.js")
+include("Source/Runtime/Nodes/Blocks/Base/Hierarchy.js")
 
-include("Source/Engine/Core/Nodes/Blocks/Math/Colour.js")
-include("Source/Engine/Core/Nodes/Blocks/Math/Vector.js")
-include("Source/Engine/Core/Nodes/Blocks/Math/Euler.js")
+include("Source/Runtime/Nodes/Blocks/Math/Colour.js")
+include("Source/Runtime/Nodes/Blocks/Math/Vector.js")
+include("Source/Runtime/Nodes/Blocks/Math/Euler.js")
 
-include("Source/Engine/Core/Nodes/Blocks/Input/Keyboard.js")
+include("Source/Runtime/Nodes/Blocks/Input/Keyboard.js")
 
 // Material
-include("Source/Engine/Core/Nodes/Material/MaterialNodes.js")
+include("Source/Runtime/Nodes/Material/MaterialNodes.js")
 
 // Particles
-include("Source/Engine/Core/Nodes/Particles/ParticlesNodes.js")
+include("Source/Runtime/Nodes/Particles/ParticlesNodes.js")
 
 //Codemirror
 include("Libraries/codemirror/codemirror.min.js")
@@ -230,7 +230,7 @@ include("Libraries/Editor/Jscolor.min.js")
 include("Libraries/Editor/Quickhull.js")
 
 // Core modules
-include("Source/Engine/Core/Utils/Mesh2Shape.js")
+include("Source/Runtime/Utils/Mesh2Shape.js")
 
 include("Libraries/litegraph/litegraph.css")
 include("Libraries/litegraph/litegui.css")
@@ -417,15 +417,15 @@ Editor.initialize = function() {
 	document.title = GORLOT.NAME + " " + GORLOT.VERSION + " (" + GORLOT.TIMESTAMP + ")"
 
 	// Editor initial state
-	Editor.tool_mode = Editor.MODE_SELECT
+	Editor.toolMode = Editor.MODE_SELECT
 	Editor.state = Editor.STATE_EDITING
 
     // Open file
-    Editor.open_file = null
+    Editor.openFile = null
 
 	// Editor Selected object
-	Editor.selected_object = null
-	Editor.is_editing_object = false
+	Editor.selectedObject = null
+	Editor.isEditingObject = false
 
 	// Performance meter
 	Editor.stats = null
@@ -435,7 +435,7 @@ Editor.initialize = function() {
 
 	// Editor program and scene
 	Editor.program = null
-	Editor.program_running = null
+	Editor.programRunning = null
 
 	// Renderer and canvas
 	Editor.renderer = null
@@ -443,8 +443,8 @@ Editor.initialize = function() {
 	Editor.gl = null
 
 	// Material renderer for material previews
-	Editor.material_renderer = new MaterialRenderer()
-    Editor.font_renderer = new FontRenderer()
+	Editor.materialRenderer = new MaterialRenderer()
+    Editor.fontRenderer = new FontRenderer()
 
 	// Default resources
 	Editor.createDefaultResources()
@@ -453,36 +453,36 @@ Editor.initialize = function() {
 	Interface.initialize()
 
 	// Debug Elements
-	Editor.tool_scene = new THREE.Scene()
-	Editor.tool_scene_top = new THREE.Scene()
+	Editor.toolScene = new THREE.Scene()
+	Editor.toolSceneTop = new THREE.Scene()
 
 	// Raycaster
 	Editor.raycaster = new THREE.Raycaster();
 
 	// Grid and axis helpers
-	Editor.grid_helper = new GridHelper(Settings.grid_size, Settings.editor.grid_spacing)
-    Editor.grid_helper.visible = Settings.editor.grid_enabled
-    Editor.tool_scene.add(Editor.grid_helper)
+	Editor.gridHelper = new GridHelper(Settings.gridSize, Settings.editor.gridSpacing)
+    Editor.gridHelper.visible = Settings.editor.gridEnabled
+    Editor.toolScene.add(Editor.gridHelper)
 
-	Editor.axis_helper = new THREE.AxisHelper(Settings.editor.grid_size)
-	Editor.axis_helper.material.depthWrite = false
-	Editor.axis_helper.material.transparent = true
-	Editor.axis_helper.material.opacity = 1
-	Editor.axis_helper.visible = Settings.editor.axis_enabled
-	Editor.tool_scene.add(Editor.axis_helper)
+	Editor.axisHelper = new THREE.AxisHelper(Settings.editor.gridSize)
+	Editor.axisHelper.material.depthWrite = false
+	Editor.axisHelper.material.transparent = true
+	Editor.axisHelper.material.opacity = 1
+	Editor.axisHelper.visible = Settings.editor.axisEnabled
+	Editor.toolScene.add(Editor.axisHelper)
 
 	// Object helper container
-	Editor.object_helper = new THREE.Scene()
-	Editor.tool_scene.add(Editor.object_helper)
+	Editor.objectHelper = new THREE.Scene()
+	Editor.toolScene.add(Editor.objectHelper)
 
 	// Tool container
-	Editor.tool_container = new THREE.Scene()
-	Editor.tool_scene_top.add(Editor.tool_container)
+	Editor.toolContainer = new THREE.Scene()
+	Editor.toolSceneTop.add(Editor.toolContainer)
 	Editor.tool = null
 
 	// Editor Camera
-	Editor.camera_mode = Editor.CAMERA_PERSPECTIVE
-	Editor.camera_rotation = new THREE.Vector2(0, 0)
+	Editor.cameraMode = Editor.CAMERA_PERSPECTIVE
+	Editor.cameraRotation = new THREE.Vector2(0, 0)
 	Editor.setCameraMode(Editor.CAMERA_PERSPECTIVE)
 
 	// Check if some .isp is passed as argument
@@ -503,44 +503,36 @@ Editor.initialize = function() {
 	Editor.update()
 }
 
-//Update Editor
-Editor.update = function()
-{
+// Update Editor
+Editor.update = function() {
 	requestAnimationFrame(Editor.update)
 
 	// Update input
 	Mouse.update()
 	Keyboard.update()
 
-	//End performance measure
-	if(Editor.stats !== null)
-	{
+	// End performance measure
+	if(Editor.stats !== null) {
 		Editor.stats.begin()
 	}
 
-	//Update editor interface
+	// Update editor interface
 	Interface.update()
-	Editor.is_editing_object = false
+	Editor.isEditingObject = false
 
-	//If not on test mode
-	if(Editor.state !== Editor.STATE_TESTING)
-	{
-		//Close tab, Save and load project
+	// If not on test mode
+	if(Editor.state !== Editor.STATE_TESTING) {
+		// Close tab, Save and load project
 		if(Keyboard.keyPressed(Keyboard.CTRL)) {
-            if(Keyboard.keyJustPressed(Keyboard.S))
-            {
-                if(Editor.open_file === null) {
+            if(Keyboard.keyJustPressed(Keyboard.S)) {
+                if(Editor.openFile === null) {
                     Interface.saveProgram()
                 } else {
                     Editor.saveProgram(undefined, false)
                 }
-            }
-            else if(Keyboard.keyJustPressed(Keyboard.O))
-            {
+            } else if(Keyboard.keyJustPressed(Keyboard.O)) {
                 Interface.loadProgram()
-            }
-            else if(Keyboard.keyJustPressed(Keyboard.W) || Keyboard.keyJustPressed(Keyboard.F4))
-            {
+            } else if(Keyboard.keyJustPressed(Keyboard.W) || Keyboard.keyJustPressed(Keyboard.F4)) {
                 Interface.tab.closeActual()
             } else if (Keyboard.keyJustPressed(Keyboard.TAB) || Keyboard.keyJustPressed(Keyboard.PAGE_DOWN)) {
                 Interface.tab.selectNextTab()
@@ -558,10 +550,10 @@ Editor.update = function()
 		} else if(Keyboard.keyJustPressed(Keyboard.F5)) {
             Editor.setState(Editor.STATE_TESTING)
         } else if(Keyboard.keyJustPressed(Keyboard.F2)) {
-            if(Editor.selected_object !== null) {
-                var name = prompt("Rename object", Editor.selected_object.name)
+            if(Editor.selectedObject !== null) {
+                var name = prompt("Rename object", Editor.selectedObject.name)
                 if(name !== null && name !== "") {
-                    Editor.selected_object.name = name
+                    Editor.selectedObject.name = name
                     Editor.updateObjectViews()
                 }
             }
@@ -582,12 +574,12 @@ Editor.update = function()
 		}
 
 		// Select objects
-		if(Editor.tool_mode === Editor.MODE_SELECT) {
+		if(Editor.toolMode === Editor.MODE_SELECT) {
 			if(Mouse.buttonJustPressed(Mouse.LEFT) && Mouse.insideCanvas()) {
 				Editor.selectObjectWithMouse()
 			}
 
-			Editor.is_editing_object = false
+			Editor.isEditingObject = false
 		} else {
 			// If mouse double clicked, select object
 			if (Mouse.buttonDoubleClicked() && Mouse.insideCanvas()) {
@@ -595,38 +587,38 @@ Editor.update = function()
 			}
 
 			// If no object selected, update tool
-			if(Editor.selected_object !== null) {
+			if(Editor.selectedObject !== null) {
 				if(Editor.tool !== null) {
-					Editor.is_editing_object = Editor.tool.update()
+					Editor.isEditingObject = Editor.tool.update()
 
                     if(Mouse.buttonJustPressed(Mouse.LEFT) && Editor.is_editing_object) {
                         Editor.history.push(Editor.selected_object, Action.CHANGED)
                     }
 
-					if (Editor.is_editing_object) {
+					if (Editor.isEditingObject) {
 						Editor.updateObjectPanel()
 					}
 				} else {
-					Editor.is_editing_object = false
+					Editor.isEditingObject = false
 				}
 			}
 		}
 
 		// Update object transformation matrix
-		if (Editor.selected_object !== null) {
-			if (!Editor.selected_object.matrixAutoUpdate) {
-				Editor.selected_object.updateMatrix()
+		if (Editor.selectedObject !== null) {
+			if (!Editor.selectedObject.matrixAutoUpdate) {
+				Editor.selectedObject.updateMatrix()
 			}
 		}
 		
 		// Update object helper
-		Editor.object_helper.update()
+		Editor.objectHelper.update()
 
 		// Check if mouse is inside canvas
 		if(Mouse.insideCanvas()) {
 			// Lock mouse wheen camera is moving
-			if(Settings.editor.lock_mouse) {
-				if(!Editor.is_editing_object && (Mouse.buttonJustPressed(Mouse.LEFT) || Mouse.buttonJustPressed(Mouse.RIGHT) || Mouse.buttonJustPressed(Mouse.MIDDLE))) {
+			if(Settings.editor.lockMouse) {
+				if(!Editor.isEditingObject && (Mouse.buttonJustPressed(Mouse.LEFT) || Mouse.buttonJustPressed(Mouse.RIGHT) || Mouse.buttonJustPressed(Mouse.MIDDLE))) {
 					Mouse.setLock(true)
 				} else if(Mouse.buttonJustReleased(Mouse.LEFT) || Mouse.buttonJustReleased(Mouse.RIGHT) || Mouse.buttonJustReleased(Mouse.MIDDLE)) {
 					Mouse.setLock(false)
@@ -634,7 +626,7 @@ Editor.update = function()
 			}
 
 			//  Orthographic Camera (2D Mode)
-			if(Editor.camera_mode === Editor.CAMERA_ORTHOGRAPHIC) {
+			if(Editor.cameraMode === Editor.CAMERA_ORTHOGRAPHIC) {
 					// Move camera on x / y
 				if(Mouse.buttonPressed(Mouse.RIGHT)) {
 					var ratio = Editor.camera.size / Editor.canvas.width * 2
@@ -655,19 +647,19 @@ Editor.update = function()
 			else {
 
 				// Look camera
-				if (Mouse.buttonPressed(Mouse.LEFT) && !Editor.is_editing_object) {
-					Editor.camera_rotation.x -= 0.002 * Mouse.delta.x
-					Editor.camera_rotation.y -= 0.002 * Mouse.delta.y
+				if (Mouse.buttonPressed(Mouse.LEFT) && !Editor.isEditingObject) {
+					Editor.cameraRotation.x -= 0.002 * Mouse.delta.x
+					Editor.cameraRotation.y -= 0.002 * Mouse.delta.y
 
 					// Limit vertical rotation to 90 degrees
 					var pid2 = 1.57
-					if (Editor.camera_rotation.y < -pid2) {
-						Editor.camera_rotation.y = -pid2
-					} else if (Editor.camera_rotation.y > pid2) {
-						Editor.camera_rotation.y = pid2
+					if (Editor.cameraRotation.y < -pid2) {
+						Editor.cameraRotation.y = -pid2
+					} else if (Editor.cameraRotation.y > pid2) {
+						Editor.cameraRotation.y = pid2
 					}
 
-						Editor.setCameraRotation(Editor.camera_rotation, Editor.camera)
+						Editor.setCameraRotation(Editor.cameraRotation, Editor.camera)
 				}
 
 				// Move Camera on X and Z
@@ -679,16 +671,16 @@ Editor.update = function()
 					}
 
 					// Move Camera Front and Back
-					var angle_cos = Math.cos(Editor.camera_rotation.x)
-					var angle_sin = Math.sin(Editor.camera_rotation.x)
-					Editor.camera.position.z += Mouse.delta.y * speed * angle_cos
-					Editor.camera.position.x += Mouse.delta.y * speed * angle_sin
+					var angleCos = Math.cos(Editor.cameraRotation.x)
+					var angleSin = Math.sin(Editor.cameraRotation.x)
+					Editor.camera.position.z += Mouse.delta.y * speed * angleCos
+					Editor.camera.position.x += Mouse.delta.y * speed * angleSin
 
 					// Move Camera Lateral
-					var angle_cos = Math.cos(Editor.camera_rotation.x + MathUtils.pid2)
-					var angle_sin = Math.sin(Editor.camera_rotation.x + MathUtils.pid2)
-					Editor.camera.position.z += Mouse.delta.x * speed * angle_cos
-					Editor.camera.position.x += Mouse.delta.x * speed * angle_sin
+					var angleCos = Math.cos(Editor.cameraRotation.x + MathUtils.pid2)
+					var angleSin = Math.sin(Editor.cameraRotation.x + MathUtils.pid2)
+					Editor.camera.position.z += Mouse.delta.x * speed * angleCos
+					Editor.camera.position.x += Mouse.delta.x * speed * angleSin
 				}
 
 				// Move Camera on Y
@@ -718,10 +710,9 @@ Editor.update = function()
 			}
 		}
 	}
-	//Update Scene if on test mode
-	else if(Editor.state === Editor.STATE_TESTING)
-	{
-		Editor.program_running.update();
+	// Update Scene if on test mode
+	else if(Editor.state === Editor.STATE_TESTING) {
+		Editor.programRunning.update()
 
         if(Keyboard.keyJustPressed(Keyboard.F5)) {
             Editor.setState(Editor.STATE_EDITING)
@@ -732,28 +723,26 @@ Editor.update = function()
 }
 
 // Render stuff into screen
-Editor.render = function()
-{
+Editor.render = function() {
 	var renderer = Editor.renderer
 	renderer.clear()
 
-	if(Editor.state === Editor.STATE_EDITING)
-	{
+	if(Editor.state === Editor.STATE_EDITING) {
 		// Render scene
 		renderer.setViewport(0, 0, Editor.canvas.width, Editor.canvas.height)
 		renderer.setScissor(0, 0, Editor.canvas.width, Editor.canvas.height)
 		renderer.render(Editor.program.scene, Editor.camera)
 
 		// Render tools
-		renderer.render(Editor.tool_scene, Editor.camera)
+		renderer.render(Editor.toolScene, Editor.camera)
 		renderer.clearDepth()
-		renderer.render(Editor.tool_scene_top, Editor.camera)
+		renderer.render(Editor.toolSceneTop, Editor.camera)
 
 		// Render camera preview
-		if(Settings.editor.camera_preview_enabled && (Editor.selected_object instanceof THREE.Camera || Editor.program.scene.cameras.length > 0))
+		if(Settings.editor.cameraPreviewEnabled && (Editor.selectedObject instanceof THREE.Camera || Editor.program.scene.cameras.length > 0))
 		{
-			var width = Settings.editor.camera_preview_percentage * Editor.canvas.width
-			var height = Settings.editor.camera_preview_percentage * Editor.canvas.height
+			var width = Settings.editor.cameraPreviewPercentage * Editor.canvas.width
+			var height = Settings.editor.cameraPreviewPercentage * Editor.canvas.height
 
 			renderer.setScissorTest(true)
 			var offset = Editor.canvas.width - width - 10
@@ -762,8 +751,8 @@ Editor.render = function()
 			renderer.clear()
 
             // Preview selected camera
-			if (Editor.selected_object instanceof THREE.Camera) {
-				var camera = Editor.selected_object
+			if (Editor.selectedObject instanceof THREE.Camera) {
+				var camera = Editor.selectedObject
 				camera.aspect = width / height
 				camera.updateProjectionMatrix()
 
@@ -780,11 +769,11 @@ Editor.render = function()
 					camera.aspect = width / height
 					camera.updateProjectionMatrix()
 
-					if (camera.clear_color) {
+					if (camera.clearColor) {
 						renderer.clearColor()
 					}
 
-					if (camera.clear_depth) {
+					if (camera.clearDepth) {
 						renderer.clearDepth()
 					}
 
@@ -796,10 +785,8 @@ Editor.render = function()
 
 			renderer.setScissor(0, 0, Editor.canvas.width, Editor.canvas.height)
 		}
-	}
-	else if(Editor.state === Editor.STATE_TESTING)
-	{
-		Editor.program_running.render(renderer, Editor.canvas.width, Editor.canvas.height)
+	} else if(Editor.state === Editor.STATE_TESTING) {
+		Editor.programRunning.render(renderer, Editor.canvas.width, Editor.canvas.height)
 	}
 
 	//End performance measure
@@ -819,10 +806,9 @@ Editor.resize = function()
 }
 
 //Select a object
-Editor.selectObject = function(object)
-{
+Editor.selectObject = function(object) {
 	if (object instanceof THREE.Object3D) {
-		Editor.selected_object = object
+		Editor.selectedObject = object
 
 		Editor.selectObjectPanel()
 		Editor.selectObjectHelper()
@@ -831,10 +817,10 @@ Editor.selectObject = function(object)
 			Editor.tool.detach()
 			Editor.tool.attach(object)
 		} else {
-			Editor.selectTool(Editor.tool_mode)
+			Editor.selectTool(Editor.toolMode)
 		}
 	} else {
-		Editor.selected_object = null
+		Editor.selectedObject = null
 		Editor.resetEditingFlags()
 	}
 }
@@ -855,9 +841,9 @@ Editor.addToScene = function(obj)
 //Check if object is selected
 Editor.isObjectSelected = function(obj)
 {
-	if(Editor.selected_object !== null)
+	if(Editor.selectedObject !== null)
 	{
-		return Editor.selected_object.uuid === obj.uuid
+		return Editor.selectedObject.uuid === obj.uuid
 	}
 	return false
 }
@@ -866,7 +852,7 @@ Editor.isObjectSelected = function(obj)
 Editor.deleteObject = function(obj)
 {
 	if(obj === undefined) {
-		obj = Editor.selected_object
+		obj = Editor.selectedObject
 	}
 
 	if(obj instanceof THREE.Object3D)
@@ -894,12 +880,12 @@ Editor.copyObject = function(obj)
 			Editor.clipboard.set(JSON.stringify(obj.toJSON()), "text")
 		}
 	}
-	else if(Editor.selected_object !== null && !(Editor.selected_object instanceof Program || Editor.selected_object instanceof Scene))
+	else if(Editor.selectedObject !== null && !(Editor.selectedObject instanceof Program || Editor.selectedObject instanceof Scene))
 	{
         // If no object is passed, copy selected object
 		if(Editor.clipboard !== undefined)
 		{
-			Editor.clipboard.set(JSON.stringify(Editor.selected_object.toJSON()), "text")
+			Editor.clipboard.set(JSON.stringify(Editor.selectedObject.toJSON()), "text")
 		}
 	}
 }
@@ -909,9 +895,9 @@ Editor.cutObject = function(obj)
 {
 	if(obj === undefined)
 	{
-		if(Editor.selected_object !== undefined && !(Editor.selected_object instanceof Program || Editor.selected_object instanceof Scene))
+		if(Editor.selectedObject !== undefined && !(Editor.selectedObject instanceof Program || Editor.selectedObject instanceof Scene))
 		{
-            obj = Editor.selected_object
+            obj = Editor.selectedObject
         } else {
             return
         }
@@ -975,7 +961,7 @@ Editor.undo = function() {
         Editor.updateObjectViews()
 
         if(action.type === Action.CHANGED) {
-            if(action.object.uuid === Editor.selected_object.uuid) {
+            if(action.object.uuid === Editor.selectedObject.uuid) {
                 Editor.selectObject(action.object)
             }
         }
@@ -985,19 +971,27 @@ Editor.undo = function() {
 
 }
 
+// Update all object views
+Editor.updateObjectViews = function() {
+    Editor.updateTreeView()
+    Editor.updateObjectPanel()
+    Editor.updateTabsData()
+    Editor.updateAssetExplorer()
+}
+
 //Update UI panel to match selected object
 Editor.selectObjectPanel = function()
 {
-	Interface.tree_view.updateSelectedObject(Editor.selected_object)
+	Interface.treeView.updateSelectedObject(Editor.selectedObject)
 
 	if(Interface.panel !== null)
 	{
 		Interface.panel.destroy()
 	}
 
-	if(Editor.selected_object !== null) {
-		Interface.panel = new Panel(Interface.explorer_resizable.div_b)
-		Interface.panel.attachObject(Editor.selected_object)
+	if(Editor.selectedPanel !== null) {
+		Interface.panel = new Panel(Interface.explorerResizable.divB)
+		Interface.panel.attachObject(Editor.selectedObject)
 		Interface.panel.updateInterface()
 	}
 	else
@@ -1006,154 +1000,102 @@ Editor.selectObjectPanel = function()
 	}
 }
 
-// TODO: Remove Test code
-var update = 0
-var tree_delta, asset_delta, tabs_delta, panel_delta
-
-//Update all object views
-Editor.updateObjectViews = function()
-{
-	// TODO: Remove test code
-	var start = Date.now()
-
-	Editor.updateTreeView()
-	Editor.updateObjectPanel()
-	Editor.updateTabsData()
-	Editor.updateAssetExplorer()
-
-	// TODO: Remove test code
-	//var delta = Date.now() - start
-	//console.log("Update " + (update++) + " ObjectView: " + delta + "ms")
-	//console.log("    Treeview " + tree_delta + "ms")
-	//console.log("    Panel " + panel_delta + "ms")
-	//console.log("    Tabs " + tabs_delta + "ms")
-	//console.log("    Assets " + asset_delta + "ms\n\n")
-}
-
-//Update tab names to match objects actual info
-Editor.updateTabsData = function()
-{
-	// TODO: Remove test code
-	var start = Date.now()
-
-	Interface.tab.updateMetadata();
-
-	tabs_delta = Date.now() - start
+// Update tab names to match objects actual info
+Editor.updateTabsData = function() {
+	Interface.tab.updateMetadata()
 }
 
 //Update tree view to match actual scene
-Editor.updateTreeView = function()
-{
-	// TODO: Remove test code
-	var start = Date.now()
-
-	Interface.tree_view.attachObject(Editor.program);
-	Interface.tree_view.updateView()
-
-	// TODO: Remove test code
-	tree_delta = Date.now() - start
+Editor.updateTreeView = function() {
+	Interface.treeView.attachObject(Editor.program);
+	Interface.treeView.updateView()
 }
 
 //Update assets explorer content
 Editor.updateAssetExplorer = function()
 {
-	// TODO: Remove test code
-	var start = Date.now()
-
 	// Clean asset explorer
-	Interface.asset_explorer.clear()
+	Interface.assetExplorer.clear()
 	
-	Interface.folders_explorers.clear()
-	Interface.folders_explorers.update()
+	Interface.foldersExplorer.clear()
+	Interface.foldersExplorer.update()
 
 	// Folders
 	var folders = Editor.program.folders
 	for(var i in folders) {
-		var file = new FolderAsset(Interface.asset_explorer.element)
+		var file = new FolderAsset(Interface.assetExplorer.element)
 		file.setFolder(folders[i])
-		Interface.asset_explorer.add(file)
+		Interface.assetExplorer.add(file)
 	}
 
 	// Materials
 	var materials = ObjectUtils.getMaterials(Editor.program, Editor.program.materials)
 
 	for(var i in materials) {
-		var file = new MaterialAsset(Interface.asset_explorer.element)
+		var file = new MaterialAsset(Interface.assetExplorer.element)
 		file.setMaterial(materials[i])
-		Interface.asset_explorer.add(file)
+		Interface.assetExplorer.add(file)
 	}
 
 	// Objects
-	var objects = Editor.program.asset_objects
+	var objects = Editor.program.assetObjects
 
 	for(var i in objects) {
-		var file = new BlockAsset(Interface.asset_explorer.element)
+		var file = new BlockAsset(Interface.assetExplorer.element)
 		file.setBlocks(objects[i])
-		Interface.asset_explorer.add(file)
+		Interface.assetExplorer.add(file)
 	}
 
 	// Textures
 	var textures = ObjectUtils.getTextures(Editor.program, Editor.program.textures)
 	for(var i in textures) {
-		var file = new TextureAsset(Interface.asset_explorer.element)
+		var file = new TextureAsset(Interface.assetExplorer.element)
 		file.setTexture(textures[i])
-		Interface.asset_explorer.add(file)
+		Interface.assetExplorer.add(file)
 	}
 
 	// Fonts
 	var fonts = ObjectUtils.getFonts(Editor.program, Editor.program.fonts)
 	for(var i in fonts) {
-		var file = new FontAsset(Interface.asset_explorer.element)
+		var file = new FontAsset(Interface.assetExplorer.element)
 		file.setFont(fonts[i])
-		Interface.asset_explorer.add(file)
+		Interface.assetExplorer.add(file)
 	}
 
 	// Audio
 	var audio = ObjectUtils.getAudio(Editor.program, Editor.program.audio)
 	for(var i in audio) {
-		var file = new AudioAsset(Interface.asset_explorer.element)
+		var file = new AudioAsset(Interface.assetExplorer.element)
 		file.setAudio(audio[i])
-		Interface.asset_explorer.add(file)
+		Interface.assetExplorer.add(file)
 	}
 
-	Interface.asset_explorer.updateInterface()
-
-	// TODO: Remove test code
-	asset_delta = Date.now() - start
+	Interface.assetExplorer.updateInterface()
 }
 
-//Updates object panel values
-Editor.updateObjectPanel = function()
-{
-	// TODO: Remove test code
-	var start = Date.now()
-
-	if(Interface.panel !== null)
-	{
-		Interface.panel.updatePanel();
+// Updates object panel values
+Editor.updateObjectPanel = function() {
+	if(Interface.panel !== null) {
+		Interface.panel.updatePanel()
 	}
-
-	// TODO: Remove test code
-	panel_delta = Date.now() - start
 }
 
 // Create default resources to be used when creating new objects
 Editor.createDefaultResources = function() {
-	Editor.default_image = new GORLOT.Image("Source/Engine/Data/sample.png")
-	Editor.default_font = new Font("Source/Engine/Data/Fonts/montserrat.json")
-	Editor.default_audio = new Audio("Source/Engine/Data/sample.ogg")
-	Editor.default_texture = new Texture(Editor.default_image)
-	Editor.default_material = new MeshStandardMaterial({roughness: 0.6, metalness: 0.2})
-	Editor.default_material.name = "default"
-	Editor.default_sprite_material = new SpriteMaterial({map: Editor.default_texture, color: 0xffffff})
-	Editor.default_sprite_material.name = "default"
+	Editor.defaultImage = new GORLOT.Image("Source/Runtime/Data/sample.png")
+	Editor.defaultFont = new Font("Source/Runtime/Data/Fonts/montserrat.json")
+	Editor.defaultAudio = new Audio("Source/Runtime/Data/sample.ogg")
+	Editor.defaultTexture = new Texture(Editor.defaultImage)
+	Editor.defaultMaterial = new MeshStandardMaterial({roughness: 0.6, metalness: 0.2})
+	Editor.defaultMaterial.name = "default"
+	Editor.defaultSpriteMaterial = new SpriteMaterial({map: Editor.defaultTexture, color: 0xffffff})
+	Editor.defaultSpriteMaterial.name = "default"
 }
 
-//Select tool to manipulate objects
-Editor.selectTool = function(tool)
-{
-	Editor.tool_mode = tool;
-	Editor.tool_container.removeAll();
+// Select tool to manipulate objects
+Editor.selectTool = function(tool) {
+	Editor.toolMode = tool
+	Editor.toolContainer.removeAll()
 
 	if (Editor.tool !== null) {
 		Editor.tool.dispose()
@@ -1166,26 +1108,24 @@ Editor.selectTool = function(tool)
 		}
 	}
 
-	if (Editor.selected_object !== null && tool !== Editor.MODE_SELECT) {
-		if(tool === Editor.MODE_MOVE)
-		{
+	if (Editor.selectedObject !== null && tool !== Editor.MODE_SELECT) {
+		if(tool === Editor.MODE_MOVE) {
 			Editor.tool = new TransformControls()
 			Editor.tool.setMode("translate")
-			Editor.tool.setSpace(Settings.editor.transformation_space)
+			Editor.tool.setSpace(Settings.editor.transformationSpace)
 		}
-		else if(tool === Editor.MODE_SCALE)
-		{
+		else if(tool === Editor.MODE_SCALE) {
 			Editor.tool = new TransformControls()
 			Editor.tool.setMode("scale")
 		}
 		else if (tool === Editor.MODE_ROTATE) {
 			Editor.tool = new TransformControls()
 			Editor.tool.setMode("rotate")
-			Editor.tool.setSpace(Settings.editor.transformation_space)
+			Editor.tool.setSpace(Settings.editor.transformationSpace)
 		}
 
-		Editor.tool.attach(Editor.selected_object)
-		Editor.tool_container.add(Editor.tool)
+		Editor.tool.attach(Editor.selectedObject)
+		Editor.toolContainer.add(Editor.tool)
 	} else {
 		Editor.tool = null
 	}
@@ -1200,66 +1140,66 @@ Editor.selectTool = function(tool)
 
 // Select helper to debug selected object data
 Editor.selectObjectHelper = function() {
-	Editor.object_helper.removeAll()
+	Editor.objectHelper.removeAll()
 
-	if(Editor.selected_object !== null) {
+	if(Editor.selectedObject !== null) {
 		// Camera
-		if(Editor.selected_object instanceof THREE.Camera) {
-			Editor.object_helper.add(new THREE.CameraHelper(Editor.selected_object))
-			Editor.object_helper.add(new ObjectIconHelper(Editor.selected_object, Interface.file_dir + "Icons/Camera/Camera.png"))
+		if(Editor.selectedObject instanceof THREE.Camera) {
+			Editor.objectHelper.add(new THREE.CameraHelper(Editor.selectedObject))
+			Editor.objectHelper.add(new ObjectIconHelper(Editor.selectedObject, Interface.fileDir + "Icons/Camera/Camera.png"))
 		}
         // Light
-        else if(Editor.selected_object instanceof THREE.Light) {
+        else if(Editor.selectedObject instanceof THREE.Light) {
             // Directional light
-            if(Editor.selected_object instanceof THREE.DirectionalLight) {
-                Editor.object_helper.add(new THREE.DirectionalLightHelper(Editor.selected_object, 1))
+            if(Editor.selectedObject instanceof THREE.DirectionalLight) {
+                Editor.objectHelper.add(new THREE.DirectionalLightHelper(Editor.selectedObject, 1))
             }
             // Point light
-            else if(Editor.selected_object instanceof THREE.PointLight) {
-                Editor.object_helper.add(new THREE.PointLightHelper(Editor.selected_object, 1))
+            else if(Editor.selectedObject instanceof THREE.PointLight) {
+                Editor.objectHelper.add(new THREE.PointLightHelper(Editor.selectedObject, 1))
             }
             // RectArea Light
-            else if(Editor.selected_object instanceof THREE.RectAreaLight) {
-                Editor.object_helper.add(new RectAreaLightHelper(Editor.selected_object))
+            else if(Editor.selectedObject instanceof THREE.RectAreaLight) {
+                Editor.objectHelper.add(new RectAreaLightHelper(Editor.selectedObject))
             }
             // Spot light
-            else if(Editor.selected_object instanceof THREE.SpotLight) {
-                Editor.object_helper.add(new THREE.SpotLightHelper(Editor.selected_object))
+            else if(Editor.selectedObject instanceof THREE.SpotLight) {
+                Editor.objectHelper.add(new THREE.SpotLightHelper(Editor.selectedObject))
             }
             // Hemisphere light
-            else if(Editor.selected_object instanceof THREE.HemisphereLight) {
-                Editor.object_helper.add(new THREE.HemisphereLightHelper(Editor.selected_object, 1))
+            else if(Editor.selectedObject instanceof THREE.HemisphereLight) {
+                Editor.objectHelper.add(new THREE.HemisphereLightHelper(Editor.selectedObject, 1))
             }
         }
 		// Particle
-		else if(Editor.selected_object instanceof ParticleEmitter) {
-			Editor.object_helper.add(new ParticleEmitterHelper(Editor.selected_object))
+		else if(Editor.selectedObject instanceof ParticleEmitter) {
+			Editor.objectHelper.add(new ParticleEmitterHelper(Editor.selectedObject))
 		}
 		// Physics
-		else if(Editor.selected_object instanceof PhysicsObject) {
-			Editor.object_helper.add(new PhysicsObjectHelper(Editor.selected_object))
+		else if(Editor.selectedObject instanceof PhysicsObject) {
+			Editor.objectHelper.add(new PhysicsObjectHelper(Editor.selectedObject))
 		}
 		// Scripts
-		else if (Editor.selected_object instanceof Script || Editor.selected_object instanceof THREE.Audio || Editor.selected_object instanceof BlockScript) {
-			Editor.object_helper.add(new ObjectIconHelper(Editor.selected_object, ObjectIcons.get(Editor.selected_object.type)))
+		else if (Editor.selectedObject instanceof Script || Editor.selectedObject instanceof THREE.Audio || Editor.selectedObject instanceof BlockScript) {
+			Editor.objectHelper.add(new ObjectIconHelper(Editor.selectedObject, ObjectIcons.get(Editor.selectedObject.type)))
 		}
 		// Animated Mesh
-		else if (Editor.selected_object instanceof THREE.SkinnedMesh) {
-            Editor.object_helper.add(new WireframeHelper(Editor.selected_object, 0xFFFF00))
-			Editor.object_helper.add(new THREE.SkeletonHelper(Editor.selected_object))
+		else if (Editor.selectedObject instanceof THREE.SkinnedMesh) {
+            Editor.objectHelper.add(new WireframeHelper(Editor.selectedObject, 0xFFFF00))
+			Editor.objectHelper.add(new THREE.SkeletonHelper(Editor.selectedObject))
 		}
 		// Mesh
-		else if (Editor.selected_object instanceof THREE.Mesh) {
-			Editor.object_helper.add(new WireframeHelper(Editor.selected_object))
+		else if (Editor.selectedObject instanceof THREE.Mesh) {
+			Editor.objectHelper.add(new WireframeHelper(Editor.selectedObject))
 		}
 		// Object Caller
-		else if (Editor.selected_object instanceof ObjectCaller) {
+		else if (Editor.selectedObject instanceof ObjectCaller) {
 			// By default, the object caller will only have the ObjectIconHelper
-			Editor.object_helper.add(new ObjectIconHelper(Editor.selected_object, ObjectIcons.get(Editor.selected_object.obj_type)))
+			Editor.objectHelper.add(new ObjectIconHelper(Editor.selectedObject, ObjectIcons.get(Editor.selectedObject.objType)))
 		}
 		// Object 3D
-		else if(Editor.selected_object instanceof THREE.Object3D) {
-			Editor.object_helper.add(new BoundingBoxHelper(Editor.selected_object, 0xFFFF00))
+		else if(Editor.selectedObject instanceof THREE.Object3D) {
+			Editor.objectHelper.add(new BoundingBoxHelper(Editor.selectedObject, 0xFFFF00))
 		}
 	}
 }
@@ -1272,7 +1212,7 @@ Editor.resizeCamera = function() {
 		Editor.camera.updateProjectionMatrix();
 
 		if(Editor.state === Editor.STATE_TESTING) {
-			Editor.program_running.resize(Editor.canvas.width, Editor.canvas.height)
+			Editor.programRunning.resize(Editor.canvas.width, Editor.canvas.height)
 		}
 	}
 }
@@ -1281,7 +1221,7 @@ Editor.resizeCamera = function() {
 Editor.setCameraMode = function(mode) {
 
 	if (mode === undefined) {
-		mode = (Editor.camera_mode === Editor.CAMERA_PERSPECTIVE) ? Editor.CAMERA_ORTHOGRAPHIC : Editor.CAMERA_PERSPECTIVE
+		mode = (Editor.cameraMode === Editor.CAMERA_PERSPECTIVE) ? Editor.CAMERA_ORTHOGRAPHIC : Editor.CAMERA_PERSPECTIVE
 	}
 
 	var aspect = (Editor.canvas !== null) ? Editor.canvas.width/Editor.canvas.height : 1.0
@@ -1289,24 +1229,24 @@ Editor.setCameraMode = function(mode) {
 	if (mode === Editor.CAMERA_ORTHOGRAPHIC) {
 		Editor.camera = new OrthographicCamera(10, aspect, OrthographicCamera.RESIZE_HORIZONTAL)
 		Editor.camera.position.set(0, 0, 100)
-		Editor.grid_helper.rotation.x = Math.PI / 2
+		Editor.gridHelper.rotation.x = Math.PI / 2
 	} else if (mode === Editor.CAMERA_PERSPECTIVE) {
 		Editor.camera = new PerspectiveCamera(60, aspect)
 		Editor.camera.position.set(0, 10, 30)
-		Editor.camera_rotation.set(3.14, 0)
-		Editor.grid_helper.rotation.x = 0
-		Editor.setCameraRotation(Editor.camera_rotation, Editor.camera)
+		Editor.cameraRotation.set(3.14, 0)
+		Editor.gridHelper.rotation.x = 0
+		Editor.setCameraRotation(Editor.cameraRotation, Editor.camera)
 	}
 
-	Editor.camera_mode = mode
-	Editor.selectTool(Editor.tool_mode)
+	Editor.cameraMode = mode
+	Editor.selectTool(Editor.toolMode)
 }
 
 // Set camera rotation
-Editor.setCameraRotation = function(camera_rotation, camera) {
+Editor.setCameraRotation = function(cameraRotation, camera) {
 	// Calculate direction vector
-	var cos_angle_y = Math.cos(camera_rotation.y)
-	var direction = new THREE.Vector3(Math.sin(camera_rotation.x)*cos_angle_y, Math.sin(camera_rotation.y), Math.cos(camera_rotation.x)*cos_angle_y)
+	var cosAngleY = Math.cos(cameraRotation.y)
+	var direction = new THREE.Vector3(Math.sin(cameraRotation.x)*cosAngleY, Math.sin(cameraRotation.y), Math.cos(cameraRotation.x)*cosAngleY)
 
 	// Add position offset and set camera direction
 	direction.add(camera.position)
@@ -1333,11 +1273,10 @@ Editor.updateRaycaster = function(x, y) {
 	Editor.raycaster.setFromCamera(new THREE.Vector2(x, y), Editor.camera)
 }
 
-//Reset editing flags
-Editor.resetEditingFlags = function()
-{
-	Editor.selected_object = null
-	Editor.is_editing_object = false
+// Reset editing flags
+Editor.resetEditingFlags = function() {
+	Editor.selectedObject = null
+	Editor.isEditingObject = false
 	
 	if (Interface.panel !== null) {
 		Interface.panel.destroy()
@@ -1348,21 +1287,20 @@ Editor.resetEditingFlags = function()
 	Editor.selectObjectHelper()
 }
 
-//Craete new Program
-Editor.createNewProgram = function()
-{
+// Create new Program
+Editor.createNewProgram = function() {
 	Editor.createDefaultResources()
 
-	//Create new program
-	Editor.program = new Program();
-	Editor.program.addDefaultScene(Editor.default_material);
-	Editor.resetEditingFlags();
+	// Create new program
+	Editor.program = new Program()
+	Editor.program.addDefaultScene(Editor.defaultMaterial)
+	Editor.resetEditingFlags()
 
     // Reset open file
     Editor.setOpenFile(null)
 
     // Reset the folder explorer tree
-	Interface.folders_explorers.clear()
+	Interface.foldersExplorer.clear()
     Editor.CURRENT_PATH = "/"
 	
     //Remove old tabs from interface
@@ -1376,10 +1314,10 @@ Editor.createNewProgram = function()
 }
 
 //Save program to file
-Editor.saveProgram = function(fname, compressed, keep_directory)
+Editor.saveProgram = function(fname, compressed, keepDirectory)
 {
-    if(fname === undefined && Editor.open_file !== null) {
-        fname = Editor.open_file
+    if(fname === undefined && Editor.openFile !== null) {
+        fname = Editor.openFile
     }
 
     // If compressed, don't store the resources
@@ -1392,7 +1330,7 @@ Editor.saveProgram = function(fname, compressed, keep_directory)
 
 	FileSystem.writeFile(fname, json)
 
-    if(keep_directory !== true && Editor.open_file !== fname) {
+    if(keepDirectory !== true && Editor.openFile !== fname) {
         Editor.setOpenFile(fname)
     }
 }
@@ -1416,7 +1354,7 @@ Editor.loadProgram = function(fname)
 	Interface.tab.clear();
 
     // Clears the old Folder tree
-    Interface.folders_explorers.clear()
+    Interface.foldersExplorer.clear()
     Editor.CURRENT_PATH = "/"
 
     // Set open file
@@ -1425,7 +1363,7 @@ Editor.loadProgram = function(fname)
 	//Add new scene tab to interface
 	if(Editor.program.scene !== null)
 	{
-        var scene = Interface.tab.add(SceneEditor, true)
+        var scene = Interface.tab.addTab(SceneEditor, true)
         scene.attach(Editor.program.scene)
 		Interface.tab.selectTab(0);
 	}
@@ -1433,7 +1371,7 @@ Editor.loadProgram = function(fname)
 
 // Set currently open file (also updates the editor title)
 Editor.setOpenFile = function(fname) {
-    Editor.open_file = (fname !== undefined) ? fname : null
+    Editor.openFile = (fname !== undefined) ? fname : null
 
     if(fname === null) {
         document.title = GORLOT.NAME + " " + GORLOT.VERSION + " (" + GORLOT.TIMESTAMP + ")"
@@ -1465,13 +1403,13 @@ Editor.exportWindowsProject = function(dir)
 
 // Get an asset through its UUID
 Editor.getAssetByUUID = function(uuid) {
-	if (Interface.asset_explorer.files !== undefined && Interface.asset_explorer.files.length > 0) {
-		for(var i = 0; i < Interface.asset_explorer.files.length; i++) {
+	if (Interface.assetExplorer.files !== undefined && Interface.assetExplorer.files.length > 0) {
+		for(var i = 0; i < Interface.assetExplorer.files.length; i++) {
 
 			// If it's a file
-			if (Interface.asset_explorer.files[i].material !== undefined) {
-				if (Interface.asset_explorer.files[i].material.uuid === uuid) {
-					return Interface.asset_explorer.files[i].material
+			if (Interface.assetExplorer.files[i].material !== undefined) {
+				if (Interface.assetExplorer.files[i].material.uuid === uuid) {
+					return Interface.assetExplorer.files[i].material
 				}
 			}
 
@@ -1479,65 +1417,58 @@ Editor.getAssetByUUID = function(uuid) {
 	}
 }
 
-//Set editor state
-Editor.setState = function(state)
-{
-	if(state === Editor.STATE_EDITING)
-	{
-		//Dispose running program
-		Editor.disposeRunningProgram();
+// Set editor state
+Editor.setState = function(state) {
+	if(state === Editor.STATE_EDITING) {
+		// Dispose running program
+		Editor.disposeRunningProgram()
 
-		//Set run button text
-		Interface.run.setText("Run");
-		Interface.run.visible = true;
-		Interface.run.updateInterface();
+		// Set run button text
+		Interface.run.setText("Run")
+		Interface.run.visible = true
+		Interface.run.updateInterface()
 
-		//Hide fullscreen and VR buttons
-		var tab = Interface.tab.getActual();
-		if(tab instanceof SceneEditor)
-		{
-			tab.show_buttons_tools = true
-			tab.show_buttons_fullscreen = false;
-			tab.show_buttons_vr = false;
-			tab.updateInterface();
+		// Hide fullscreen and VR buttons
+		var tab = Interface.tab.getActual()
+		if(tab instanceof SceneEditor) {
+			tab.showButtonsTools = true
+			tab.showButtonsFullscreen = false
+			tab.showButtonsVr = false
+			tab.updateInterface()
 		}
-	}
-	else if(state === Editor.STATE_TESTING)
-	{
+	} else if(state === Editor.STATE_TESTING) {
 		// Register all the nodes
 		Register.registerAll()
 
-		//Copy program
-		Editor.program_running = Editor.program.clone();
+		// Copy program
+		Editor.programRunning = Editor.program.clone()
 
-		//Use editor camera as default camera for program
-		Editor.program_running.default_camera = Editor.camera;
-        Editor.program_running.setRenderer(Editor.renderer)
+		// Use editor camera as default camera for program
+		Editor.programRunning.defaultCamera = Editor.camera
+        Editor.programRunning.setRenderer(Editor.renderer)
 
-		//Initialize scene
-		Editor.program_running.initialize();
-		Editor.program_running.resize(Editor.canvas.width, Editor.canvas.height);
+		// Initialize scene
+		Editor.programRunning.initialize()
+		Editor.programRunning.resize(Editor.canvas.width, Editor.canvas.height)
 
 		//Show full screen and VR buttons
-		var tab = Interface.tab.getActual();
-		tab.show_buttons_fullscreen = true;
-		tab.show_buttons_tools = false
+		var tab = Interface.tab.getActual()
+		tab.showButtonsFullscreen = true
+		tab.showButtonsTools = false
 
-		//If program uses VR set button
-		if(Editor.program_running.vr)
-		{
-			if(GORLOT.WebVRAvailable())
-			{
+		// If program uses VR display button
+		if(Editor.programRunning.vr) {
+			if(GORLOT.WebVRAvailable()) {
 				// Show VR button
-				tab.show_buttons_vr = true
+				tab.showButtonsVr = true
 
 				// Create VR switch callback
 				var vr = true
-				tab.vr_button.setCallback(function() {
+				tab.vrButton.setCallback(function() {
                     if(vr) {
-                        Editor.program_running.displayVR()
+                        Editor.programRunning.displayVR()
                     } else {
-                        Editor.program_running.exitVR()
+                        Editor.programRunning.exitVR()
                     }
 
                     vr = !vr
@@ -1556,33 +1487,29 @@ Editor.setState = function(state)
 		Interface.run.setText("Stop")
 		Interface.run.visible = true
 		Interface.run.updateInterface()
-	}
-	else if(state === Editor.STATE_IDLE)
-	{
-		//Dispose running program
-		Editor.disposeRunningProgram();
+	} else if(state === Editor.STATE_IDLE) {
+		// Dispose running program
+		Editor.disposeRunningProgram()
 
-		//Hide run button
-		Interface.run.visible = false;
-		Interface.run.updateInterface();
+		// Hide run button
+		Interface.run.visible = false
+		Interface.run.updateInterface()
 	}
 
-	//Set editor state
-	Editor.state = state;
+	// Set editor state
+	Editor.state = state
 }
 
 //Dispose running program if there is one
-Editor.disposeRunningProgram = function()
-{
-	//Dispose running program if there is one
-	if(Editor.program_running !== null)
-	{
-		Editor.program_running.dispose();
-		Editor.program_running = null;
+Editor.disposeRunningProgram = function() {
+	// Dispose running program if there is one
+	if(Editor.programRunning !== null) {
+		Editor.programRunning.dispose()
+		Editor.programRunning = null
 	}
 
-	//Unlock mouse
-	Mouse.setLock(false);
+	// Unlock mouse
+	Mouse.setLock(false)
 }
 
 //Set performance meter to be used
@@ -1608,9 +1535,9 @@ Editor.initializeRenderer = function(canvas)
     }
 
     // Get rendering quality settings
-    var antialiasing = Settings.render.follow_project ? Editor.program.antialiasing : Settings.render.antialiasing
-    var shadows = Settings.render.follow_project ? Editor.program.shadows : Settings.render.shadows
-    var shadows_type = Settings.render.follow_project ? Editor.program.shadows_type : Settings.render.shadows_type
+    var antialiasing = Settings.render.followProject ? Editor.program.antialiasing : Settings.render.antialiasing
+    var shadows = Settings.render.followProject ? Editor.program.shadows : Settings.render.shadows
+    var shadowsType = Settings.render.followProject ? Editor.program.shadowsType : Settings.render.shadowsType
 
     // Dispose old render
     if(Editor.renderer !== null) {
@@ -1619,9 +1546,9 @@ Editor.initializeRenderer = function(canvas)
 
     // Create renderer
     Editor.renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: antialiasing })
-	Editor.renderer.setSize(canvas.width, canvas.height);
+	Editor.renderer.setSize(canvas.width, canvas.height)
     Editor.renderer.shadowMap.enabled = shadows
-    Editor.renderer.shadowMap.type = shadows_type
+    Editor.renderer.shadowMap.type = shadowsType
 	Editor.renderer.autoClear = false;
 
     // Get WebGL Context

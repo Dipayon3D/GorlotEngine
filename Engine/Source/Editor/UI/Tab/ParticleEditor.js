@@ -5,22 +5,22 @@ function ParticleEditor(parent, closeable, container, index) {
 
 	// Main container
 	this.main = new DualDivisionResizable(this.element)
-	this.main.tab_position = 0.5
-	this.main.tab_position_min = 0.3
-	this.main.tab_position_max = 0.5
+	this.main.tabPosition = 0.5
+	this.main.tabPositionMin = 0.3
+	this.main.tabPositionMax = 0.5
 	this.main.updateInterface()
 
 	// Change main div aspect
-	this.main.div_b.style.overflow = "hidden"
-	this.main.div_b.style.cursor = "default"
-	this.main.div_b.style.backgroundColor = Editor.theme.panel_color
+	this.main.divB.style.overflow = "hidden"
+	this.main.divB.style.cursor = "default"
+	this.main.divB.style.backgroundColor = Editor.theme.panelColor
 
 	// Self pointer
 	var self = this
 
 	//---------------------------- Particle preview ----------------------------
 	// Canvas
-	this.canvas = new Canvas(this.main.div_a)
+	this.canvas = new Canvas(this.main.divA)
 	this.canvas.updateInterface()
 
 	// Element attributes
@@ -44,17 +44,17 @@ function ParticleEditor(parent, closeable, container, index) {
 	// particle
 	this.particle = null
 	this.nodes = null
-	this.particle_runtime = null
+	this.particleRuntime = null
 
 	// Camera
 	this.camera = new PerspectiveCamera(90, this.canvas.size.x/this.canvas.size.y)
-	this.camera_rotation = new THREE.Vector2(0, 0.5)
-	this.camera_distance = 5
+	this.cameraRotation = new THREE.Vector2(0, 0.5)
+	this.cameraDistance = 5
 	this.updateCamera()
 
 	//---------------------------- Particle editor ----------------------------
 	// Graph editor
-	this.graphEditor = new Canvas(this.main.div_b)
+	this.graphEditor = new Canvas(this.main.divB)
 	this.graphEditor.updateInterface()
 	this.graph = null
 }
@@ -85,6 +85,30 @@ ParticleEditor.prototype.updateMetadata = function() {
 ParticleEditor.prototype.attach = function(particle) {
 	// Attach particle
 	this.particle = particle
+    
+    if(JSON.stringify(this.particle.nodes) === "{}") {
+        this.particle.nodes = {
+            config: {},
+            extra: {},
+            groups: [],
+            last_link_id: 0,
+            links: [],
+            nodes: [{
+                extra: {},
+                flags: {},
+                id: 1,
+                mode: 0,
+                order: 0,
+                outputs: [],
+                pos: [130, 130],
+                properties: {},
+                size: [210, 234],
+                type: "Particles/Particles"
+            }],
+            version: 0.4
+        }
+    }
+
 	this.nodes = this.particle.nodes
 	this.updateRuntimeParticle()
 	this.initNodeEditor()
@@ -118,31 +142,33 @@ ParticleEditor.prototype.initNodeEditor = function() {
 // Updates runtime particle to match attached particles
 ParticleEditor.prototype.updateRuntimeParticle = function() {
 	if (this.particle !== null) {
-		if (this.particle_runtime !== null) {
-			this.scene.remove(this.particle_runtime)
+		if (this.particleRuntime !== null) {
+			this.scene.remove(this.particleRuntime)
 		}
 
-		this.particle_runtime = new ObjectLoader().parse(this.particle.toJSON())
-        this.particle_runtime.visible = true
-		this.particle_runtime.scale.set(1, 1, 1)
-		this.particle_runtime.position.set(0, 0, 0)
-		this.particle_runtime.rotation.set(0, 0, 0)
-		this.particle_runtime.initialize()
-		this.scene.add(this.particle_runtime)
+		this.particleRuntime = new ObjectLoader().parse(this.particle.toJSON())
+        this.particleRuntime.visible = true
+		this.particleRuntime.scale.set(1, 1, 1)
+		this.particleRuntime.position.set(0, 0, 0)
+		this.particleRuntime.rotation.set(0, 0, 0)
+		this.particleRuntime.initialize()
+		this.scene.add(this.particleRuntime)
 	}
 }
 
 // Update camera and rotation from variables
 ParticleEditor.prototype.updateCamera = function() {
 	// Calculate direction vector
-	var cos_angle_y = Math.cos(this.camera_rotation.y)
-	var position = new THREE.Vector3(this.camera_distance * Math.cos(this.camera_rotation.x) * cos_angle_y, this.camera_distance * Math.sin(this.camera_rotation.y), this.camera_distance * Math.sin(this.camera_rotation.x) * cos_angle_y)
+	var cosAngleY = Math.cos(this.cameraRotation.y)
+	var position = new THREE.Vector3(this.cameraDistance * Math.cos(this.cameraRotation.x) * cosAngleY, this.cameraDistance * Math.sin(this.cameraRotation.y), this.cameraDistance * Math.sin(this.cameraRotation.x) * cosAngleY)
 	this.camera.position.copy(position)
 	this.camera.lookAt(new THREE.Vector3(0, 0, 0))
 }
 
 // Activate code editor
 ParticleEditor.prototype.activate = function() {
+    Register.unregisterAll()
+    Register.registerParticlesNodes()
 
 	// Set editor state
 	Editor.setState(Editor.STATE_IDLE)
@@ -160,9 +186,10 @@ ParticleEditor.prototype.close = function() {
 		this.graph.stop()
 
 		this.nodes.extra = {}
-
 		this.particle.updateNodes(this.graph.serialize())
 	}
+
+    console.log(this.nodes)
 }
 
 // Update particle editor
@@ -174,30 +201,30 @@ ParticleEditor.prototype.update = function() {
 	if (Mouse.insideCanvas()) {
 		// Move camera
 		if (Mouse.buttonPressed(Mouse.LEFT)) {
-			this.camera_rotation.x -= 0.003 * Mouse.delta.x
-			this.camera_rotation.y -= 0.003 * Mouse.delta.y
+			this.cameraRotation.x -= 0.003 * Mouse.delta.x
+			this.cameraRotation.y -= 0.003 * Mouse.delta.y
 
 			// Limit Vertical Rotation to 90 degrees
 			var pid2 = 1.57
-			if (this.camera_rotation.y < -pid2) {
-				this.camera_rotation.y = -pid2
-			} else if (this.camera_rotation.y > pid2) {
-				this.camera_rotation.y = pid2
+			if (this.cameraRotation.y < -pid2) {
+				this.cameraRotation.y = -pid2
+			} else if (this.cameraRotation.y > pid2) {
+				this.cameraRotation.y = pid2
 			}
 		}
 
 		// Camera zoom
-		this.camera_distance += Mouse.wheel * 0.005
-		if (this.camera_distance < 0.1) {
-			this.camera_distance = 0.1
+		this.cameraDistance += Mouse.wheel * 0.005
+		if (this.cameraDistance < 0.1) {
+			this.cameraDistance = 0.1
 		}
 
 		this.updateCamera()
 	}
 
 	// Update particle and render
-	if (this.particle_runtime !== null) {
-		this.particle_runtime.update()
+	if (this.particleRuntime !== null) {
+		this.particleRuntime.update()
 	}
 
 	// Render editor scene
@@ -215,12 +242,12 @@ ParticleEditor.prototype.updateInterface = function() {
 
 	// Update canvas
 	this.canvas.visible = this.visible
-	this.canvas.size.set(this.main.div_a.offsetWidth, this.main.div_a.offsetHeight)
+	this.canvas.size.set(this.main.divA.offsetWidth, this.main.divA.offsetHeight)
 	this.canvas.updateInterface()
 
 	// Update graph editor
 	this.graphEditor.visible = this.visible
-	this.graphEditor.size.set(this.main.div_b.offsetWidth, this.main.div_b.offsetHeight)
+	this.graphEditor.size.set(this.main.divB.offsetWidth, this.main.divB.offsetHeight)
 	this.graphEditor.updateInterface()
 
 	// Update renderer and canvas

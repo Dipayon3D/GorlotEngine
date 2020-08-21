@@ -4,7 +4,7 @@ function FontAsset(parent) {
 	Asset.call(this, parent)
 
 	this.font = null
-    this.setIcon(Interface.file_dir + "Icons/Assets/Font.png")
+    this.setIcon(Interface.fileDir + "Icons/Assets/Font.png")
 
 	// Self pointer
 	var self = this
@@ -33,7 +33,7 @@ function FontAsset(parent) {
 
 		context.addOption("Delete", () => {
 			if (self.font !== null && confirm("Delete font?")) {
-				Editor.program.removeFont(self.font, Editor.default_font)
+				Editor.program.removeFont(self.font, Editor.defaultFont)
 				Editor.updateObjectViews()
 			}
 		})
@@ -80,7 +80,7 @@ FontAsset.prototype.setFont = function(font) {
 // Update font preview
 FontAsset.prototype.updateMetadata = function() {
 	if (this.font !== null) {
-        Editor.font_renderer.renderFont(this.font, this.image)
+        Editor.fontRenderer.renderFont(this.font, this.image)
 
 		this.setText(this.font.name)
 		this.path = this.font.path

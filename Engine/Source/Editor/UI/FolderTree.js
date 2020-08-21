@@ -13,7 +13,7 @@ function FolderTree(parent) {
 	this.element.style.position = "absolute"
 	this.element.style.overflow = "auto"
 	this.element.style.cursor = "default"
-	this.element.style.backgroundColor = Editor.theme.panel_color
+	this.element.style.backgroundColor = Editor.theme.panelColor
 
 	// Label
 	this.label = new Text(this.element)
@@ -23,7 +23,7 @@ function FolderTree(parent) {
 	this.label.updateInterface()
 
 	// Element attributes
-	this.fit_parent = true
+	this.fitParent = true
 	this.size = new THREE.Vector2(0, 0)
 	this.position = new THREE.Vector2(0, 0)
 	this.visible = true
@@ -84,7 +84,7 @@ FolderTree.prototype.updateInterface = function() {
 	}
 
 	// Fit to parent
-	if (this.fit_parent) {
+	if (this.fitParent) {
 		this.size.x = this.parent.offsetWidth
 		this.size.y = this.parent.offsetHeight
 	}

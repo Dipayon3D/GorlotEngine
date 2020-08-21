@@ -19,7 +19,7 @@ function FolderElement(container) {
 	this.element.style.cursor = "default"
 	this.element.style.display = "flex"
 	this.element.style.alignItems = "center"
-	this.element.style.backgroundColor = Editor.theme.button_light_color
+	this.element.style.backgroundColor = Editor.theme.buttonLightColor
 
 	this.element.ondragover = function(e) {
 		e.preventDefault()
@@ -39,7 +39,7 @@ function FolderElement(container) {
 	// Text
 	this.label = new Text(this.element)
 	this.label.position.set(30, 10)
-	this.label.fit_content = true
+	this.label.fitContent = true
 	this.label.setAlignment(Text.LEFT)
 	this.label.updateInterface()
 
@@ -58,13 +58,13 @@ function FolderElement(container) {
 	// Mouse over event
 	this.element.onmouseenter = function(e) {
 		this.style.cursor = "pointer"
-		this.style.backgroundColor = Editor.theme.button_over_color
+		this.style.backgroundColor = Editor.theme.buttonOverColor
 	}
 
 	// Mouse leave event
 	this.element.onmouseleave = function(e) {
         this.style.cursor = "default"
-        this.style.backgroundColor = Editor.theme.button_light_color
+        this.style.backgroundColor = Editor.theme.buttonLightColor
 	}
 
 	// On drop any element
@@ -74,10 +74,10 @@ function FolderElement(container) {
 		if (self.folder !== null) {
 			// Get object from data buffer
 			var uuid = event.dataTransfer.getData("uuid")
-			var dragged_object = DragBuffer.popDragElement(uuid)
+			var draggedObject = DragBuffer.popDragElement(uuid)
 
-			if (dragged_object !== null) {
-				dragged_object.path = self.folder.path + self.folder.name + "/"
+			if (draggedObject !== null) {
+				draggedObject.path = self.folder.path + self.folder.name + "/"
 				Editor.updateObjectViews()
 			}
 		}

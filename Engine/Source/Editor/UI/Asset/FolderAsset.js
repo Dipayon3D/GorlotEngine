@@ -7,7 +7,7 @@ function FolderAsset(parent, type) {
 	var self = this
 
 	this.folder = null
-    this.setIcon(Interface.file_dir + "Icons/Misc/Folder.png")
+    this.setIcon(Interface.fileDir + "Icons/Misc/Folder.png")
 
     // Folder icon
     this.image = document.createElement("img")
@@ -26,8 +26,8 @@ function FolderAsset(parent, type) {
 				var newName = prompt("Rename folder", self.folder.name)
 
 				if(newName !== null && newName !== "") {
-					for(var i = 0; i < Interface.asset_explorer.files.length; i++) {
-						var file = Interface.asset_explorer.files[i]
+					for(var i = 0; i < Interface.assetExplorer.files.length; i++) {
+						var file = Interface.assetExplorer.files[i]
 	
 						if (file.path === self.folder.path + self.folder.name + "/") {
 							var newPath = self.folder.path + newName + "/"
@@ -70,10 +70,10 @@ function FolderAsset(parent, type) {
 		if (self.folder !== null) {
 			// Get object from data buffer
 			var uuid = event.dataTransfer.getData("uuid")
-			var dragged_object = DragBuffer.popDragElement(uuid)
+			var draggedObject = DragBuffer.popDragElement(uuid)
 
-			if (dragged_object !== null) {
-				dragged_object.path = self.folder.path + self.folder.name + "/"
+			if (draggedObject !== null) {
+				draggedObject.path = self.folder.path + self.folder.name + "/"
 				Editor.updateObjectViews()
 			}
 		}
@@ -82,7 +82,7 @@ function FolderAsset(parent, type) {
 	// Open folder
 	this.element.ondblclick = function() {
 		Editor.CURRENT_PATH = self.folder.path + self.folder.name + "/"
-		Interface.asset_explorer.updateInterface()
+		Interface.assetExplorer.updateInterface()
 	}
 }
 
@@ -99,7 +99,7 @@ FolderAsset.prototype.setFolder = function(folder) {
 // Update Folder data
 FolderAsset.prototype.updateMetadata = function() {
 	if (this.folder !== null) {
-		this.image.src = Interface.file_dir + "Icons/Misc/Folder.png"
+		this.image.src = Interface.fileDir + "Icons/Misc/Folder.png"
 		this.setText(this.folder.name)
 		this.path = this.folder.path
 	}

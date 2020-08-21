@@ -8,8 +8,8 @@ function MaterialEditor(parent, closeable, container, index) {
 	Register.registerMaterialNodes()
 
 	// Graph canvas
-	this.graph_canvas = new Canvas(this.element)
-	this.graph_canvas.updateInterface()
+	this.graphCanvas = new Canvas(this.element)
+	this.graphCanvas.updateInterface()
 
 	// Canvas
 	this.canvas = new Canvas(this.element)
@@ -139,7 +139,7 @@ MaterialEditor.prototype.initNodeEditor = function() {
 
 	this.nodes.extra = {}
 	this.nodes.extra.material = this.material
-	this.nodes.extra.file = this.material_file
+	this.nodes.extra.file = this.materialFile
 
 	this.graph = new LGraph(this.nodes)
 
@@ -148,7 +148,7 @@ MaterialEditor.prototype.initNodeEditor = function() {
 		self.material.needsUpdate = true
 	}
 	
-	this.graphCanvas = new LGraphCanvas(this.graph_canvas.element, this.graph)
+	this.graphEditorCanvas = new LGraphCanvas(this.graphCanvas.element, this.graph)
 	this.graph.start(1000/60)
 }
 
@@ -191,7 +191,6 @@ MaterialEditor.prototype.updateMetadata = function() {
 
 // Update the attached material
 MaterialEditor.prototype.updateMaterial = function() {
-	// this.material_file.updateMetadata()
 	Editor.updateAssetExplorer()
 
 	if (this.nodes.nodes !== undefined) {
@@ -255,9 +254,9 @@ MaterialEditor.prototype.updateInterface = function() {
     TabElement.prototype.updateInterface.call(this)
 
 	// Update graph canvas
-	this.graph_canvas.visible = this.visible
-	this.graph_canvas.size.set(this.size.x, this.size.y)
-	this.graph_canvas.updateInterface()
+	this.graphCanvas.visible = this.visible
+	this.graphCanvas.size.set(this.size.x, this.size.y)
+	this.graphCanvas.updateInterface()
 
 	// Update canvas
 	this.canvas.visible = this.visible

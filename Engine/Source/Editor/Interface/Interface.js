@@ -5,160 +5,161 @@ function Interface() {}
 // Initialise interface
 Interface.initialize = function() {
 	// File directory
-	Interface.file_dir = "Source/Editor/Files/"
+	Interface.fileDir = "Source/Editor/Files/"
 
 	// ------------------------------------ Tab Container ------------------------------------
 	Interface.tab = new TabGroup()
 
 	// ------------------------------------ Asset Manager ------------------------------------
-	Interface.asset_explorer_div = new DivisionResizable()
-	Interface.asset_explorer_div.resizable_side = DivisionResizable.TOP
-	Interface.asset_explorer_div.size.y = 210
-	Interface.asset_explorer_div.resize_size_min = 100
-	Interface.asset_explorer_div.resize_size_max = 400
+	Interface.assetExplorerDiv = new DivisionResizable()
+	Interface.assetExplorerDiv.resizableSide = DivisionResizable.TOP
+	Interface.assetExplorerDiv.size.y = 210
+	Interface.assetExplorerDiv.resizeSizeMin = 100
+	Interface.assetExplorerDiv.resizeSizeMax = 400
 
 	// Asset split
-	Interface.asset_split = new DualDivisionResizable(Interface.asset_explorer_div.element)
-	Interface.asset_split.orientation = DualDivisionResizable.HORIZONTAL
-	Interface.asset_split.tab_position = 0.12
-	Interface.asset_split.setOnResize(() => {
-		Interface.asset_split.updateInterface()
-		Interface.folders_explorers.updateInterface()
-		Interface.asset_explorer.updateInterface()
+	Interface.assetSplit = new DualDivisionResizable(Interface.assetExplorerDiv.element)
+	Interface.assetSplit.orientation = DualDivisionResizable.HORIZONTAL
+	Interface.assetSplit.tabPosition = 0.12
+	Interface.assetSplit.setOnResize(() => {
+		Interface.assetSplit.updateInterface()
+		Interface.foldersExplorer.updateInterface()
+		Interface.assetExplorer.updateInterface()
 	})
 
 	// Folders explorer
-	Interface.folders_explorers = new FolderTree(Interface.asset_split.div_a)
+	Interface.foldersExplorer = new FolderTree(Interface.assetSplit.divA)
 
 	// Asset Explorer
-	Interface.asset_explorer = new AssetExplorer(Interface.asset_split.div_b)
-	Interface.asset_explorer.files_size.set(Settings.general.file_preview_size, Settings.general.file_preview_size)
-	Interface.asset_explorer.fit_parent = true
+	Interface.assetExplorer = new AssetExplorer(Interface.assetSplit.divB)
+	Interface.assetExplorer.filesSize.set(Settings.general.filePreviewSize, Settings.general.filePreviewSize)
+	Interface.assetExplorer.fitParent = true
 
 	// Asset Explorer menu bar
-	Interface.asset_explorer_bar = new Bar(Interface.asset_explorer_div.element)
-	Interface.asset_explorer_bar.position.set(0, 0)
-	Interface.asset_explorer_bar.size.y = 20
+	Interface.assetExplorerBar = new Bar(Interface.assetExplorerDiv.element)
+	Interface.assetExplorerBar.position.set(0, 0)
+	Interface.assetExplorerBar.size.y = 20
 
 	// Create an asset
-	Interface.asset_new = new DropdownMenu(Interface.asset_explorer_bar.element)
-	Interface.asset_new.setText("Add New")
-	Interface.asset_new.size.set(100, Interface.asset_explorer_bar.size.y)
-	Interface.asset_new.position.set(0, 0)
-	Interface.asset_new.element.style.backgroundColor = Editor.theme.special_color
+	Interface.assetNew = new DropdownMenu(Interface.assetExplorerBar.element)
+	Interface.assetNew.setText("Add New")
+	Interface.assetNew.size.set(100, Interface.assetExplorerBar.size.y)
+	Interface.assetNew.position.set(0, 0)
+	Interface.assetNew.element.style.backgroundColor = Editor.theme.specialColor
 
-	Interface.asset_new.element.onmouseover = function() {
-		Interface.asset_new.expanded = true
-		Interface.asset_new.updateInterface()
-		Interface.asset_new.element.style.cursor = "pointer"
-		Interface.asset_new.element.style.backgroundColor = Editor.theme.special_over_color
+	Interface.assetNew.element.onmouseover = function() {
+        Interface.assetNew.expanded = true
+		Interface.assetNew.updateInterface()
+		Interface.assetNew.element.style.cursor = "pointer"
+		Interface.assetNew.element.style.backgroundColor = Editor.theme.specialOverColor
 	}
 
-	Interface.asset_new.element.onmouseleave = function() {
-		Interface.asset_new.expanded = false
-		Interface.asset_new.updateInterface()
-		Interface.asset_new.element.style.cursor = "default"
-		Interface.asset_new.element.style.backgroundColor = Editor.theme.special_color
+	Interface.assetNew.element.onmouseleave = function() {
+		Interface.assetNew.expanded = false
+		Interface.assetNew.updateInterface()
+		Interface.assetNew.element.style.cursor = "default"
+		Interface.assetNew.element.style.backgroundColor = Editor.theme.specialColor
 	}
 
 	// Create materials
-	var asset_material = Interface.asset_new.addMenu("Materials", Interface.file_dir + "Icons/Misc/Material.png")
+	var assetMaterial = Interface.assetNew.addMenu("Materials", Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material.addOption("Standard Material", () => {
+	assetMaterial.addOption("Standard Material", () => {
 		var material = new MeshStandardMaterial()
 		material.name = "standard"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material.addOption("Phong Material", () => {
+	assetMaterial.addOption("Phong Material", () => {
 		var material = new MeshPhongMaterial()
 		material.name = "phong"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material.addOption("Basic Material", () => {
+	assetMaterial.addOption("Basic Material", () => {
 		var material = new MeshBasicMaterial()
 		material.name = "basic"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material.addOption("Sprite Material", () => {
+	assetMaterial.addOption("Sprite Material", () => {
 		var material = new SpriteMaterial({color: 0xffffff})
 		material.name = "sprite"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-    asset_material.addOption("Toon Material", () => {
+    assetMaterial.addOption("Toon Material", () => {
         var material = new MeshToonMaterial()
         material.name = "toon"
+        material.path = Editor.CURRENT_PATH
         Editor.program.addMaterial(material)
         Editor.updateObjectViews()
-    }, Interface.file_dir + "Icons/Misc/Material.png")
+    }, Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material.addOption("Lambert Material", () => {
+	assetMaterial.addOption("Lambert Material", () => {
 		var material = new MeshLambertMaterial()
 		material.name = "lambert"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-	var asset_material_others = asset_material.addMenu("Others")
-	asset_material_others.addOption("Shader Material", () => {
+	var assetMaterialOthers = assetMaterial.addMenu("Others")
+	assetMaterialOthers.addOption("Shader Material", () => {
 		var material = new MeshShaderMaterial()
 		material.name = "shader"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material_others.addOption("Normal Material", () => {
+	assetMaterialOthers.addOption("Normal Material", () => {
 		var material = new MeshNormalMaterial()
 		material.name = "normal"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-	asset_material_others.addOption("Depth Material", () => {
+	assetMaterialOthers.addOption("Depth Material", () => {
 		var material = new MeshDepthMaterial()
 		material.name = "depth"
 		material.path = Editor.CURRENT_PATH
 		Editor.program.addMaterial(material)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Material.png")
+	}, Interface.fileDir + "Icons/Misc/Material.png")
 
-    Interface.asset_new.addOption("Folder", () => {
+    Interface.assetNew.addOption("Folder", () => {
 		var folder = new Folder()
 		folder.path = Editor.CURRENT_PATH
 		Editor.program.addFolder(folder)
 		Editor.updateAssetExplorer()
-	}, Interface.file_dir + "Icons/Misc/Folder.png")
+	}, Interface.fileDir + "Icons/Misc/Folder.png")
 
-	Interface.asset_new.addOption("Class Blocks", () => {
+	Interface.assetNew.addOption("Blocks", () => {
 		var obj = new BlockScript(undefined, undefined, "class")
 		obj.name = "class"
 		obj.path = Editor.CURRENT_PATH
 		Editor.program.addObject(obj)
 		Editor.updateAssetExplorer()
-	}, Interface.file_dir + "Icons/Script/Blocks.png")
+	}, Interface.fileDir + "Icons/Script/Blocks.png")
 
 	// Import a file
-	Interface.asset_file = new DropdownMenu(Interface.asset_explorer_bar.element)
-	Interface.asset_file.setText("Import")
-	Interface.asset_file.size.set(100, Interface.asset_explorer_bar.size.y)
-	Interface.asset_file.position.set(100, 0)
+	Interface.assetFile = new DropdownMenu(Interface.assetExplorerBar.element)
+	Interface.assetFile.setText("Import")
+	Interface.assetFile.size.set(100, Interface.assetExplorerBar.size.y)
+	Interface.assetFile.position.set(100, 0)
 
     // 3D Models Loader
-    Interface.asset_file.addOption("3D Models", () => {
+    Interface.assetFile.addOption("3D Models", () => {
         FileSystem.chooseFile((files) => {
             if(files.length > 0) {
                 var file = files[0].path
@@ -171,9 +172,9 @@ Interface.initialize = function() {
                     var loader = new THREE.OBJLoader()
 
                     if(FileSystem.fileExists(mtl)) {
-                        var mtl_loader = new THREE.MTLLoader()
-                        mtl_loader.setPath(path)
-                        var materials = mtl_loader.parse(FileSystem.readFile(mtl))
+                        var mtlLoader = new THREE.MTLLoader()
+                        mtlLoader.setPath(path)
+                        var materials = mtlLoader.parse(FileSystem.readFile(mtl))
 
                         loader.setMaterials(materials)
                     }
@@ -210,7 +211,6 @@ Interface.initialize = function() {
                                     var _child = child.children[k]
                                     if(_child.material !== undefined) {
                                         _child.material.setPath(Editor.CURRENT_PATH)
-                                        console.log(_child.material)
                                     }
                                 }
                             }
@@ -322,13 +322,13 @@ Interface.initialize = function() {
                 }
             }
         }, ".obj, .dae, .gltf, .awd, .ply, .vtk, .vtp, .wrl, .vrml, .fbx, .pcd, .json")
-    }, Interface.file_dir + "Icons/Models/Models.png")
+    }, Interface.fileDir + "Icons/Models/Models.png")
 
     // Textures menu
-    var import_texture = Interface.asset_file.addMenu("Texture", Interface.file_dir + "Icons/Assets/Image.png")
+    var importTexture = Interface.assetFile.addMenu("Texture", Interface.fileDir + "Icons/Assets/Image.png")
 
 	// Image Texture
-    import_texture.addOption("Texture", () => {
+    importTexture.addOption("Texture", () => {
 		FileSystem.chooseFile((files) => {
 			if (files.length > 0) {
 				var file = files[0].path
@@ -340,19 +340,19 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, "image/*")
-	}, Interface.file_dir + "Icons/Assets/Image.png")
+	}, Interface.fileDir + "Icons/Assets/Image.png")
 
 	// Text Texture
-	import_texture.addOption("Canvas Texture", () => {
+	importTexture.addOption("Canvas Texture", () => {
         var texture = new CanvasTexture(512, 512)
         texture.name = "canvas"
         Editor.program.addTexture(texture)
 
         Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Assets/Image.png")
+	}, Interface.fileDir + "Icons/Assets/Image.png")
 
 	// Video Texture
-	import_texture.addOption("Video Texture", () => {
+	importTexture.addOption("Video Texture", () => {
 		FileSystem.chooseFile((files) => {
 			if (files.length > 0) {
 				var file = files[0].path
@@ -364,18 +364,18 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, "video/*")
-	}, Interface.file_dir + "Icons/Assets/Video.png")
+	}, Interface.fileDir + "Icons/Assets/Video.png")
 
 	// Webcam Texture
-	import_texture.addOption("Webcam Texture", () => {
+	importTexture.addOption("Webcam Texture", () => {
 		var texture = new WebcamTexture()
 		texture.name = "webcam"
 		Editor.program.addTexture(texture)
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Hw/Webcam.png")
+	}, Interface.fileDir + "Icons/Hw/Webcam.png")
 
     // Load Spine Animation
-    Interface.asset_file.addOption("Spine Animation", () => {
+    Interface.assetFile.addOption("Spine Animation", () => {
 		FileSystem.chooseFile((files) => {
 			if (files.length > 0) {
 				var file = files[0].path
@@ -391,10 +391,10 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, ".json")
-	}, Interface.file_dir + "Icons/Animation/Spine.png")
+	}, Interface.fileDir + "Icons/Animation/Spine.png")
 
 	// Load font
-	Interface.asset_file.addOption("Font", () => {
+	Interface.assetFile.addOption("Font", () => {
 		FileSystem.chooseFile((files) => {
 			if (files.length > 0) {
 				var file = files[0].path
@@ -411,10 +411,10 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, ".json, ttf, .otf")
-	}, Interface.file_dir + "Icons/Assets/Font.png")
+	}, Interface.fileDir + "Icons/Assets/Font.png")
 
 	// Load audio file
-	Interface.asset_file.addOption("Audio", () => {
+	Interface.assetFile.addOption("Audio", () => {
 		FileSystem.chooseFile((files) => {
 			if (files.length > 0) {
 				var file = files[0].path
@@ -431,12 +431,12 @@ Interface.initialize = function() {
                 Editor.updateObjectViews()
 			}
 		}, "audio/*")
-	}, Interface.file_dir + "Icons/Assets/Audio.png")
+	}, Interface.fileDir + "Icons/Assets/Audio.png")
 
 	// ------------------------------------ Explorer ------------------------------------
 	Interface.explorer = new DivisionResizable()
 	Interface.explorer.size.x = 300
-	Interface.explorer.resize_size_min = 100
+	Interface.explorer.resizeSizeMin = 100
 	Interface.explorer.setOnResize(() => {
 		Interface.updateInterface()
 		if (Interface.panel !== null) {
@@ -444,67 +444,67 @@ Interface.initialize = function() {
 		}
 	})
 
-	Interface.explorer_resizable = new DualDivisionResizable(Interface.explorer.element)
-	Interface.explorer_resizable.orientation = DualDivisionResizable.VERTICAL
-	Interface.explorer_resizable.tab_position = 0.4
-	Interface.explorer_resizable.setOnResize(() => {
-		Interface.explorer_resizable.updateInterface()
-		Interface.tree_view.updateInterface()
+	Interface.explorerResizable = new DualDivisionResizable(Interface.explorer.element)
+	Interface.explorerResizable.orientation = DualDivisionResizable.VERTICAL
+	Interface.explorerResizable.tabPosition = 0.4
+	Interface.explorerResizable.setOnResize(() => {
+		Interface.explorerResizable.updateInterface()
+		Interface.treeView.updateInterface()
 		if (Interface.panel !== null) {
 			Interface.panel.updateInterface()
 		}
 	})
 
 	// Project Explorer
-	Interface.tree_view = new TreeView(Interface.explorer_resizable.div_a)
+	Interface.treeView = new TreeView(Interface.explorerResizable.divA)
 
 	// Object Components
-	Interface.panel = new Panel(Interface.explorer_resizable.div_b)
+	Interface.panel = new Panel(Interface.explorerResizable.divB)
 
 	// ------------------------------------ Left Div ------------------------------------
-	Interface.left_div = new DivisionResizable()
-	Interface.left_div.resizable_side = DivisionResizable.RIGHT
-	Interface.left_div.size.x = 300
-	Interface.left_div.resize_size_min = 300
-	Interface.left_div.resize_size_max = 305
-	Interface.left_div.element.style.pointerEvents = "auto"
+	Interface.leftDiv = new DivisionResizable()
+	Interface.leftDiv.resizableSide = DivisionResizable.RIGHT
+	Interface.leftDiv.size.x = 300
+	Interface.leftDiv.resizeSizeMin = 300
+	Interface.leftDiv.resizeSizeMax = 305
+	Interface.leftDiv.element.style.pointerEvents = "auto"
 
-	Interface.left_tabs = new TabGroup(Interface.left_div.element)
-	Interface.left_tabs.button_size.set(100, 30)
-	Interface.left_tabs.element.style.cursor = "default"
-	Interface.left_tabs.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.left_tabs.mode = TabGroup.LEFT
-	Interface.left_tabs.updateInterface()
+	Interface.leftTabs = new TabGroup(Interface.leftDiv.element)
+	Interface.leftTabs.buttonSize.set(100, 30)
+	Interface.leftTabs.element.style.cursor = "default"
+	Interface.leftTabs.element.style.backgroundColor = Editor.theme.barColor
+	Interface.leftTabs.mode = TabGroup.LEFT
+	Interface.leftTabs.updateInterface()
 
-    Interface.basic_tab = Interface.left_tabs.addTab(ObjectChooserBasicTab, false)
-	Interface.basic_tab.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.basic_tab.element.style.overflowY = "auto"
+    Interface.basicTab = Interface.leftTabs.addTab(ObjectChooserBasicTab, false)
+	Interface.basicTab.element.style.backgroundColor = Editor.theme.barColor
+	Interface.basicTab.element.style.overflowY = "auto"
 
-	Interface.lights_tab = Interface.left_tabs.addTab(ObjectChooserLightingTab, false)
-	Interface.lights_tab.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.lights_tab.element.style.overflowY = "auto"
+	Interface.lightsTab = Interface.leftTabs.addTab(ObjectChooserLightingTab, false)
+	Interface.lightsTab.element.style.backgroundColor = Editor.theme.barColor
+	Interface.lightsTab.element.style.overflowY = "auto"
 
-	Interface.cinematic_tab = Interface.left_tabs.addTab(ObjectChooserCinematicTab, false)
-	Interface.cinematic_tab.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.cinematic_tab.element.style.overflowY = "auto"
+	Interface.cinematicTab = Interface.leftTabs.addTab(ObjectChooserCinematicTab, false)
+	Interface.cinematicTab.element.style.backgroundColor = Editor.theme.barColor
+	Interface.cinematicTab.element.style.overflowY = "auto"
 
-	Interface.effects_tab = Interface.left_tabs.addTab(ObjectChooserEffectsTab, false)
-	Interface.effects_tab.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.effects_tab.element.style.overflowY = "auto"
+	Interface.effectsTab = Interface.leftTabs.addTab(ObjectChooserEffectsTab, false)
+	Interface.effectsTab.element.style.backgroundColor = Editor.theme.barColor
+	Interface.effectsTab.element.style.overflowY = "auto"
 
-	Interface.physics_tab = Interface.left_tabs.addTab(ObjectChooserPhysicsTab, false)
-	Interface.physics_tab.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.physics_tab.element.style.overflowY = "auto"
+	Interface.physicsTab = Interface.leftTabs.addTab(ObjectChooserPhysicsTab, false)
+	Interface.physicsTab.element.style.backgroundColor = Editor.theme.barColor
+	Interface.physicsTab.element.style.overflowY = "auto"
 
-	Interface.hw_tab = Interface.left_tabs.addTab(ObjectChooserDeviceTab, false)
-	Interface.hw_tab.element.style.backgroundColor = Editor.theme.bar_color
-	Interface.hw_tab.element.style.overflowY = "auto"
+	Interface.hwTab = Interface.leftTabs.addTab(ObjectChooserDeviceTab, false)
+	Interface.hwTab.element.style.backgroundColor = Editor.theme.barColor
+	Interface.hwTab.element.style.overflowY = "auto"
 
-    Interface.left_tabs.selectTab(0)
+    Interface.leftTabs.selectTab(0)
 
 	// ------------------------------------ Top Bar ------------------------------------
-	Interface.top_bar = new Bar()
-	Interface.top_bar.size.y = 25
+	Interface.topBar = new Bar()
+	Interface.topBar.size.y = 25
 
 	// Editor Logo
 	Interface.image = new ImageBox()
@@ -515,27 +515,27 @@ Interface.initialize = function() {
 	// File
 	Interface.file = new DropdownMenu()
 	Interface.file.setText("File")
-	Interface.file.size.set(120, Interface.top_bar.size.y)
+	Interface.file.size.set(120, Interface.topBar.size.y)
 	Interface.file.position.set(0, 0)
 
 	// New Project
 	Interface.file.addOption("New", () => {
 		Interface.newProgram()
-	}, Interface.file_dir + "Icons/Misc/New.png")
+	}, Interface.fileDir + "Icons/Misc/New.png")
 
 	// Save Project
 	Interface.file.addOption("Save", () => {
-        if(Editor.open_file !== null) {
+        if(Editor.openFile !== null) {
             Editor.saveProgram(undefined, false)
         } else {
             Interface.saveProgram()
         }
-    }, Interface.file_dir + "Icons/Misc/Save.png")
+    }, Interface.fileDir + "Icons/Misc/Save.png")
 
     // Save project as
     Interface.file.addOption("Save As", () => {
         Interface.saveProgram()()
-    }, Interface.file_dir + "Icons/Misc/Save.png")
+    }, Interface.fileDir + "Icons/Misc/Save.png")
 
 	// Load Project
 	Interface.file.addOption("Load", () => {
@@ -549,7 +549,7 @@ Interface.initialize = function() {
             tab = Interface.tab.addTab(ConsoleTab, true)
         }
         tab.select()
-    }, Interface.file_dir + "Icons/Misc/Console.png")
+    }, Interface.fileDir + "Icons/Misc/Console.png")
 
 	var publish = Interface.file.addMenu("Export")
 
@@ -562,7 +562,7 @@ Interface.initialize = function() {
 				alert("Error exporting project (" + e + ")")
 			}
 		}, "", Editor.program.name)
-	}, Interface.file_dir + "Icons/Platform/Web.png")
+	}, Interface.fileDir + "Icons/Platform/Web.png")
 
 	publish.addOption("Windows", () => {
 		FileSystem.chooseFile((files) => {
@@ -572,51 +572,51 @@ Interface.initialize = function() {
 				alert("Error exporting project (" + e + ")")
 			}
 		}, "", Editor.program.name)
-	}, Interface.file_dir + "Icons/Platform/Windows.png")
+	}, Interface.fileDir + "Icons/Platform/Windows.png")
 
 	publish.addOption("Linux", () => {
 		alert("TODO: This")
-	}, Interface.file_dir + "Icons/Platform/Linux.png")
+	}, Interface.fileDir + "Icons/Platform/Linux.png")
 
 	publish.addOption("macOS", () => {
 		alert("TODO: This")
-	}, Interface.file_dir + "Icons/Platform/OSX.png")
+	}, Interface.fileDir + "Icons/Platform/OSX.png")
 
 	Interface.file.addOption("Exit", () => {
 		if (confirm("All unsaved changes to the project will be lost! Do you really want to exit?")) {
 			Editor.exit()
 		}
-	}, Interface.file_dir + "Icons/Misc/Exit.png")
+	}, Interface.fileDir + "Icons/Misc/Exit.png")
 
 	// Edit
 	Interface.editor = new DropdownMenu()
 	Interface.editor.setText("Edit")
-	Interface.editor.size.set(100, Interface.top_bar.size.y)
+	Interface.editor.size.set(100, Interface.topBar.size.y)
 	Interface.editor.position.set(120, 0)
 
 	Interface.editor.addOption("Undo", () => {
 		Editor.undo()
-	}, Interface.file_dir + "Icons/Misc/Undo.png")
+	}, Interface.fileDir + "Icons/Misc/Undo.png")
 
 	Interface.editor.addOption("Redo", () => {
 		Editor.redo()
-	}, Interface.file_dir + "Icons/Misc/Redo.png")
+	}, Interface.fileDir + "Icons/Misc/Redo.png")
 
 	Interface.editor.addOption("Copy", () => {
 		Editor.copyObject()
-	}, Interface.file_dir + "Icons/Misc/Copy.png")
+	}, Interface.fileDir + "Icons/Misc/Copy.png")
 
 	Interface.editor.addOption("Cut", () => {
 		Editor.cutObject()
-	}, Interface.file_dir + "Icons/Misc/Cut.png")
+	}, Interface.fileDir + "Icons/Misc/Cut.png")
 
 	Interface.editor.addOption("Paste", () => {
 		Editor.pasteObject()
-	}, Interface.file_dir + "Icons/Misc/Paste.png")
+	}, Interface.fileDir + "Icons/Misc/Paste.png")
 
 	Interface.editor.addOption("Delete", () => {
 		Editor.deleteObject()
-	}, Interface.file_dir + "Icons/Misc/Delete.png")
+	}, Interface.fileDir + "Icons/Misc/Delete.png")
 
 	Interface.editor.addOption("Settings", () => {
         var tab = Interface.tab.getTab(SettingsTab)
@@ -624,18 +624,18 @@ Interface.initialize = function() {
             tab = Interface.tab.addTab(SettingsTab, true)
         }
         tab.select()
-	}, Interface.file_dir + "Icons/Misc/Settings.png")
+	}, Interface.fileDir + "Icons/Misc/Settings.png")
 
 	// Project
 	Interface.project = new DropdownMenu()
 	Interface.project.setText("Project")
-	Interface.project.size.set(100, Interface.top_bar.size.y)
+	Interface.project.size.set(100, Interface.topBar.size.y)
 	Interface.project.position.set(220, 0)
 
 	Interface.project.addOption("Create Scene", () => {
 		Editor.program.addDefaultScene()
 		Editor.updateObjectViews()
-	}, Interface.file_dir + "Icons/Misc/Add.png")
+	}, Interface.fileDir + "Icons/Misc/Add.png")
 
 	Interface.project.addOption("Execute Script", () => {
 		FileSystem.chooseFile((files) => {
@@ -649,12 +649,12 @@ Interface.initialize = function() {
 				alert("Error: " + e)
 			}
 		}, ".js")
-	}, Interface.file_dir + "Icons/Script/Script.png")
+	}, Interface.fileDir + "Icons/Script/Script.png")
 
 	// About
 	Interface.about = new Button()
 	Interface.about.setText("About")
-	Interface.about.size.set(100, Interface.top_bar.size.y)
+	Interface.about.size.set(100, Interface.topBar.size.y)
 	Interface.about.position.set(320, 0)
 	Interface.about.updateInterface()
 	Interface.about.setCallback(() => {
@@ -668,7 +668,7 @@ Interface.initialize = function() {
 	// Run
 	Interface.run = new Button()
 	Interface.run.setText("Run")
-	Interface.run.size.set(100, Interface.top_bar.size.y)
+	Interface.run.size.set(100, Interface.topBar.size.y)
 	Interface.run.position.set(420, 0)
 	Interface.run.updateInterface()
 	Interface.run.setCallback(() => {
@@ -682,11 +682,11 @@ Interface.initialize = function() {
 
 // Loop pdate elements
 Interface.update = function() {
-	Interface.left_div.update()
+	Interface.leftDiv.update()
 	Interface.explorer.update()
-	Interface.asset_explorer_div.update()
-	Interface.explorer_resizable.update()
-	Interface.asset_split.update()
+	Interface.assetExplorerDiv.update()
+	Interface.explorerResizable.update()
+	Interface.assetSplit.update()
 	Interface.tab.update()
 }
 
@@ -696,56 +696,56 @@ Interface.updateInterface = function() {
 	var size = new THREE.Vector2(window.innerWidth, window.innerHeight)
 
 	// ------------------------------------ Menu Top Bar ------------------------------------
-	Interface.top_bar.size.x = size.x
-	Interface.top_bar.updateInterface()
+	Interface.topBar.size.x = size.x
+	Interface.topBar.updateInterface()
 
 	// Logo
 	Interface.image.position.set(size.x - Interface.image.size.x, 3)
 	Interface.image.updateInterface()
 
 	// ------------------------------------ Project Explorer ------------------------------------
-	Interface.explorer.size.y = (size.y - Interface.top_bar.size.y)
-	Interface.explorer.position.set(size.x - Interface.explorer.size.x, Interface.top_bar.size.y)
-	Interface.explorer.resize_size_max = size.x * 0.7
+	Interface.explorer.size.y = (size.y - Interface.topBar.size.y)
+	Interface.explorer.position.set(size.x - Interface.explorer.size.x, Interface.topBar.size.y)
+	Interface.explorer.resizeSizeMax = size.x * 0.7
 	Interface.explorer.updateInterface()
 
-	Interface.explorer_resizable.size.set(Interface.explorer.size.x - Interface.explorer.resize_tab_size, Interface.explorer.size.y)
-	Interface.explorer_resizable.updateInterface()
+	Interface.explorerResizable.size.set(Interface.explorer.size.x - Interface.explorer.resizeTabSize, Interface.explorer.size.y)
+	Interface.explorerResizable.updateInterface()
 
-	Interface.tree_view.updateInterface()
+	Interface.treeView.updateInterface()
 
     if(Interface.panel !== null) {
         Interface.panel.updateInterface()
     }
 
 	// ------------------------------------ Asset Explorer ------------------------------------
-	Interface.asset_explorer_div.size.x = size.x - Interface.explorer.size.x
-	Interface.asset_explorer_div.position.set(0, size.y - Interface.asset_explorer_div.size.y)
-	Interface.asset_explorer_div.resize_size_max = size.y * 0.6
-	Interface.asset_explorer_div.updateInterface()
+	Interface.assetExplorerDiv.size.x = size.x - Interface.explorer.size.x
+	Interface.assetExplorerDiv.position.set(0, size.y - Interface.assetExplorerDiv.size.y)
+	Interface.assetExplorerDiv.resizeSizeMax = size.y * 0.6
+	Interface.assetExplorerDiv.updateInterface()
 
-	Interface.asset_explorer_bar.size.x = Interface.asset_explorer_div.size.x
-	Interface.asset_explorer_bar.updateInterface()
+	Interface.assetExplorerBar.size.x = Interface.assetExplorerDiv.size.x
+	Interface.assetExplorerBar.updateInterface()
 
-	Interface.asset_split.size.x = Interface.asset_explorer_div.size.x
-	Interface.asset_split.position.y = Interface.asset_explorer_bar.size.y
-	Interface.asset_split.size.y = Interface.asset_explorer_div.size.y - Interface.asset_explorer.position.y
-	Interface.asset_split.updateInterface()
+	Interface.assetSplit.size.x = Interface.assetExplorerDiv.size.x
+	Interface.assetSplit.position.y = Interface.assetExplorerBar.size.y
+	Interface.assetSplit.size.y = Interface.assetExplorerDiv.size.y - Interface.assetExplorer.position.y
+	Interface.assetSplit.updateInterface()
 
-	Interface.folders_explorers.updateInterface()
+	Interface.foldersExplorer.updateInterface()
 
 	// ------------------------------------ Left Div ------------------------------------
-	Interface.left_div.position.set(0, Interface.top_bar.size.y)
-	Interface.left_div.size.y = size.y - Interface.asset_explorer_div.size.y - Interface.top_bar.size.y //size.y - Interface.top_bar.size.y
-	Interface.left_div.updateInterface()
+	Interface.leftDiv.position.set(0, Interface.topBar.size.y)
+	Interface.leftDiv.size.y = size.y - Interface.assetExplorerDiv.size.y - Interface.topBar.size.y //size.y - Interface.top_bar.size.y
+	Interface.leftDiv.updateInterface()
 
-	Interface.left_tabs.size.copy(Interface.left_div.size)
-	Interface.left_tabs.updateInterface()
+	Interface.leftTabs.size.copy(Interface.leftDiv.size)
+	Interface.leftTabs.updateInterface()
 
 	// ------------------------------------ Tab Container ------------------------------------
-	Interface.tab.position.set(Interface.left_div.size.x, Interface.top_bar.size.y)
-	Interface.tab.size.x = (size.x - Interface.left_div.size.x - Interface.explorer.size.x)
-	Interface.tab.size.y = (size.y - Interface.top_bar.size.y - Interface.asset_explorer_div.size.y)
+	Interface.tab.position.set(Interface.leftDiv.size.x, Interface.topBar.size.y)
+	Interface.tab.size.x = (size.x - Interface.leftDiv.size.x - Interface.explorer.size.x)
+	Interface.tab.size.y = (size.y - Interface.topBar.size.y - Interface.assetExplorerDiv.size.y)
 	Interface.tab.updateInterface()
 
 	// Resize editor camera

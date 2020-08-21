@@ -10,32 +10,32 @@ function ObjectChooserEffectsTab(parent, closeable, container, index) {
     this.form.position.set(0, 0)
     this.form.spacing.set(0, 0)
 
-    this.blocks = this.addElement("Scene Blocks", Interface.file_dir + "Icons/Script/Blocks.png", () => {
+    this.blocks = this.addElement("Scene Blocks", Interface.fileDir + "Icons/Script/Blocks.png", () => {
         Editor.addToScene(new BlockScript())
     })
 
-    this.script = this.addElement("Script", Interface.file_dir + "Icons/Script/Script.png", () => {
+    this.script = this.addElement("Script", Interface.fileDir + "Icons/Script/Script.png", () => {
         Editor.addToScene(new Script())
     })
 
-    this.sprite = this.addElement("Sprite", Interface.file_dir + "Icons/Effects/Sprite.png", () => {
-        Editor.addToScene(new Sprite(Editor.default_sprite_material))
+    this.sprite = this.addElement("Sprite", Interface.fileDir + "Icons/Effects/Sprite.png", () => {
+        Editor.addToScene(new Sprite(Editor.defaultSpriteMaterial))
     })
 
-    this.particle = this.addElement("Particles", Interface.file_dir + "Icons/Effects/Particles.png", () => {
+    this.particle = this.addElement("Particles", Interface.fileDir + "Icons/Effects/Particles.png", () => {
         Editor.addToScene(new ParticleEmitter())
     })
 
-    this.empty = this.addElement("Empty", Interface.file_dir + "Icons/Effects/Empty.png", () => {
+    this.empty = this.addElement("Empty", Interface.fileDir + "Icons/Effects/Empty.png", () => {
         Editor.addToScene(new Empty())
     })
 
-    this.audio = this.addElement("Audio", Interface.file_dir + "Icons/Assets/Audio.png", () => {
-        Editor.addToScene(new AudioEmitter(Editor.default_audio))
+    this.audio = this.addElement("Audio", Interface.fileDir + "Icons/Assets/Audio.png", () => {
+        Editor.addToScene(new AudioEmitter(Editor.defaultAudio))
     })
 
-    this.positionalAudio = this.addElement("Positional Audio", Interface.file_dir + "Icons/Assets/AudioPositional.png", () => {
-        Editor.addToScene(new PositionalAudio(Editor.default_audio))
+    this.positionalAudio = this.addElement("Positional Audio", Interface.fileDir + "Icons/Assets/AudioPositional.png", () => {
+        Editor.addToScene(new PositionalAudio(Editor.defaultAudio))
     })
 }
 

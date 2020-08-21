@@ -5,45 +5,45 @@ function ShaderMaterialEditor(parent, closeable, container, index) {
 
 	// Main container
 	this.main = new DualDivisionResizable(this.element)
-	this.main.tab_position = 0.5
-	this.main.tab_position_min = 0.3
-	this.main.tab_position_max = 0.7
+	this.main.tabPsition = 0.5
+	this.main.tabPositionMin = 0.3
+	this.main.tabPositionMax = 0.7
 	this.main.updateInterface()
 
-	this.preview = new DualDivisionResizable(this.main.div_a)
+	this.preview = new DualDivisionResizable(this.main.divA)
 	this.preview.orientation = DualDivisionResizable.VERTICAL
-	this.preview.tab_position = 0.8
-	this.preview.tab_position_min = 0.3
-	this.preview.tab_position_max = 0.8
+	this.preview.tabPosition = 0.8
+	this.preview.tabPositionMin = 0.3
+	this.preview.tabPositionMax = 0.8
 	this.preview.updateInterface()
 
 	// Change preview div aspect
-	this.preview.div_a.style.overflow = "auto"
-	this.preview.div_b.style.cursor = "default"
-	this.preview.div_b.style.backgroundColor = Editor.theme.panel_color
+	this.preview.divA.style.overflow = "auto"
+	this.preview.divA.style.cursor = "default"
+	this.preview.divA.style.backgroundColor = Editor.theme.panelColor
 
 	// Change main div aspect
-	this.main.div_b.style.overflow = "auto"
-	this.main.div_b.style.cursor = "default"
-	this.main.div_b.style.backgroundColor = Editor.theme.panel_color
+	this.main.divB.style.overflow = "auto"
+	this.main.divB.style.cursor = "default"
+	this.main.divB.style.backgroundColor = Editor.theme.panelColor
 
 	// Self pointer
 	var self = this
 
 	//-------------------------------------- Material Preview --------------------------------------
 	// Canvas
-	this.canvas = new Canvas(this.preview.div_a)
+	this.canvas = new Canvas(this.preview.divA)
 	this.canvas.updateInterface()
 
 	// Element attributes
 	this.children = []
-	this.fit_parent = false
+	this.fitParent = false
 	this.size = new THREE.Vector2(0, 0)
 	this.position = new THREE.Vector2(0, 0)
 	this.visible = true
 
 	// Material UI File element
-	this.material_file = null
+	this.materialFile = null
 
 	// Attached material
 	this.material = null
@@ -52,7 +52,7 @@ function ShaderMaterialEditor(parent, closeable, container, index) {
 	this.renderer = new THREE.WebGLRenderer({canvas: this.canvas.element, antialias: Settings.render.antialiasing})
 	this.renderer.setSize(this.canvas.size.x, this.canvas.size.y)
 	this.renderer.shadowMap.enabled = Settings.render.shadows
-	this.renderer.shadowMap.type = Settings.render.shadows_type
+	this.renderer.shadowMap.type = Settings.render.shadowsType
 
 	// Material camera
 	this.camera = new PerspectiveCamera(90, this.canvas.size.x/this.canvas.size.y)
@@ -75,33 +75,33 @@ function ShaderMaterialEditor(parent, closeable, container, index) {
 
 	//-------------------------------- Material preview configuration --------------------------------
 	// Text
-	var text = new Text(this.preview.div_b)
+	var text = new Text(this.preview.divB)
 	text.setAlignment(Text.LEFT)
 	text.setText("Configuration")
 	text.position.set(10, 20)
-	text.fit_content = true
+	text.fitContent = true
 	text.updateInterface()
 	this.children.push(text)
 
 	// Test model
-	var text = new Text(this.preview.div_b)
+	var text = new Text(this.preview.divB)
 	text.setAlignment(Text.LEFT)
 	text.setText("Test Model")
 	text.position.set(10, 45)
-	text.fit_content = true
+	text.fitContent = true
 	text.updateInterface()
 	this.children.push(text)
 
-	this.test_model = new DropdownList(this.preview.div_b)
-	this.test_model.position.set(80, 35)
-	this.test_model.size.set(150, 18)
-	this.test_model.addValue("Sphere", 0)
-	this.test_model.addValue("Torus", 1)
-	this.test_model.addValue("Cube", 2)
-	this.test_model.addValue("Torus Knot", 3)
-	this.test_model.updateInterface()
-	this.test_model.setOnChange(() => {
-		var value = self.test_model.getSelectedIndex()
+	this.testModel = new DropdownList(this.preview.divB)
+	this.testModel.position.set(80, 35)
+	this.testModel.size.set(150, 18)
+	this.testModel.addValue("Sphere", 0)
+	this.testModel.addValue("Torus", 1)
+	this.testModel.addValue("Cube", 2)
+	this.testModel.addValue("Torus Knot", 3)
+	this.testModel.updateInterface()
+	this.testModel.setOnChange(() => {
+		var value = self.testModel.getSelectedIndex()
 
 		// Sphere
 		if (value === 0) {
@@ -120,42 +120,42 @@ function ShaderMaterialEditor(parent, closeable, container, index) {
 			self.obj.geometry = new THREE.TorusKnotBufferGeometry(0.7, 0.3, 128, 64)
 		}
 	})
-	this.children.push(this.test_model)
+	this.children.push(this.testModel)
 
-    text = new Text(this.preview.div_b)
+    text = new Text(this.preview.divB)
     text.setAlignment(Text.LEFT)
     text.setText("Sky Enabled")
     text.position.set(10, 68)
-    text.fit_content = true
+    text.fitContent = true
     text.updateInterface()
     this.children.push(text)
 
 	// Sky enabled
-	this.sky_enabled = new CheckBox(this.preview.div_b)
-	this.sky_enabled.size.set(20, 15)
-	this.sky_enabled.position.set(90, 60)
-	this.sky_enabled.setValue(true)
-	this.sky_enabled.updateInterface()
-	this.sky_enabled.setOnChange(() => {
-		self.sky.visible = self.sky_enabled.getValue()
+	this.skyEnabled = new CheckBox(this.preview.divB)
+	this.skyEnabled.size.set(20, 15)
+	this.skyEnabled.position.set(90, 60)
+	this.skyEnabled.setValue(true)
+	this.skyEnabled.updateInterface()
+	this.skyEnabled.setOnChange(() => {
+		self.sky.visible = self.skyEnabled.getValue()
 	})
-	this.children.push(this.sky_enabled)
+	this.children.push(this.skyEnabled)
 
 	//-------------------------------- Right Division resizable --------------------------------
-	this.right = new DualDivisionResizable(this.main.div_b)
+	this.right = new DualDivisionResizable(this.main.divB)
 	this.right.orientation = DualDivisionResizable.VERTICAL
-	this.right.tab_position = 0.5
-	this.right.tab_position_min = 0.3
-	this.right.tab_position_max = 0.5
+	this.right.tabPosition = 0.5
+	this.right.tabPositionMin = 0.3
+	this.right.tabPositionMax = 0.5
 	this.right.updateInterface()
 
 	// Change right div aspect
-	this.right.div_b.style.overflow = "hidden"
-	this.right.div_b.style.cursor = "default"
-	this.right.div_b.style.backgroundColor = Editor.theme.panel_color
+	this.right.divB.style.overflow = "hidden"
+	this.right.divB.style.cursor = "default"
+	this.right.divB.style.backgroundColor = Editor.theme.panelColor
 
 	// Shaders
-	this.fragmentShader = new CodeEditor(this.right.div_a)
+	this.fragmentShader = new CodeEditor(this.right.divB)
 	this.fragmentShader.setMode("glsl")
 	this.fragmentShader.size.set(350, 250)
 	this.fragmentShader.setOnChange(() => {
@@ -165,7 +165,7 @@ function ShaderMaterialEditor(parent, closeable, container, index) {
 		}
 	})
 
-	this.vertexShader = new CodeEditor(this.right.div_b)
+	this.vertexShader = new CodeEditor(this.right.divB)
 	this.vertexShader.setMode("glsl")
 	this.vertexShader.size.set(320, 250)
 	this.vertexShader.setOnChange(() => {
@@ -185,13 +185,13 @@ ShaderMaterialEditor.prototype.isAttached = function(material) {
 }
 
 // Attach material to material editor
-ShaderMaterialEditor.prototype.attach = function(material, material_file) {
+ShaderMaterialEditor.prototype.attach = function(material, materialFile) {
 	this.obj.material = material
 	this.obj.visible = true
 
 	// Store material file pointer
-	if (material_file !== undefined) {
-		this.material_file = material_file
+	if (materialFile !== undefined) {
+		this.materialFile = materialFile
 	}
 
 	this.fragmentShader.setValue(material.fragmentShader)
@@ -246,8 +246,6 @@ ShaderMaterialEditor.prototype.update = function() {
 	if (this.material !== null) {
 		// If needs update file metadata
 		if (this.material.needsUpdate) {
-			//this.material_file.updateMetadata()
-			//this.material.needsUpdate = true
 			Editor.updateAssetExplorer()
 		}
 
@@ -286,12 +284,12 @@ ShaderMaterialEditor.prototype.updateInterface = function() {
 
 	// Update preview container
 	this.preview.visible = this.visible
-	this.preview.size.set(this.size.x * this.main.tab_position, this.size.y)
+	this.preview.size.set(this.size.x * this.main.tabPosition, this.size.y)
 	this.preview.updateInterface()
 
 	// Update right
 	this.right.visible = this.visible
-	this.right.size.set(this.size.x * this.main.tab_position, this.size.y)
+	this.right.size.set(this.size.x * this.main.tabPosition, this.size.y)
 	this.right.updateInterface()
 
 	// Update code editors
@@ -304,7 +302,7 @@ ShaderMaterialEditor.prototype.updateInterface = function() {
 
 	// Update canvas
 	this.canvas.visible = this.visible
-	this.canvas.size.set(this.preview.div_a.offsetWidth, this.preview.div_a.offsetHeight)
+	this.canvas.size.set(this.preview.divA.offsetWidth, this.preview.divA.offsetHeight)
 	this.canvas.updateInterface()
 
 	// Update renderer and canvas

@@ -90,14 +90,14 @@ function TextureBox(parent)
 
 	// Form
 	this.form = new Form(this.element);
-    this.form.default_text_width = 60
+    this.form.defaultTextWidth = 60
 	this.form.spacing.set(10, 5);
 
 	//Use texture
     this.form.addText("Use texture")
-	this.use_texture = new CheckBox(this.form.element);
-	this.use_texture.size.set(30, 15);
-	this.form.add(this.use_texture);
+	this.useTexture = new CheckBox(this.form.element);
+	this.useTexture.size.set(30, 15);
+	this.form.add(this.useTexture);
 	this.form.nextRow();
 
 	//WrapS
@@ -133,7 +133,7 @@ function TextureBox(parent)
 	this.onchange = null;
 
 	//Element atributes
-	this.fit_parent = false;
+	this.fitParent = false;
 	this.size = new THREE.Vector2(300, 100);
 	this.position = new THREE.Vector2(0,0);
 	this.visible = true;
@@ -149,7 +149,7 @@ function TextureBox(parent)
 TextureBox.prototype.setOnChange = function(onChange)
 {
 	this.onchange = onChange;
-	this.use_texture.setOnChange(onChange);
+	this.useTexture.setOnChange(onChange);
 	this.wrapT.setOnChange(onChange);
 	this.wrapS.setOnChange(onChange);
 	this.repeat.setOnChange(onChange);
@@ -173,7 +173,7 @@ TextureBox.prototype.setValue = function(texture)
 {
 	if(texture === null || texture === undefined)
 	{
-		this.use_texture.setValue(false);
+		this.useTexture.setValue(false);
 		this.texture = null
 	}
 	else
@@ -181,7 +181,7 @@ TextureBox.prototype.setValue = function(texture)
 		this.texture = texture
 
         // Update UI elements
-		this.use_texture.setValue(true);
+		this.useTexture.setValue(true);
 		this.wrapS.setValue(texture.wrapS);
 		this.wrapT.setValue(texture.wrapT);
 		this.repeat.setValue(texture.repeat.x, texture.repeat.y);
@@ -192,7 +192,7 @@ TextureBox.prototype.setValue = function(texture)
 //Get texture value
 TextureBox.prototype.getValue = function()
 {
-	if(this.use_texture.getValue())
+	if(this.useTexture.getValue())
 	{
 		if(this.texture !== null)
 		{
@@ -223,12 +223,12 @@ TextureBox.prototype.loadTexture = function(file) {
 	if(file.type.startsWith("image") || file.path.endsWith("tga"))
 	{
 		self.texture = new Texture(new GORLOT.Image(file.path));
-		self.use_texture.setValue(true);
+		self.useTexture.setValue(true);
 	}
 	// Video
 	else if (file.type.startsWith("video")) {
 		self.texture = new VideoTexture(new Video(file.path))
-		self.use_texture.setValue(true)
+		self.useTexture.setValue(true)
 	}
 
 	if (self.onchange !== null) {
@@ -262,7 +262,7 @@ TextureBox.prototype.updatePreview = function() {
 //Update Interface
 TextureBox.prototype.updateInterface = function()
 {
-	if(this.fit_parent)
+	if(this.fitParent)
 	{
 		this.size.x = this.parent.offsetWidth;
 		this.size.y = this.parent.offsetHeight; 

@@ -5,14 +5,14 @@ function MaterialAsset(parent) {
 
 	// Material
 	this.material = null
-    this.setIcon(Interface.file_dir + "Icons/Misc/Material.png")
+    this.setIcon(Interface.fileDir + "Icons/Misc/Material.png")
 
 	// Self pointer
 	var self = this
 
 	// Used to store original material color on highlight
-	this.material_color = new THREE.Color(0, 0, 0)
-	this.material_highlighted = false
+	this.materialColor = new THREE.Color(0, 0, 0)
+	this.materialHighlighted = false
 
     // Material preview
     this.image = document.createElement("img")
@@ -22,7 +22,7 @@ function MaterialAsset(parent) {
 
 	// Mouse over event
 	this.element.onmouseenter = function() {
-		this.style.backgroundColor = Editor.theme.button_over_color
+		this.style.backgroundColor = Editor.theme.buttonOverColor
 		self.highlightMaterial()
 	}
 
@@ -63,7 +63,7 @@ function MaterialAsset(parent) {
 		
 		context.addOption("Delete", function() {
 			if(self.material !== null && confirm("Delete material?")) {
-				Editor.program.removeMaterial(self.material, Editor.default_material, Editor.default_sprite_material)
+				Editor.program.removeMaterial(self.material, Editor.defaultMaterial, Editor.defaultSpriteMaterial)
 				Editor.updateObjectViews()
 			}
 		})
@@ -82,7 +82,7 @@ function MaterialAsset(parent) {
                 try {
                     Editor.clipboard.set(JSON.stringify(self.material.toJSON()), "text")
 
-                    Editor.program.removeMaterial(self.material, Editor.default_material, Editor.default_sprite_material)
+                    Editor.program.removeMaterial(self.material, Editor.defaultMaterial, Editor.defaultSpriteMaterial)
                     Editor.updateObjectViews()
                 } catch(e) {}
             }
@@ -168,20 +168,20 @@ MaterialAsset.prototype.setMaterial = function(material) {
 MaterialAsset.prototype.highlightMaterial = function() {
 	if(this.material instanceof THREE.Material) {
 		if(this.material.color !== undefined) {
-			this.material_color.copy(this.material.color)
+			this.materialColor.copy(this.material.color)
 			this.material.color.setRGB(1, 1, 0)
-			this.material_highlighted = true
+			this.materialHighlighted = true
 		}
 	}
 }
 
 // Restore material to normal color
 MaterialAsset.prototype.restoreMaterial = function() {
-	if(this.material_highlighted) {
+	if(this.materialHighlighted) {
 		if(this.material instanceof THREE.Material) {
 			if(this.material.color !== undefined) {
-				this.material.color.copy(this.material_color)
-				this.material_highlighted = false
+				this.material.color.copy(this.materialColor)
+				this.materialHighlighted = false
 			}
 		}
 	}
@@ -190,7 +190,7 @@ MaterialAsset.prototype.restoreMaterial = function() {
 // Update material preview
 MaterialAsset.prototype.updateMetadata = function() {
 	if(this.material !== null) {
-		Editor.material_renderer.renderMaterial(this.material, this.image)
+		Editor.materialRenderer.renderMaterial(this.material, this.image)
 		this.setText(this.material.name)
 		this.path = this.material.path
 	}

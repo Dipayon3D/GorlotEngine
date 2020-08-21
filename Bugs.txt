@@ -1,0 +1,3 @@
+- Particles and particle editor
+- Audio (aparently there is an error while decoding its buffer)
+- Camera order

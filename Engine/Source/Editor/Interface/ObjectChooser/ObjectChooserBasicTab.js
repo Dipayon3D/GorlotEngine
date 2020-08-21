@@ -10,58 +10,58 @@ function ObjectChooserBasicTab(parent, closeable, container, index) {
     this.form.position.set(0, 0)
     this.form.spacing.set(0, 0)
 
-    this.cube = this.addElement("Cube", Interface.file_dir + "Icons/Models/Cube.png", () => {
+    this.cube = this.addElement("Cube", Interface.fileDir + "Icons/Models/Cube.png", () => {
         var geometry = new THREE.BoxBufferGeometry(1, 1, 1)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.name = "cube"
         Editor.addToScene(model)
     })
 
-    this.cylinder = this.addElement("Cylinder", Interface.file_dir + "Icons/Models/Cylinder.png", () => {
+    this.cylinder = this.addElement("Cylinder", Interface.fileDir + "Icons/Models/Cylinder.png", () => {
         var geometry = new THREE.CylinderBufferGeometry(1, 1, 2, 32)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.name = "cylinder"
         Editor.addToScene(model)
     })
 
-    this.sphere = this.addElement("Sphere", Interface.file_dir + "Icons/Models/Sphere.png", () => {
+    this.sphere = this.addElement("Sphere", Interface.fileDir + "Icons/Models/Sphere.png", () => {
         var geometry = new THREE.SphereBufferGeometry(1, 32, 32)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.name = "sphere"
         Editor.addToScene(model)
     })
 
-    this.torus = this.addElement("Torus", Interface.file_dir + "Icons/Models/Torus.png", () => {
+    this.torus = this.addElement("Torus", Interface.fileDir + "Icons/Models/Torus.png", () => {
         var geometry = new THREE.TorusBufferGeometry(1, 0.5, 16, 96)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.name = "torus"
         Editor.addToScene(model)
     })
 
-    this.pyramid = this.addElement("Pyramid", Interface.file_dir + "Icons/Models/Cone.png", () => {
+    this.pyramid = this.addElement("Pyramid", Interface.fileDir + "Icons/Models/Cone.png", () => {
         var geometry = new THREE.ConeBufferGeometry(1, 2, 32)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.name = "pyramid"
         Editor.addToScene(model)
     })
 
-    this.text3d = this.addElement("Text 3D", Interface.file_dir + "Icons/Models/Text.png", () => {
-        var model = new Text3D("text", Editor.default_material, Editor.default_font)
+    this.text3d = this.addElement("Text 3D", Interface.fileDir + "Icons/Models/Text.png", () => {
+        var model = new Text3D("text", Editor.defaultMaterial, Editor.defaultFont)
         Editor.addToScene(model)
     })
 
-    this.plane = this.addElement("Plane", Interface.file_dir + "Icons/Models/Plane.png", () => {
+    this.plane = this.addElement("Plane", Interface.fileDir + "Icons/Models/Plane.png", () => {
         var geometry = new THREE.PlaneBufferGeometry(1, 1)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.receiveShadow = true
         model.castShadow = true
         model.name = "plane"
         Editor.addToScene(model)
     })
 
-    this.tetra = this.addElement("Tetrahedron", Interface.file_dir + "Icons/Models/Pyramid.png", () => {
+    this.tetra = this.addElement("Tetrahedron", Interface.fileDir + "Icons/Models/Pyramid.png", () => {
         var geometry = new THREE.TetrahedronBufferGeometry(1, 0)
-        var model = new Mesh(geometry, Editor.default_material)
+        var model = new Mesh(geometry, Editor.defaultMaterial)
         model.name = "tetrahedron"
         Editor.addToScene(model)
     })

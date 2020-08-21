@@ -5,7 +5,7 @@ function BlockAsset(parent) {
 
 	// Block
 	this.blocks = null
-    this.setIcon(Interface.file_dir + "Icons/Script/Blocks.png")
+    this.setIcon(Interface.fileDir + "Icons/Script/Blocks.png")
 
 	// Self pointer
 	var self = this
@@ -111,7 +111,7 @@ BlockAsset.prototype.setBlocks = function(blocks) {
 // Update metadata
 BlockAsset.prototype.updateMetadata = function() {
 	if (this.blocks !== null) {
-        this.image.src = Interface.file_dir + "Icons/Script/Blocks.png"
+        this.image.src = Interface.fileDir + "Icons/Script/Blocks.png"
 		this.setText(this.blocks.name)
 		this.path = this.blocks.path
 	}

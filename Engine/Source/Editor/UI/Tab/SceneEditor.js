@@ -34,7 +34,7 @@ function SceneEditor(parent, closeable, container, index) {
 
 			// Get object from drag buffer
 			var uuid = event.dataTransfer.getData("uuid")
-			var dragged_object = DragBuffer.popDragElement(uuid)
+			var draggedObject = DragBuffer.popDragElement(uuid)
 
 			// Check intersected objects
 			var intersections = Editor.raycaster.intersectObjects(self.scene.children, true)
@@ -103,42 +103,42 @@ function SceneEditor(parent, closeable, container, index) {
                 }
 			}
 			// Dragged resource into object
-			else if (intersections.length > 0 && dragged_object !== null) {
+			else if (intersections.length > 0 && draggedObject !== null) {
 				var object = intersections[0].object
 
-				if (dragged_object instanceof SpriteMaterial) {
+				if (draggedObject instanceof SpriteMaterial) {
 					if (object instanceof THREE.Sprite) {
-						object.material = dragged_object
+						object.material = draggedObject
 						Editor.updateObjectViews()
 					}
-				} else if (dragged_object instanceof THREE.Material) {
+				} else if (draggedObject instanceof THREE.Material) {
 					if (object instanceof THREE.Mesh) {
-						object.material = dragged_object
+						object.material = draggedObject
 						Editor.updateObjectViews()
 					}
-				} else if(dragged_object instanceof THREE.Texture) {
+				} else if(draggedObject instanceof THREE.Texture) {
                     if(object instanceof THREE.Mesh) {
-                        var material = new MeshStandardMaterial({ map: dragged_object, color: 0xffffff, roughness: 0.6, metalness: 0.2 })
+                        var material = new MeshStandardMaterial({ map: draggedObject, color: 0xffffff, roughness: 0.6, metalness: 0.2 })
                         material.path = Editor.CURRENT_PATH
                         object.material = material
                         Editor.updateObjectViews()
                     } else if(object instanceof THREE.Sprite) {
-                        var material = new SpriteMaterial({ map: dragged_object, color: 0xffffff })
+                        var material = new SpriteMaterial({ map: draggedObject, color: 0xffffff })
                         material.path = Editor.CURRENT_PATH
                         object.material = material
                         Editor.updateObjectViews()
                     }
-                }else if (dragged_object instanceof Font) {
+                }else if (draggedObject instanceof Font) {
 					if (object.font !== undefined) {
-						object.setFont(dragged_object)
+						object.setFont(draggedObject)
 						Editor.updateObjectViews()
 					}
 				}
 			}
 			// Create an object caller
-			else if (dragged_object !== null) {
+			else if (draggedObject !== null) {
 				var obj = new ObjectCaller()
-				obj.setObject(dragged_object)
+				obj.setObject(draggedObject)
 				Editor.addToScene(obj)
 			}
 		}
@@ -150,178 +150,178 @@ function SceneEditor(parent, closeable, container, index) {
 	}
 
 	// Buttons
-	this.show_buttons_fullscreen = false
-	this.show_buttons_tools = false
-	this.show_buttons_vr = false
+	this.showButtonsFullscreen = false
+	this.showButtonsTools = false
+	this.showButtonsVr = false
 
 	// Fullscreen button
-	this.fullscreen_button = new ButtonImage(this.element)
-	this.fullscreen_button.size.set(25, 25)
-	this.fullscreen_button.setImage("Source/Editor/Files/Icons/Misc/Fullscreen.png")
-	this.fullscreen_button.visible = false
-	this.fullscreen_button.updateInterface()
-	this.fullscreen_button.element.onmouseenter = function() {
-		self.fullscreen_button.img.style.opacity = 0.5
+	this.fullscreenButton = new ButtonImage(this.element)
+	this.fullscreenButton.size.set(25, 25)
+	this.fullscreenButton.setImage("Source/Editor/Files/Icons/Misc/Fullscreen.png")
+	this.fullscreenButton.visible = false
+	this.fullscreenButton.updateInterface()
+	this.fullscreenButton.element.onmouseenter = function() {
+		self.fullscreenButton.img.style.opacity = 0.5
 	}
-	this.fullscreen_button.element.onmouseleave = function() {
-		self.fullscreen_button.img.style.opacity = 1.0
+	this.fullscreenButton.element.onmouseleave = function() {
+		self.fullscreenButton.img.style.opacity = 1.0
 	}
 
 	var fullscreen = true
-	this.fullscreen_button.setCallback(function() {
+	this.fullscreenButton.setCallback(function() {
 		self.setFullscreen(fullscreen)
 		fullscreen = !fullscreen
 	})
 
 	// Select tool
-	this.tool_select_button = new ButtonImage(this.element)
-	this.tool_select_button.size.set(15, 15)
-	this.tool_select_button.setImage("Source/Editor/Files/Icons/Tools/Select.png")
-    this.tool_select_button.setAltText("Select tool")
-	this.tool_select_button.visible = false
-	this.tool_select_button.updateInterface()
+	this.toolSelectButton = new ButtonImage(this.element)
+	this.toolSelectButton.size.set(15, 15)
+	this.toolSelectButton.setImage("Source/Editor/Files/Icons/Tools/Select.png")
+    this.toolSelectButton.setAltText("Select tool")
+	this.toolSelectButton.visible = false
+	this.toolSelectButton.updateInterface()
 
-	this.tool_select_button.element.onmouseenter = function() {
-		self.tool_select_button.img.style.opacity = 0.5
+	this.toolSelectButton.element.onmouseenter = function() {
+		self.toolSelectButton.img.style.opacity = 0.5
 	}
-	this.tool_select_button.element.onmouseleave = function() {
-		self.tool_select_button.img.style.opacity = 1
+	this.toolSelectButton.element.onmouseleave = function() {
+		self.toolSelectButton.img.style.opacity = 1
 	}
 
-	this.tool_select_button.setCallback(() => {
+	this.toolSelectButton.setCallback(() => {
 		Editor.selectTool(Editor.MODE_SELECT)
 
 		self.updateInterface()
 	})
 
 	// Move tool
-	this.tool_move_button = new ButtonImage(this.element)
-	this.tool_move_button.size.set(15, 15)
-	this.tool_move_button.setImage("Source/Editor/Files/Icons/Tools/Move.png")
-    this.tool_move_button.setAltText("Move tool")
-	this.tool_move_button.visible = false
-	this.tool_move_button.updateInterface()
-	this.tool_move_button.img.style.filter = "contrast(0%)"
+	this.toolMoveButton = new ButtonImage(this.element)
+	this.toolMoveButton.size.set(15, 15)
+	this.toolMoveButton.setImage("Source/Editor/Files/Icons/Tools/Move.png")
+    this.toolMoveButton.setAltText("Move tool")
+	this.toolMoveButton.visible = false
+	this.toolMoveButton.updateInterface()
+	this.toolMoveButton.img.style.filter = "contrast(0%)"
 
-	this.tool_move_button.element.onmouseenter = function() {
-		self.tool_move_button.img.style.opacity = 0.5
+	this.toolMoveButton.element.onmouseenter = function() {
+		self.toolMoveButton.img.style.opacity = 0.5
 	}
 
-	this.tool_move_button.element.onmouseleave = function() {
-		self.tool_move_button.img.style.opacity = 1
+	this.toolMoveButton.element.onmouseleave = function() {
+		self.toolMoveButton.img.style.opacity = 1
 	}
 
-	this.tool_move_button.setCallback(() => {
+	this.toolMoveButton.setCallback(() => {
 		Editor.selectTool(Editor.MODE_MOVE)
 
 		self.updateInterface()
 	})
 
 	// Rotate tool
-	this.tool_rotate_button = new ButtonImage(this.element)
-	this.tool_rotate_button.size.set(15, 15)
-	this.tool_rotate_button.setImage("Source/Editor/Files/Icons/Tools/Rotate.png")
-    this.tool_rotate_button.setAltText("Rotate tool")
-	this.tool_rotate_button.visible = false
-	this.tool_rotate_button.updateInterface()
-	this.tool_rotate_button.img.style.filter = "contrast(0%)"
+	this.toolRotateButton = new ButtonImage(this.element)
+	this.toolRotateButton.size.set(15, 15)
+	this.toolRotateButton.setImage("Source/Editor/Files/Icons/Tools/Rotate.png")
+    this.toolRotateButton.setAltText("Rotate tool")
+	this.toolRotateButton.visible = false
+	this.toolRotateButton.updateInterface()
+	this.toolRotateButton.img.style.filter = "contrast(0%)"
 
-	this.tool_rotate_button.element.onmouseenter = function() {
-		self.tool_rotate_button.img.style.opacity = 0.5
+	this.toolRotateButton.element.onmouseenter = function() {
+		self.toolRotateButton.img.style.opacity = 0.5
 	}
 
-	this.tool_rotate_button.element.onmouseleave = function() {
-		self.tool_rotate_button.img.style.opacity = 1
+	this.toolRotateButton.element.onmouseleave = function() {
+		self.toolRotateButton.img.style.opacity = 1
 	}
 
-	this.tool_rotate_button.setCallback(() => {
+	this.toolRotateButton.setCallback(() => {
 		Editor.selectTool(Editor.MODE_ROTATE)
 
 		self.updateInterface()
 	})
 
 	// Scale tool
-	this.tool_scale_button = new ButtonImage(this.element)
-	this.tool_scale_button.size.set(15, 15)
-	this.tool_scale_button.setImage("Source/Editor/Files/Icons/Tools/Resize.png")
-    this.tool_scale_button.setAltText("Scale tool")
-	this.tool_scale_button.visible = false
-	this.tool_scale_button.updateInterface()
-	this.tool_scale_button.img.style.filter = "contrast(0%)"
+	this.toolScaleButton = new ButtonImage(this.element)
+	this.toolScaleButton.size.set(15, 15)
+	this.toolScaleButton.setImage("Source/Editor/Files/Icons/Tools/Resize.png")
+    this.toolScaleButton.setAltText("Scale tool")
+	this.toolScaleButton.visible = false
+	this.toolScaleButton.updateInterface()
+	this.toolScaleButton.img.style.filter = "contrast(0%)"
 
-	this.tool_scale_button.element.onmouseenter = function() {
-		self.tool_scale_button.img.style.opacity = 0.5
+	this.toolScaleButton.element.onmouseenter = function() {
+		self.toolScaleButton.img.style.opacity = 0.5
 	}
 
-	this.tool_scale_button.element.onmouseleave = function() {
-		self.tool_scale_button.img.style.opacity = 1
+	this.toolScaleButton.element.onmouseleave = function() {
+		self.toolScaleButton.img.style.opacity = 1
 	}
 
-	this.tool_scale_button.setCallback(() => {
+	this.toolScaleButton.setCallback(() => {
 		Editor.selectTool(Editor.MODE_SCALE)
 
 		self.updateInterface()
 	})
 
 	// Switch 2D
-	this.camera_button2d = new ButtonImage(this.element)
-	this.camera_button2d.size.set(15, 15)
-	this.camera_button2d.setImage("Source/Editor/Files/Icons/Misc/2D.png")
-    this.camera_button2d.setAltText("Change camera to 2D mode")
-	this.camera_button2d.visible = true
-	this.camera_button2d.updateInterface()
-	this.camera_button2d.img.style.filter = "contrast(0%)"
+	this.cameraButton2d = new ButtonImage(this.element)
+	this.cameraButton2d.size.set(15, 15)
+	this.cameraButton2d.setImage("Source/Editor/Files/Icons/Misc/2D.png")
+    this.cameraButton2d.setAltText("Change camera to 2D mode")
+	this.cameraButton2d.visible = true
+	this.cameraButton2d.updateInterface()
+	this.cameraButton2d.img.style.filter = "contrast(0%)"
 
-	this.camera_button2d.element.onmouseenter = function() {
-		self.camera_button2d.img.style.opacity = 0.5
+	this.cameraButton2d.element.onmouseenter = function() {
+		self.cameraButton2d.img.style.opacity = 0.5
 	}
 
-	this.camera_button2d.element.onmouseleave = function() {
-		self.camera_button2d.img.style.opacity = 1
+	this.cameraButton2d.element.onmouseleave = function() {
+		self.cameraButton2d.img.style.opacity = 1
 	}
 
-	this.camera_button2d.setCallback(() => {
+	this.cameraButton2d.setCallback(() => {
 		Editor.setCameraMode(Editor.CAMERA_ORTHOGRAPHIC)
 
-		self.camera_button2d.img.style.filter = "contrast(100%)"
-		self.camera_button3d.img.style.filter = "contrast(0%)"
+		self.cameraButton2d.img.style.filter = "contrast(100%)"
+		self.cameraButton3d.img.style.filter = "contrast(0%)"
 	})
 
 	// Switch 3D
-	this.camera_button3d = new ButtonImage(this.element)
-	this.camera_button3d.size.set(15, 15)
-	this.camera_button3d.setImage("Source/Editor/Files/Icons/Misc/3D.png")
-    this.camera_button3d.setAltText("Change camera to 3D mode")
-	this.camera_button3d.visible = true
-	this.camera_button3d.updateInterface()
-	this.camera_button3d.img.style.filter = "contrast(100%)"
+	this.cameraButton3d = new ButtonImage(this.element)
+	this.cameraButton3d.size.set(15, 15)
+	this.cameraButton3d.setImage("Source/Editor/Files/Icons/Misc/3D.png")
+    this.cameraButton3d.setAltText("Change camera to 3D mode")
+	this.cameraButton3d.visible = true
+	this.cameraButton3d.updateInterface()
+	this.cameraButton3d.img.style.filter = "contrast(100%)"
 
-	this.camera_button3d.element.onmouseenter = function() {
-		self.camera_button3d.img.style.opacity = 0.5
+	this.cameraButton3d.element.onmouseenter = function() {
+		self.cameraButton3d.img.style.opacity = 0.5
 	}
 
-	this.camera_button3d.element.onmouseleave = function() {
-		self.camera_button3d.img.style.opacity = 1
+	this.cameraButton3d.element.onmouseleave = function() {
+		self.cameraButton3d.img.style.opacity = 1
 	}
 
-	this.camera_button3d.setCallback(() => {
+	this.cameraButton3d.setCallback(() => {
 		Editor.setCameraMode(Editor.CAMERA_PERSPECTIVE)
 
-		self.camera_button2d.img.style.filter = "contrast(0%)"
-		self.camera_button3d.img.style.filter = "contrast(100%)"
+		self.cameraButton2d.img.style.filter = "contrast(0%)"
+		self.cameraButton3d.img.style.filter = "contrast(100%)"
 	})
 
 	// VR button
-	this.vr_button = new ButtonImage(this.element)
-	this.vr_button.size.set(25, 25)
-	this.vr_button.setImage("Source/Editor/Files/Icons/Misc/VR.png")
-	this.vr_button.visible = false
-	this.vr_button.updateInterface()
-	this.vr_button.element.onmouseenter = function() {
-		self.vr_button.img.style.opacity = 0.5
+	this.vrButton = new ButtonImage(this.element)
+	this.vrButton.size.set(25, 25)
+	this.vrButton.setImage("Source/Editor/Files/Icons/Misc/VR.png")
+	this.vrButton.visible = false
+	this.vrButton.updateInterface()
+	this.vrButton.element.onmouseenter = function() {
+		self.vrButton.img.style.opacity = 0.5
 	}
-	this.vr_button.element.onmouseleave = function() {
-		self.vr_button.img.style.opacity = 1.0
+	this.vrButton.element.onmouseleave = function() {
+		self.vrButton.img.style.opacity = 1.0
 	}
 
 	// Scene
@@ -406,7 +406,7 @@ SceneEditor.prototype.updateInterface = function() {
 		this.element.style.visibility = "visible"
 		this.canvas.style.visibility = "visible"
 
-		if(Settings.general.show_stats) {
+		if(Settings.general.showStats) {
 			this.stats.dom.style.visibility = "visible"
 		} else {
 			this.stats.dom.style.visibility = "hidden"
@@ -419,65 +419,65 @@ SceneEditor.prototype.updateInterface = function() {
 	}
 
 	// Fullscreen button
-	this.fullscreen_button.position.x = this.position.x + this.size.x - this.fullscreen_button.size.x - 5
-	this.fullscreen_button.position.y = this.position.y + this.size.y - this.fullscreen_button.size.y - 5
-	this.fullscreen_button.visible = this.visible && this.show_buttons_fullscreen
-	this.fullscreen_button.updateInterface()
+	this.fullscreenButton.position.x = this.position.x + this.size.x - this.fullscreenButton.size.x - 5
+	this.fullscreenButton.position.y = this.position.y + this.size.y - this.fullscreenButton.size.y - 5
+	this.fullscreenButton.visible = this.visible && this.showButtonsFullscreen
+	this.fullscreenButton.updateInterface()
 
 	// Tools buttons
 
-	this.tool_select_button.img.style.filter = "contrast(0%)"
-	this.tool_move_button.img.style.filter = "contrast(0%)"
-	this.tool_rotate_button.img.style.filter = "contrast(0%)"
-	this.tool_scale_button.img.style.filter = "contrast(0%)"
+	this.toolSelectButton.img.style.filter = "contrast(0%)"
+	this.toolMoveButton.img.style.filter = "contrast(0%)"
+	this.toolRotateButton.img.style.filter = "contrast(0%)"
+	this.toolScaleButton.img.style.filter = "contrast(0%)"
 
-	if (Editor.tool_mode === Editor.MODE_SELECT) {
-		this.tool_select_button.img.style.filter = "contrast(100%)"
-	} else if (Editor.tool_mode === Editor.MODE_MOVE) {
-		this.tool_move_button.img.style.filter = "contrast(100%)"
-	} else if (Editor.tool_mode === Editor.MODE_ROTATE) {
-		this.tool_rotate_button.img.style.filter = "contrast(100%)"
-	} else if (Editor.tool_mode === Editor.MODE_SCALE) {
-		this.tool_scale_button.img.style.filter = "contrast(100%)"
+	if (Editor.toolMode === Editor.MODE_SELECT) {
+		this.toolSelectButton.img.style.filter = "contrast(100%)"
+	} else if (Editor.toolMode === Editor.MODE_MOVE) {
+		this.toolMoveButton.img.style.filter = "contrast(100%)"
+	} else if (Editor.toolMode === Editor.MODE_ROTATE) {
+		this.toolRotateButton.img.style.filter = "contrast(100%)"
+	} else if (Editor.toolMode === Editor.MODE_SCALE) {
+		this.toolScaleButton.img.style.filter = "contrast(100%)"
 	}
 
-	this.tool_select_button.position.x = this.position.x + this.size.x - this.tool_select_button.size.x - (this.tool_move_button.size.x + this.tool_rotate_button.size.x + this.tool_scale_button.size.x) - 90
-	this.tool_select_button.position.y = this.position.y - this.tool_select_button.size.y + 30
-	this.tool_select_button.visible = this.visible && this.show_buttons_tools
-	this.tool_select_button.updateInterface()
+	this.toolSelectButton.position.x = this.position.x + this.size.x - this.toolSelectButton.size.x - (this.toolMoveButton.size.x + this.toolRotateButton.size.x + this.toolScaleButton.size.x) - 90
+	this.toolSelectButton.position.y = this.position.y - this.toolSelectButton.size.y + 30
+	this.toolSelectButton.visible = this.visible && this.showButtonsTools
+	this.toolSelectButton.updateInterface()
 
-	this.tool_move_button.position.x =  this.position.x + this.size.x - this.tool_move_button.size.x - (this.tool_rotate_button.size.x + this.tool_scale_button.size.x) - 80 
-	this.tool_move_button.position.y = this.tool_select_button.position.y
-	this.tool_move_button.visible = this.visible && this.show_buttons_tools
-	this.tool_move_button.updateInterface()
+	this.toolMoveButton.position.x =  this.position.x + this.size.x - this.toolMoveButton.size.x - (this.toolRotateButton.size.x + this.toolScaleButton.size.x) - 80 
+	this.toolMoveButton.position.y = this.toolSelectButton.position.y
+	this.toolMoveButton.visible = this.visible && this.showButtonsTools
+	this.toolMoveButton.updateInterface()
 
-	this.tool_rotate_button.position.x = this.position.x + this.size.x - this.tool_rotate_button.size.x - this.tool_scale_button.size.x - 70
-	this.tool_rotate_button.position.y = this.tool_select_button.position.y
-	this.tool_rotate_button.visible = this.visible && this.show_buttons_tools
-	this.tool_rotate_button.updateInterface()
+	this.toolRotateButton.position.x = this.position.x + this.size.x - this.toolRotateButton.size.x - this.toolScaleButton.size.x - 70
+	this.toolRotateButton.position.y = this.toolSelectButton.position.y
+	this.toolRotateButton.visible = this.visible && this.showButtonsTools
+	this.toolRotateButton.updateInterface()
 
-	this.tool_scale_button.position.x = this.position.x + this.size.x - this.tool_scale_button.size.x - 60
-	this.tool_scale_button.position.y = this.tool_select_button.position.y
-	this.tool_scale_button.visible = this.visible && this.show_buttons_tools
-	this.tool_scale_button.updateInterface()
+	this.toolScaleButton.position.x = this.position.x + this.size.x - this.toolScaleButton.size.x - 60
+	this.toolScaleButton.position.y = this.toolSelectButton.position.y
+	this.toolScaleButton.visible = this.visible && this.showButtonsTools
+	this.toolScaleButton.updateInterface()
 
 	// Switch 2D button
-	this.camera_button2d.position.x = this.position.x + this.size.x - 40
-	this.camera_button2d.position.y = this.tool_select_button.position.y
-    this.camera_button2d.visible = this.visible && this.show_buttons_tools
-	this.camera_button2d.updateInterface()
+	this.cameraButton2d.position.x = this.position.x + this.size.x - 40
+	this.cameraButton2d.position.y = this.toolSelectButton.position.y
+    this.cameraButton2d.visible = this.visible && this.showButtonsTools
+	this.cameraButton2d.updateInterface()
 
 	// Switch 3D button
-	this.camera_button3d.position.x = this.position.y + this.size.x - 20
-	this.camera_button3d.position.y = this.tool_select_button.position.y
-    this.camera_button3d.visible = this.visible && this.show_buttons_tools
-	this.camera_button3d.updateInterface()
+	this.cameraButton3d.position.x = this.position.y + this.size.x - 20
+	this.cameraButton3d.position.y = this.toolSelectButton.position.y
+    this.cameraButton3d.visible = this.visible && this.showButtonsTools
+	this.cameraButton3d.updateInterface()
 
 	// VR button
-	this.vr_button.position.x = this.fullscreen_button.position.x - this.vr_button.size.x - 10
-	this.vr_button.position.y = this.fullscreen_button.position.y
-	this.vr_button.visible = this.visible && this.show_buttons_vr
-	this.vr_button.updateInterface()
+	this.vrButton.position.x = this.fullscreenButton.position.x - this.vrButton.size.x - 10
+	this.vrButton.position.y = this.fullscreenButton.position.y
+	this.vrButton.visible = this.visible && this.showButtonsVr
+	this.vrButton.updateInterface()
 
 	// Update canvas
 	this.canvas.width = this.size.x

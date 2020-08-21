@@ -10,11 +10,11 @@ function ObjectChooserDeviceTab(parent, closeable, container, index) {
     this.form.position.set(0, 0)
     this.form.spacing.set(0, 0)
 
-    this.leap = this.addElement("Leap", Interface.file_dir + "Icons/Hw/Leap.png", () => {
+    this.leap = this.addElement("Leap", Interface.fileDir + "Icons/Hw/Leap.png", () => {
         Editor.addToScene(new LeapMotion())
     })
 
-    this.kinect = this.addElement("Kinect", Interface.file_dir + "Icons/Hw/Kinect.png", () => {
+    this.kinect = this.addElement("Kinect", Interface.fileDir + "Icons/Hw/Kinect.png", () => {
         Editor.addToScene(new KinectDevice())
     })
 }

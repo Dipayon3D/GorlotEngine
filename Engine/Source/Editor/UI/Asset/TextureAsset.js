@@ -5,7 +5,7 @@ function TextureAsset(parent) {
 
 	// Texture pointer
 	this.texture = null
-    this.setIcon(Interface.file_dir + "Icons/Assets/Image.png")
+    this.setIcon(Interface.fileDir + "Icons/Assets/Image.png")
 
 	// Self pointer
 	var self = this
@@ -29,7 +29,7 @@ function TextureAsset(parent) {
 		context.addOption("Delete", function() {
 			if(self.texture !== null && confirm("Delete texture?")) {
 				self.texture.dispose()
-				Editor.program.removeTexture(self.texture, Editor.default_texture)
+				Editor.program.removeTexture(self.texture, Editor.defaultTexture)
 				Editor.updateObjectViews()
 			}
 		})
@@ -66,7 +66,7 @@ function TextureAsset(parent) {
                     Editor.clipboard.set(JSON.stringify(self.texture.toJSON()), "text")
 
                     self.texture.dispose()
-                    Editor.program.removeTexture(self.texture, Editor.default_texture)
+                    Editor.program.removeTexture(self.texture, Editor.defaultTexture)
                     Editor.updateObjectViews()
                 } catch(e) {throw e}
             }

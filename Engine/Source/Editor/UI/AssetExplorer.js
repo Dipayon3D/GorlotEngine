@@ -10,7 +10,7 @@ function AssetExplorer(parent)
 	this.element.style.position = "absolute";
 	this.element.style.overflow = "auto";
 	this.element.style.cursor = "default";
-	this.element.style.backgroundColor = Editor.theme.panel_color;
+	this.element.style.backgroundColor = Editor.theme.panelColor;
 	
     // Drop event
 	this.element.ondrop = function(event)
@@ -53,14 +53,14 @@ function AssetExplorer(parent)
 	};
 
 	//Element atributes
-	this.fit_parent = false;
+	this.fitParent = false;
 	this.size = new THREE.Vector2(0,0);
 	this.position = new THREE.Vector2(0,0);
 	this.visible = true;
 	
 	//Files in explorer
-	this.files_size = new THREE.Vector2(70, 70);
-	this.files_spacing = 0;
+	this.filesSize = new THREE.Vector2(70, 70);
+	this.filesSpacing = 0;
 	this.files = [];
 
 	//Add element to document
@@ -80,7 +80,7 @@ AssetExplorer.prototype.clear = function()
 AssetExplorer.prototype.add = function(file)
 {
 	file.setParent(this.element)
-	file.size.copy(this.files_size)
+	file.size.copy(this.filesSize)
 	file.updateInterface()
 
 	this.files.push(file)
@@ -103,7 +103,7 @@ AssetExplorer.prototype.update = function(){}
 AssetExplorer.prototype.updateInterface = function()
 {
 	//Fit parent
-	if(this.fit_parent)
+	if(this.fitParent)
 	{
 		this.size.x = this.parent.offsetWidth;
 		this.size.y = this.parent.offsetHeight; 
@@ -133,12 +133,12 @@ AssetExplorer.prototype.updateInterface = function()
 		}
 	}
 
-	var files_per_row = Math.floor(files.length / ((files.length * (this.files_size.x+this.files_spacing)) / this.size.x))
+	var filesPerRow = Math.floor(files.length / ((files.length * (this.filesSize.x+this.filesSpacing)) / this.size.x))
 	for(var i = 0; i < files.length; i++) {
-		var row = Math.floor(i / files_per_row)
-		var col = i % files_per_row
-		files[i].position.x = (col * this.files_size.x) + ((col+1) * this.files_spacing)
-		files[i].position.y = (row * this.files_size.y) + ((row+1) * this.files_spacing)
+		var row = Math.floor(i / filesPerRow)
+		var col = i % filesPerRow
+		files[i].position.x = (col * this.filesSize.x) + ((col+1) * this.filesSpacing)
+		files[i].position.y = (row * this.filesSize.y) + ((row+1) * this.filesSpacing)
 		files[i].updateInterface()
 	}
 

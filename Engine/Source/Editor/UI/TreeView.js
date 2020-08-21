@@ -9,7 +9,7 @@ function TreeView(parent) {
 	this.element.style.position = "absolute"
 	this.element.style.overflow = "auto"
 	this.element.style.cursor = "default"
-	this.element.style.backgroundColor = Editor.theme.panel_color
+	this.element.style.backgroundColor = Editor.theme.panelColor
 
     // Label
     this.label = new Text(this.element)
@@ -19,7 +19,7 @@ function TreeView(parent) {
     this.label.updateInterface()
 
 	// Element atributes
-	this.fit_parent = true
+	this.fitParent = true
 	this.size = new THREE.Vector2(0,0)
 	this.position = new THREE.Vector2(0,0)
 	this.visible = true
@@ -108,7 +108,7 @@ TreeView.prototype.destroy = function() {
 TreeView.prototype.updateChildPosition = function() {
 	var size = TreeView.updateChildPosition(this, 20, 0, false)
 
-	if(!this.fit_parent) {
+	if(!this.fitParent) {
 		this.size.y = size
 	}
 }
@@ -126,7 +126,7 @@ TreeView.prototype.updateInterface = function() {
 	}
 
 	// Fit to parent
-	if(this.fit_parent) {
+	if(this.fitParent) {
 		this.size.x = this.parent.offsetWidth
 		this.size.y = this.parent.offsetHeight
 	}
@@ -154,10 +154,10 @@ TreeView.updateSelectedObject = function(element, obj) {
 		// Check if is the selected object
 		if(children[i].obj.uuid === obj.uuid) {
 			var element = children[i].element
-			element.style.backgroundColor = Editor.theme.button_over_color
+			element.style.backgroundColor = Editor.theme.buttonOverColor
 		} else {
 			var element = children[i].element
-			element.style.backgroundColor = Editor.theme.button_light_color
+			element.style.backgroundColor = Editor.theme.buttonLightColor
 		}
 
 		TreeView.updateSelectedObject(children[i], obj)

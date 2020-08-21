@@ -9,3 +9,4 @@
 - Terrain
 - Unity like terrain editor
 - Create and edit prefabs
+- Create destroyable meshes
