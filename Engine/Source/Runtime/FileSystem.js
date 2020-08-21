@@ -23,7 +23,13 @@ FileSystem.readFile = function(fname, sync, onLoad, onProgress) {
 
             return data
 		} else {
-			FileSystem.fs.readFile(fname, "utf8", onLoad)
+            FileSystem.fs.readFile(fname, "utf8", (err, data) => {
+                if(err) return console.error(err)
+
+                if(onLoad !== undefined) {
+                    onLoad(data)
+                }
+            })
 		}
 	} else {
 		var file = new XMLHttpRequest()
