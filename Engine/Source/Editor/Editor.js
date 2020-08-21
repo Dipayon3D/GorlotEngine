@@ -305,9 +305,10 @@ include("Source/Editor/UI/Tab/ScriptEditor.js")
 include("Source/Editor/UI/Tab/SceneEditor.js")
 include("Source/Editor/UI/Tab/ParticleEditor.js")
 include("Source/Editor/UI/Tab/AboutTab.js")
-include("Source/Editor/UI/Tab/MaterialEditor.js")
 include("Source/Editor/UI/Tab/BlockEditor.js")
-include("Source/Editor/UI/Tab/ShaderMaterialEditor.js")
+
+include("Source/Editor/UI/Tab/Material/MaterialEditor.js")
+include("Source/Editor/UI/Tab/Material/ShaderMaterialEditor.js")
 
 include("Source/Editor/UI/Tab/Settings/SettingsTab.js")
 include("Source/Editor/UI/Tab/Settings/CodeSettingsTab.js")
