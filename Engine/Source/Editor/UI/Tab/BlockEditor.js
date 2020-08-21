@@ -3,6 +3,10 @@
 function BlockEditor(parent, closeable, container, index) {
     TabElement.call(this, parent, closeable, container, index, "Block Editor", "Source/Editor/Files/Icons/Script/Blocks.png")
 
+    // In order to avoid errors, registers the nodes here and when it's activated
+	Register.unregisterAll()
+	Register.registerBlocksNodes()
+
 	// Canvas
 	this.canvas = new Canvas(this.element)
 	this.canvas.updateInterface()
@@ -19,9 +23,6 @@ BlockEditor.prototype = Object.create(TabElement.prototype)
 
 // Attach Blocks to the editor
 BlockEditor.prototype.attach = function(blocks) {
-	Register.unregisterAll()
-	Register.registerBlocksNodes()
-
 	// Store Blocks
 	this.blocks = blocks
 	this.nodes = this.blocks.nodes
@@ -42,6 +43,9 @@ BlockEditor.prototype.initNodeEditor = function() {
 
 // Activate code editor
 BlockEditor.prototype.activate = function() {
+	Register.unregisterAll()
+	Register.registerBlocksNodes()
+
 	Editor.setState(Editor.STATE_IDLE)
 	Editor.resetEditingFlags()
 }

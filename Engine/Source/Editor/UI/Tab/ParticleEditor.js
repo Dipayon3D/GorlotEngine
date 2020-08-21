@@ -3,6 +3,10 @@
 function ParticleEditor(parent, closeable, container, index) {
     TabElement.call(this, parent, closeable, container, index, "Particle", "Source/Editor/Files/Icons/Effects/Particles.png")
 
+    // In order to avoid errors, registers the nodes here and when it's activated
+    Register.unregisterAll()
+    Register.registerParticlesNodes()
+
 	// Main container
 	this.main = new DualDivisionResizable(this.element)
 	this.main.tabPosition = 0.5

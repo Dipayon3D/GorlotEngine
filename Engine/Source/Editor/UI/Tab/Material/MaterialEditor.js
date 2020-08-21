@@ -2,8 +2,8 @@
 
 function MaterialEditor(parent, closeable, container, index) {
     TabElement.call(this, parent, closeable, container, index, "Material Editor", "Source/Editor/Files/Icons/Misc/Material.png")
-
-    // Registers only the material nodes
+    
+    // In order to avoid errors, registers the nodes here and when it's activated
 	Register.unregisterAll()
 	Register.registerMaterialNodes()
 
@@ -159,6 +159,9 @@ MaterialEditor.prototype.isAttached = function(material) {
 
 // Activate material editor
 MaterialEditor.prototype.activate = function() {
+	Register.unregisterAll()
+	Register.registerMaterialNodes()
+
 	Editor.setState(Editor.STATE_IDLE)
 	Mouse.setCanvas(this.canvas.element)
 	Editor.resetEditingFlags()
