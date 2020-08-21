@@ -2,7 +2,7 @@
 
 Gorlot Engine is a 3D Game engine coded in JavaScript, based in Three.JS, nunuStudio and some other web technologies.
 
-![Gorlot Editor](Engine/Source/Engine/Data/Images/Editor.png)
+![Gorlot Editor](Engine/Source/Runtime/Data/Images/Editor.png)
 
 ## Technologies used
 
