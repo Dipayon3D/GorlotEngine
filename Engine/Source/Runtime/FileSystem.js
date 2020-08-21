@@ -15,7 +15,13 @@ FileSystem.readFile = function(fname, sync, onLoad, onProgress) {
 	// Check if mode available
 	if (FileSystem.fs !== undefined) {
 		if (sync) {
-			return FileSystem.fs.readFileSync(fname, "utf8")
+            var data = FileSystem.fs.readFileSync(fname, "utf8")
+
+            if(onLoad !== undefined) {
+                onLoad(data)
+            }
+
+            return data
 		} else {
 			FileSystem.fs.readFile(fname, "utf8", onLoad)
 		}
