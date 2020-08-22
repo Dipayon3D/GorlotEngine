@@ -13,3 +13,4 @@
 - Create destroyable meshes
 - Automatic nodes creation (For example, when importing materials, if the blending ain't the default blending, add a blending node with its value)
 - A better blocks editor (so far it's simply a window with a node editor - which is quite simple and could be more powerful - )
+- Add a Combo component in the Keyboard node, with which you can select the key

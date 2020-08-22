@@ -1,6 +1,15 @@
 {
     "project": {},
     "files": {
+        "../Source/Runtime/FileSystem.js": {
+            "name": "../Source/Runtime/FileSystem.js",
+            "modules": {},
+            "classes": {
+                "FileSystem": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "../Source/Runtime/Gorlot.js": {
             "name": "../Source/Runtime/Gorlot.js",
             "modules": {},
@@ -13,6 +22,18 @@
     },
     "modules": {},
     "classes": {
+        "FileSystem": {
+            "name": "FileSystem",
+            "shortname": "FileSystem",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 3,
+            "description": "The FileSystem class is used for opening/writing, encoding/decoding and reading files"
+        },
         "GORLOT": {
             "name": "GORLOT",
             "shortname": "GORLOT",
@@ -28,6 +49,312 @@
     },
     "elements": {},
     "classitems": [
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 13,
+            "description": "Opens and reads a text file",
+            "itemtype": "method",
+            "name": "readFile",
+            "params": [
+                {
+                    "name": "fname",
+                    "description": "The path of the file to open",
+                    "type": "String"
+                },
+                {
+                    "name": "sync",
+                    "description": "If true, the file is read in an asynchronous way",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "onLoad",
+                    "description": "called when the file is done loading",
+                    "type": "Function"
+                },
+                {
+                    "name": "onProgress",
+                    "description": "called when there is a progress while reading the file",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "Returns the content of the file",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 70,
+            "description": "Read a file as an array buffer",
+            "itemtype": "method",
+            "name": "readFileArrayBuffer",
+            "params": [
+                {
+                    "name": "fname",
+                    "description": "The path to the file to open",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Returns the file data",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 98,
+            "description": "Read a file as base64",
+            "itemtype": "method",
+            "name": "readFileBase64",
+            "params": [
+                {
+                    "name": "fname",
+                    "description": "The path to the file to open",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Returns the file data",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 118,
+            "description": "Write a text file",
+            "itemtype": "method",
+            "name": "writeFile",
+            "params": [
+                {
+                    "name": "fname",
+                    "description": "The path to the file to write",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The data to write in the file",
+                    "type": "String"
+                }
+            ],
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 132,
+            "description": "Write a binary file from base64 data",
+            "itemtype": "method",
+            "name": "writeFileBase64",
+            "params": [
+                {
+                    "name": "fname",
+                    "description": "The path to the file to write",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "The data to write in the file",
+                    "type": "String"
+                }
+            ],
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 148,
+            "description": "Copies a file (this function can't be used to copy folders)",
+            "itemtype": "method",
+            "name": "copyFile",
+            "params": [
+                {
+                    "name": "src",
+                    "description": "The source file to copy",
+                    "type": "String"
+                },
+                {
+                    "name": "dest",
+                    "description": "The destination/path to the new file",
+                    "type": "String"
+                }
+            ],
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 160,
+            "description": "Creates a directory (doesn't throw exception if directory already exists)",
+            "itemtype": "method",
+            "name": "makeDirectory",
+            "params": [
+                {
+                    "name": "dir",
+                    "description": "The path to create the directory",
+                    "type": "String"
+                }
+            ],
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 173,
+            "description": "Returns the files in a directory (returns empty array if something went wrong)",
+            "itemtype": "method",
+            "name": "getFilesDirectory",
+            "params": [
+                {
+                    "name": "dir",
+                    "description": "Path to the directory",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "An array with the files in the entered directory (if there was any error, the returned array is \"[]\")",
+                "type": "Array"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 190,
+            "description": "Copies a folder and all of its files (including symbolic links)",
+            "itemtype": "method",
+            "name": "copyFolder",
+            "params": [
+                {
+                    "name": "src",
+                    "description": "The source folder",
+                    "type": "String"
+                },
+                {
+                    "name": "dest",
+                    "description": "The destination where to copy the folder",
+                    "type": "String"
+                }
+            ],
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 222,
+            "description": "Opens a chooser file dialog",
+            "itemtype": "method",
+            "name": "chooseFile",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "This function is executed once the dialog is opened (sends \"files\" as parameters including the selected files)",
+                    "type": "Function"
+                },
+                {
+                    "name": "filter",
+                    "description": "Filters files which can and can't be selected (for example \"images/*\")",
+                    "type": "String"
+                },
+                {
+                    "name": "saveas",
+                    "description": "If true, by using that dialog the files won't be opened but saved",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 250,
+            "description": "Checks if a file currently exists",
+            "itemtype": "method",
+            "name": "fileExists",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The path to the file to check",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Returns whether the file exists or not",
+                "type": "Boolean"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 264,
+            "description": "Gets the file name from path (always in lowercase)",
+            "itemtype": "method",
+            "name": "getFileName",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The file path to get the name from",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The name of the file (in lowercase)",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 274,
+            "description": "Gets the file name without extension",
+            "itemtype": "method",
+            "name": "getNameWithoutExtension",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "Path of the file to get the name from",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The name of the file without its extension",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 284,
+            "description": "Get the directory of a file",
+            "itemtype": "method",
+            "name": "getFilePath",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The path of the file to get the directory from",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The directory of the file from the entered path",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
+        {
+            "file": "../Source/Runtime/FileSystem.js",
+            "line": 294,
+            "description": "Get the extension of a file by using a path string",
+            "itemtype": "method",
+            "name": "getFileExtension",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The path to get the extension from",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The extension of the file from the entered path",
+                "type": "String"
+            },
+            "class": "FileSystem"
+        },
         {
             "file": "../Source/Runtime/Gorlot.js",
             "line": 9,
