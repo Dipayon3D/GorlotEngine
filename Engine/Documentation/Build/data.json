@@ -1,0 +1,72 @@
+{
+    "project": {},
+    "files": {
+        "../Source/Runtime/Gorlot.js": {
+            "name": "../Source/Runtime/Gorlot.js",
+            "modules": {},
+            "classes": {
+                "GORLOT": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "GORLOT": {
+            "name": "GORLOT",
+            "shortname": "GORLOT",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "../Source/Runtime/Gorlot.js",
+            "line": 3,
+            "description": "GORLOT global namespace"
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "../Source/Runtime/Gorlot.js",
+            "line": 9,
+            "description": "Contains the engine name",
+            "itemtype": "property",
+            "name": "NAME",
+            "type": "\"String\"",
+            "default": "\"Gorlot\"",
+            "class": "GORLOT"
+        },
+        {
+            "file": "../Source/Runtime/Gorlot.js",
+            "line": 17,
+            "description": "The current engine version",
+            "itemtype": "property",
+            "name": "VERSION",
+            "type": "\"String\"",
+            "class": "GORLOT"
+        },
+        {
+            "file": "../Source/Runtime/Gorlot.js",
+            "line": 24,
+            "description": "The date in which the current version was compiled",
+            "itemtype": "property",
+            "name": "TIMESTAMP",
+            "class": "GORLOT"
+        },
+        {
+            "file": "../Source/Runtime/Gorlot.js",
+            "line": 30,
+            "description": "Checks if virtual reality is available",
+            "itemtype": "method",
+            "name": "WebVRAvailable",
+            "return": {
+                "description": "Returns true if available",
+                "type": "Boolean"
+            },
+            "class": "GORLOT"
+        }
+    ],
+    "warnings": []
+}
