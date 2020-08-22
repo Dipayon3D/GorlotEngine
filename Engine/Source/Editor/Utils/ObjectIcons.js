@@ -33,7 +33,7 @@ ObjectIcons.icons["SkinnedMesh"] = "Source/Editor/Files/Icons/Animation/Skeleton
 ObjectIcons.icons["ParticleEmitter"] = "Source/Editor/Files/Icons/Effects/Particles.png"
 ObjectIcons.icons["Script"] = "Source/Editor/Files/Icons/Script/Script.png"
 ObjectIcons.icons["BlockScript"] = "Source/Editor/Files/Icons/Script/Blocks.png"
-ObjectIcons.icons["Sprite"] = "Source/Editor/Files/Icons/Assets/Image.png"
+ObjectIcons.icons["Sprite"] = "Source/Editor/Files/Icons/Misc/Image.png"
 ObjectIcons.icons["Text3D"] = "Source/Editor/Files/Icons/Models/Text.png"
 ObjectIcons.icons["Points"] = "Source/Editor/Files/Icons/Models/Points.png"
 
@@ -42,8 +42,8 @@ ObjectIcons.icons["Program"] = "Source/Editor/Files/Icons/Script/Script.png"
 ObjectIcons.icons["Scene"] = "Source/Editor/Files/Icons/Models/Models.png"
 
 //Audio
-ObjectIcons.icons["Audio"] = "Source/Editor/Files/Icons/Assets/Audio.png"
-ObjectIcons.icons["PositionalAudio"] = "Source/Editor/Files/Icons/Assets/AudioPositional.png"
+ObjectIcons.icons["Audio"] = "Source/Editor/Files/Icons/Misc/Audio.png"
+ObjectIcons.icons["PositionalAudio"] = "Source/Editor/Files/Icons/Misc/AudioPositional.png"
 
 //Physics
 ObjectIcons.icons["Physics"] = "Source/Editor/Files/Icons/Misc/Physics.png"

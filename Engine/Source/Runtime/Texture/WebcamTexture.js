@@ -41,6 +41,7 @@ function WebcamTexture(mapping, wrapS, wrapT, magFilter, minFilter, type, anisot
 	this.name = "webcam"
 	this.category = "Webcam"
 	this.path = "/"
+    this.nodes = {}
 
 	// Webcam video update loop
 	var texture = this
@@ -66,6 +67,12 @@ WebcamTexture.prototype.setPath = function(path) {
 	}
 }
 
+// Update nodes
+WebcamTexture.prototype.updateNodes = function(nodes) {
+    this.nodes = {}
+    this.nodes = nodes
+}
+
 // Dispose texture
 WebcamTexture.prototype.dispose = function() {
 	THREE.Texture.prototype.dispose.call(this)
@@ -80,6 +87,7 @@ WebcamTexture.prototype.toJSON = function(meta) {
 	var data = THREE.VideoTexture.prototype.toJSON.call(this, meta)
 
 	data.path = this.path
+    data.nodes = this.nodes
 
 	return data
 }

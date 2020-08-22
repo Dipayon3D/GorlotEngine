@@ -30,11 +30,11 @@ function ObjectChooserEffectsTab(parent, closeable, container, index) {
         Editor.addToScene(new Empty())
     })
 
-    this.audio = this.addElement("Audio", Interface.fileDir + "Icons/Assets/Audio.png", () => {
+    this.audio = this.addElement("Audio", Interface.fileDir + "Icons/Misc/Audio.png", () => {
         Editor.addToScene(new AudioEmitter(Editor.defaultAudio))
     })
 
-    this.positionalAudio = this.addElement("Positional Audio", Interface.fileDir + "Icons/Assets/AudioPositional.png", () => {
+    this.positionalAudio = this.addElement("Positional Audio", Interface.fileDir + "Icons/Misc/AudioPositional.png", () => {
         Editor.addToScene(new PositionalAudio(Editor.defaultAudio))
     })
 }

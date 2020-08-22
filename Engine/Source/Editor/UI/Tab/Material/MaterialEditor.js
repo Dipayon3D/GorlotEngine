@@ -243,9 +243,10 @@ MaterialEditor.prototype.update = function() {
 		}
 
 		// Zoom
-		this.camera.position.z += Mouse.wheel * 0.003
-		if(this.camera.position.z > 5) {
-			this.camera.position.z = 5
+		this.camera.position.z += Mouse.wheel * 0.03
+
+		if(this.camera.position.z > 20) {
+			this.camera.position.z = 20
 		} else if(this.camera.position.z < -1.5) {
 			this.camera.position.z = -1.5
 		}

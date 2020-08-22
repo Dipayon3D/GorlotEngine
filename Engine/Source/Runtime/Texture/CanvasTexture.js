@@ -6,6 +6,7 @@ function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, minFilte
     this.name = "canvas"
     this.category = "Canvas"
     this.path = "/"
+    this.nodes = {}
 
     this.width = (width !== undefined) ? width : 512
     this.height = (height !== undefined) ? height: 512
@@ -33,6 +34,12 @@ CanvasTexture.prototype.setPath = function(path) {
     }
 }
 
+// Update nodes
+CanvasTexture.prototype.updateNodes = function(nodes) {
+    this.nodes = {}
+    this.nodes = nodes
+}
+
 // Create JSON description
 CanvasTexture.prototype.toJSON = function(meta) {
     var data = THREE.Texture.prototype.toJSON.call(this)
@@ -41,6 +48,7 @@ CanvasTexture.prototype.toJSON = function(meta) {
     data.height = this.height
 
     data.path = this.path
+    data.nodes = this.nodes
 
     return data
 }

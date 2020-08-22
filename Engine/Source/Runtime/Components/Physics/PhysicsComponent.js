@@ -57,7 +57,7 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 	// Mass
 	this.form.addText("Mass")
 	this.mass = new NumberBox(this.form.element)
-	this.mass.size.set(80, 18)
+	this.mass.size.set(50, 18)
 	this.mass.setStep(0.1)
 	this.mass.setOnChange(() => {
 		if (self.obj !== null) {
@@ -68,9 +68,9 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 	this.form.nextRow()
 
 	// Body Linear Damping
-	this.form.addText("Linear Damping")
+	this.form.addText("Linear Damp.")
 	this.linearDamping = new NumberBox(this.form.element)
-	this.linearDamping.size.set(80, 18)
+	this.linearDamping.size.set(50, 18)
 	this.linearDamping.setStep(0.01)
 	this.linearDamping.setRange(0, 1)
 	this.linearDamping.setOnChange(() => {
@@ -97,7 +97,7 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 
 	// Allow sleep
 	this.allowSleep = new CheckBox(this.form.element)
-	this.form.addText("Allow Sleep")
+	this.form.addText("Allow Sleep.")
 	this.allowSleep.size.set(150, 15)
 	this.allowSleep.setOnChange(() => {
 		if (self.obj !== null) {
@@ -108,9 +108,9 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 	this.form.nextRow()
 
 	// Sleep Speed Limit
-	this.form.addText("Sleep Speed Limit")
+	this.form.addText("Sleep Time")
 	this.sleepSpeedLimit = new NumberBox(this.form.element)
-	this.sleepSpeedLimit.size.set(80, 18)
+	this.sleepSpeedLimit.size.set(50, 18)
 	this.sleepSpeedLimit.setStep(0.01)
 	this.sleepSpeedLimit.setOnChange(() => {
 		if (self.obj !== null) {
@@ -135,7 +135,7 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 
 	// Fixed rotation
 	this.fixedRotation = new CheckBox(this.form.element)
-	this.form.addText("Fixed Rotation")
+	this.form.addText("Lock Rotation")
 	this.fixedRotation.size.set(150, 15)
 	this.fixedRotation.setOnChange(() => {
 		if (self.obj !== null) {

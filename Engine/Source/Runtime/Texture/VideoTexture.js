@@ -20,6 +20,7 @@ function VideoTexture(video, mapping, wrapS, wrapT, type, anisotropy)
 	this.name = "video"
 	this.category = "Video"
 	this.path = "/"
+    this.nodes = {}
 
 	// Controls
 	this.autoplay = true
@@ -97,6 +98,12 @@ VideoTexture.prototype.setPath = function(path) {
 	}
 }
 
+// Update nodes
+VideoTexture.prototype.updateNodes = function(nodes) {
+    this.nodes = {}
+    this.nodes = nodes
+}
+
 //Dispose texture
 VideoTexture.prototype.dispose = function()
 {
@@ -118,7 +125,10 @@ VideoTexture.prototype.toJSON = function(meta) {
 	data.video = video.uuid
 	data.loop = this.loop
 	data.autoplay = this.autoplay
+
 	data.path = this.path
+    data.nodes = this.nodes
+
     data.speed = this.speed
     data.volume = this.volume
 

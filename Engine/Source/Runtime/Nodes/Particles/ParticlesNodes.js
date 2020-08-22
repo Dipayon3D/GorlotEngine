@@ -116,7 +116,6 @@ ParticlesBlendingModeNode.prototype.onAdded = function() {
 ParticlesBlendingModeNode.prototype.onPropertyChanged = function(n, v) {
 
 	if (n === "blending") {
-		console.log(v)
 		if (v === "None")
 			this.group.blending = THREE.NoBlending
 		else if (v === "Normal")

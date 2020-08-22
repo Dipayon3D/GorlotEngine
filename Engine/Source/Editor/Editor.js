@@ -188,6 +188,7 @@ include("Source/Runtime/Nodes/Blocks/Base/Lists.js")
 include("Source/Runtime/Nodes/Blocks/Base/Widgets.js")
 include("Source/Runtime/Nodes/Blocks/Base/Elements.js")
 include("Source/Runtime/Nodes/Blocks/Base/Hierarchy.js")
+include("Source/Runtime/Nodes/Blocks/Base/Utils.js")
 
 include("Source/Runtime/Nodes/Blocks/Math/Colour.js")
 include("Source/Runtime/Nodes/Blocks/Math/Vector.js")
@@ -200,6 +201,9 @@ include("Source/Runtime/Nodes/Material/MaterialNodes.js")
 
 // Particles
 include("Source/Runtime/Nodes/Particles/ParticlesNodes.js")
+
+// Texture
+include("Source/Runtime/Nodes/Texture/TextureNodes.js")
 
 //Codemirror
 include("Libraries/codemirror/codemirror.min.js")
@@ -309,6 +313,8 @@ include("Source/Editor/UI/Tab/BlockEditor.js")
 
 include("Source/Editor/UI/Tab/Material/MaterialEditor.js")
 include("Source/Editor/UI/Tab/Material/ShaderMaterialEditor.js")
+
+include("Source/Editor/UI/Tab/Texture/TextureEditor.js")
 
 include("Source/Editor/UI/Tab/Settings/SettingsTab.js")
 include("Source/Editor/UI/Tab/Settings/CodeSettingsTab.js")

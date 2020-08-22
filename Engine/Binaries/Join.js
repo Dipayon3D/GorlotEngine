@@ -169,6 +169,7 @@ include("Source/Runtime/Nodes/Blocks/Base/Lists.js")
 include("Source/Runtime/Nodes/Blocks/Base/Widgets.js")
 include("Source/Runtime/Nodes/Blocks/Base/Elements.js")
 include("Source/Runtime/Nodes/Blocks/Base/Hierarchy.js")
+include("Source/Runtime/Nodes/Blocks/Base/Utils.js")
 
 include("Source/Runtime/Nodes/Blocks/Math/Colour.js")
 include("Source/Runtime/Nodes/Blocks/Math/Vector.js")
@@ -181,6 +182,9 @@ include("Source/Runtime/Nodes/Material/MaterialNodes.js")
 
 // Particles
 include("Source/Runtime/Nodes/Particles/ParticlesNodes.js")
+
+// Texture
+include("Source/Runtime/Nodes/Texture/TextureNodes.js")
 
 include("Binaries/Runtime/GorlotApp.js")
 

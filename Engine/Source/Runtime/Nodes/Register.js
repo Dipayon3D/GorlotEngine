@@ -13,10 +13,11 @@ Register.registerBlocksNodes = function() {
 }
 
 Register.registerMaterialNodes = function() {
+	registerMaterialNodes()
 	registerArray()
 	registerWidgets()
 	registerColour()
-	registerMaterialNodes()
+    registerUtilsNodes()
 }
 
 Register.registerParticlesNodes = function() {
@@ -24,10 +25,13 @@ Register.registerParticlesNodes = function() {
 	registerArray()
 	registerWidgets()
 	registerColour()
+    registerUtilsNodes()
 }
 
 Register.registerTextureNodes = function() {
-
+    registerTextureNodes()
+	registerVectorNode()
+    registerUtilsNodes()
 }
 
 Register.unregisterAll = function() {
@@ -39,4 +43,5 @@ Register.registerAll = function() {
 	Register.registerBlocksNodes()
 	Register.registerMaterialNodes()
 	Register.registerParticlesNodes()
+    Register.registerTextureNodes()
 }

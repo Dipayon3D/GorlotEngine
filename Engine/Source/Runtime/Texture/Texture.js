@@ -22,6 +22,7 @@ function Texture(image, mapping, wrapS, wrapT, magFilter, minFilter, format, typ
 	this.name = "texture"
 	this.category = "Image"
 	this.path = "/"
+    this.nodes = {}
     this.disposed = false
     this.format = transparent ? THREE.RGBAFormat : THREE.RGBFormat
 
@@ -53,6 +54,12 @@ Texture.prototype.setPath = function(path) {
 	}
 }
 
+// Update nodes
+Texture.prototype.updateNodes = function(nodes) {
+    this.nodes = {}
+    this.nodes = nodes
+}
+
 // Dispose Texture
 Texture.prototype.dispose = function() {
 	THREE.Texture.prototype.dispose.call(this)
@@ -68,6 +75,7 @@ Texture.prototype.toJSON = function(meta)
 
 	data.image = image.uuid
 	data.path = this.path
+    data.nodes = this.nodes
 
 	return data
 }

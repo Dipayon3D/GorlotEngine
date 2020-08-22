@@ -4,7 +4,7 @@ function AudioAsset(parent) {
 	Asset.call(this, parent)
 
 	this.audio = null
-    this.setIcon(Interface.fileDir + "Icons/Assets/Audio.png")
+    this.setIcon(Interface.fileDir + "Icons/Misc/Audio.png")
 
 	// Self pointer
 	var self = this
@@ -81,7 +81,7 @@ AudioAsset.prototype.setAudio = function(audio) {
 AudioAsset.prototype.updateMetadata = function() {
 	if (this.audio !== null) {
         // TODO: Audio preview graph
-		this.image.src = Interface.fileDir + "Icons/Assets/Audio.png"
+		this.image.src = Interface.fileDir + "Icons/Misc/Audio.png"
 
 		this.setText(this.audio.name)
 		this.path = this.audio.path

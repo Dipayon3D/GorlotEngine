@@ -5,10 +5,22 @@ function TextureAsset(parent) {
 
 	// Texture pointer
 	this.texture = null
-    this.setIcon(Interface.fileDir + "Icons/Assets/Image.png")
+    this.setIcon(Interface.fileDir + "Icons/Misc/Image.png")
 
 	// Self pointer
 	var self = this
+
+    // Open texture editor
+    this.element.ondblclick = function() {
+        var tab = Interface.tab.getTab(TextureEditor, self.texture)
+
+        if(tab === null) {
+            tab = Interface.tab.addTab(TextureEditor, true)
+            tab.attach(self.texture)
+        }
+
+        tab.select()
+    }
 
 	// Context menu event
 	this.element.oncontextmenu = function(event) {

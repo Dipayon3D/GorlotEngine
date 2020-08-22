@@ -4,7 +4,7 @@ function FontAsset(parent) {
 	Asset.call(this, parent)
 
 	this.font = null
-    this.setIcon(Interface.fileDir + "Icons/Assets/Font.png")
+    this.setIcon(Interface.fileDir + "Icons/Misc/Font.png")
 
 	// Self pointer
 	var self = this

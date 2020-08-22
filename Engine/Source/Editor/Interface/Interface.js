@@ -325,7 +325,7 @@ Interface.initialize = function() {
     }, Interface.fileDir + "Icons/Models/Models.png")
 
     // Textures menu
-    var importTexture = Interface.assetFile.addMenu("Texture", Interface.fileDir + "Icons/Assets/Image.png")
+    var importTexture = Interface.assetFile.addMenu("Texture", Interface.fileDir + "Icons/Misc/Image.png")
 
 	// Image Texture
     importTexture.addOption("Texture", () => {
@@ -340,7 +340,7 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, "image/*")
-	}, Interface.fileDir + "Icons/Assets/Image.png")
+	}, Interface.fileDir + "Icons/Misc/Image.png")
 
 	// Text Texture
 	importTexture.addOption("Canvas Texture", () => {
@@ -349,7 +349,7 @@ Interface.initialize = function() {
         Editor.program.addTexture(texture)
 
         Editor.updateObjectViews()
-	}, Interface.fileDir + "Icons/Assets/Image.png")
+	}, Interface.fileDir + "Icons/Misc/Image.png")
 
 	// Video Texture
 	importTexture.addOption("Video Texture", () => {
@@ -364,7 +364,7 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, "video/*")
-	}, Interface.fileDir + "Icons/Assets/Video.png")
+	}, Interface.fileDir + "Icons/Misc/Video.png")
 
 	// Webcam Texture
 	importTexture.addOption("Webcam Texture", () => {
@@ -411,7 +411,7 @@ Interface.initialize = function() {
 				Editor.updateObjectViews()
 			}
 		}, ".json, ttf, .otf")
-	}, Interface.fileDir + "Icons/Assets/Font.png")
+	}, Interface.fileDir + "Icons/Misc/Font.png")
 
 	// Load audio file
 	Interface.assetFile.addOption("Audio", () => {
@@ -431,7 +431,7 @@ Interface.initialize = function() {
                 Editor.updateObjectViews()
 			}
 		}, "audio/*")
-	}, Interface.fileDir + "Icons/Assets/Audio.png")
+	}, Interface.fileDir + "Icons/Misc/Audio.png")
 
 	// ------------------------------------ Explorer ------------------------------------
 	Interface.explorer = new DivisionResizable()
