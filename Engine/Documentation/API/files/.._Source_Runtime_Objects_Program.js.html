@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>../Source/Runtime/Objects/Program.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AmbientLight.html">AmbientLight</a></li>
+                                <li><a href="../classes/AudioEmitter.html">AudioEmitter</a></li>
+                                <li><a href="../classes/BlockScript.html">BlockScript</a></li>
+                                <li><a href="../classes/Container.html">Container</a></li>
+                                <li><a href="../classes/DirectionalLight.html">DirectionalLight</a></li>
+                                <li><a href="../classes/FileSystem.html">FileSystem</a></li>
+                                <li><a href="../classes/GORLOT.html">GORLOT</a></li>
+                                <li><a href="../classes/HemisphereLight.html">HemisphereLight</a></li>
+                                <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/Keyboard.html">Keyboard</a></li>
+                                <li><a href="../classes/KinectDevice.html">KinectDevice</a></li>
+                                <li><a href="../classes/LeapMotion.html">LeapMotion</a></li>
+                                <li><a href="../classes/Mesh.html">Mesh</a></li>
+                                <li><a href="../classes/Mouse.html">Mouse</a></li>
+                                <li><a href="../classes/Object3D.html">Object3D</a></li>
+                                <li><a href="../classes/OrthographicCamera.html">OrthographicCamera</a></li>
+                                <li><a href="../classes/ParticleEmitter.html">ParticleEmitter</a></li>
+                                <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+                                <li><a href="../classes/PhysicsObject.html">PhysicsObject</a></li>
+                                <li><a href="../classes/PointLight.html">PointLight</a></li>
+                                <li><a href="../classes/PositionalAudio.html">PositionalAudio</a></li>
+                                <li><a href="../classes/RectAreaLight.html">RectAreaLight</a></li>
+                                <li><a href="../classes/ResourceManager.html">ResourceManager</a></li>
+                                <li><a href="../classes/Scene.html">Scene</a></li>
+                                <li><a href="../classes/Script.html">Script</a></li>
+                                <li><a href="../classes/SkinnedMesh.html">SkinnedMesh</a></li>
+                                <li><a href="../classes/Sky.html">Sky</a></li>
+                                <li><a href="../classes/SpineAnimation.html">SpineAnimation</a></li>
+                                <li><a href="../classes/SpineTexture.html">SpineTexture</a></li>
+                                <li><a href="../classes/SpotLight.html">SpotLight</a></li>
+                                <li><a href="../classes/Sprite.html">Sprite</a></li>
+                                <li><a href="../classes/Text3D.html">Text3D</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Animations.html">Animations</a></li>
+                                <li><a href="../modules/Audio.html">Audio</a></li>
+                                <li><a href="../modules/Cameras.html">Cameras</a></li>
+                                <li><a href="../modules/Core.html">Core</a></li>
+                                <li><a href="../modules/Devices.html">Devices</a></li>
+                                <li><a href="../modules/Input.html">Input</a></li>
+                                <li><a href="../modules/Lights.html">Lights</a></li>
+                                <li><a href="../modules/Meshes.html">Meshes</a></li>
+                                <li><a href="../modules/Misc.html">Misc</a></li>
+                                <li><a href="../modules/Particles.html">Particles</a></li>
+                                <li><a href="../modules/Physics.html">Physics</a></li>
+                                <li><a href="../modules/Resources.html">Resources</a></li>
+                                <li><a href="../modules/Runtime.html">Runtime</a></li>
+                                <li><a href="../modules/Script.html">Script</a></li>
+                                <li><a href="../modules/Sprite.html">Sprite</a></li>
+                                <li><a href="../modules/Textures.html">Textures</a></li>
+                                <li><a href="../modules/ThreeJS.html">ThreeJS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: ../Source/Runtime/Objects/Program.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;
+
+/*
+ * Program class contains all the data of a Gorlot program
+ * @class Program
+ * @module Core
+ * @constructor
+ * @param {String} name Program name
+ * @extends {THREE.Object3D}
+ * @extends {ResourceManager}
+ */
+function Program(name)
+{
+	THREE.Object3D.call(this)
+    ResourceManager.call(this)
+
+	this.type = &quot;Program&quot;
+
+	// Disable matrix auto update
+	this.matrixAutoUpdate = false
+
+    /**
+     * GorlotApp instance, used to communication between an app and the host webpage
+     * @property app
+     * @default null
+     */
+    this.app = null
+
+	// Program Info
+	this.name = (name !== undefined) ? name : &quot;program&quot;
+
+    /**
+     * Program description
+     * @property description
+     * @type {String}
+     */
+	this.description = &quot;&quot;
+
+    /**
+     * Program author
+     * @property author
+     * @type {String}
+     */
+	this.author = &quot;&quot;
+
+    /**
+     * Program version
+     * @property version
+     * @type {String}
+     * @default &quot;0&quot;
+     */
+	this.version = &quot;0&quot;
+
+    /**
+     * Flag to control pointer locking
+     * @property lockPointer
+     * @type {Boolean}
+     * @default false
+     */
+	this.lockPointer = false
+	
+	// VR flags
+    /**
+     * Enable virtual reality flag
+     * @property vr
+     * @default false
+     * @type {Boolean}
+     */
+	this.vr = false
+    
+    /**
+     * Virtual reality movement scale
+     * @property vrScale
+     * @default 1.0
+     * @type {Number}
+     */
+	this.vrScale = 1
+
+	// Render quality
+    /**
+     * If true, the program is rendered with antialiasing
+     * @property antialiasing
+     * @type {Boolean}
+     * @default false
+     */
+	this.antialiasing = false
+
+    /**
+     * If true, the program is rendered with shadows
+     * @property shadows
+     * @type {Boolean}
+     * @default true
+     */
+	this.shadows = true
+
+    /**
+     * Shadow type
+     * @property shadowsType
+     * @type {Number}
+     * @default PCFSoftShadowMap
+     */
+	this.shadowsType = THREE.PCFSoftShadowMap
+
+	// Defaults
+	this.defaultScene = null
+	this.defaultCamera = null
+
+	//Runtime variables
+    this.keyboard = null
+	this.renderer = null
+    this.canvas = null
+	this.scene = null
+
+    // VR Objects
+    this.useVr = false
+    this.vrEffect = null
+    this.vrControls = null
+
+	this.components = []
+	this.defaultComponents = []
+
+	this.defaultComponents.push(new ProgramComponent())
+}
+
+Program.prototype = Object.create(THREE.Object3D.prototype)
+
+Program.prototype.getMaterialByName = ResourceManager.prototype.getMaterialByName
+Program.prototype.addMaterial = ResourceManager.prototype.addMaterial
+Program.prototype.removeMaterial = ResourceManager.prototype.removeMaterial
+Program.prototype.getTextureByName = ResourceManager.prototype.getTextureByName
+Program.prototype.addTexture = ResourceManager.prototype.addTexture
+Program.prototype.removeTexture = ResourceManager.prototype.removeTexture
+Program.prototype.getFontByName = ResourceManager.prototype.getFontByName
+Program.prototype.addFont = ResourceManager.prototype.addFont
+Program.prototype.removeFont = ResourceManager.prototype.removeFont 
+Program.prototype.getAudioByName = ResourceManager.prototype.getAudioByName
+Program.prototype.addAudio = ResourceManager.prototype.addAudio
+Program.prototype.removeAudio = ResourceManager.prototype.removeAudio
+
+// Select initial scene and initialise it
+Program.prototype.initialize = function() {
+    // If input null create input object
+    if(this.mouse === null) {
+        this.mouse = new Mouse()
+    }
+    if(this.keyboard === null) {
+        this.keyboard = new Keyboard()
+    }
+
+	// Get default scene
+	if (this.defaultScene !== null) {
+		for(var i = 0; i &lt; this.children.length; i++) {
+			if (this.children[i].uuid === this.defaultScene) {
+				this.setScene(this.children[i])
+				break
+			}
+		}
+	} else if(this.children.length &gt; 0) {
+		this.setScene(this.children[0])
+	}
+}
+
+// Set program mouse and keyboard
+Program.prototype.setMouseKeyboard = function(mouse, keyboard) {
+    this.mouse = mouse
+    this.keyboard = keyboard
+}
+
+// Set program renderer
+Program.prototype.setRenderer = function(renderer) {
+    this.renderer = renderer
+    this.canvas = renderer.domElement
+}
+
+// Enter VR Mode
+Program.prototype.displayVR = function() {
+    if(this.vr) {
+        try {
+            this.useVr = true
+
+            this.vrEffect = new THREE.VREffect(this.renderer)
+            this.vrEffect.setFullScreen(true)
+        } catch(e) {
+            this.useVr = false
+            this.vrEffect = null
+
+            console.warn(&quot;Program: Failed to enter in VR Mode&quot;, e)
+        }
+    }
+}
+
+// Exit VR Mode
+Program.prototype.exitVR = function() {
+    if(this.vr) {
+        this.useVr = false
+
+        if(this.vrEffect !== null) {
+            this.vrEffect.setFullScreen(false)
+            this.vrEffect.dispose()
+            this.vrEffect = null
+        }
+    }
+}
+
+// Update program
+Program.prototype.update = function() {
+	this.scene.update()
+}
+
+// Render program (renderer passed as argument)
+Program.prototype.render = function(renderer) {
+    // Render as a VR application (ignores camera parameters)
+    if(this.useVr) {
+        for(var i = 0; i &lt; this.scene.cameras.length; i++) {
+            var camera = this.scene.cameras[i]
+            this.vrEffect.render(this.scene, camera)
+        }
+    }
+    // Render normally
+    else {
+        var x = renderer.domElement.width
+        var y = renderer.domElement.height
+
+        renderer.setScissorTest(true)
+
+        for(var i = 0; i &lt; this.scene.cameras.length; i++) {
+            var camera = this.scene.cameras[i]
+
+            if (camera.clearColor) {
+                renderer.clearColor()
+            }
+
+            if (camera.clearDepth) {
+                renderer.clearDepth()
+            }
+
+            renderer.setViewport(x * camera.offset.x, y * camera.offset.y, x * camera.viewport.x, y * camera.viewport.y)
+            renderer.setScissor(x * camera.offset.x, y * camera.offset.y, x * camera.viewport.x, y * camera.viewport.y)
+
+            renderer.render(this.scene, camera)
+        }
+
+        renderer.setScissorTest(false)
+    }
+}
+
+// Screen program cameras
+Program.prototype.resize = function(x, y) {
+    // Resize cameras
+	for(var i = 0; i &lt; this.scene.cameras.length; i++) {
+		this.scene.cameras[i].aspect = x / y
+		this.scene.cameras[i].updateProjectionMatrix()
+	}
+
+    // Resize scripts
+    this.traverse((child) =&gt; {
+        if(child instanceof Script) {
+            child.resize()
+        }
+    })
+}
+
+//Set actual scene (to be used in runtime)
+Program.prototype.setScene = function(scene)
+{
+	if(scene instanceof Scene)
+	{
+		this.scene = scene
+	}
+	else if(typeof scene === &quot;string&quot;)
+	{
+		this.scene = this.getObjectByName(scene)
+	}
+
+	if(this.scene !== null) {
+		this.scene.initialize()
+		
+		if(this.scene.cameras.length === 0)
+		{
+			this.scene.cameras.push(this.defaultCamera)
+		}
+	}
+}
+
+//Remove Scene from program
+Program.prototype.remove = function(scene)
+{
+	var index = this.children.indexOf(scene)
+	if(index &gt; -1)
+	{
+		this.children.splice(index, 1)
+		scene.parent = null
+	}
+
+	//If no scene on program set actual scene to null
+	if(this.children.length === 0)
+	{
+		this.scene = null
+	}
+}
+
+//Add children to program (only allows Scenes to be added)
+Program.prototype.add = function(scene)
+{
+	if(scene instanceof Scene)
+	{
+		this.children.push(scene)
+		scene.parent = this
+
+		//If first scene set as actual scene
+		if(this.children.length === 1)
+		{
+			this.scene = this.children[0]
+		}
+	}
+}
+
+//Clone program (keep uuid and everything else)
+Program.prototype.clone = function()
+{
+	return new ObjectLoader().parse(this.toJSON())
+}
+
+//Set as initial scene (from uuid reference)
+Program.prototype.setInitialScene = function(scene)
+{
+	this.defaultScene = scene.uuid
+}
+
+//Create a default scene with sky
+Program.prototype.addDefaultScene = function(material)
+{
+	if(material === undefined)
+	{
+		material = new MeshStandardMaterial({roughness: 0.6, metalness: 0.2})
+		material.name = &quot;default&quot;
+	}
+
+	//Create new scene
+	var scene = new Scene()
+
+	//Sky
+	var sky = new Sky()
+	sky.autoUpdate = false
+	scene.add(sky)
+
+	//Box
+	var geometry = new THREE.BoxBufferGeometry(1, 1, 1)
+	var model = new Mesh(geometry, material)
+	model.scale.set(4, 4, 4)
+	model.position.set(0, 1.5, 0)
+	model.receiveShadow = true
+	model.castShadow = true
+	model.name = &quot;box&quot;
+	scene.add(model)
+
+	//Floor
+	model = new Mesh(geometry, material)
+	model.scale.set(40, 2, 40)
+ 	model.position.set(0, -1.5, 0)
+	model.receiveShadow = true
+	model.castShadow = true
+	model.name = &quot;ground&quot;
+	scene.add(model)
+
+	//Add scene to program
+	this.add(scene)
+}
+
+//Dispose program data
+Program.prototype.dispose = function()
+{
+    // Geometry
+    for(var i in this.geometries) {
+        this.geometries[i].dispose()
+    }
+
+	// Textures
+	for(var i in this.textures)
+	{
+		this.textures[i].dispose()
+	}
+
+    // Materials
+    for(var i in this.materials) {
+        this.materials[i].dispose()
+    }
+
+	// Children
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].dispose()
+	}
+}
+
+// Receive external data and pass it to all script and blocks instances
+Program.prototype.receiveDataApp = function(data) {
+    var found = false
+
+    this.traverse((child) =&gt; {
+        if(child instanceof Script) {
+            if(child.script !== null &amp;&amp; child.script.onAppData !== undefined) {
+                child.appData(data)
+                found = true
+            }
+        } else if(child instanceof BlockScript) {
+            if(child.graph !== null) {
+                child.graph.sendEventToAllNodes(&quot;onAppData&quot;, data)
+                found = true
+            }
+        }
+    })
+    
+    // Show warning message
+    if(!found) {
+        if(typeof data === &quot;object&quot;) {
+            console.warn(&quot;Program: No script or blocks with data receive event found&quot;, JSON.stringify(data))
+        } else {
+            console.warn(&quot;Program: No script or blocks with data receive event found&quot;, data)
+        }
+    }
+}
+
+// Send data to external app instance
+Program.prototype.sendDataApp = function(data) {
+    if(this.app !== null) {
+        if(this.app.onDataReceived !== undefined) {
+            this.gorlot.onDataReceived(data)
+        } else {
+            console.warn(&quot;Program: No app available&quot;, JSON.stringify(data))
+        }
+    } else {
+        if(typeof data === &quot;object&quot;) {
+            alert(JSON.stringify(data))
+        } else {
+            console.warn(&quot;Program: No app available&quot;, data)
+        }
+    }
+}
+
+//Create JSON for object
+Program.prototype.toJSON = function(meta, exportResources)
+{
+	var self = this
+
+	var data = THREE.Object3D.prototype.toJSON.call(this, meta, function(meta, object)
+	{
+
+		if (exportResources !== false) {
+
+			// Textures
+			var textures = self.textures
+			for(var i in textures) {
+				var texture = textures[i]
+				if (meta.textures[texture.uuid] === undefined) {
+					meta.textures[texture.uuid] = texture.toJSON(meta)
+				}
+			}
+
+			// Materials
+			var materials = self.materials
+			for(var i in materials) {
+				var material = materials[i]
+				if (meta.materials[material.uuid] === undefined) {
+					meta.materials[material.uuid] = material.toJSON(meta)
+				}
+			}
+
+			// Fonts
+			var fonts = self.fonts
+			for(var i in fonts) {
+				var font = fonts[i]
+				if (meta.fonts[font.uuid] === undefined) {
+					meta.fonts[font.uuid] = font.toJSON(meta)
+				}
+			}
+
+			// Objects
+			var objects = self.assetObjects
+			for(var i in objects) {
+				var object = objects[i]
+				if (meta.assetObjects[object.uuid] === undefined) {
+					meta.assetObjects[object.uuid] = object.toJSON(meta)
+				}
+			}
+
+			// Audio
+			var audio = self.audio
+			for(var i in audio) {
+				var aud = audio[i]
+				if (meta.audio[aud.uuid] === undefined) {
+					meta.audio[aud.uuid] = aud.toJSON(meta)
+				}
+			}
+		}
+	});
+
+	// Initial scene
+    if(this.defaultScene !== null) {
+        data.object.defaultScene = this.defaultScene
+    }
+
+    // Information
+	data.object.author = this.author
+	data.object.description = this.description
+	data.object.version = this.version
+
+	// Misc
+	data.object.lockPointer = this.lockPointer
+
+	// Folders
+	data.object.folders = []
+	for(var i in this.folders) {
+		data.object.folders.push(this.folders[i].toJSON())
+	}
+
+	// VR
+	data.object.vr = this.vr
+	data.object.vrScale = this.vrScale
+
+    // Rendering
+    data.object.antialiasing = this.antialiasing   
+    data.object.shadows = this.shadows
+    data.object.shadowsType = this.shadowsType
+
+	return data
+}
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

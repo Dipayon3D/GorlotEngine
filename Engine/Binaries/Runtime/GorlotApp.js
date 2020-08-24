@@ -78,9 +78,9 @@ GorlotApp.prototype.run = function() {
     this.renderer.setSize(this.canvas.width, this.canvas.height)
 
 	// Mouse and keyboard input
-	Keyboard.initialize()
-	Mouse.initialize()
-	Mouse.setCanvas(this.canvas)
+    this.keyboard = new Keyboard()
+    this.mouse = new Mouse()
+    this.mouse.setCanvas(this.canvas)
 
     // Attach this runtime to program
     this.program.app = this
@@ -91,6 +91,7 @@ GorlotApp.prototype.run = function() {
 
     // Set renderer
     this.program.setRenderer(this.renderer)
+    this.program.setMouseKeyboard(this.mouse, this.keyboard)
 
     // Initialise program
 	this.program.initialize()
@@ -115,8 +116,8 @@ GorlotApp.prototype.run = function() {
 
 // Update gorlot program
 GorlotApp.prototype.update = function() {
-	Mouse.update()
-	Keyboard.update()
+	this.mouse.update()
+	this.keyboard.update()
 
 	this.program.update()
 	this.program.render(this.renderer)
@@ -136,8 +137,8 @@ GorlotApp.prototype.exit = function() {
 	}
 
     // Dispose keyboard and mouse
-    Mouse.dispose()
-    Keyboard.dispose()
+    this.mouse.dispose()
+    this.keyboard.dispose()
 
     // Run onExit callback if any
 	if (this.onExit !== undefined) {

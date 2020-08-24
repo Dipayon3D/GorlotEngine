@@ -43,8 +43,8 @@ function DualDivisionResizable(parent)
 	this.visible = true;
 
 	//Resize Tab
-	this.tabPposition = 0.5;
-	this.tabPpositionMax = 1;
+	this.tabPosition = 0.5;
+	this.tabPositionMax = 1;
 	this.tabPositionMin = 0;
 	this.tabSize = 5;
 	this.orientation = DualDivisionResizable.HORIZONTAL;
@@ -101,15 +101,15 @@ DualDivisionResizable.prototype.update = function()
 {
 	if(this.resizing)
 	{
-		if(Mouse.buttonPressed(Mouse.LEFT))
+		if(Editor.mouse.buttonPressed(Mouse.LEFT))
 		{
 			if(this.orientation == DualDivisionResizable.HORIZONTAL)
 			{	
-				this.tabPosition += Mouse.delta.x/this.size.x;
+				this.tabPosition += Editor.mouse.delta.x/this.size.x;
 			}
 			else if(this.orientation == DualDivisionResizable.VERTICAL)
 			{
-				this.tabPosition += Mouse.delta.y/this.size.y;
+				this.tabPosition += Editor.mouse.delta.y/this.size.y;
 			}
 
 			//Limit tab position

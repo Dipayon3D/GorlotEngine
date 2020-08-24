@@ -1,6 +1,12 @@
 "use strict";
 
-//Particle emitter constructor
+/**
+ * Particle emitter is a wrapper for SPE particle systems
+ * @class ParticleEmitter
+ * @constructor
+ * @extends {THREE.Points}
+ * @module Particles
+ */
 function ParticleEmitter(group, emitter)
 {
 	this.nodes = {}
@@ -101,7 +107,11 @@ function ParticleEmitter(group, emitter)
 
 ParticleEmitter.prototype = Object.create(THREE.Points.prototype);
 
-//Initialize particle system 
+/**
+ * Initialise particle emitter state
+ * Automatically called by the runtime handler (Editor / App)
+ * @method initialize
+ */
 ParticleEmitter.prototype.initialize = function()
 {
 	for(var i = 0; i < this.children.length; i++)
@@ -112,7 +122,11 @@ ParticleEmitter.prototype.initialize = function()
     this.clock.start()
 }
 
-//Update particle emitter
+/**
+ * Update particle emitter state
+ * Called automatically by the runtime handler (Editor / App)
+ * @method update
+ */
 ParticleEmitter.prototype.update = function()
 {
 	this.group.tick(this.clock.getDelta());
@@ -123,13 +137,20 @@ ParticleEmitter.prototype.update = function()
 	}
 }
 
-// Update nodes
+/**
+ * Updates the particle nodes
+ * @param {Object} nodes
+ * @method updateNodes
+ */
 ParticleEmitter.prototype.updateNodes = function(nodes) {
 	this.nodes = {}
 	this.nodes = nodes
 }
 
-//Dispose particle emitter
+/**
+ * Dispose particle emitter
+ * @method dispose
+ */
 ParticleEmitter.prototype.dispose = function()
 {
     this.group.texture.dispose()
@@ -149,7 +170,13 @@ ParticleEmitter.prototype.updateMatrix = function() {
     this.matrixWorldNeedsUpdate = true
 }
 
-// JSON serialiser
+/**
+ * Create JSON for object
+ * Need to backup material and geometry and set to undefined to avoid it to being stored
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
 ParticleEmitter.prototype.toJSON = function(meta)
 {
     // Back material and geometry to avoid unwanted serialisation

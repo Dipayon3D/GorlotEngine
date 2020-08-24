@@ -68,7 +68,7 @@ function BlockAsset(parent) {
 		}
 
 		// To avoid camera movement
-		Mouse.updateKey(Mouse.LEFT, Key.UP)
+		Editor.mouse.updateKey(Mouse.LEFT, Key.UP)
 	}
 
 	// Drag end (called after ondrop)

@@ -1,6 +1,14 @@
 "use strict";
 
-//Kinect device object
+/**
+ * Kinect device object
+ * This object is used to connect Gorlot to a Microsoft Kinect v1, it only works in Microsoft Windows.
+ * The operation of the kinect object depends on a server program used to connect to kinect that sends the data to nunuStudio via WebSocket.
+ * @class KinectDevice
+ * @extends {THREE.Object3D}
+ * @constructor
+ * @module Devices
+ */
 function KinectDevice()
 {
 	THREE.Object3D.call(this);
@@ -8,17 +16,45 @@ function KinectDevice()
 	this.type = "Kinect";
 	this.name = "kinect";
 
-	//Initialize a new web socket
+    /**
+     * Websocket used to connect to the data server
+     * @property socket
+     * @default 127.0.0.1:8181
+     * @type {Object}
+     */
 	this.socket = new WebSocket("ws://127.0.0.1:8181");
+
+    /**
+     * Connected flag
+     * @property connected
+     * @type {Boolean}
+     */
 	this.connected = false;
 
-	//Configuration
+    /**
+     * Debug model flag
+     * @property debugModel
+     * @default true
+     * @type {Boolean}
+     */
 	this.debugModel = true;
+
+    /**
+     * Time until data is considered too obsolete to be usable
+     * @property dataTimeout
+     * @type {Number}
+     */
 	this.dataTimeout = 0;
 
-	//Received Data
 	this.camera = null;
+
+    /**
+     * Skeleton data sent by the kinect
+     * @property data
+     * @type {Object}
+     */
 	this.data = null;
+
 	this.dataReceived = false;
 
 	//Self pointer
@@ -61,14 +97,32 @@ function KinectDevice()
 	this.defaultComponents.push(new KinectComponent())
 }
 
-//Data timeout limit
+/**
+ * Kinect default data timeout in seconds
+ * @attribute DATA_TIMEOUT
+ * @type {Number}
+ */
 KinectDevice.DATA_TIMEOUT = 20;
 
-//Kinect camera modes
+/**
+ * Kinect camera depth mode
+ * @attribute DEPTH
+ * @type {number}
+ */
 KinectDevice.DEPTH = 0;
+
+/**
+ * Kinect camera colour mode
+ * @attribute COLOR
+ * @type {Number}
+ */
 KinectDevice.COLOR = 1;
 
-//Joint names
+/**
+ * Kinect skeleton joint names in pairs
+ * @attribute JOINTS_NAME
+ * @type {Array}
+ */
 KinectDevice.JOINTS_NAME = [["head","shouldercenter"],["shouldercenter","shoulderright"],["shouldercenter","shoulderleft"],["shoulderright","elbowright"],
 							["shoulderleft","elbowleft"],["elbowright","wristright"],["elbowleft","wristleft"],["wristright","handright"],["wristleft","handleft"],
 							["shouldercenter","spine"],["spine","hipcenter"],["hipcenter","hipright"],["hipcenter","hipleft"],["hipright","kneeright"],
@@ -76,7 +130,10 @@ KinectDevice.JOINTS_NAME = [["head","shouldercenter"],["shouldercenter","shoulde
 
 KinectDevice.prototype = Object.create(THREE.Object3D.prototype);
 
-//Update State
+/**
+ * Update kinect device state
+ * @method update
+ */
 KinectDevice.prototype.update = function()
 {
 	//Check if there is data to process
@@ -135,13 +192,21 @@ KinectDevice.prototype.update = function()
 	}
 }
 
-//Check if there is kinect connected
+/**
+ * Check if there is a kinect connected
+ * @method isConnected
+ * @return {Boolean} Returns true if there is a kinect connected
+ */
 KinectDevice.prototype.isConnected = function()
 {
 	return this.connected;
 }
 
-//Set kinect camera mode
+/**
+ * Set kinect camera mode
+ * @method setCameraMode
+ * @param {Boolean} mode
+ */
 KinectDevice.prototype.setCameraMode = function(mode)
 {
 	if(mode === KinectDevice.COLOR)
@@ -154,7 +219,11 @@ KinectDevice.prototype.setCameraMode = function(mode)
 	}
 }
 
-//Create JSON for object
+/**
+ * Create JSON for object
+ * @param {Object} meta
+ * @method toJSON
+ */
 KinectDevice.prototype.toJSON = function(meta)
 {
 	var data = THREE.Object3D.prototype.toJSON.call(this, meta);

@@ -1,9 +1,21 @@
 "use strict"
 
+/**
+ * Same as THREE.RectAreaLight
+ * Documentation for the object can be found at https://threejs.org/docs/index.html#api/en/lights/RectAreaLight
+ * @param {Number} color Light colour in hex RGB
+ * @param {Number} intensity Light intensity
+ * @param {Number} width
+ * @param {Number} height
+ * @class RectAreaLight
+ * @extends {THREE.RectAreaLight}
+ * @module Lights
+ * @constructor
+ */
 function RectAreaLight(color, intensity, width, height) {
     THREE.RectAreaLight.call(this, color, intensity, width, height)
 
-    this.name = "rectarea light"
+    this.name = "rectarea"
 
     this.components = []
     this.defaultComponents = []
@@ -15,6 +27,12 @@ function RectAreaLight(color, intensity, width, height) {
 
 RectAreaLight.prototype = Object.create(THREE.RectAreaLight.prototype)
 
+/**
+ * Create JSON description
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} JSON description
+ */
 RectAreaLight.prototype.toJSON = function(meta) {
     var data = THREE.Light.prototype.toJSON.call(this, meta)
 

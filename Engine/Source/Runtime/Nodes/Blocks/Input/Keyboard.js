@@ -12,11 +12,11 @@ ANode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.A)
 }
 ANode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.A)) 
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.A)) 
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.A)) 
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.A)) 
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.A)) 
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.A)) 
 		this.triggerSlot(2, "Released")
 }
 
@@ -34,11 +34,11 @@ AltNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.ALT)
 }
 AltNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.ALT)) 
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.ALT)) 
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.ALT))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.ALT))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.ALT)) 
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.ALT)) 
 		this.triggerSlot(2, "Released")
 }
 
@@ -56,11 +56,11 @@ BNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.B)
 }
 BNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.B)) 
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.B)) 
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.B)) 
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.B)) 
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.B)) 
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.B)) 
 		this.triggerSlot(2, "Released")
 }
 
@@ -78,11 +78,11 @@ BackspaceNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.BACKSPACE)
 }
 BackspaceNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.BACKSPACE))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.BACKSPACE))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.BACKSPACE))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.BACKSPACE))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.BACKSPACE))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.BACKSPACE))
 		this.triggerSlot(2, "Released")
 }
 
@@ -100,11 +100,11 @@ CNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.C)
 }
 CNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.C))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.C))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.C))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.C))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.C))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.C))
 		this.triggerSlot(2, "Released")
 }
 
@@ -122,11 +122,11 @@ CapsLockNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.CAPS_LOCK)
 }
 CapsLockNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.CAPS_LOCK))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.CAPS_LOCK))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.CAPS_LOCK))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.CAPS_LOCK))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.CAPS_LOCK))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.CAPS_LOCK))
 		this.triggerSlot(2, "Released")
 }
 
@@ -144,11 +144,11 @@ CtrlNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.CTRL)
 }
 CtrlNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.CTRL))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.CTRL))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.CTRL))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.CTRL))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.CTRL))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.CTRL))
 		this.triggerSlot(2, "Released")
 }
 
@@ -166,11 +166,11 @@ DNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.D)
 }
 DNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.D))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.D))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.D))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.D))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.D))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.D))
 		this.triggerSlot(2, "Released")
 }
 
@@ -188,11 +188,11 @@ DelNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.DEL)
 }
 DelNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.DEL))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.DEL))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.DEL))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.DEL))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.DEL))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.DEL))
 		this.triggerSlot(2, "Released")
 }
 
@@ -210,11 +210,11 @@ DownNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.DOWN)
 }
 DownNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.DOWN))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.DOWN))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.DOWN))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.DOWN))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.DOWN))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.DOWN))
 		this.triggerSlot(2, "Released")
 }
 
@@ -232,11 +232,11 @@ ENode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.E)
 }
 ENode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.E))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.E))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.E))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.E))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.E))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.E))
 		this.triggerSlot(2, "Released")
 }
 
@@ -254,11 +254,11 @@ EndNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.END)
 }
 EndNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.END))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.END))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.END))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.END))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.END))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.END))
 		this.triggerSlot(2, "Released")
 }
 
@@ -276,11 +276,11 @@ EnterNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.ENTER)
 }
 EnterNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.ENTER))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.ENTER))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.ENTER))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.ENTER))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.ENTER))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.ENTER))
 		this.triggerSlot(2, "Released")
 }
 
@@ -298,11 +298,11 @@ EscNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.ESC)
 }
 EscNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.ESC))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.ESC))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.ESC))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.ESC))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.ESC))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.ESC))
 		this.triggerSlot(2, "Released")
 }
 
@@ -320,11 +320,11 @@ FNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F)
 }
 FNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F))
 		this.triggerSlot(2, "Released")
 }
 
@@ -342,11 +342,11 @@ F1Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F1)
 }
 F1Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F1))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F1))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F1))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F1))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F1))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F1))
 		this.triggerSlot(2, "Released")
 }
 
@@ -364,11 +364,11 @@ F2Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F2)
 }
 F2Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F2))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F2))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F2))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F2))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F2))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F2))
 		this.triggerSlot(2, "Released")
 }
 
@@ -386,11 +386,11 @@ F3Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F3)
 }
 F3Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F3))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F3))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F3))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F3))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F3))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F3))
 		this.triggerSlot(2, "Released")
 }
 
@@ -408,11 +408,11 @@ F4Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F4)
 }
 F4Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F4))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F4))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F4))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F4))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F4))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F4))
 		this.triggerSlot(2, "Released")
 }
 
@@ -430,11 +430,11 @@ F5Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F5)
 }
 F5Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F5))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F5))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F5))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F5))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F5))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F5))
 		this.triggerSlot(2, "Released")
 }
 
@@ -452,11 +452,11 @@ F6Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F6)
 }
 F6Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F6))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F6))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F6))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F6))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F6))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F6))
 		this.triggerSlot(2, "Released")
 }
 
@@ -474,11 +474,11 @@ F7Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F7)
 }
 F7Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F7))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F7))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F7))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F7))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F7))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F7))
 		this.triggerSlot(2, "Released")
 }
 
@@ -496,11 +496,11 @@ F8Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F8)
 }
 F8Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F8))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F8))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F8))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F8))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F8))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F8))
 		this.triggerSlot(2, "Released")
 }
 
@@ -518,11 +518,11 @@ F9Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F9)
 }
 F9Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F9))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F9))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F9))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F9))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F9))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F9))
 		this.triggerSlot(2, "Released")
 }
 
@@ -540,11 +540,11 @@ F10Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F10)
 }
 F10Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F10))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F10))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F10))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F10))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F10))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F10))
 		this.triggerSlot(2, "Released")
 }
 
@@ -562,11 +562,11 @@ F11Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F11)
 }
 F11Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F11))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F11))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F11))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F11))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F11))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F11))
 		this.triggerSlot(2, "Released")
 }
 
@@ -584,11 +584,11 @@ F12Node.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.F12)
 }
 F12Node.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.F12))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.F12))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.F12))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.F12))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.F12))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.F12))
 		this.triggerSlot(2, "Released")
 }
 
@@ -606,11 +606,11 @@ GNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.G)
 }
 GNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.G))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.G))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.G))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.G))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.G))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.G))
 		this.triggerSlot(2, "Released")
 }
 
@@ -628,11 +628,11 @@ HNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.H)
 }
 HNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.H))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.H))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.H))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.H))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.H))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.H))
 		this.triggerSlot(2, "Released")
 }
 
@@ -650,11 +650,11 @@ HomeNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.HOME)
 }
 HomeNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.HOME))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.HOME))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.HOME))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.HOME))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.HOME))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.HOME))
 		this.triggerSlot(2, "Released")
 }
 
@@ -672,11 +672,11 @@ INode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.I)
 }
 INode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.I))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.I))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.I))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.I))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.I))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.I))
 		this.triggerSlot(2, "Released")
 }
 
@@ -694,11 +694,11 @@ InsertNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.INSERT)
 }
 InsertNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.INSERT))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.INSERT))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.INSERT))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.INSERT))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.INSERT))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.INSERT))
 		this.triggerSlot(2, "Released")
 }
 
@@ -716,11 +716,11 @@ JNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.J)
 }
 JNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.J))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.J))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.J))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.J))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.J))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.J))
 		this.triggerSlot(2, "Released")
 }
 
@@ -738,11 +738,11 @@ KNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.K)
 }
 KNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.K))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.K))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.K))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.K))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.K))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.K))
 		this.triggerSlot(2, "Released")
 }
 
@@ -760,11 +760,11 @@ LNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.L)
 }
 LNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.L))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.L))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.L))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.L))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.L))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.L))
 		this.triggerSlot(2, "Released")
 }
 
@@ -782,11 +782,11 @@ LeftNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.LEFT)
 }
 LeftNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.LEFT))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.LEFT))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.LEFT))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.LEFT))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.LEFT))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.LEFT))
 		this.triggerSlot(2, "Released")
 }
 
@@ -804,11 +804,11 @@ MNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.M)
 }
 MNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.M))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.M))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.M))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.M))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.M))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.M))
 		this.triggerSlot(2, "Released")
 }
 
@@ -826,11 +826,11 @@ NNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.N)
 }
 NNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.N))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.N))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.N))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.N))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.N))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.N))
 		this.triggerSlot(2, "Released")
 }
 
@@ -848,11 +848,11 @@ ONode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.O)
 }
 ONode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.O))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.O))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.O))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.O))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.O))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.O))
 		this.triggerSlot(2, "Released")
 }
 
@@ -870,11 +870,11 @@ PNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.P)
 }
 PNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.P))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.P))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.P))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.P))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.P))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.P))
 		this.triggerSlot(2, "Released")
 }
 
@@ -892,11 +892,11 @@ PageUpNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.PAGE_UP)
 }
 PageUpNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.PAGE_UP))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.PAGE_UP))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.PAGE_UP))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.PAGE_UP))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.PAGE_UP))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.PAGE_UP))
 		this.triggerSlot(2, "Released")
 }
 
@@ -914,11 +914,11 @@ PageDownNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.PAGE_DOWN)
 }
 PageDownNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.PAGE_DOWN))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.PAGE_DOWN))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.PAGE_DOWN))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.PAGE_DOWN))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.PAGE_DOWN))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.PAGE_DOWN))
 		this.triggerSlot(2, "Released")
 }
 
@@ -936,11 +936,11 @@ QNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.Q)
 }
 QNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.Q))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.Q))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.Q))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.Q))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.Q))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.Q))
 		this.triggerSlot(2, "Released")
 }
 
@@ -958,11 +958,11 @@ RNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.R)
 }
 RNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.R))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.R))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.R))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.R))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.R))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.R))
 		this.triggerSlot(2, "Released")
 }
 
@@ -980,11 +980,11 @@ RightNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.RIGHT)
 }
 RightNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.RIGHT))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.RIGHT))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.RIGHT))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.RIGHT))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.RIGHT))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.RIGHT))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1002,11 +1002,11 @@ SNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.S)
 }
 SNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.S))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.S))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.S))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.S))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.S))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.S))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1024,11 +1024,11 @@ ShiftNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.SHIFT)
 }
 ShiftNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.SHIFT))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.SHIFT))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.SHIFT))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.SHIFT))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.SHIFT))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.SHIFT))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1046,11 +1046,11 @@ SpacebarNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.SPACEBAR)
 }
 SpacebarNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.SPACEBAR))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.SPACEBAR))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.SPACEBAR))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.SPACEBAR))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.SPACEBAR))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.SPACEBAR))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1068,11 +1068,11 @@ TNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.T)
 }
 TNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.T))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.T))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.T))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.T))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.T))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.T))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1090,11 +1090,11 @@ TabNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.TAB)
 }
 TabNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.TAB))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.TAB))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.TAB))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.TAB))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.TAB))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.TAB))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1112,11 +1112,11 @@ UNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.U)
 }
 UNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.U))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.U))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.U))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.U))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.U))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.U))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1134,11 +1134,11 @@ UpNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.UP)
 }
 UpNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.UP))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.UP))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.UP))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.UP))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.UP))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.UP))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1156,11 +1156,11 @@ VNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.V)
 }
 VNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.V))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.V))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.V))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.V))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.V))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.V))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1178,11 +1178,11 @@ WNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.W)
 }
 WNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.W))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.W))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.W))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.W))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.W))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.W))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1200,11 +1200,11 @@ XNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.X)
 }
 XNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.X))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.X))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.X))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.X))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.X))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.X))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1222,11 +1222,11 @@ YNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.Y)
 }
 YNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.Y))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.Y))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.Y))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.Y))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.Y))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.Y))
 		this.triggerSlot(2, "Released")
 }
 
@@ -1244,11 +1244,11 @@ ZNode.prototype.onStart = function() {
 	this.setOutputData(3, Keyboard.Z)
 }
 ZNode.prototype.onExecute = function() {
-	if (Keyboard.keyPressed(Keyboard.Z))
+	if (this.graph.config.program.keyboard.keyPressed(Keyboard.Z))
 		this.triggerSlot(0, "Pressed")
-	if (Keyboard.keyJustPressed(Keyboard.Z))
+	if (this.graph.config.program.keyboard.keyJustPressed(Keyboard.Z))
 		this.triggerSlot(1, "JustPressed")
-	if (Keyboard.keyJustReleased(Keyboard.Z))
+	if (this.graph.config.program.keyboard.keyJustReleased(Keyboard.Z))
 		this.triggerSlot(2, "Released")
 }
 

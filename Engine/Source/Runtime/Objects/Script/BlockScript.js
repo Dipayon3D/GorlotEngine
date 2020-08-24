@@ -1,3 +1,11 @@
+/**
+ * BlockScripts are used to code in a graphic way
+ * This could be imagined as some kind of ue4 blueprints
+ * @class BlockScript
+ * @extends {THREE.Object}
+ * @param {Object} nodes
+ * @module Script
+ */
 function BlockScript(nodes, uuid, objType)
 {
 	THREE.Object3D.call(this);
@@ -9,6 +17,11 @@ function BlockScript(nodes, uuid, objType)
 
 	this.path = "/"
 
+    /**
+     * The current nodes of this block class
+     * @property nodes
+     * @type {Object}
+     */
 	this.nodes = {
 		config: {
 			blocks: "Blocks",
@@ -72,6 +85,11 @@ function BlockScript(nodes, uuid, objType)
 		this.nodes = nodes
 	}
 
+    /**
+     * The nodes graph (used for serialising and running the nodes)
+     * @property graph
+     * @type {LGraph}
+     */
 	this.graph = null
 
 	this.components = []
@@ -82,7 +100,10 @@ function BlockScript(nodes, uuid, objType)
 
 BlockScript.prototype = Object.create(THREE.Object3D.prototype);
 
-//Initialize
+/**
+ * Initialise this class and triggers every node in the graph that supports onStart
+ * @method initialize
+ */
 BlockScript.prototype.initialize = function()
 {
 	var self = this
@@ -117,18 +138,10 @@ BlockScript.prototype.initialize = function()
 	}
 }
 
-//Update script
-BlockScript.prototype.update = function()
-{
-	//Update children
-	for(var i = 0; i < this.children.length; i++)
-	{
-		this.children[i].update();
-	}
-
-	//this.run(this.graph)
-}
-
+/**
+ * Disposes the object and stops the execution of the graph
+ * @method dispose
+ */
 BlockScript.prototype.dispose = function() {
 
 	if(this.graph !== null) {
@@ -151,13 +164,22 @@ BlockScript.prototype.setPath = function(path) {
     }
 }
 
-// Update nodes
+/**
+ * Update the current nodes
+ * @param {Object} nodes
+ * @method updateNodes
+ */
 BlockScript.prototype.updateNodes = function(nodes) {
 	this.nodes = {}
 	this.nodes = nodes
 }
 
-// Serialise
+/**
+ * Create JSON for the blocks
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
 BlockScript.prototype.toJSON = function(meta) {
 	var data = THREE.Object3D.prototype.toJSON.call(this, meta)
 

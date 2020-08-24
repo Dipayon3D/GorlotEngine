@@ -1,16 +1,33 @@
 "use strict"
 
-// Physics Object constructor
+/**
+ * Wrapper for cannon.js Body physics objects
+ * @class PhysicsObject
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @module Physics
+ */
+
 function PhysicsObject() {
 	THREE.Object3D.call(this)
 
 	this.name = "physics"
 	this.type = "Physics"
 
+    /**
+     * CANNON.JS Body object
+     * @attribute body
+     * @type {CANNON.Body}
+     */
 	this.body = new CANNON.Body()
 	this.body.type = CANNON.Body.DYNAMIC
 	this.body.mass = 1.0
 
+    /**
+     * CANNON.JS World
+     * @attribute world
+     * @type {CANNON.World}
+     */
 	this.world = null
 
 	this.components = []
@@ -23,7 +40,11 @@ function PhysicsObject() {
 
 PhysicsObject.prototype = Object.create(THREE.Object3D.prototype)
 
-// Initialize physics object
+/**
+ * Initialise physics object and add it to the scene physics world
+ * Automatically called by the runtime handler (Editor / App)
+ * @method initialize
+ */
 PhysicsObject.prototype.initialize = function() {
 	this.body.position.copy(this.position)
 	this.body.quaternion.copy(this.quaternion)
@@ -44,7 +65,11 @@ PhysicsObject.prototype.initialize = function() {
 	}
 }
 
-// Update physics object
+/**
+ * Update object position and rotation based on cannon.js body
+ * Automatically called by the runtime handler (Editor / App)
+ * @method update
+ */
 PhysicsObject.prototype.update = function() {
 	this.position.copy(this.body.position)
 
@@ -58,14 +83,24 @@ PhysicsObject.prototype.update = function() {
 	}
 }
 
-// Add shape to physics object body
+/**
+ * Add shape to physics object body
+ * @param {CANNON.Shape} shape
+ * @method addShape
+ */
 PhysicsObject.prototype.addShape = function(shape) {
 	if (shape instanceof CANNON.Shape) {
 		this.body.addShape(shape)
 	}
 }
 
-// Create JSON for object
+/**
+ * Create JSON for object
+ * Need to backup material and geometry and set to undefined in order to avoid it being store
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
 PhysicsObject.prototype.toJSON = function(meta) {
 	var data = THREE.Object3D.prototype.toJSON.call(this, meta)
 

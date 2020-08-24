@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>../Source/Runtime/Objects/Physics/PhysicsObject.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AmbientLight.html">AmbientLight</a></li>
+                                <li><a href="../classes/AudioEmitter.html">AudioEmitter</a></li>
+                                <li><a href="../classes/BlockScript.html">BlockScript</a></li>
+                                <li><a href="../classes/Container.html">Container</a></li>
+                                <li><a href="../classes/DirectionalLight.html">DirectionalLight</a></li>
+                                <li><a href="../classes/FileSystem.html">FileSystem</a></li>
+                                <li><a href="../classes/GORLOT.html">GORLOT</a></li>
+                                <li><a href="../classes/HemisphereLight.html">HemisphereLight</a></li>
+                                <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/Keyboard.html">Keyboard</a></li>
+                                <li><a href="../classes/KinectDevice.html">KinectDevice</a></li>
+                                <li><a href="../classes/LeapMotion.html">LeapMotion</a></li>
+                                <li><a href="../classes/Mesh.html">Mesh</a></li>
+                                <li><a href="../classes/Mouse.html">Mouse</a></li>
+                                <li><a href="../classes/Object3D.html">Object3D</a></li>
+                                <li><a href="../classes/OrthographicCamera.html">OrthographicCamera</a></li>
+                                <li><a href="../classes/ParticleEmitter.html">ParticleEmitter</a></li>
+                                <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+                                <li><a href="../classes/PhysicsObject.html">PhysicsObject</a></li>
+                                <li><a href="../classes/PointLight.html">PointLight</a></li>
+                                <li><a href="../classes/PositionalAudio.html">PositionalAudio</a></li>
+                                <li><a href="../classes/RectAreaLight.html">RectAreaLight</a></li>
+                                <li><a href="../classes/ResourceManager.html">ResourceManager</a></li>
+                                <li><a href="../classes/Scene.html">Scene</a></li>
+                                <li><a href="../classes/Script.html">Script</a></li>
+                                <li><a href="../classes/SkinnedMesh.html">SkinnedMesh</a></li>
+                                <li><a href="../classes/Sky.html">Sky</a></li>
+                                <li><a href="../classes/SpineAnimation.html">SpineAnimation</a></li>
+                                <li><a href="../classes/SpineTexture.html">SpineTexture</a></li>
+                                <li><a href="../classes/SpotLight.html">SpotLight</a></li>
+                                <li><a href="../classes/Sprite.html">Sprite</a></li>
+                                <li><a href="../classes/Text3D.html">Text3D</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Animations.html">Animations</a></li>
+                                <li><a href="../modules/Audio.html">Audio</a></li>
+                                <li><a href="../modules/Cameras.html">Cameras</a></li>
+                                <li><a href="../modules/Core.html">Core</a></li>
+                                <li><a href="../modules/Devices.html">Devices</a></li>
+                                <li><a href="../modules/Input.html">Input</a></li>
+                                <li><a href="../modules/Lights.html">Lights</a></li>
+                                <li><a href="../modules/Meshes.html">Meshes</a></li>
+                                <li><a href="../modules/Misc.html">Misc</a></li>
+                                <li><a href="../modules/Particles.html">Particles</a></li>
+                                <li><a href="../modules/Physics.html">Physics</a></li>
+                                <li><a href="../modules/Resources.html">Resources</a></li>
+                                <li><a href="../modules/Runtime.html">Runtime</a></li>
+                                <li><a href="../modules/Script.html">Script</a></li>
+                                <li><a href="../modules/Sprite.html">Sprite</a></li>
+                                <li><a href="../modules/Textures.html">Textures</a></li>
+                                <li><a href="../modules/ThreeJS.html">ThreeJS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: ../Source/Runtime/Objects/Physics/PhysicsObject.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;
+
+/**
+ * Wrapper for cannon.js Body physics objects
+ * @class PhysicsObject
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @module Physics
+ */
+
+function PhysicsObject() {
+	THREE.Object3D.call(this)
+
+	this.name = &quot;physics&quot;
+	this.type = &quot;Physics&quot;
+
+    /**
+     * CANNON.JS Body object
+     * @attribute body
+     * @type {CANNON.Body}
+     */
+	this.body = new CANNON.Body()
+	this.body.type = CANNON.Body.DYNAMIC
+	this.body.mass = 1.0
+
+    /**
+     * CANNON.JS World
+     * @attribute world
+     * @type {CANNON.World}
+     */
+	this.world = null
+
+	this.components = []
+	this.defaultComponents = []
+
+	this.defaultComponents.push(new ElementComponent())
+	this.defaultComponents.push(new ObjectComponent())
+	this.defaultComponents.push(new PhysicsComponent())
+}
+
+PhysicsObject.prototype = Object.create(THREE.Object3D.prototype)
+
+/**
+ * Initialise physics object and add it to the scene physics world
+ * Automatically called by the runtime handler (Editor / App)
+ * @method initialize
+ */
+PhysicsObject.prototype.initialize = function() {
+	this.body.position.copy(this.position)
+	this.body.quaternion.copy(this.quaternion)
+	
+	// Get physics world
+	var node = this
+	while(node.parent !== null) {
+		node = node.parent
+		if(node instanceof Scene) {
+			this.world = node.world
+			this.world.addBody(this.body)
+		}
+	}
+
+	// Initialize children
+	for(var i = 0; i &lt; this.children.length; i++) {
+		this.children[i].initialize();
+	}
+}
+
+/**
+ * Update object position and rotation based on cannon.js body
+ * Automatically called by the runtime handler (Editor / App)
+ * @method update
+ */
+PhysicsObject.prototype.update = function() {
+	this.position.copy(this.body.position)
+
+	if(!this.body.fixedRotation) {
+		this.quaternion.copy(this.body.quaternion);
+	}
+
+	// Update children
+	for(var i = 0; i &lt; this.children.length; i++) {
+		this.children[i].update()
+	}
+}
+
+/**
+ * Add shape to physics object body
+ * @param {CANNON.Shape} shape
+ * @method addShape
+ */
+PhysicsObject.prototype.addShape = function(shape) {
+	if (shape instanceof CANNON.Shape) {
+		this.body.addShape(shape)
+	}
+}
+
+/**
+ * Create JSON for object
+ * Need to backup material and geometry and set to undefined in order to avoid it being store
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
+PhysicsObject.prototype.toJSON = function(meta) {
+	var data = THREE.Object3D.prototype.toJSON.call(this, meta)
+
+	// Body
+	data.object.body = {}
+	data.object.body.type = this.body.type
+	data.object.body.mass = this.body.mass
+	data.object.body.linearDamping = this.body.linearDamping
+	data.object.body.angularDamping = this.body.angularDamping
+	data.object.body.allowSleep = this.body.allowSleep
+	data.object.body.sleepSpeedLimit = this.body.sleepSpeedLimit
+	data.object.body.sleepTimeLimit = this.body.sleepTimeLimit
+	data.object.body.collisionFilterGroup = this.body.collisionFilterGroup
+	data.object.body.collisionFilterMask = this.body.collisionFilterMask
+	data.object.body.fixedRotation = this.body.fixedRotation
+	data.object.body.shapes = []
+
+	// Shapes array
+	var shapes = this.body.shapes
+	for(var i = 0; i &lt; shapes.length; i++) {
+		var shape = shapes[i]
+		var values = {}
+
+		// Shape type
+		values.type = shape.type
+
+		if(shape.type === CANNON.Shape.types.SPHERE) {
+			values.radius = shape.radius
+		} else if(shape.type === CANNON.Shape.types.BOX) {
+			values.halfExtents = {}
+			values.halfExtents.x = shape.halfExtents.x
+			values.halfExtents.y = shape.halfExtents.y
+			values.halfExtents.z = shape.halfExtents.z
+		} else if(shape.type === CANNON.Shape.types.CONVEXPOLYHEDRON) {
+			values.vertices = shape.vertices
+			values.faces = shape.faces
+		} /*else if (shape.type === CANNON.Shape.types.TRIMESH) {
+			values.vertices = shape.vertices
+			values.normals = shape.normals
+			values.edges = shape.edges
+			values.indices = shape.indices
+		}*/
+
+		// Add shape
+		data.object.body.shapes[i] = values
+	}
+
+	return data
+}
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

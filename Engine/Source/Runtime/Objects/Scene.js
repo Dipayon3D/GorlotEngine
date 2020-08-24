@@ -1,6 +1,12 @@
 "use strict"
 
-//Scene constructor
+/**
+ * Scene
+ * @class Scene
+ * @module Core
+ * @constructor
+ * @extends {THREE.Object3D}
+ */
 function Scene()
 {
 	THREE.Scene.call(this)
@@ -29,6 +35,7 @@ function Scene()
 	this.cameras = []
 
 	// Renderer canvas
+    this.program = null
     this.canvas = null
 
     // Mouse normalised
@@ -45,11 +52,14 @@ Scene.prototype = Object.create(THREE.Scene.prototype)
 //Initialize
 Scene.prototype.initialize = function()
 {
-    // Get canvas from program
+    // Canvas and program
+    this.program = this.parent
 	this.canvas = this.parent.canvas
 
+    // Start clock
     this.clock.start()
 
+    // Initialize children
 	for(var i = 0; i < this.children.length; i++)
 	{
 		this.children[i].initialize()
@@ -59,7 +69,7 @@ Scene.prototype.initialize = function()
 //Update scene
 Scene.prototype.update = function()
 {
-	this.mouse.set(Mouse.position.x/this.canvas.width * 2 - 1, -2 * Mouse.position.y / this.canvas.height + 1)
+	this.mouse.set(this.program.mouse.position.x/this.canvas.width * 2 - 1, -2 * this.program.mouse.position.y / this.canvas.height + 1)
 
 	// for(var i = 0; i < this.cameras.length; i++) {
 		// this.raycaster.setFromCamera(mouse, this.cameras[i])

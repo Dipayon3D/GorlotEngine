@@ -1,5 +1,20 @@
 "use strict"
 
+/**
+ * Same as THREE.SpotLight
+ * Documentation for the object can be found at https://threejs.org/docs/index.html#api/en/lights/SpotLight
+ *
+ * @param {Number} hex Light colour in hex RGB
+ * @param {Number} intensity Light intensity
+ * @param {Number} distance SpotLight maximum range
+ * @param {Number} angle
+ * @param {Number} exponent
+ * @param {Number} decay
+ * @class SpotLight
+ * @extends {THREE.SpotLight}
+ * @module Lights
+ * @constructor
+ */
 function SpotLight(hex, intensity, distance, angle, exponent, decay)
 {
 	THREE.SpotLight.call(this, hex, intensity, distance, angle, exponent, decay)
@@ -21,10 +36,12 @@ function SpotLight(hex, intensity, distance, angle, exponent, decay)
 	this.defaultComponents.push(new LightComponent())
 }
 
-//Function Prototype
 SpotLight.prototype = Object.create(THREE.SpotLight.prototype)
 
-//Update ligth shadow map
+/**
+ * Update light shadow map attributes at runtime
+ * @method updateShadowMap
+ */
 SpotLight.prototype.updateShadowMap = function()
 {
 	this.shadow.map.dispose()

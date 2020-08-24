@@ -1,6 +1,33 @@
 "use strict";
 
-// Mesh constructor
+/**
+ * Meshes are used to combine a geometry and a material, forming a complete renderisable
+ * @class Mesh
+ * @module Meshes
+ * @param {Geometry} geometry Geometry used by this mesh
+ * @param {Material} material Material used to shade the surface of the geometry
+ * @constructor
+ * @extends {THREE.Mesh}
+ */
+
+/**
+ * Geometry defined by the object structure
+ * @property geometry
+ * @type {Geometry}
+ */
+
+/**
+ * Material is used to define how the geometry surface is shaded
+ * @property material
+ * @type {Material}
+ */
+
+/**
+ * Determines how the mesh triangles are constructed from the vertices.
+ * Only works when the geometry is a BufferGeometry
+ * @property drawMode
+ * @default TrianglesDrawMode
+ */
 function Mesh(geometry, material)
 {
 	THREE.Mesh.call(this, geometry, material);
@@ -17,10 +44,12 @@ function Mesh(geometry, material)
 	this.defaultComponents.push(new ObjectComponent())
 }
 
-// Super prototype
 Mesh.prototype = Object.create(THREE.Mesh.prototype);
 
-// Dispose model
+/**
+ * Dispose model along with its material and geometry
+ * @method dispose
+ */
 Mesh.prototype.dispose = function()
 {
 	//Dipose material and geometry

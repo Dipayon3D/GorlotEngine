@@ -1,5 +1,13 @@
 "use strict"
 
+/**
+ * PositionalAudio is used to play a sound with positional audio effect
+ * @param {Audio} audio Audio used by this emitter
+ * @class PositionalAudio
+ * @extends {THREE.PositionalAudio}
+ * @module Audio
+ * @constructor
+ */
 function PositionalAudio(audio) {
     THREE.PositionalAudio.call(this, AudioEmitter.listener)
 
@@ -8,11 +16,44 @@ function PositionalAudio(audio) {
 
     this.audio = (audio !== undefined) ? audio : null
 
+    /**
+     * Audio volume
+     * @property volume
+     * @default 1.0
+     * @type {Number}
+     */
     this.volume = 1.0
 
+    /**
+     * If true, the playback starts automatically
+     * @property autoplay
+     * @default true
+     * @type {Boolean}
+     */
     this.autoplay = true
+
+    /**
+     * Handles the speed of the playback
+     * @property playbackRate
+     * @default 1.0
+     * @type {Number}
+     */
     this.playbackRate = 1.0
+
+    /**
+     * Start time (in seconds)
+     * @property startTime
+     * @default 0.0
+     * @type {Number}
+     */
     this.startTime = 0
+
+    /**
+     * If true, the audio plays in loop
+     * @property loop
+     * @default true
+     * @type {Boolean}
+     */
     this.loop = true
 
     this.isPlaying = false
@@ -31,10 +72,12 @@ function PositionalAudio(audio) {
 	this.defaultComponents.push(new AudioComponent())
 }
 
-// Super prototypes
 PositionalAudio.prototype = Object.create(THREE.Audio.prototype)
 
-// Initialise audio object
+/**
+ * Initialise audio object (automatically called by runtime handler - Editor / App - )
+ * @method initialize
+ */
 PositionalAudio.prototype.initialize = function() {
     var self = this
 
@@ -60,7 +103,10 @@ PositionalAudio.prototype.initialize = function() {
     }
 }
 
-// Update audio position
+/**
+ * Update positional audio state
+ * @method update
+ */
 PositionalAudio.prototype.update = function() {
     this.tempA.setFromMatrixPosition(this.matrixWorld)
 
@@ -77,7 +123,10 @@ PositionalAudio.prototype.update = function() {
     }
 }
 
-// Dispose audio object
+/**
+ * Dispose audio object
+ * @method dispose
+ */
 PositionalAudio.prototype.dispose = function() {
     if(this.isPlaying) {
         this.stop()
@@ -89,7 +138,12 @@ PositionalAudio.prototype.dispose = function() {
     }
 }
 
-// Set volume
+/**
+ * Sets the audio emitter volume
+ * @method setVolume
+ * @param {Number} value Audio volume
+ * @return {PositionalAudio} Self pointer for chaining
+ */
 PositionalAudio.prototype.setVolume = function(value) {
     this.volume = value
     this.gain.gain.value = value
@@ -102,7 +156,12 @@ PositionalAudio.prototype.setVolume = function(value) {
     Object3D.prototype.updateMatrixWorld.call(this, force)
 }*/
 
-// Create JSON description
+/**
+ * Create JSON description
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} JSON description
+ */
 PositionalAudio.prototype.toJSON = function(meta) {
     var audio = this.audio
     var data = THREE.Object3D.prototype.toJSON.call(this, meta, (meta, object) => {
@@ -118,3 +177,42 @@ PositionalAudio.prototype.toJSON = function(meta) {
 
     return data
 }
+
+/**
+ * Starts playback
+ * @method play
+ */
+
+/**
+ * Pauses playback
+ * @method pause
+ */
+
+/**
+ * Stops playback and resets time to 0
+ * @method stop
+ */
+
+/**
+ * Set loop mode
+ * @param {Boolean} loop
+ * @method setLoop
+ */
+
+/**
+ * Set playback speed
+ * @param {Number} speed
+ * @method setPlaybackRate
+ */
+
+/**
+ * Add the filter to the filters array
+ * @method setFilter
+ * @param {Object} filter
+ */
+
+/**
+ * Sets the filters array to value
+ * @method setFilters
+ * @param {Array} value
+ */

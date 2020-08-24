@@ -163,7 +163,7 @@ MaterialEditor.prototype.activate = function() {
 	Register.registerMaterialNodes()
 
 	Editor.setState(Editor.STATE_IDLE)
-	Mouse.setCanvas(this.canvas.element)
+	Editor.mouse.setCanvas(this.canvas.element)
 	Editor.resetEditingFlags()
 }
 
@@ -222,16 +222,16 @@ MaterialEditor.prototype.update = function() {
 	}
 
 	// Move material view
-	if(Mouse.insideCanvas()) {
+	if(Editor.mouse.insideCanvas()) {
 		// Rotate object
-		if(Mouse.buttonPressed(Mouse.LEFT)) {
+		if(Editor.mouse.buttonPressed(Mouse.LEFT)) {
 			var delta = new THREE.Quaternion()
-			delta.setFromEuler(new THREE.Euler(Mouse.delta.y * 0.005, Mouse.delta.x * 0.005, 0, 'XYZ'))
+			delta.setFromEuler(new THREE.Euler(Editor.mouse.delta.y * 0.005, Editor.mouse.delta.x * 0.005, 0, 'XYZ'))
 			this.mesh.quaternion.multiplyQuaternions(delta, this.mesh.quaternion)
 		}
 
 		// Change Geometry
-		if (Mouse.buttonJustPressed(Mouse.RIGHT)) {
+		if (Editor.mouse.buttonJustPressed(Mouse.RIGHT)) {
 			if (this.mesh.geometry instanceof THREE.SphereBufferGeometry)
 				this.mesh.geometry = new THREE.TorusBufferGeometry(0.8, 0.4, 32, 64)
 			else if (this.mesh.geometry instanceof THREE.TorusBufferGeometry)
@@ -243,7 +243,7 @@ MaterialEditor.prototype.update = function() {
 		}
 
 		// Zoom
-		this.camera.position.z += Mouse.wheel * 0.03
+		this.camera.position.z += Editor.mouse.wheel * 0.03
 
 		if(this.camera.position.z > 20) {
 			this.camera.position.z = 20

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>../Source/Runtime/Objects/Device/KinectDevice.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AmbientLight.html">AmbientLight</a></li>
+                                <li><a href="../classes/AudioEmitter.html">AudioEmitter</a></li>
+                                <li><a href="../classes/BlockScript.html">BlockScript</a></li>
+                                <li><a href="../classes/Container.html">Container</a></li>
+                                <li><a href="../classes/DirectionalLight.html">DirectionalLight</a></li>
+                                <li><a href="../classes/FileSystem.html">FileSystem</a></li>
+                                <li><a href="../classes/GORLOT.html">GORLOT</a></li>
+                                <li><a href="../classes/HemisphereLight.html">HemisphereLight</a></li>
+                                <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/Keyboard.html">Keyboard</a></li>
+                                <li><a href="../classes/KinectDevice.html">KinectDevice</a></li>
+                                <li><a href="../classes/LeapMotion.html">LeapMotion</a></li>
+                                <li><a href="../classes/Mesh.html">Mesh</a></li>
+                                <li><a href="../classes/Mouse.html">Mouse</a></li>
+                                <li><a href="../classes/Object3D.html">Object3D</a></li>
+                                <li><a href="../classes/OrthographicCamera.html">OrthographicCamera</a></li>
+                                <li><a href="../classes/ParticleEmitter.html">ParticleEmitter</a></li>
+                                <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+                                <li><a href="../classes/PhysicsObject.html">PhysicsObject</a></li>
+                                <li><a href="../classes/PointLight.html">PointLight</a></li>
+                                <li><a href="../classes/PositionalAudio.html">PositionalAudio</a></li>
+                                <li><a href="../classes/RectAreaLight.html">RectAreaLight</a></li>
+                                <li><a href="../classes/ResourceManager.html">ResourceManager</a></li>
+                                <li><a href="../classes/Scene.html">Scene</a></li>
+                                <li><a href="../classes/Script.html">Script</a></li>
+                                <li><a href="../classes/SkinnedMesh.html">SkinnedMesh</a></li>
+                                <li><a href="../classes/Sky.html">Sky</a></li>
+                                <li><a href="../classes/SpineAnimation.html">SpineAnimation</a></li>
+                                <li><a href="../classes/SpineTexture.html">SpineTexture</a></li>
+                                <li><a href="../classes/SpotLight.html">SpotLight</a></li>
+                                <li><a href="../classes/Sprite.html">Sprite</a></li>
+                                <li><a href="../classes/Text3D.html">Text3D</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Animations.html">Animations</a></li>
+                                <li><a href="../modules/Audio.html">Audio</a></li>
+                                <li><a href="../modules/Cameras.html">Cameras</a></li>
+                                <li><a href="../modules/Core.html">Core</a></li>
+                                <li><a href="../modules/Devices.html">Devices</a></li>
+                                <li><a href="../modules/Input.html">Input</a></li>
+                                <li><a href="../modules/Lights.html">Lights</a></li>
+                                <li><a href="../modules/Meshes.html">Meshes</a></li>
+                                <li><a href="../modules/Misc.html">Misc</a></li>
+                                <li><a href="../modules/Particles.html">Particles</a></li>
+                                <li><a href="../modules/Physics.html">Physics</a></li>
+                                <li><a href="../modules/Resources.html">Resources</a></li>
+                                <li><a href="../modules/Runtime.html">Runtime</a></li>
+                                <li><a href="../modules/Script.html">Script</a></li>
+                                <li><a href="../modules/Sprite.html">Sprite</a></li>
+                                <li><a href="../modules/Textures.html">Textures</a></li>
+                                <li><a href="../modules/ThreeJS.html">ThreeJS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: ../Source/Runtime/Objects/Device/KinectDevice.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+
+/**
+ * Kinect device object
+ * This object is used to connect Gorlot to a Microsoft Kinect v1, it only works in Microsoft Windows.
+ * The operation of the kinect object depends on a server program used to connect to kinect that sends the data to nunuStudio via WebSocket.
+ * @class KinectDevice
+ * @extends {THREE.Object3D}
+ * @constructor
+ * @module Devices
+ */
+function KinectDevice()
+{
+	THREE.Object3D.call(this);
+
+	this.type = &quot;Kinect&quot;;
+	this.name = &quot;kinect&quot;;
+
+    /**
+     * Websocket used to connect to the data server
+     * @property socket
+     * @default 127.0.0.1:8181
+     * @type {Object}
+     */
+	this.socket = new WebSocket(&quot;ws://127.0.0.1:8181&quot;);
+
+    /**
+     * Connected flag
+     * @property connected
+     * @type {Boolean}
+     */
+	this.connected = false;
+
+    /**
+     * Debug model flag
+     * @property debugModel
+     * @default true
+     * @type {Boolean}
+     */
+	this.debugModel = true;
+
+    /**
+     * Time until data is considered too obsolete to be usable
+     * @property dataTimeout
+     * @type {Number}
+     */
+	this.dataTimeout = 0;
+
+	this.camera = null;
+
+    /**
+     * Skeleton data sent by the kinect
+     * @property data
+     * @type {Object}
+     */
+	this.data = null;
+
+	this.dataReceived = false;
+
+	//Self pointer
+	var self = this;
+
+	//Connection established
+	this.socket.onopen = function()
+	{
+		self.connected = true;
+	};
+
+	//Connection closed
+	this.socket.onclose = function()
+	{
+		self.connected = false;
+	};
+
+	//Receive data from the server
+	this.socket.onmessage = function(event)
+	{
+		//Point data received
+		if(typeof event.data === &quot;string&quot;)
+		{
+			self.data = JSON.parse(event.data);
+			self.dataReceived = true;
+			self.dataTimeout = KinectDevice.DATA_TIMEOUT;
+		}
+		//Camera feed can be collected using URL.createObjectURL(event.data)
+		else if(event.data instanceof Blob)
+		{
+			self.camera = event.data;
+		}
+	};
+
+	this.components = []
+	this.defaultComponents = []
+
+	this.defaultComponents.push(new ElementComponent())
+	this.defaultComponents.push(new ObjectComponent())
+	this.defaultComponents.push(new KinectComponent())
+}
+
+/**
+ * Kinect default data timeout in seconds
+ * @attribute DATA_TIMEOUT
+ * @type {Number}
+ */
+KinectDevice.DATA_TIMEOUT = 20;
+
+/**
+ * Kinect camera depth mode
+ * @attribute DEPTH
+ * @type {number}
+ */
+KinectDevice.DEPTH = 0;
+
+/**
+ * Kinect camera colour mode
+ * @attribute COLOR
+ * @type {Number}
+ */
+KinectDevice.COLOR = 1;
+
+/**
+ * Kinect skeleton joint names in pairs
+ * @attribute JOINTS_NAME
+ * @type {Array}
+ */
+KinectDevice.JOINTS_NAME = [[&quot;head&quot;,&quot;shouldercenter&quot;],[&quot;shouldercenter&quot;,&quot;shoulderright&quot;],[&quot;shouldercenter&quot;,&quot;shoulderleft&quot;],[&quot;shoulderright&quot;,&quot;elbowright&quot;],
+							[&quot;shoulderleft&quot;,&quot;elbowleft&quot;],[&quot;elbowright&quot;,&quot;wristright&quot;],[&quot;elbowleft&quot;,&quot;wristleft&quot;],[&quot;wristright&quot;,&quot;handright&quot;],[&quot;wristleft&quot;,&quot;handleft&quot;],
+							[&quot;shouldercenter&quot;,&quot;spine&quot;],[&quot;spine&quot;,&quot;hipcenter&quot;],[&quot;hipcenter&quot;,&quot;hipright&quot;],[&quot;hipcenter&quot;,&quot;hipleft&quot;],[&quot;hipright&quot;,&quot;kneeright&quot;],
+							[&quot;hipleft&quot;,&quot;kneeleft&quot;],[&quot;kneeright&quot;,&quot;ankleright&quot;],[&quot;kneeleft&quot;,&quot;ankleleft&quot;],[&quot;ankleright&quot;,&quot;footright&quot;],[&quot;ankleleft&quot;,&quot;footleft&quot;]];
+
+KinectDevice.prototype = Object.create(THREE.Object3D.prototype);
+
+/**
+ * Update kinect device state
+ * @method update
+ */
+KinectDevice.prototype.update = function()
+{
+	//Check if there is data to process
+	if(this.data !== null)
+	{
+		if(this.dataReceived)
+		{
+			//Clear data received flag
+			this.dataReceived = false;
+
+			//Remove all children
+			while(this.children.length &gt; 0)
+			{
+				this.children.pop();
+			}
+
+			//Show debug model
+			if(this.debugModel)
+			{
+				var geometry = new THREE.SphereGeometry(0.04, 6, 6);
+				var material = new THREE.MeshPhongMaterial(0xff0000);
+
+				//Fill with new data
+				for(var j = 0; j &lt; this.data.skeletons.length; j++)
+				{
+					var joints = this.data.skeletons[j].joints;
+					for(var i = 0; i &lt; joints.length; i++)
+					{
+						var model = new Mesh(geometry, material);
+						model.position.set(joints[i].x, joints[i].y, joints[i].z);
+						model.castShadow = true;
+						this.add(model);
+					}
+				}
+			}
+		}
+		else if(this.dataTimeout &gt; 0)
+		{
+			this.dataTimeout--;
+
+			//If timeout Remove all children
+			if(this.dataTimeout === 0)
+			{
+				while(this.children.length &gt; 0)
+				{
+					this.children.pop();
+				}
+			}
+		}
+	}
+
+	//Update children
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].update();
+	}
+}
+
+/**
+ * Check if there is a kinect connected
+ * @method isConnected
+ * @return {Boolean} Returns true if there is a kinect connected
+ */
+KinectDevice.prototype.isConnected = function()
+{
+	return this.connected;
+}
+
+/**
+ * Set kinect camera mode
+ * @method setCameraMode
+ * @param {Boolean} mode
+ */
+KinectDevice.prototype.setCameraMode = function(mode)
+{
+	if(mode === KinectDevice.COLOR)
+	{
+		socket.send(&quot;Color&quot;);
+	}
+	else if(mode === KinectDevice.DEPTH)
+	{
+		socket.send(&quot;Depth&quot;);
+	}
+}
+
+/**
+ * Create JSON for object
+ * @param {Object} meta
+ * @method toJSON
+ */
+KinectDevice.prototype.toJSON = function(meta)
+{
+	var data = THREE.Object3D.prototype.toJSON.call(this, meta);
+
+	data.object.debugModel = this.debugModel;
+
+	return data;
+}
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -177,7 +177,7 @@ ParticleEditor.prototype.activate = function() {
 	Editor.resetEditingFlags()
 
 	// Set mouse canvas
-	Mouse.setCanvas(this.canvas.element)
+	Editor.mouse.setCanvas(this.canvas.element)
 }
 
 // On close
@@ -198,11 +198,11 @@ ParticleEditor.prototype.update = function() {
 	this.main.update()
 
 	// Get mouse input
-	if (Mouse.insideCanvas()) {
+	if (Editor.mouse.insideCanvas()) {
 		// Move camera
-		if (Mouse.buttonPressed(Mouse.LEFT)) {
-			this.cameraRotation.x -= 0.003 * Mouse.delta.x
-			this.cameraRotation.y -= 0.003 * Mouse.delta.y
+		if (Editor.mouse.buttonPressed(Mouse.LEFT)) {
+			this.cameraRotation.x -= 0.003 * Editor.mouse.delta.x
+			this.cameraRotation.y -= 0.003 * Editor.mouse.delta.y
 
 			// Limit Vertical Rotation to 90 degrees
 			var pid2 = 1.57
@@ -214,7 +214,7 @@ ParticleEditor.prototype.update = function() {
 		}
 
 		// Camera zoom
-		this.cameraDistance += Mouse.wheel * 0.005
+		this.cameraDistance += Editor.mouse.wheel * 0.005
 		if (this.cameraDistance < 0.1) {
 			this.cameraDistance = 0.1
 		}

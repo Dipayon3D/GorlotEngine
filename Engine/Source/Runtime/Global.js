@@ -58,6 +58,11 @@ var TubeGeometry = THREE.TubeGeometry
 var WireframeGeometry = THREE.WireframeGeometry
 var TubeBufferGeometry = THREE.TubeBufferGeometry
 
+// Draw mode
+var TrianglesDrawMode = THREE.TrianglesDrawMode
+var TriangleStripDrawMode = THREE.TriangleStripDrawMode
+var TriangleFanDrawMode = THREE.TriangleFanDrawMode
+
 //Math
 var Box2 = THREE.Box2;
 var Box3 = THREE.Box3;

@@ -1,328 +1,421 @@
-"use strict";
+"use strict"
 
-function Mouse(){}
-
-//Mouse Atached to camera
-Mouse.initialize = function()
+/**
+ * Mouse instance for input in sync with the running 3D application, is updated automatically by the runtime handler (Editor/App)
+ * @class Mouse
+ * @module Input
+ * @constructor
+ */
+function Mouse()
 {
-	//Mouse raw data
-	Mouse._keys = [];
-	Mouse._position = new THREE.Vector2(0,0);
-	Mouse._positionUpdated = false;
-	Mouse._delta = new THREE.Vector2(0,0);
-	Mouse._wheel = 0;
-	Mouse._wheelUpdated = false;
-	Mouse._doubleClicked = false;
+	// Raw data
+	this._keys = []
+	this._position = new THREE.Vector2(0,0)
+	this._positionUpdated = false
+	this._delta = new THREE.Vector2(0,0)
+	this._wheel = 0
+	this._wheelUpdated = false
+	this._doubleClicked = false
 
-	//Mouse position, delta, and scroll speed
-	Mouse.keys = [];
-	Mouse.position = new THREE.Vector2(0,0);
-	Mouse.delta = new THREE.Vector2(0,0);
-	Mouse.wheel = 0;
-	Mouse.doubleClicked = false;
+    /**
+     * Array with mouse buttons status
+     * @type {Array}
+     * @property keys
+     */
+	this.keys = []
 
-	//Calculate coordinates relative to canvas
-	Mouse.canvas = null;
+    /**
+     * Mouse position inside of the window (coordinates in window space)
+     * @type {Vector2}
+     * @property position
+     */
+	this.position = new THREE.Vector2(0,0)
 
-	//Events
-	Mouse.events = [];
+    /**
+     * Mouse movement (coordinates in window space)
+     * @type {Vector}
+     * @property delta
+     */
+	this.delta = new THREE.Vector2(0,0)
 
-	//Initialize key instances
+    /**
+     * Mouse scroll wheel movement
+     * @type {Number}
+     * @property wheel
+     */
+	this.wheel = 0
+	this.doubleClicked = false
+
+    /**
+     * Canvas attached to this mouse instance, used to calculate position and delta in canvas space coordinates
+     * @type {DOM}
+     * @property canvas
+     */
+	this.canvas = null
+
+	// Events
+	this.events = []
+
+	// Initialize key instances
 	for(var i = 0; i < 3; i++)
 	{
-		Mouse._keys.push(new Key());
-		Mouse.keys.push(new Key());
+		this._keys.push(new Key())
+		this.keys.push(new Key())
 	}
 
-	//Scroll wheel
-	if(window.onmousewheel !== undefined)
-	{
-		//Chrome, edge
-		Mouse.events.push([window, "mousewheel", function(event)
+    // Self pointer
+    var self = this
+
+	// Scroll wheel
+	if(window.onmousewheel !== undefined) {
+		// Chrome, edge
+		this.events.push([window, "mousewheel", function(event)
 		{
-			Mouse._wheel = event.deltaY;
-			Mouse._wheelUpdated = true;
-		}]);
-	}
-	else if(window.addEventListener !== undefined)
-	{
-		//Firefox
-		Mouse.events.push([window, "DOMMouseScroll", function(event)
+			self._wheel = event.deltaY
+			self._wheelUpdated = true
+		}])
+	} else if(window.addEventListener !== undefined) {
+		// Firefox
+		this.events.push([window, "DOMMouseScroll", function(event)
 		{
-			Mouse._wheel = event.detail * 30;
-			Mouse._wheelUpdated = true;
-		}]);
-	}
-	else
-	{
-		Mouse.events.push([window, "wheel", function(event)
+			self._wheel = event.detail * 30
+			self._wheelUpdated = true
+		}])
+	} else {
+		this.events.push([window, "wheel", function(event)
 		{
-			Mouse._wheel = event.deltaY;
-			Mouse._wheelUpdated = true;
-		}]);
+			self._wheel = event.deltaY
+			self._wheelUpdated = true
+		}])
 	}
 
 	//Touchscreen input
 	if("ontouchstart" in window || navigator.msMaxTouchPoints > 0)
 	{
 		//Auxiliar variables to calculate touch delta
-		var lastTouch = new THREE.Vector2(0, 0);
+		var lastTouch = new Vector2(0, 0)
 
 		//Touch screen pressed event
-		Mouse.events.push([window, "touchstart", function(event)
+		this.events.push([window, "touchstart", function(event)
 		{
-			var touch = event.touches[0];
-			lastTouch.set(touch.clientX, touch.clientY);
-			Mouse.updateKey(Mouse.LEFT, Key.DOWN);
-		}]);
+			var touch = event.touches[0]
+			lastTouch.set(touch.clientX, touch.clientY)
+			self.updateKey(Mouse.LEFT, Key.DOWN)
+		}])
 
 		//Touch screen released event
-		Mouse.events.push([window, "touchend", function(event)
+		this.events.push([window, "touchend", function(event)
 		{
-			Mouse.updateKey(Mouse.LEFT, Key.UP);
-		}]);
+			self.updateKey(Mouse.LEFT, Key.UP)
+		}])
 
 		//Touch screen move event
-		Mouse.events.push([window, "touchmove", function(event)
+		this.events.push([window, "touchmove", function(event)
 		{
-			var touch = event.touches[0];
+			var touch = event.touches[0]
 
-			if(Mouse.canvas !== null)
+			if(self.canvas !== null)
 			{
-				var rect = Mouse.canvas.getBoundingClientRect();
-				Mouse.updatePosition(touch.clientX - rect.left, touch.clientY - rect.top, touch.clientX - lastTouch.x, touch.clientY - lastTouch.y);
+				var rect = self.canvas.getBoundingClientRect()
+				self.updatePosition(touch.clientX - rect.left, touch.clientY - rect.top, touch.clientX - lastTouch.x, touch.clientY - lastTouch.y)
 			}
 			else
 			{
-				Mouse.updatePosition(touch.clientX, touch.clientY, touch.clientX - lastTouch.x, touch.clientY - lastTouch.y);
+				self.updatePosition(touch.clientX, touch.clientY, touch.clientX - lastTouch.x, touch.clientY - lastTouch.y)
 			}
 
-			lastTouch.set(touch.clientX, touch.clientY);
-		}]);
+			lastTouch.set(touch.clientX, touch.clientY)
+		}])
 	}
 	//Input
 	else
 	{
 		//Move event
-		Mouse.events.push([window, "mousemove", function(event)
+		this.events.push([window, "mousemove", function(event)
 		{
-			if(Mouse.canvas !== null)
+			if(self.canvas !== null)
 			{
-				var rect = Mouse.canvas.getBoundingClientRect();
-				Mouse.updatePosition(event.clientX - rect.left, event.clientY - rect.top, event.movementX, event.movementY);
+				var rect = self.canvas.getBoundingClientRect()
+				self.updatePosition(event.clientX - rect.left, event.clientY - rect.top, event.movementX, event.movementY)
 			}
 			else
 			{
-				Mouse.updatePosition(event.clientX, event.clientY, event.movementX, event.movementY);
+				self.updatePosition(event.clientX, event.clientY, event.movementX, event.movementY)
 			}
-		}]);
+		}])
 
 		//Button pressed event
-		Mouse.events.push([window, "mousedown", function(event)
+		this.events.push([window, "mousedown", function(event)
 		{
-			Mouse.updateKey(event.which - 1, Key.DOWN);
-		}]);
+			self.updateKey(event.which - 1, Key.DOWN)
+		}])
 
 		//Button released event
-		Mouse.events.push([window, "mouseup", function(event)
+		this.events.push([window, "mouseup", function(event)
 		{
-			Mouse.updateKey(event.which - 1, Key.UP);
-		}]);
+			self.updateKey(event.which - 1, Key.UP)
+		}])
 	}
 
 	//Mouse double click
-	Mouse.events.push([window, "dblclick", function(event)
+	this.events.push([window, "dblclick", function(event)
 	{
-		Mouse._doubleClicked = true;
-	}]);
+		self._doubleClicked = true
+	}])
 
 	//Initialize events
-	for(var i = 0; i < Mouse.events.length; i++)
+	for(var i = 0; i < this.events.length; i++)
 	{
-		var event = Mouse.events[i];
-		event[0].addEventListener(event[1], event[2], false);
+		var event = this.events[i]
+		event[0].addEventListener(event[1], event[2])
 	}
 }
 
-//Mouse Buttons
-Mouse.LEFT = 0;
-Mouse.MIDDLE = 1;
-Mouse.RIGHT = 2;
+// Mouse prototype
+Mouse.prototype = Mouse
 
-//Canvas to be used for relative coordinates calculation
+/**
+ * LEFT mouse button
+ * @attribute LEFT
+ * @type {Number}
+ */
+Mouse.LEFT = 0
+
+/**
+ * MIDDLE mouse button
+ * @attribute MIDDLE
+ * @type {Number}
+ */
+Mouse.MIDDLE = 1
+
+/**
+ * Right mouse button
+ * @attribute RIGHT
+ * @type {Number}
+ */
+Mouse.RIGHT = 2
+
+/**
+ * Canvas to be used for coordinates calculation relative to that canvas
+ * @method setCanvas
+ * @param {DOM} canvas Canvas to be attached to the Mouse instance
+ */
 Mouse.setCanvas = function(canvas)
 {
-	Mouse.canvas = canvas;
+	this.canvas = canvas
 
-	canvas.mouseInside = false;
+	canvas.mouseInside = false
 
 	canvas.addEventListener("mouseenter", function()
 	{
-		this.mouseInside = true;
-	}, false);
+		this.mouseInside = true
+	})
 
 	canvas.addEventListener("mouseleave", function()
 	{
-		this.mouseInside = false;
-	}, false);
+		this.mouseInside = false
+	})
 }
 
-//Check if mouse is inside attached canvas
+/**
+ * Check if mouse is inside attached canvas (updated async)
+ * @method insideCanvas
+ * @return {Boolean} Returns true if mouse is currently inside the canvas
+ */
 Mouse.insideCanvas = function()
 {
-	if(Mouse.canvas === null)
+	if(this.canvas === null)
 	{
-		return false;
+		return false
 	}
 	
-	return Mouse.canvas.mouseInside;
+	return this.canvas.mouseInside
 }
 
-//Set if mouse locked
+/**
+ * Set mouse lock state
+ * @method setLock
+ * @param {Boolean} value If true pointer lock will be requested for the canvas attached to the Mouse instance
+ */
 Mouse.setLock = function(value)
 {
-	if(Mouse.canvas !== null)
+	if(this.canvas !== null)
 	{
 		if(value)
 		{
-			if(Mouse.canvas.requestPointerLock)
+			if(this.canvas.requestPointerLock)
 			{
-				Mouse.canvas.requestPointerLock();
+				this.canvas.requestPointerLock()
 			}
-			else if(Mouse.canvas.mozRequestPointerLock)
+			else if(this.canvas.mozRequestPointerLock)
 			{
-				Mouse.canvas.mozRequestPointerLock();
+				this.canvas.mozRequestPointerLock()
 			}
-			else if(Mouse.canvas.webkitRequestPointerLock)
+			else if(this.canvas.webkitRequestPointerLock)
 			{
-				Mouse.canvas.webkitRequestPointerLock();
+				this.canvas.webkitRequestPointerLock()
 			}
 		}
 		else
 		{
 			if(document.exitPointerLock)
 			{
-				document.exitPointerLock();
+				document.exitPointerLock()
 			}
 			else if(document.mozExitPointerLock)
 			{
-				document.mozExitPointerLock();
+				document.mozExitPointerLock()
 			}
 			else if(document.webkitExitPointerLock)
 			{
-				document.webkitExitPointerLock();
+				document.webkitExitPointerLock()
 			}
 		}
 	}
 }
 
-//Check if Mouse button is pressed
+/**
+ * Check if mouse button is currently pressed
+ * @method buttonPressed
+ * @param {Number} button Button to check status of
+ * @return {Boolean} Returns whether the button is being currently pressed or not
+ */
 Mouse.buttonPressed = function(button)
 {
-	return Mouse.keys[button].pressed;
+	return this.keys[button].pressed
 }
 
-//Check if Mouse button was double clicked
+/**
+ * Check if mouse button was double clicked
+ * @method buttonDoubleClicked
+ * @return {Boolean} Returns true if some mouse button was just double clicked
+ */
 Mouse.buttonDoubleClicked = function()
 {
-	return Mouse.doubleClicked;
+	return this.doubleClicked
 }
 
-//Check if a mouse button was just pressed
+/**
+ * Check if mouse button was just pressed
+ * @method buttonJustPressed
+ * @return {Boolean} Returns whether the button was just pressed or not
+ */
 Mouse.buttonJustPressed = function(button)
 {
-	return Mouse.keys[button].justPressed;
+	return this.keys[button].justPressed
 }
 
-//Check if a mouse button was just released
+/**
+ * Check if a mouse button was just released
+ * @method buttonJustReleased
+ * @param {Number} button Button to check status of
+ * @return {Boolean} Returns whether the button was just released or not
+ */
 Mouse.buttonJustReleased = function(button)
 {
-	return Mouse.keys[button].justReleased;
+	return this.keys[button].justReleased
 }
 
-//Update Mouse Position
+/**
+ * Update mouse position (automatically called by the runtime handler - Editor / App - )
+ * @method updatePosition
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} xDiff
+ * @param {Number} yDiff
+ */
 Mouse.updatePosition = function(x, y, xDiff, yDiff)
 {
-	Mouse._position.set(x, y);
-	Mouse._delta.x += xDiff;
-	Mouse._delta.y += yDiff;
-	Mouse._positionUpdated = true;
+	this._position.set(x, y)
+	this._delta.x += xDiff
+	this._delta.y += yDiff
+	this._positionUpdated = true
 }
 
-//Update Mouse Key
+/**
+ * Update a mouse button (automatically called by the runtime)
+ * @param {Number} button
+ * @param {Number} action
+ * @method updateKey
+ */
 Mouse.updateKey = function(button, action)
 {
 	if(button > -1)
 	{
-		Mouse._keys[button].update(action);
+		this._keys[button].update(action)
 	}
 }
 
-//Update Mouse State (Calculate position diff)
+/**
+ * Update mouse buttons state, position, wheel and delta synchronously (called automatically by the runtime handler - Editor / App - )
+ * @method update
+ */
 Mouse.update = function()
 {
 	//Update mouse keys state
-	for(var i = 0; i < Mouse._keys.length; i++)
+	for(var i = 0; i < this._keys.length; i++)
 	{
-		if(Mouse._keys[i].justPressed && Mouse.keys[i].justPressed)
+		if(this._keys[i].justPressed && this.keys[i].justPressed)
 		{
-			Mouse._keys[i].justPressed = false;
+			this._keys[i].justPressed = false
 		}
-		if(Mouse._keys[i].justReleased && Mouse.keys[i].justReleased)
+		if(this._keys[i].justReleased && this.keys[i].justReleased)
 		{
-			Mouse._keys[i].justReleased = false;
+			this._keys[i].justReleased = false
 		}
-		Mouse.keys[i].set(Mouse._keys[i].justPressed, Mouse._keys[i].pressed, Mouse._keys[i].justReleased);
+		this.keys[i].set(this._keys[i].justPressed, this._keys[i].pressed, this._keys[i].justReleased)
 	}
 
 	//Update mouse wheel
-	if(Mouse._wheelUpdated)
+	if(this._wheelUpdated)
 	{
-		Mouse.wheel = Mouse._wheel;
-		Mouse._wheelUpdated = false;
+		this.wheel = this._wheel
+		this._wheelUpdated = false
 	}
 	else
 	{
-		Mouse.wheel = 0;
+		this.wheel = 0
 	}
 
 	//Update mouse double click
-	if(Mouse._doubleClicked)
+	if(this._doubleClicked)
 	{
-		Mouse.doubleClicked = true;
-		Mouse._doubleClicked = false;
+		this.doubleClicked = true
+		this._doubleClicked = false
 	}
 	else
 	{
-		Mouse.doubleClicked = false;
+		this.doubleClicked = false
 	}
 
 	//Update mouse position if needed
-	if(Mouse._positionUpdated)
+	if(this._positionUpdated)
 	{
-		Mouse.delta.x = Mouse._delta.x;
-		Mouse.delta.y = Mouse._delta.y;
-		Mouse._delta.set(0,0);
+		this.delta.x = this._delta.x
+		this.delta.y = this._delta.y
+		this._delta.set(0,0)
 
-		Mouse.position.x = Mouse._position.x;
-		Mouse.position.y = Mouse._position.y;
+		this.position.x = this._position.x
+		this.position.y = this._position.y
 
-		Mouse._positionUpdated = false;
+		this._positionUpdated = false
 	}
 	else
 	{
-		Mouse.delta.x = 0;
-		Mouse.delta.y = 0;
+		this.delta.x = 0
+		this.delta.y = 0
 	}
 }
 
-//Dispose mouse object
+/**
+ * Dispose mouse events (called automatically by the runtime handler - Editor / App - )
+ * @method dispose
+ */
 Mouse.dispose = function()
 {
-	for(var i = 0; i < Mouse.events.length; i++)
+	for(var i = 0; i < this.events.length; i++)
 	{
-		var event = Mouse.events[i];
-		event[0].removeEventListener(event[1], event[2]);
+		var event = this.events[i]
+		event[0].removeEventListener(event[1], event[2])
 	}
 }
-

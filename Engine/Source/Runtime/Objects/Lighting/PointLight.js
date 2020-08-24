@@ -1,5 +1,17 @@
 "use strict"
 
+/**
+ * Same as THREE.PointLight
+ * Documentation for the object can be found at https://threejs.org/docs/index.html#api/en/lights/PointLight
+ * @param {Number} hex Light colour in hex RGB
+ * @param {Number} intensity Light intensity
+ * @param {Number} distance Maximum PointLight range
+ * @param {Number} decay
+ * @class PointLight
+ * @extends {THREE.PointLight}
+ * @module Lights
+ * @constructor
+ */
 function PointLight(hex, intensity, distance, decay)
 {
 	THREE.PointLight.call(this, hex, intensity, distance, decay)
@@ -20,10 +32,12 @@ function PointLight(hex, intensity, distance, decay)
 	this.defaultComponents.push(new LightComponent())
 }
 
-//Function Prototype
 PointLight.prototype = Object.create(THREE.PointLight.prototype)
 
-//Update ligth shadow map
+/**
+ * Update light shadow map attributes at runtime
+ * @method updateShadowMap
+ */
 PointLight.prototype.updateShadowMap = function()
 {
 	this.shadow.map.dispose()

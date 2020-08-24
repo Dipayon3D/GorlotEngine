@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>../Source/Runtime/Objects/Particle/ParticleEmitter.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AmbientLight.html">AmbientLight</a></li>
+                                <li><a href="../classes/AudioEmitter.html">AudioEmitter</a></li>
+                                <li><a href="../classes/BlockScript.html">BlockScript</a></li>
+                                <li><a href="../classes/Container.html">Container</a></li>
+                                <li><a href="../classes/DirectionalLight.html">DirectionalLight</a></li>
+                                <li><a href="../classes/FileSystem.html">FileSystem</a></li>
+                                <li><a href="../classes/GORLOT.html">GORLOT</a></li>
+                                <li><a href="../classes/HemisphereLight.html">HemisphereLight</a></li>
+                                <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/Keyboard.html">Keyboard</a></li>
+                                <li><a href="../classes/KinectDevice.html">KinectDevice</a></li>
+                                <li><a href="../classes/LeapMotion.html">LeapMotion</a></li>
+                                <li><a href="../classes/Mesh.html">Mesh</a></li>
+                                <li><a href="../classes/Mouse.html">Mouse</a></li>
+                                <li><a href="../classes/Object3D.html">Object3D</a></li>
+                                <li><a href="../classes/OrthographicCamera.html">OrthographicCamera</a></li>
+                                <li><a href="../classes/ParticleEmitter.html">ParticleEmitter</a></li>
+                                <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+                                <li><a href="../classes/PhysicsObject.html">PhysicsObject</a></li>
+                                <li><a href="../classes/PointLight.html">PointLight</a></li>
+                                <li><a href="../classes/PositionalAudio.html">PositionalAudio</a></li>
+                                <li><a href="../classes/RectAreaLight.html">RectAreaLight</a></li>
+                                <li><a href="../classes/ResourceManager.html">ResourceManager</a></li>
+                                <li><a href="../classes/Scene.html">Scene</a></li>
+                                <li><a href="../classes/Script.html">Script</a></li>
+                                <li><a href="../classes/SkinnedMesh.html">SkinnedMesh</a></li>
+                                <li><a href="../classes/Sky.html">Sky</a></li>
+                                <li><a href="../classes/SpineAnimation.html">SpineAnimation</a></li>
+                                <li><a href="../classes/SpineTexture.html">SpineTexture</a></li>
+                                <li><a href="../classes/SpotLight.html">SpotLight</a></li>
+                                <li><a href="../classes/Sprite.html">Sprite</a></li>
+                                <li><a href="../classes/Text3D.html">Text3D</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Animations.html">Animations</a></li>
+                                <li><a href="../modules/Audio.html">Audio</a></li>
+                                <li><a href="../modules/Cameras.html">Cameras</a></li>
+                                <li><a href="../modules/Core.html">Core</a></li>
+                                <li><a href="../modules/Devices.html">Devices</a></li>
+                                <li><a href="../modules/Input.html">Input</a></li>
+                                <li><a href="../modules/Lights.html">Lights</a></li>
+                                <li><a href="../modules/Meshes.html">Meshes</a></li>
+                                <li><a href="../modules/Misc.html">Misc</a></li>
+                                <li><a href="../modules/Particles.html">Particles</a></li>
+                                <li><a href="../modules/Physics.html">Physics</a></li>
+                                <li><a href="../modules/Resources.html">Resources</a></li>
+                                <li><a href="../modules/Runtime.html">Runtime</a></li>
+                                <li><a href="../modules/Script.html">Script</a></li>
+                                <li><a href="../modules/Sprite.html">Sprite</a></li>
+                                <li><a href="../modules/Textures.html">Textures</a></li>
+                                <li><a href="../modules/ThreeJS.html">ThreeJS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: ../Source/Runtime/Objects/Particle/ParticleEmitter.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+
+/**
+ * Particle emitter is a wrapper for SPE particle systems
+ * @class ParticleEmitter
+ * @constructor
+ * @extends {THREE.Points}
+ * @module Particles
+ */
+function ParticleEmitter(group, emitter)
+{
+	this.nodes = {}
+
+    // Clock
+	this.clock = new THREE.Clock();
+
+	// Group
+	if(group !== undefined)
+	{
+		this.group = new SPE.Group(group);
+	}
+	else
+	{
+		this.group = new SPE.Group(
+		{
+			texture:
+			{
+				value: new Texture(new GORLOT.Image(&quot;Source/Runtime/Data/particle.png&quot;))
+			},
+			maxParticleCount: 2000,
+			blending: THREE.AdditiveBlending,
+            fog: false,
+            depthWrite: false,
+            depthTest: true,
+            transparent : false,
+			hasPerspective: true
+		});
+	}
+
+    // Points constructor
+    THREE.Points.call(this, this.group.geometry, this.group.material)
+
+    this.type = &quot;ParticleEmitter&quot;
+    this.name = &quot;particles&quot;
+    this.frustumCulled = false
+
+    // Texture
+    var group = this.group
+    Object.defineProperties(this, {
+        texture: {
+            get: () =&gt; {
+                return group.texture
+            },
+            set: () =&gt; {
+                group.texture = texture
+            }
+        }
+    })
+
+	// Emitter
+	if(emitter !== undefined)
+	{
+		this.emitter = new SPE.Emitter(emitter);
+        this.group.addEmitter(this.emitter)
+	}
+	else
+	{
+		this.emitter = new SPE.Emitter(
+		{		
+			particleCount: 2000,
+			type: SPE.distributions.BOX,
+
+			maxAge:
+			{
+				value: 3,
+				spread: 0
+			},
+
+			velocity:
+			{
+				value: new THREE.Vector3(0, 25, 0),
+				spread: new THREE.Vector3(10, 10, 10)
+			},
+
+			acceleration:
+			{
+				value: new THREE.Vector3(0, -10, 0),
+				spread: new THREE.Vector3(10, 0, 10)
+			},
+
+			color:
+			{
+				value: [new THREE.Color(1, 1, 1)],
+				spread: [new THREE.Vector3(0, 0, 0)]
+			}
+		});
+
+        this.group.addEmitter(this.emitter)
+	}
+
+	this.components = []
+	this.defaultComponents = []
+
+	this.defaultComponents.push(new ElementComponent())
+	this.defaultComponents.push(new ObjectComponent())
+}
+
+ParticleEmitter.prototype = Object.create(THREE.Points.prototype);
+
+/**
+ * Initialise particle emitter state
+ * Automatically called by the runtime handler (Editor / App)
+ * @method initialize
+ */
+ParticleEmitter.prototype.initialize = function()
+{
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].initialize();
+	}
+
+    this.clock.start()
+}
+
+/**
+ * Update particle emitter state
+ * Called automatically by the runtime handler (Editor / App)
+ * @method update
+ */
+ParticleEmitter.prototype.update = function()
+{
+	this.group.tick(this.clock.getDelta());
+
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].update();
+	}
+}
+
+/**
+ * Updates the particle nodes
+ * @param {Object} nodes
+ * @method updateNodes
+ */
+ParticleEmitter.prototype.updateNodes = function(nodes) {
+	this.nodes = {}
+	this.nodes = nodes
+}
+
+/**
+ * Dispose particle emitter
+ * @method dispose
+ */
+ParticleEmitter.prototype.dispose = function()
+{
+    this.group.texture.dispose()
+
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].dispose();
+	}
+}
+
+// Update Matrix World
+ParticleEmitter.prototype.updateMatrix = function() {
+    this.matrix.makeRotationFromQuaternion(this.quaternion)
+    this.matrix.scale(this.scale)
+    this.matrix.setPosition(this.position)
+
+    this.matrixWorldNeedsUpdate = true
+}
+
+/**
+ * Create JSON for object
+ * Need to backup material and geometry and set to undefined to avoid it to being stored
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
+ParticleEmitter.prototype.toJSON = function(meta)
+{
+    // Back material and geometry to avoid unwanted serialisation
+    var material = this.material
+    var geometry = this.geometry
+    this.material = undefined
+    this.geometry = undefined
+
+    var texture = this.group.texture
+    var data = THREE.Object3D.prototype.toJSON.call(this, meta, function(meta, object)
+    {
+        texture = texture.toJSON(meta);
+    });
+
+    // Restore material and geometry
+    this.material = material
+    this.geometry = geometry
+
+	//Group attributes
+	data.object.group = {};
+	data.object.group.texture = {};
+	data.object.group.texture.value = texture.uuid;
+	data.object.group.textureFrames = this.group.textureFrames;
+	data.object.group.textureFrameCount = this.group.textureFrameCount
+	data.object.group.textureLoop = this.group.textureLoop;
+	data.object.group.hasPerspective = this.group.hasPerspective;
+	data.object.group.colorize = this.group.colorize;
+	data.object.group.maxParticleCount = this.group.maxParticleCount;
+	data.object.group.blending = this.group.blending;
+	data.object.group.scale = this.group.scale;
+	data.object.group.depthWrite = this.group.depthWrite;
+	data.object.group.depthTest = this.group.depthTest;
+	data.object.group.fog = this.group.fog;
+
+	//Emitter attributes
+	data.object.emitter = {};
+	data.object.emitter.uuid = this.emitter.uuid;
+	data.object.emitter.direction = this.emitter.direction;
+	data.object.emitter.particleCount = this.emitter.particleCount;
+	data.object.emitter.duration = this.emitter.duration;
+	data.object.emitter.type = this.emitter.type;
+
+	//Max age
+	data.object.emitter.maxAge = {};
+	data.object.emitter.maxAge.value = this.emitter.maxAge.value;
+	data.object.emitter.maxAge.spread = this.emitter.maxAge.spread;
+
+	//Position
+	data.object.emitter.position = {};
+	data.object.emitter.position.value = this.emitter.position.value;
+	data.object.emitter.position.spread = this.emitter.position.spread;
+
+	//Velocity
+	data.object.emitter.velocity = {};
+	data.object.emitter.velocity.value = this.emitter.velocity.value;
+	data.object.emitter.velocity.spread = this.emitter.velocity.spread;
+
+	//Acceleration
+	data.object.emitter.acceleration = {};
+	data.object.emitter.acceleration.value = this.emitter.acceleration.value;
+	data.object.emitter.acceleration.spread = this.emitter.acceleration.spread;
+
+	//Wiggle
+	data.object.emitter.wiggle = {};
+	data.object.emitter.wiggle.value = this.emitter.wiggle.value;
+	data.object.emitter.wiggle.spread = this.emitter.wiggle.spread;
+
+	//Opacity
+	data.object.emitter.opacity = {};
+	data.object.emitter.opacity.value = this.emitter.opacity.value;
+	data.object.emitter.opacity.spread = this.emitter.opacity.spread;
+
+	//Size
+	data.object.emitter.size = {};
+	data.object.emitter.size.value = this.emitter.size.value;
+	data.object.emitter.size.spread = this.emitter.size.spread;
+
+	//Angle
+	data.object.emitter.angle = {};
+	data.object.emitter.angle.value = this.emitter.angle.value;
+	data.object.emitter.angle.spread = this.emitter.angle.spread;
+
+	//Color
+	data.object.emitter.color = {};
+	data.object.emitter.color.value = this.emitter.color.value;
+	data.object.emitter.color.spread = this.emitter.color.spread;
+
+	// Nodes
+	data.object.nodes = this.nodes
+
+	return data;
+}
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

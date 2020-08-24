@@ -1,7 +1,23 @@
 "use strict"
 
+/**
+ * Spine animation object, to used with animation produced with Esoteric spine
+ * @class SpineAnimation
+ * @constructor
+ * @extends {THREE.Mesh}
+ * @param {Object} json
+ * @param {String} atlas
+ * @param {String} path
+ * @param {Array} textures
+ * @module Animations
+ */
 function SpineAnimation(json, atlas, path, textures) {
 
+    /**
+     * Array of SpineTextures used by the animation
+     * @property textures
+     * @type {Array}
+     */
 	if (textures !== undefined) {
 		var textureAtlas = new spine.TextureAtlas(atlas, (file) => {
 			for(var i = 0; i < textures.length; i++) {
@@ -51,7 +67,18 @@ function SpineAnimation(json, atlas, path, textures) {
 	material.alphaTest = 0.5
 	this.material = material
 
+    /**
+     * Animation data
+     * @property json
+     * @type {Object}
+     */
 	this.json = json
+
+    /**
+     * Texture atlas information
+     * @property atlas
+     * @type {Object}
+     */
 	this.atlas = atlas
 	this.textures = textures
 
@@ -76,6 +103,11 @@ function SpineAnimation(json, atlas, path, textures) {
 SpineAnimation.prototype = Object.create(THREE.Mesh.prototype)
 SpineAnimation.QUAD_TRIANGLES = [0, 1, 2, 2, 3, 0]
 
+/**
+ * Update animation state
+ * Automatically called by the runtime handler (Editor / App)
+ * @method update
+ */
 SpineAnimation.prototype.update = function() {
 	var state = this.state
 	var skeleton = this.skeleton
@@ -89,20 +121,40 @@ SpineAnimation.prototype.update = function() {
 	}
 }
 
+/**
+ * Get all available animations
+ * @method getAnimations
+ * @return {Array} Animations
+ */
 SpineAnimation.prototype.getAnimations = function() {
 	return this.state.data.skeletonData.animations
 }
 
+/**
+ * Set animation from track number and name
+ * @method setAnimation
+ * @param {Number} track Track number
+ * @param {String} name Animation name
+ */
 SpineAnimation.prototype.setAnimation = function(track, name) {
 	try {
 		this.state.setAnimation(track, name, true)
 	} catch(e) {}
 }
 
+/**
+ * Get skins in this animation
+ * @method getSkins
+ * @return {[type]} [description]
+ */
 SpineAnimation.prototype.getSkins = function() {
 	return this.state.data.skeletonData.skins
 }
 
+/**
+ * Update mesh geometry from animation state
+ * @method updateGeometry
+ */
 SpineAnimation.prototype.updateGeometry = function() {
 	//var geometry = this.geometry
 	//var numVertices = 0
@@ -152,7 +204,12 @@ SpineAnimation.prototype.updateGeometry = function() {
 	batcher.end()
 }
 
-// Serialise animation data
+/**
+ * Serialise animation data
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
 SpineAnimation.prototype.toJSON = function(meta) {
 	// Avoid serialising geometry and material
 	var geometry = this.geometry

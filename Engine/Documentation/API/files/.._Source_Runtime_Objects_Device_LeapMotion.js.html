@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>../Source/Runtime/Objects/Device/LeapMotion.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AmbientLight.html">AmbientLight</a></li>
+                                <li><a href="../classes/AudioEmitter.html">AudioEmitter</a></li>
+                                <li><a href="../classes/BlockScript.html">BlockScript</a></li>
+                                <li><a href="../classes/Container.html">Container</a></li>
+                                <li><a href="../classes/DirectionalLight.html">DirectionalLight</a></li>
+                                <li><a href="../classes/FileSystem.html">FileSystem</a></li>
+                                <li><a href="../classes/GORLOT.html">GORLOT</a></li>
+                                <li><a href="../classes/HemisphereLight.html">HemisphereLight</a></li>
+                                <li><a href="../classes/Key.html">Key</a></li>
+                                <li><a href="../classes/Keyboard.html">Keyboard</a></li>
+                                <li><a href="../classes/KinectDevice.html">KinectDevice</a></li>
+                                <li><a href="../classes/LeapMotion.html">LeapMotion</a></li>
+                                <li><a href="../classes/Mesh.html">Mesh</a></li>
+                                <li><a href="../classes/Mouse.html">Mouse</a></li>
+                                <li><a href="../classes/Object3D.html">Object3D</a></li>
+                                <li><a href="../classes/OrthographicCamera.html">OrthographicCamera</a></li>
+                                <li><a href="../classes/ParticleEmitter.html">ParticleEmitter</a></li>
+                                <li><a href="../classes/PerspectiveCamera.html">PerspectiveCamera</a></li>
+                                <li><a href="../classes/PhysicsObject.html">PhysicsObject</a></li>
+                                <li><a href="../classes/PointLight.html">PointLight</a></li>
+                                <li><a href="../classes/PositionalAudio.html">PositionalAudio</a></li>
+                                <li><a href="../classes/RectAreaLight.html">RectAreaLight</a></li>
+                                <li><a href="../classes/ResourceManager.html">ResourceManager</a></li>
+                                <li><a href="../classes/Scene.html">Scene</a></li>
+                                <li><a href="../classes/Script.html">Script</a></li>
+                                <li><a href="../classes/SkinnedMesh.html">SkinnedMesh</a></li>
+                                <li><a href="../classes/Sky.html">Sky</a></li>
+                                <li><a href="../classes/SpineAnimation.html">SpineAnimation</a></li>
+                                <li><a href="../classes/SpineTexture.html">SpineTexture</a></li>
+                                <li><a href="../classes/SpotLight.html">SpotLight</a></li>
+                                <li><a href="../classes/Sprite.html">Sprite</a></li>
+                                <li><a href="../classes/Text3D.html">Text3D</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Animations.html">Animations</a></li>
+                                <li><a href="../modules/Audio.html">Audio</a></li>
+                                <li><a href="../modules/Cameras.html">Cameras</a></li>
+                                <li><a href="../modules/Core.html">Core</a></li>
+                                <li><a href="../modules/Devices.html">Devices</a></li>
+                                <li><a href="../modules/Input.html">Input</a></li>
+                                <li><a href="../modules/Lights.html">Lights</a></li>
+                                <li><a href="../modules/Meshes.html">Meshes</a></li>
+                                <li><a href="../modules/Misc.html">Misc</a></li>
+                                <li><a href="../modules/Particles.html">Particles</a></li>
+                                <li><a href="../modules/Physics.html">Physics</a></li>
+                                <li><a href="../modules/Resources.html">Resources</a></li>
+                                <li><a href="../modules/Runtime.html">Runtime</a></li>
+                                <li><a href="../modules/Script.html">Script</a></li>
+                                <li><a href="../modules/Sprite.html">Sprite</a></li>
+                                <li><a href="../modules/Textures.html">Textures</a></li>
+                                <li><a href="../modules/ThreeJS.html">ThreeJS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: ../Source/Runtime/Objects/Device/LeapMotion.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+
+/**
+ * Leap device object based on the official LeapJS runtime
+ * Used to connect Gorlot to a leap motion hand tracker
+ * @class LeapMotion
+ * @constructor
+ * @module Devices
+ * @extends {THREE.Object3D}
+ */
+function LeapMotion()
+{
+	THREE.Object3D.call(this);
+
+	this.type = &quot;LeapDevice&quot;;
+	this.name = &quot;leap&quot;;
+
+    /**
+     * Debug model flag
+     * @property debugModel
+     * @default true
+     * @type {Boolean}
+     */
+	this.debugModel = true;
+
+    /**
+     * Flag to enable gesture detection
+     * @property gesturesEnabled
+     * @default
+     * @type {Boolean}
+     */
+	this.gesturesEnabled = true;
+
+    /**
+     * Flag to enable hand pose detection
+     * @property posesEnabled
+     * @default true
+     * @type {Boolean}
+     */
+	this.posesEnabled = true;
+
+    /**
+     * Hand tracking mode
+     * @property mode
+     * @default DESK
+     * @type {Number}
+     */
+	this.mode = LeapMotion.DESK;
+
+    /**
+     * Flag to set arm tracking
+     * @property useArm
+     * @default false
+     * @type {Boolean}
+     */
+	this.useArm = false;
+
+	//Hand and Arm meshes
+	this.boneMeshes = [];
+	this.armMeshes = [];
+
+	//Debug Hand Material and Geometry
+	this.material = new THREE.MeshPhongMaterial();
+	this.geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+
+	//Physics
+	this.physicsWorld = null;
+	this.physicsBodys = [];
+
+	//Gesture
+	this.gesture = []
+	for(var i = 0; i &lt; 10; i++)
+	{
+		this.gesture[i] = false;
+	}
+
+	//Poses
+	this.pose = [];
+	for(var i = 0; i &lt; 3; i++)
+	{
+		this.pose[i] = false;
+	}
+
+	//Data storage
+	this.data = null;
+
+	this.components = []
+	this.defaultComponents = []
+
+	this.defaultComponents.push(new ElementComponent())
+	this.defaultComponents.push(new ObjectComponent())
+	this.defaultComponents.push(new LeapComponent())
+}
+
+LeapMotion.prototype = Object.create(THREE.Object3D.prototype);
+
+/**
+ * Leap tracking desktop mode
+ * @attribute DESK
+ * @type {Number}
+ */
+LeapMotion.DESK = 0;
+
+/**
+ * Leap tracking HDM mode
+ * @attribute HDM
+ * @type {Number}
+ */
+LeapMotion.HDM = 1;
+
+/**
+ * Leap SWIP gesture
+ * @attribute SWIPE
+ * @type {Number}
+ */
+LeapMotion.SWIPE = 0;
+
+/**
+ * Leap SWIPE_LEFT gesture
+ * @attribute SWIPE_LEFT
+ * @type {number}
+ */
+LeapMotion.SWIPE_LEFT = 1;
+
+/**
+ * Leap SWIPE_RIGHT gesture
+ * @attribute SWIPE_RIGHT
+ * @type {Number}
+ */
+LeapMotion.SWIPE_RIGHT = 2;
+
+/**
+ * Leap SWIPE_FRONT gesture
+ * @attribute SWIPE_FRONT
+ * @type {Number}
+ */
+LeapMotion.SWIPE_FRONT = 3;
+
+/**
+ * Leap SWIPE_BACK gesture
+ * @attribute SWIPE_BACK
+ * @type {Number}
+ */
+LeapMotion.SWIPE_BACK = 4;
+
+/**
+ * Leap SWIPE_UP gesture
+ * @attribute SWIPE_UP
+ * @type {Number}
+ */
+LeapMotion.SWIPE_UP = 5;
+
+/**
+ * Leap SWIPE_DOWN gesture
+ * @attribute SWIPE_DOWN
+ * @type {Number}
+ */
+LeapMotion.SWIPE_DOWN = 6;
+
+/**
+ * Leap CIRCLE gesture
+ * @attribute CIRCLE
+ * @type {Number}
+ */
+LeapMotion.CIRCLE = 7;
+
+/**
+ * Leap SCREEN_TAP gesture
+ * @attribute SCREEN_TAP
+ * @type {Number}
+ */
+LeapMotion.SCREEN_TAP = 8;
+
+/**
+ * Leap KEY_TAP
+ * @attribute KEY_TAP
+ * @type {Number}
+ */
+LeapMotion.KEY_TAP = 9;
+
+/**
+ * Hand CLOSED pose
+ * @attribute CLOSED
+ * @type {Number}
+ */
+LeapMotion.CLOSED = 0;
+
+/**
+ * Hand OPEN pose
+ * @attribute OPEN
+ * @type {Number}
+ */
+LeapMotion.OPEN = 1;
+
+/**
+ * Hand POINTING pose
+ * @attribute POINTING
+ * @type {Number}
+ */
+LeapMotion.POINTING = 2;
+
+/**
+ * Initialise the LeapMotion object
+ * Called automatically the runtime handler (Editor / App)
+ * Connects to the websocket provided by the leap driver
+ * @method initialize
+ */
+LeapMotion.prototype.initialize = function()
+{
+	//Self pointer
+	var self = this;
+
+	//Start leap worker to collect data
+	Leap.loop({background:true}, function(data)
+	{
+		self.data = data;
+	}).connect();
+
+	//Initialize children
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].initialize();
+	}
+}
+
+/**
+ * Update leap status
+ * Called automatically by the runtime handler (Editor / App)
+ * @method update
+ */
+LeapMotion.prototype.update = function()
+{
+	if(this.data !== null)
+	{
+		if(this.gesturesEnabled)
+		{
+			this.updateGestures();	
+		}
+		if(this.posesEnabled)
+		{
+			this.updatePoses();
+		}
+		if(this.debugModel)
+		{
+			this.updateDebugModel();
+		}
+	}
+
+	//Update children
+	for(var i = 0; i &lt; this.children.length; i++)
+	{
+		this.children[i].update();
+	}
+}
+
+/**
+ * Check if a gesture is occuring, is true while the gesture is occuring
+ * @method checkGesture
+ * @param {Number} gesture Gesture to check
+ * @return {Boolean} Returns true if the gesture is occuring
+ */
+LeapMotion.prototype.checkGesture = function(gesture)
+{
+	if(this.gesture[gesture] !== undefined)
+	{
+		return this.gesture[gesture];
+	}
+	return false;
+}
+
+/**
+ * Check if hand is in pose
+ * @method checkPose
+ * @param {Number} pose Pose to be checked
+ * @return {Boolean} Returns true if hand is in this pose
+ */
+LeapMotion.prototype.checkPose = function(pose)
+{
+	if(this.pose[pose] !== undefined)
+	{
+		return this.pose[pose];
+	}
+	return false;
+}
+
+/**
+ * Set hand tracking mode
+ * Can be set to HDM or Desktop Mode
+ * @param {Number} mode Mode
+ * @method setMode
+ */
+LeapMotion.prototype.setMode = function(mode)
+{
+	this.mode = mode;
+}
+
+/**
+ * Update leap object pose flags from collected data
+ * Called automatically by the update methods
+ * @method updatePoses
+ */
+LeapMotion.prototype.updatePoses = function()
+{
+	//Clean all pose flags
+	for(var i = 0; i &lt; this.pose.length; i++)
+	{
+		this.pose[i] = true;
+	}
+
+	for(var j = 0; j &lt; this.data.hands.length; j++)
+	{
+		var hand = this.data.hands[j];
+
+		var center = hand.sphereCenter;
+		center = new THREE.Vector3(center[0], center[1], center[2]);
+
+		//Fingers position 
+		var distance = [];
+		var indicatorDistance = 0;
+		var fingerJoint = [];
+
+		//Clear pose status list
+		for(var i = 0; i &lt; this.pose.length; i++)
+		{
+			this.pose[i] = true;
+		}
+
+		//Fingers direction array
+		var fingerDirection = [];
+
+		for(var i = 0; i &lt; hand.fingers.length; i++)
+		{
+			var finger = hand.fingers[i];
+
+			fingerDirection.push(finger.direction);
+			fingerJoint = finger.distal.nextJoint;
+
+			var joint = new THREE.Vector3(fingerJoint[0], fingerJoint[1], fingerJoint[2]);
+			distance.push((center.distanceTo(joint))/hand._scaleFactor);
+
+			if(i !== 0)
+			{
+				if(fingerDirection[i][2] &lt; 0.3)
+				{
+					this.pose[LeapMotion.CLOSED] = false;
+				}
+				
+				if(fingerDirection[i][2] &gt; -0.5)
+				{
+					this.pose[LeapMotion.OPEN] = false;
+				}
+
+				if(i === 1)
+				{
+					indicatorDistance = distance[1];
+				}
+				else if(indicatorDistance &lt; 2 * distance[i] - 15)
+				{
+					this.pose[LeapMotion.POINTING] = false;
+				}
+			}
+		}
+
+		if(indicatorDistance &lt; 2 * distance[0] - 15)
+		{
+			this.pose[LeapMotion.POINTING] = false;
+		}
+	}
+}
+
+/**
+ * Update leap object gesture flags from collected data
+ * Called automatically by the update method
+ * @method updateGestures
+ */
+LeapMotion.prototype.updateGestures = function()
+{
+	//Clean all event flags
+	for(var i = 0; i &lt; this.gesture.length; i++)
+	{
+		this.gesture[i] = false;
+	}
+	
+	var self = this;
+
+	//Gesture detection
+	if(this.data.valid &amp;&amp; this.data.gestures.length &gt; 0)
+	{
+		this.data.gestures.forEach(function(gesture)
+		{
+			if(gesture.type === &quot;swipe&quot;)
+			{
+				//var direction;
+				self.gesture[LeapMotion.SWIPE] = true;
+
+				//X Direction
+				if(gesture.direction[0] &gt; 0)
+				{	
+					self.gesture[LeapMotion.SWIPE_RIGHT] = true;
+				}
+				else
+				{
+					self.gesture[LeapMotion.SWIPE_LEFT] = true;
+				}
+
+				//Y Direction
+				if(gesture.direction[1] &gt; 0)
+				{
+					self.gesture[LeapMotion.SWIPE_UP] = true;
+				}
+				else
+				{
+					self.gesture[LeapMotion.SWIPE_DOWN] = true;
+				}
+
+				//Z Direction
+				if(gesture.direction[2] &gt; 0)
+				{
+					self.gesture[LeapMotion.SWIPE_FRONT] = true;
+				}
+				else
+				{
+					self.gesture[LeapMotion.SWIPE_BACK] = true;
+				}
+			}
+			else if(gesture.type === &quot;circle&quot;)
+			{
+				self.gesture[LeapMotion.CIRCLE] = true;	
+			}
+			else if(gesture.type === &quot;keyTap&quot;)
+			{
+				self.gesture[LeapMotion.KEY_TAP] = true;	
+			}
+			else if(gesture.type === &quot;screenTap&quot;)
+			{
+				self.gesture[LeapMotion.SCREEN_TAP] = true;	
+			}
+		});
+	}
+}
+
+/**
+ * Update internal hand debug model
+ * Automatically called by the update method if debugModel is set to true
+ * @method updateDebugModel
+ */
+LeapMotion.prototype.updateDebugModel = function()
+{
+	//Self pointer
+	var self = this;
+
+	//Remove all children
+	this.arMeshes.forEach(function(item)
+	{
+		self.remove(item);
+	});
+	
+	this.boneMeshes.forEach(function(item)
+	{
+		self.remove(item);
+	});
+
+	//Update bones
+	var countBones = 0;
+	var countArms = 0;
+
+	for(var i = 0; i &lt; this.data.hands.length; i++)
+	{
+        var hand = this.data.hands[i]
+
+		for(var j = 0; j &lt; hand.fingers.length; j++)
+		{
+            var finger = hand.fingers[i]
+
+			for(var k = 0; k &lt; finger.bones.length; k++) 
+			{
+                var bone = finger.bones[k]
+				if(countBones !== 0)
+				{
+					var boneMesh = this.boneMeshes[countBones] || this.addMesh(this.boneMeshes);
+					this.updateMesh(bone, boneMesh);	
+				}
+				countBones++;
+			}
+		}
+		
+		if(this.showArm)
+		{
+			var arm = hand.arm;
+			var armMesh = this.armMeshes[countArms++] || this.addMesh(this.armMeshes);
+			this.updateMesh(arm, armMesh);
+			armMesh.scale.set(arm.width/1200, arm.width/300, arm.length/150);
+		}
+	}
+
+	//Update Leap Hand
+	if(this.physicsWorld !== null)
+	{
+		this.updatePhysics()
+	}
+}
+
+/**
+ * Update physics object to enable hand physics collision
+ * Called by updateDebugModel automatically
+ * @method updatePhysics
+ */
+LeapMotion.prototype.updatePhysics = function() {
+	//Remove all physics bodys
+	for(var i = 0; i &lt; this.physicsBodys.length; i++)
+	{
+		this.physicsWorld.removeBody(this.physicsBodys[i].pop());
+	};
+
+	//Create new physics bodys
+	this.children.forEach(function(children, j)
+	{
+		var box = new THREE.BoundingBoxHelper(children);
+		box.update();
+
+		var hs = new THREE.Vector3(box.box.max.x - box.box.min.x, box.box.max.y - box.box.min.y, box.box.max.z - box.box.min.z);
+		hs.x *= this.scale.x;
+		hs.y *= this.scale.y;
+		hs.z *= this.scale.z;
+		hs.divideScalar(2);
+
+		var pos = box.box.center();
+		pos.x *= this.scale.x;
+		pos.y *= this.scale.y;
+		pos.z *= this.scale.z;
+		pos.add(this.position);
+
+		var shape = new CANNON.Box(new CANNON.Vec3(hs.x, hs.y, hs.z));
+		var body = new CANNON.Body({mass:0});
+		body.addShape(shape);
+		body.position.set(pos.x - this.position.x, pos.y - this.position.y, pos.z - this.position.z);
+		body.updateMassProperties();
+
+		this.physicsBodys.push(body);
+		this.physicsWorld.addBody(body);
+	});
+}
+
+//Add mesh to hand instance
+LeapMotion.prototype.addMesh = function(meshes)
+{
+	var mesh = new Mesh(this.geometry, this.material);
+	mesh.castShadow = this.castShadow;
+	mesh.receiveShadow = this.receiveShadow;
+	meshes.push(mesh);
+	return mesh;
+}
+
+//Update mesh position and size
+LeapMotion.prototype.updateMesh = function(bone, mesh)
+{
+	mesh.position.fromArray(bone.center());
+	mesh.position.divideScalar(150);
+
+	mesh.setRotationFromMatrix((new THREE.Matrix4()).fromArray(bone.matrix()));
+	mesh.scale.set(bone.width/150, bone.width/150, bone.length/150);
+
+	this.add(mesh);
+}
+
+/**
+ * Get hand speed (temporarily normalised)
+ * @method getMovement
+ * @return {Number} Hand speed
+ */
+LeapMotion.prototype.getMovement = function()
+{
+	var actual = this.data.gestures[0].position;
+	var previous = this.data.gestures[0].startPosition;
+
+	var speed = new THREE.Vector3(actual[0] - previous[0], actual[1] - previous[1], actual[2] - previous[2]);
+	speed.divideScalar(this.data.currentFrameRate);
+
+	return speed;
+}
+
+/**
+ * Create JSON for object
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} JSON description
+ */
+LeapMotion.prototype.toJSON = function(meta)
+{
+	var data = THREE.Object3D.prototype.toJSON.call(this, meta);
+
+	data.object.type = this.type;
+	data.object.debugModel = this.debugModel;
+	data.object.gesturesEnabled = this.gesturesEnabled;
+	data.object.posesEnabled = this.posesEnabled;
+	data.object.mode = this.mode;
+	data.object.useArm = this.useArm;
+
+	return data;
+}
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

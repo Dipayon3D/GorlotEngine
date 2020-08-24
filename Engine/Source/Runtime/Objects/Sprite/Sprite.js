@@ -1,5 +1,19 @@
 "use strict";
 
+/**
+ * Sprites always face the screen and are mainly used for 2D elements
+ * @class Sprite
+ * @module Sprite
+ * @param {Material} material Material used to draw sprites
+ * @constructor
+ * @extends {THREE.Sprite}
+ */
+
+/**
+ * Material used to render the sprite
+ * @property material
+ * @type {Material}
+ */
 function Sprite(material)
 {
 	THREE.Sprite.call(this, material);

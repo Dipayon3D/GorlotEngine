@@ -155,7 +155,7 @@ function ShaderMaterialEditor(parent, closeable, container, index) {
 	this.right.divB.style.backgroundColor = Editor.theme.panelColor
 
 	// Shaders
-	this.fragmentShader = new CodeEditor(this.right.divB)
+	this.fragmentShader = new CodeEditor(this.right.divA)
 	this.fragmentShader.setMode("glsl")
 	this.fragmentShader.size.set(350, 250)
 	this.fragmentShader.setOnChange(() => {
@@ -205,7 +205,7 @@ ShaderMaterialEditor.prototype.attach = function(material, materialFile) {
 ShaderMaterialEditor.prototype.activate = function() {
 	Editor.setState(Editor.STATE_IDLE)
 	Editor.resetEditingFlags()
-	Mouse.canvas = this.canvas.element
+	Editor.mouse.canvas = this.canvas.element
 }
 
 // Remove element
@@ -254,16 +254,16 @@ ShaderMaterialEditor.prototype.update = function() {
 	}
 
 	// Move material view
-	if (Mouse.insideCanvas()) {
+	if (Editor.mouse.insideCanvas()) {
 		// Rotate object
-		if (Mouse.buttonPressed(Mouse.LEFT)) {
+		if (Editor.mouse.buttonPressed(Mouse.LEFT)) {
 			var delta = new THREE.Quaternion()
-			delta.setFromEuler(new THREE.Euler(Mouse.delta.y * 0.005, Mouse.delta.x * 0.005, 0, 'XYZ'))
+			delta.setFromEuler(new THREE.Euler(Editor.mouse.delta.y * 0.005, Editor.mouse.delta.x * 0.005, 0, 'XYZ'))
 			this.obj.quaternion.multiplyQuaternions(delta, this.obj.quaternion)
 		}
 
 		// Zoom
-		this.camera.position.z += Mouse.wheel * 0.003
+		this.camera.position.z += Editor.mouse.wheel * 0.003
 
 		if (this.camera.position.z > 5) {
 			this.camera.position.z = 5

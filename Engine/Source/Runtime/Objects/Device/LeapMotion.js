@@ -1,6 +1,13 @@
 "use strict";
 
-//Leap object
+/**
+ * Leap device object based on the official LeapJS runtime
+ * Used to connect Gorlot to a leap motion hand tracker
+ * @class LeapMotion
+ * @constructor
+ * @module Devices
+ * @extends {THREE.Object3D}
+ */
 function LeapMotion()
 {
 	THREE.Object3D.call(this);
@@ -8,11 +15,44 @@ function LeapMotion()
 	this.type = "LeapDevice";
 	this.name = "leap";
 
-	//Leap configuration
+    /**
+     * Debug model flag
+     * @property debugModel
+     * @default true
+     * @type {Boolean}
+     */
 	this.debugModel = true;
+
+    /**
+     * Flag to enable gesture detection
+     * @property gesturesEnabled
+     * @default
+     * @type {Boolean}
+     */
 	this.gesturesEnabled = true;
+
+    /**
+     * Flag to enable hand pose detection
+     * @property posesEnabled
+     * @default true
+     * @type {Boolean}
+     */
 	this.posesEnabled = true;
+
+    /**
+     * Hand tracking mode
+     * @property mode
+     * @default DESK
+     * @type {Number}
+     */
 	this.mode = LeapMotion.DESK;
+
+    /**
+     * Flag to set arm tracking
+     * @property useArm
+     * @default false
+     * @type {Boolean}
+     */
 	this.useArm = false;
 
 	//Hand and Arm meshes
@@ -54,28 +94,117 @@ function LeapMotion()
 
 LeapMotion.prototype = Object.create(THREE.Object3D.prototype);
 
-//Leap Hand Modes
+/**
+ * Leap tracking desktop mode
+ * @attribute DESK
+ * @type {Number}
+ */
 LeapMotion.DESK = 0;
+
+/**
+ * Leap tracking HDM mode
+ * @attribute HDM
+ * @type {Number}
+ */
 LeapMotion.HDM = 1;
 
-//Leap Hand Gestures
+/**
+ * Leap SWIP gesture
+ * @attribute SWIPE
+ * @type {Number}
+ */
 LeapMotion.SWIPE = 0;
+
+/**
+ * Leap SWIPE_LEFT gesture
+ * @attribute SWIPE_LEFT
+ * @type {number}
+ */
 LeapMotion.SWIPE_LEFT = 1;
+
+/**
+ * Leap SWIPE_RIGHT gesture
+ * @attribute SWIPE_RIGHT
+ * @type {Number}
+ */
 LeapMotion.SWIPE_RIGHT = 2;
+
+/**
+ * Leap SWIPE_FRONT gesture
+ * @attribute SWIPE_FRONT
+ * @type {Number}
+ */
 LeapMotion.SWIPE_FRONT = 3;
+
+/**
+ * Leap SWIPE_BACK gesture
+ * @attribute SWIPE_BACK
+ * @type {Number}
+ */
 LeapMotion.SWIPE_BACK = 4;
+
+/**
+ * Leap SWIPE_UP gesture
+ * @attribute SWIPE_UP
+ * @type {Number}
+ */
 LeapMotion.SWIPE_UP = 5;
+
+/**
+ * Leap SWIPE_DOWN gesture
+ * @attribute SWIPE_DOWN
+ * @type {Number}
+ */
 LeapMotion.SWIPE_DOWN = 6;
+
+/**
+ * Leap CIRCLE gesture
+ * @attribute CIRCLE
+ * @type {Number}
+ */
 LeapMotion.CIRCLE = 7;
+
+/**
+ * Leap SCREEN_TAP gesture
+ * @attribute SCREEN_TAP
+ * @type {Number}
+ */
 LeapMotion.SCREEN_TAP = 8;
+
+/**
+ * Leap KEY_TAP
+ * @attribute KEY_TAP
+ * @type {Number}
+ */
 LeapMotion.KEY_TAP = 9;
 
-//Leap Hand Poses
+/**
+ * Hand CLOSED pose
+ * @attribute CLOSED
+ * @type {Number}
+ */
 LeapMotion.CLOSED = 0;
+
+/**
+ * Hand OPEN pose
+ * @attribute OPEN
+ * @type {Number}
+ */
 LeapMotion.OPEN = 1;
+
+/**
+ * Hand POINTING pose
+ * @attribute POINTING
+ * @type {Number}
+ */
 LeapMotion.POINTING = 2;
 
-//Initialize
+/**
+ * Initialise the LeapMotion object
+ * Called automatically the runtime handler (Editor / App)
+ * Connects to the websocket provided by the leap driver
+ * @method initialize
+ */
 LeapMotion.prototype.initialize = function()
 {
 	//Self pointer
@@ -94,7 +223,11 @@ LeapMotion.prototype.initialize = function()
 	}
 }
 
-//Update leap status
+/**
+ * Update leap status
+ * Called automatically by the runtime handler (Editor / App)
+ * @method update
+ */
 LeapMotion.prototype.update = function()
 {
 	if(this.data !== null)
@@ -120,7 +253,12 @@ LeapMotion.prototype.update = function()
 	}
 }
 
-//Check if gesture is occuring
+/**
+ * Check if a gesture is occuring, is true while the gesture is occuring
+ * @method checkGesture
+ * @param {Number} gesture Gesture to check
+ * @return {Boolean} Returns true if the gesture is occuring
+ */
 LeapMotion.prototype.checkGesture = function(gesture)
 {
 	if(this.gesture[gesture] !== undefined)
@@ -130,7 +268,12 @@ LeapMotion.prototype.checkGesture = function(gesture)
 	return false;
 }
 
-//Check if hand is in pose
+/**
+ * Check if hand is in pose
+ * @method checkPose
+ * @param {Number} pose Pose to be checked
+ * @return {Boolean} Returns true if hand is in this pose
+ */
 LeapMotion.prototype.checkPose = function(pose)
 {
 	if(this.pose[pose] !== undefined)
@@ -140,13 +283,22 @@ LeapMotion.prototype.checkPose = function(pose)
 	return false;
 }
 
-//Change Mode
+/**
+ * Set hand tracking mode
+ * Can be set to HDM or Desktop Mode
+ * @param {Number} mode Mode
+ * @method setMode
+ */
 LeapMotion.prototype.setMode = function(mode)
 {
 	this.mode = mode;
 }
 
-//Update leap pose flsgs from collected data
+/**
+ * Update leap object pose flags from collected data
+ * Called automatically by the update methods
+ * @method updatePoses
+ */
 LeapMotion.prototype.updatePoses = function()
 {
 	//Clean all pose flags
@@ -216,7 +368,11 @@ LeapMotion.prototype.updatePoses = function()
 	}
 }
 
-//Update leap gesture flags from collected data
+/**
+ * Update leap object gesture flags from collected data
+ * Called automatically by the update method
+ * @method updateGestures
+ */
 LeapMotion.prototype.updateGestures = function()
 {
 	//Clean all event flags
@@ -283,7 +439,11 @@ LeapMotion.prototype.updateGestures = function()
 	}
 }
 
-//Update debug hand model
+/**
+ * Update internal hand debug model
+ * Automatically called by the update method if debugModel is set to true
+ * @method updateDebugModel
+ */
 LeapMotion.prototype.updateDebugModel = function()
 {
 	//Self pointer
@@ -340,9 +500,12 @@ LeapMotion.prototype.updateDebugModel = function()
 	}
 }
 
-//Add physics bounding box from objet to physics world
-LeapMotion.prototype.updatePhysics = function()
-{	
+/**
+ * Update physics object to enable hand physics collision
+ * Called by updateDebugModel automatically
+ * @method updatePhysics
+ */
+LeapMotion.prototype.updatePhysics = function() {
 	//Remove all physics bodys
 	for(var i = 0; i < this.physicsBodys.length; i++)
 	{
@@ -400,19 +563,28 @@ LeapMotion.prototype.updateMesh = function(bone, mesh)
 	this.add(mesh);
 }
 
-//Get hand movement (already temporaly normalized)
+/**
+ * Get hand speed (temporarily normalised)
+ * @method getMovement
+ * @return {Number} Hand speed
+ */
 LeapMotion.prototype.getMovement = function()
 {
 	var actual = this.data.gestures[0].position;
 	var previous = this.data.gestures[0].startPosition;
 
-	var velAbs = new THREE.Vector3(actual[0] - previous[0], actual[1] - previous[1], actual[2] - previous[2]);
-	velAbs.divideScalar(this.data.currentFrameRate);
+	var speed = new THREE.Vector3(actual[0] - previous[0], actual[1] - previous[1], actual[2] - previous[2]);
+	speed.divideScalar(this.data.currentFrameRate);
 
-	return velAbs;
+	return speed;
 }
 
-//Create JSON for object
+/**
+ * Create JSON for object
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} JSON description
+ */
 LeapMotion.prototype.toJSON = function(meta)
 {
 	var data = THREE.Object3D.prototype.toJSON.call(this, meta);

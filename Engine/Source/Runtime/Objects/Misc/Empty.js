@@ -1,6 +1,12 @@
 "use strict"
 
-// Empty constructor
+/**
+ * Creates an empty object
+ * @class Container
+ * @constructor
+ * @extends {THREE.Object3D}
+ * @module Misc
+ */
 function Empty() {
 	THREE.Object3D.call(this)
 
@@ -14,5 +20,4 @@ function Empty() {
 	this.defaultComponents.push(new ObjectComponent())
 }
 
-// Super prototype
 Empty.prototype = Object.create(THREE.Object3D.prototype);

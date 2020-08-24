@@ -1,52 +1,112 @@
 "use strict"
 
-//Program constructor
+/*
+ * Program class contains all the data of a Gorlot program
+ * @class Program
+ * @module Core
+ * @constructor
+ * @param {String} name Program name
+ * @extends {THREE.Object3D}
+ * @extends {ResourceManager}
+ */
 function Program(name)
 {
 	THREE.Object3D.call(this)
+    ResourceManager.call(this)
 
 	this.type = "Program"
 
 	// Disable matrix auto update
 	this.matrixAutoUpdate = false
 
-    // Pointer to gorlot app
+    /**
+     * GorlotApp instance, used to communication between an app and the host webpage
+     * @property app
+     * @default null
+     */
     this.app = null
 
 	// Program Info
 	this.name = (name !== undefined) ? name : "program"
+
+    /**
+     * Program description
+     * @property description
+     * @type {String}
+     */
 	this.description = ""
+
+    /**
+     * Program author
+     * @property author
+     * @type {String}
+     */
 	this.author = ""
+
+    /**
+     * Program version
+     * @property version
+     * @type {String}
+     * @default "0"
+     */
 	this.version = "0"
 
-	// Hardware flags
+    /**
+     * Flag to control pointer locking
+     * @property lockPointer
+     * @type {Boolean}
+     * @default false
+     */
 	this.lockPointer = false
 	
 	// VR flags
+    /**
+     * Enable virtual reality flag
+     * @property vr
+     * @default false
+     * @type {Boolean}
+     */
 	this.vr = false
+    
+    /**
+     * Virtual reality movement scale
+     * @property vrScale
+     * @default 1.0
+     * @type {Number}
+     */
 	this.vrScale = 1
 
 	// Render quality
+    /**
+     * If true, the program is rendered with antialiasing
+     * @property antialiasing
+     * @type {Boolean}
+     * @default false
+     */
 	this.antialiasing = false
-	this.shadows = true
-	this.shadowsType = THREE.PCFSoftShadowMap
 
-	//Resources
-	this.images = []
-	this.videos = []
-	this.audio = []
-	this.fonts = []
-	this.textures = []
-	this.geometries = []
-	this.materials = []
-	this.assetObjects = []
-	this.folders = []
+    /**
+     * If true, the program is rendered with shadows
+     * @property shadows
+     * @type {Boolean}
+     * @default true
+     */
+	this.shadows = true
+
+    /**
+     * Shadow type
+     * @property shadowsType
+     * @type {Number}
+     * @default PCFSoftShadowMap
+     */
+	this.shadowsType = THREE.PCFSoftShadowMap
 
 	// Defaults
 	this.defaultScene = null
 	this.defaultCamera = null
 
 	//Runtime variables
+    this.keyboard = null
 	this.renderer = null
     this.canvas = null
 	this.scene = null
@@ -64,8 +124,29 @@ function Program(name)
 
 Program.prototype = Object.create(THREE.Object3D.prototype)
 
+Program.prototype.getMaterialByName = ResourceManager.prototype.getMaterialByName
+Program.prototype.addMaterial = ResourceManager.prototype.addMaterial
+Program.prototype.removeMaterial = ResourceManager.prototype.removeMaterial
+Program.prototype.getTextureByName = ResourceManager.prototype.getTextureByName
+Program.prototype.addTexture = ResourceManager.prototype.addTexture
+Program.prototype.removeTexture = ResourceManager.prototype.removeTexture
+Program.prototype.getFontByName = ResourceManager.prototype.getFontByName
+Program.prototype.addFont = ResourceManager.prototype.addFont
+Program.prototype.removeFont = ResourceManager.prototype.removeFont 
+Program.prototype.getAudioByName = ResourceManager.prototype.getAudioByName
+Program.prototype.addAudio = ResourceManager.prototype.addAudio
+Program.prototype.removeAudio = ResourceManager.prototype.removeAudio
+
 // Select initial scene and initialise it
 Program.prototype.initialize = function() {
+    // If input null create input object
+    if(this.mouse === null) {
+        this.mouse = new Mouse()
+    }
+    if(this.keyboard === null) {
+        this.keyboard = new Keyboard()
+    }
+
 	// Get default scene
 	if (this.defaultScene !== null) {
 		for(var i = 0; i < this.children.length; i++) {
@@ -77,11 +158,12 @@ Program.prototype.initialize = function() {
 	} else if(this.children.length > 0) {
 		this.setScene(this.children[0])
 	}
+}
 
-	// Set mouse lock
-    if(this.lockPointer) {
-        Mouse.setLock(true)
-    }
+// Set program mouse and keyboard
+Program.prototype.setMouseKeyboard = function(mouse, keyboard) {
+    this.mouse = mouse
+    this.keyboard = keyboard
 }
 
 // Set program renderer
@@ -354,271 +436,6 @@ Program.prototype.sendDataApp = function(data) {
             console.warn("Program: No app available", data)
         }
     }
-}
-
-// Get material by name
-Program.prototype.getMaterialByName = function(name) {
-	for(var i in this.materials.length) {
-		if (this.materials[i].name === name) {
-			return this.materials[i]
-		}
-	}
-
-	return null
-}
-
-//Add material to materials list
-Program.prototype.addMaterial = function(material)
-{
-	if(material instanceof THREE.Material)
-	{
- 		this.materials[material.uuid] = material
- 	}
-}
-
-//Remove material from materials list (also receives default used to replace)
-Program.prototype.removeMaterial = function(material, defaultMaterial, defaultMaterialSprite)
-{
-	if (defaultMaterial === undefined) {
-		defaultMaterial = new MeshBasicMaterial()
-	}
-
-	if (defaultMaterialSprite === undefined) {
-		defaultMaterialSprite = new SpriteMaterial()
-	}
-
-	if(material instanceof THREE.Material)
-	{
-		delete this.materials[material.uuid]
-		
-		this.traverse(function(child)
-		{
-			if(child.material !== undefined && child.material.uuid === material.uuid)
-			{
-				if (child instanceof THREE.Sprite) {
-					child.material = defaultMaterialSprite
-				} else {
-					child.material = defaultMaterial
-				}
-			}
-		});
-	}
-}
-
-//Add texture to texture list
-Program.prototype.addTexture = function(texture)
-{
- 	this.textures[texture.uuid] = texture
-}
-
-// Get texture by name
-Program.prototype.getTextureByName = function(name) {
-	for(var i in this.textures.length) {
-		if (this.textures[i].name === name) {
-			return this.textures[i]
-		}
-	}
-
-	return null
-}
-
-// Remove texture from textures list (also receives default used to replace)
-Program.prototype.removeTexture = function(texture, defaultTexture) {
-	if (defaultTexture === undefined) {
-		defaultTexture = new THREE.Texture()
-	}
-
-	if (texture instanceof THREE.Texture) {
-		delete this.textures[texture.uuid]
-
-		this.traverse((child) => {
-			if (child.material !== undefined) {
-				var material = child.material
-
-				if (material.map != null && material.map.uuid === texture.uuid) {
-					material.map = defaultTexture
-					material.needsUpdate = true
-				} else if (material.bumpMap != null && material.bumpMap.uuid === texture.uuid) {
-					material.bumpMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.normalMap != null && material.normalMap.uuid === texture.uuid) {
-					material.normalMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.displacementMap != null && material.displacementMap.uuid === texture.uuid) {
-					material.displacementMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.specularMap != null && material.specularMap.uuid === texture.uuid) {
-					material.specularMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.emissiveMap != null && material.emissiveMap.uuid === texture.uuid) {
-					material.emissiveMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.alphaMap != null && material.alphaMap.uuid === texture.uuid) {
-					material.alphaMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.roughnessMap != null && material.roughnessMap === texture.uuid) {
-					material.roughnessMap = defaultTexture
-					material.needsUpdate = true
-				} else if (material.metalnessMap != null && material.metalnessMap) {
-					material.metalnessMap = defaultTexture
-					material.needsUpdate = true
-				}
-			} else if (child instanceof ParticleEmitter) {
-				if (child.group.texture.uuid === texture.uuid) {
-					child.group.texture = defaultTexture
-				}
-			}
-		})
-	}
-}
-
-// Get font by name
-Program.prototype.getFontByName = function(name) {
-    for(var i in this.fonts) {
-        if(this.fonts[i],name === name) {
-            return this.fonts[i]
-        }
-    }
-
-    return null
-}
-
-// Add font to fonts list
-Program.prototype.addFont = function(font) {
-	if (font instanceof Font) {
-		this.fonts[font.uuid] = font
-	}
-}
-
-// Remove font from font list
-Program.prototype.removeFont = function(font, defaultFont) {
-	if (defaultFont === undefined) {
-		defaultFont = new Font()
-	}
-
-	if (font instanceof Font) {
-		delete this.fonts[font.uuid]
-
-		this.traverse((child) => {
-			if (child.font !== undefined && child.font.uuid === font.uuid) {
-				child.setFont(defaultFont)
-			}
-		})
-	}
-}
-
-// Get audio by name
-Program.prototype.getAudioByName = function(name) {
-    for(var i in this.audio) {
-        if(this.audio[i].name === name) {
-            return this.audio[i]
-        }
-    }
-
-    return null
-}
-
-// Add audio to audio list
-Program.prototype.addAudio = function(audio) {
-	if (audio instanceof Audio) {
-		this.audio[audio.uuid] = audio
-	}
-}
-
-// Remove audio
-Program.prototype.removeAudio = function(audio, defaultAudio) {
-    if(defaultAudio === undefined) {
-        defaultAudio = new Audio()
-    }
-
-    if(audio instanceof Audio) {
-        delete this.audio[audio.uuid]
-
-        this.traverse((child) => {
-            if(child.audio !== undefined && child.audio.uuid === audio.uuid) {
-                // TODO: Set default audio
-            }
-        })
-    }
-}
-
-// Add an object to objects list
-Program.prototype.addObject = function(object) {
-	this.assetObjects[object.uuid] = object
-}
-
-// Adds a folder
-Program.prototype.addFolder = function(folder) {
-	if(folder instanceof Folder) {
-		this.folders[folder.uuid] = folder
-	}
-}
-
-// Removes a folder
-Program.prototype.removeFolder = function(folder) {
-	if (folder instanceof Folder) {
-		delete this.folders[folder.uuid]
-
-		var oldPath = folder.path + folder.name + "/"
-        var pathParts = oldPath.split("/")
-        pathParts.splice(pathParts.length-2, 1)
-        var newPath = pathParts.toString()
-
-        if(newPath === "") {
-            newPath = "/"
-        } else {
-            newPath = pathParts.toString().replace(/,/gi, '/')
-        }
-
-		for(var i in this.materials) {
-			if (this.materials[i].path === oldPath) {
-				this.materials[i].path = newPath
-			}
-		}
-
-		for(var i in this.textures) {
-			if (this.textures[i].path === oldPath) {
-				this.textures[i].path = newPath
-			}
-		}
-
-		for(var i in this.fonts) {
-			if (this.fonts[i].path === oldPath) {
-				this.fonts[i].path = newPath
-			}
-		}
-
-		for(var i in this.assetOobjects) {
-			if (this.assetOobjects[i].path === oldPath) {
-				this.assetOobjects[i].path = newPath
-			}
-		}
-
-		for(var i in this.audio) {
-			if (this.audio[i].path === oldPath) {
-				this.audio[i].path = newPath
-			}
-		}
-
-	}
-}
-
-// Get object by name
-Program.prototype.getAssetObjectByname = function(name) {
-	for(var i in this.assetOobjects.length) {
-		if (this.assetOobjects[i].name === name) {
-			return this.assetOobjects[i]
-		}
-	}
-
-	return null
-} 
-
-// Remove object from objects list
-Program.prototype.removeObject = function(object) {
-	if (object instanceof THREE.Object3D) {
-		delete this.assetOobjects[object.uuid]
-	}
 }
 
 //Create JSON for object

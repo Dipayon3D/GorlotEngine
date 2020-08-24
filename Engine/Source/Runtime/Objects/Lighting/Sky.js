@@ -1,5 +1,17 @@
 "use strict"
 
+/**
+ * Sky class is composed of a Hemisphere Light, Directional Light and a dynamic generated Sky sphere geometry
+ * This object is composed by 3 internal hidden children
+ * @param {Boolean} autoUpdate If true, sky auto updates its state
+ * @param {Number} dayTime Day duration (in seconds)
+ * @param {Number} sunDistance Distance of the sun
+ * @param {Number} time Starting time
+ * @class Sky
+ * @extends {THREE.Object3D}
+ * @module Lights
+ * @constructor
+ */
 function Sky(autoUpdate, dayTime, sunDistance, time)
 {	
 	THREE.Object3D.call(this)
@@ -7,17 +19,49 @@ function Sky(autoUpdate, dayTime, sunDistance, time)
 	this.name = "sky"
 	this.type = "Sky"
 
-    // Clock
+    /**
+     * Clock used to control day time
+     * @property clock
+     * @type {Clock}
+     */
 	this.clock = new THREE.Clock()
 
-    // Colours (morning, noon, afternoon, night)
+    /**
+     * Array with top sky colours
+     * @property colorTop
+     * @type {Array}
+     */
     this.colorTop = [new THREE.Color(0x77b3fb), new THREE.Color(0x0076ff), new THREE.Color(0x035bb6), new THREE.Color(0x002439)]
+
+    /**
+     * Array with bottom sky colours
+     * @property colorBottom
+     * @type {Array}
+     */
 	this.colorBottom = [new THREE.Color(0xebece6), new THREE.Color(0xffffff), new THREE.Color(0xfee7d7), new THREE.Color(0x0065a7)]
-	this.sunColor = 0xffffaa
+
+    /**
+     * Sun colour in hex RGB
+     * @property sunColor
+     * @type {Number}
+     * @default {0xFFFFAA}
+     */
+	this.sunColor = 0xFFFFAA
+
+    /**
+     * Moon colour in hex RGB
+     * @property moonColor
+     * @type {Number}
+     * @default 0x5555bb
+     */
 	this.moonColor = 0x5555bb
 
-	// Hemisphere light
-	this.hemisphere = new HemisphereLight(0, 0, 0.6)
+    /**
+     * Hemisphere light used to match ambient light with sky colour
+     * @property hemisphere
+     * @type {HemisphereLight}
+     */
+	this.hemisphere = new THREE.HemisphereLight(0, 0, 0.6)
 	this.hemisphere.color.setHSL(0.6, 1, 0.6)
 	this.hemisphere.groundColor.setHSL(0.1, 1, 0.75)
 	this.hemisphere.hidden = true
@@ -25,8 +69,12 @@ function Sky(autoUpdate, dayTime, sunDistance, time)
 	this.hemisphere.matrixAutoUpdate = false
 	this.add(this.hemisphere)
 
-	// Sun light
-	this.sun = new DirectionalLight(this.sunColor, 0.5)
+    /**
+     * Directional light to simulate light and cast shadows
+     * @property sun
+     * @type {DirectionalLight}
+     */
+	this.sun = new THREE.DirectionalLight(this.sunColor, 0.5)
 	this.sun.castShadow = true
 	this.sun.hidden = true
 	this.add(this.sun)
@@ -66,6 +114,11 @@ function Sky(autoUpdate, dayTime, sunDistance, time)
 	var geometry = new THREE.SphereBufferGeometry(1000, 16, 16)
 	var material = new THREE.ShaderMaterial({vertexShader: vertex, fragmentShader: fragment, uniforms: uniforms, side: THREE.BackSide})
 
+    /**
+     * Sky mesh with material shader to calculate dinamically sky colour
+     * @property sky
+     * @type {Mesh}
+     */
 	this.sky = new THREE.Mesh(geometry, material)
 	this.sky.hidden = true
 	this.sky.rotationAutoUpdate = false
@@ -77,10 +130,33 @@ function Sky(autoUpdate, dayTime, sunDistance, time)
 		return null;
 	}
 
-	// Day time (seconds) and sun distance
+    /**
+     * If set to true, the sky auto updates its time
+     * @property autoUpdate
+     * @default true
+     * @type {Boolean}
+     */
 	this.autoUpdate = (autoUpdate !== undefined) ? autoUpdate : true
+
+    /**
+     * Sun distance
+     * @property sunDistance
+     * @type {Number}
+     */
 	this.sunDistance = (sunDistance !== undefined) ? sunDistance : 100
+
+    /**
+     * Day time (in seconds)
+     * @property dayTime
+     * @type {number}
+     */
 	this.dayTime = (dayTime !== undefined) ? dayTime : 120
+
+    /**
+     * Current day time (in seconds)
+     * @property time
+     * @type {Number}
+     */
 	this.time = (time !== undefined) ? time : 75
 
 	this.updateSky()
@@ -95,7 +171,11 @@ function Sky(autoUpdate, dayTime, sunDistance, time)
 
 Sky.prototype = Object.create(THREE.Object3D.prototype)
 
-//Initialize
+/**
+ * Initialize sky object
+ * Called automatically by the runtime handler (Editor / App)
+ * @method initialize
+ */
 Sky.prototype.initialize = function()
 {
 	this.updateSky()
@@ -106,7 +186,11 @@ Sky.prototype.initialize = function()
 	}
 }
 
-//Update State
+/**
+ * Update sky state
+ * Called automatically by the runtime handler (Editor / App)
+ * @method update
+ */
 Sky.prototype.update = function()
 {
 	//Update time
@@ -130,7 +214,11 @@ Sky.prototype.update = function()
 }
 
 
-//Update sky color and sun position
+/**
+ * Update sky state
+ * Called automatically by the runtime handler (Editor / App)
+ * @method updateSky
+ */
 Sky.prototype.updateSky = function()
 {
 	//Time in % of day
@@ -260,7 +348,12 @@ Sky.prototype.updateSky = function()
 	}
 }
 
-//Create JSON for object
+/**
+ * Create JSON for object
+ * @param {Object} meta
+ * @method toJSON
+ * @return {Object} json
+ */
 Sky.prototype.toJSON = function(meta)
 {
 	var data = THREE.Object3D.prototype.toJSON.call(this, meta)
