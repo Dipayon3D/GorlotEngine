@@ -72,7 +72,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Core",
             "name": "Core",
-            "description": "Scene"
+            "description": "Scenes allow you to set up what and where it is supposed to be renderer by three.js This is where you place objects, lights and cameras."
         },
         {
             "displayName": "Devices",

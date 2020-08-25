@@ -469,10 +469,10 @@ ResourceManager.prototype.addObject = function(object) {
  * @param {String} name
  * @method getAssetObjectByname
  */
-ResourceManager.prototype.getAssetObjectByname = function(name) {
-	for(var i in this.assetOobjects.length) {
-		if (this.assetOobjects[i].name === name) {
-			return this.assetOobjects[i]
+ResourceManager.prototype.getAssetObjectByName = function(name) {
+	for(var i in this.assetObjects.length) {
+		if (this.assetObjects[i].name === name) {
+			return this.assetObjects[i]
 		}
 	}
 
@@ -486,7 +486,7 @@ ResourceManager.prototype.getAssetObjectByname = function(name) {
  */
 ResourceManager.prototype.removeObject = function(object) {
 	if (object instanceof THREE.Object3D) {
-		delete this.assetOobjects[object.uuid]
+		delete this.assetObjects[object.uuid]
 	}
 }
 

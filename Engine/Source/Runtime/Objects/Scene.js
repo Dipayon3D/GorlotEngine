@@ -1,7 +1,7 @@
 "use strict"
 
 /**
- * Scene
+ * Scenes allow you to set up what and where it is supposed to be renderer by three.js This is where you place objects, lights and cameras.
  * @class Scene
  * @module Core
  * @constructor
@@ -15,7 +15,10 @@ function Scene()
 	
 	this.matrixAutoUpdate = false
 
-	// Physics world
+    /**
+     * Cannon.js world used for physics simulation
+     * @property {World} world
+     */
 	this.world = new CANNON.World()
 	this.world.defaultContactMaterial.contactEquationStiffness = 1e9
 	this.world.defaultContactMaterial.contactEquationRelaxation = 4
@@ -27,18 +30,33 @@ function Scene()
 	this.world.solver.tolerance = 0.05
 	this.world.solver.iterations = 7
 
-	// Runtime objects
 	this.clock = new THREE.Clock()
+
+    /**
+     * Raycaster used for mouse interaction with 3D objects
+     * @property {Raycaster} raycaster
+     */
 	this.raycaster = new THREE.Raycaster()
 
 	// Cameras in use
 	this.cameras = []
 
-	// Renderer canvas
+    /**
+     * Program that parents this scene
+     * @property {Program} program
+     */
     this.program = null
+
+    /**
+     * Canvas used to draw this scene
+     * @property {DOM} canvas
+     */
     this.canvas = null
 
-    // Mouse normalised
+    /**
+     * Normalised mouse coordinates used by the raycaster
+     * @property {Vector2} mouse
+     */
     this.mouse = new THREE.Vector2(0, 0)
 
 	this.components = []
@@ -49,7 +67,11 @@ function Scene()
 
 Scene.prototype = Object.create(THREE.Scene.prototype)
 
-//Initialize
+/**
+ * Initialise scene objects
+ * Automatically called by the runtime handler (Editor / App)
+ * @method initialize
+ */
 Scene.prototype.initialize = function()
 {
     // Canvas and program
@@ -66,7 +88,11 @@ Scene.prototype.initialize = function()
 	}
 }
 
-//Update scene
+/**
+ * Update scene
+ * Called automatically by the runtime handler (Editor / App)
+ * @method update
+ */
 Scene.prototype.update = function()
 {
 	this.mouse.set(this.program.mouse.position.x/this.canvas.width * 2 - 1, -2 * this.program.mouse.position.y / this.canvas.height + 1)
@@ -89,7 +115,12 @@ Scene.prototype.update = function()
 	}
 }
 
-// Get camera from scene using its uuid
+/**
+ * Get camera from scene using cameras uuid
+ * @method getCamera
+ * @param {String} uuid UUID of the camera
+ * @return {Camera} Camera if found, otherwise null
+ */
 Scene.prototype.getCamera = function(uuid, obj)
 {
 	if(obj === undefined)
@@ -116,20 +147,31 @@ Scene.prototype.getCamera = function(uuid, obj)
 	return null
 }
 
-// Add camera
+/**
+ * Adds camera to active cameras list
+ * @method addCamera
+ * @param {Camera} camera
+ */
 Scene.prototype.addCamera = function(camera) {
 	this.cameras.push(camera)
     this.updateCameraOrder()
 }
 
-// Update camera order
+/**
+ * Update active cameras order
+ * @method updateCameraOrder
+ */
 Scene.prototype.updateCameraOrder = function() {
     this.cameras.sort((a, b) => {
         return a.order < b.order
     })
 }
 
-// Remove camera
+/**
+ * Remove camera from active cameras list
+ * @param {Camera} camera Camera to be removed
+ * @method removeCamera
+ */
 Scene.prototype.removeCamera = function(camera) {
 	var index = this.cameras.indexOf(camera)
 	if (index > -1) {
@@ -138,7 +180,11 @@ Scene.prototype.removeCamera = function(camera) {
 	}
 }
 
-//Set fog mode
+/**
+ * Set fog mode
+ * @param {Number} mode
+ * @method setFogMode
+ */
 Scene.prototype.setFogMode = function(mode)
 {
 	var colour = (this.fog !== null) ? this.fog.color.getHex() : "#FFFFFF"
@@ -152,7 +198,13 @@ Scene.prototype.setFogMode = function(mode)
 	}
 }
 
-//Create JSON for object
+/**
+ * Serialise the object as JSON
+ * Also serialises physics world information
+ * @method toJSON
+ * @param {Object} meta
+ * @return {Object} json
+ */
 Scene.prototype.toJSON = function(meta)
 {
 	var data = THREE.Scene.prototype.toJSON.call(this, meta)

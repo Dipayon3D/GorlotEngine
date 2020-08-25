@@ -214,7 +214,7 @@ THREE.Object3D.prototype.destroy = function()
  * @param {Object} meta
  * @param {Function} resourceAccess
  * @param {Boolean} recursive
- * @return {Object}
+ * @return {Object} json
  */
 THREE.Object3D.prototype.toJSON = function(meta, resourceAccess, recursive)
 {
