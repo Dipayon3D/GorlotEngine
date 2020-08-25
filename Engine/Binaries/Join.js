@@ -36,10 +36,12 @@ include("Source/Runtime/Input/Mouse.js")
 
 include("Source/Runtime/WebVR/VRControls.js")
 
+include("Source/Runtime/Resources/Resource.js")
 include("Source/Runtime/Resources/Font.js")
 include("Source/Runtime/Resources/Video.js")
 include("Source/Runtime/Resources/Audio.js")
 include("Source/Runtime/Resources/Image.js")
+include("Source/Runtime/Resources/ResourceManager.js")
 
 include("Source/Runtime/Texture/CanvasTexture.js")
 include("Source/Runtime/Texture/VideoTexture.js")
