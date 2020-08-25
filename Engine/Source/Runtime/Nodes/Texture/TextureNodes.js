@@ -419,7 +419,7 @@ function FlipYNode() {
     this.addInput("", "texture")
     this.serialize_widgets = true
 
-    this.properties = {flip: false}
+    this.properties = {flip: true}
 
     this.flip = this.addWidget("toggle", "Flip?", this.properties.flip, {property: "flip"})
 }

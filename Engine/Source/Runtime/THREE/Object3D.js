@@ -6,8 +6,8 @@
  * All Gorlot objects extend the Object3D class of some other higher level class from three.js
  * Code examples provided for three.js should also work inside Gorlot
  *
- * @class Object3D
- * @module ThreeJS
+ * @class THREE.Object3D
+ * @module THREE
  * @constructor
  */
 

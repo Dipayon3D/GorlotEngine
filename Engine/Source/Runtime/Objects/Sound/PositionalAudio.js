@@ -33,7 +33,7 @@ function PositionalAudio(audio) {
     this.autoplay = true
 
     /**
-     * Handles the speed of the playback
+     * Playback speed
      * @property playbackRate
      * @default 1.0
      * @type {Number}

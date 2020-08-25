@@ -1,8 +1,19 @@
 "use strict";
 
-//Video texture constructor
-function VideoTexture(video, mapping, wrapS, wrapT, type, anisotropy)
-{
+/**
+ * Video texture, uses a video DOM element instead of a img element
+ * @class VideoTexture
+ * @constructor
+ * @extends {THREE.Texture}
+ * @module Textures
+ * @param {Video} video
+ * @param {Number} mapping
+ * @param {Number} wrapS
+ * @param {Number} wrapT
+ * @param {Number} type
+ * @param {Number} anisotropy
+ */
+function VideoTexture(video, mapping, wrapS, wrapT, type, anisotropy) {
 	if (typeof video === "string") {
 		this.video = new Video(video)
 	} else if (video instanceof Video) {
@@ -22,16 +33,42 @@ function VideoTexture(video, mapping, wrapS, wrapT, type, anisotropy)
 	this.path = "/"
     this.nodes = {}
 
-	// Controls
+    /**
+     * If autoplay, starts automatically
+     * @property autoplay
+     * @default true
+     * @type {Boolean}
+     */
 	this.autoplay = true
+
+    /**
+     * If true, the video plays in loop
+     * @property loop
+     * @default true
+     * @type {Boolean}
+     */
 	this.loop = true
-    this.speed = 1.0
+    
+    /**
+     * Playback speed
+     * @property playbackRate
+     * @default 1.0
+     * @type {Number}
+     */
+    this.playbackRate = 1.0
+
+    /**
+     * Video audio volume
+     * @property volume
+     * @default 1.0
+     * @type {Number}
+     */
     this.volume = 1.0
 
 	// Video
 	this.image.src = this.video.data
 	this.image.autoplay = this.autoplay
-    this.image.playbackRate = this.speed
+    this.image.playbackRate = this.playbackRate
 	this.image.loop = this.loop
     this.image.volume = this.volume
 
@@ -51,60 +88,92 @@ function VideoTexture(video, mapping, wrapS, wrapT, type, anisotropy)
 	update()
 }
 
-// Super prototypes
 VideoTexture.prototype = Object.create(THREE.Texture.prototype);
 
-// Set video time in seconds
+/**
+ * Set video time in seconds
+ * @param {Number} time
+ * @method setTime
+ */
 VideoTexture.prototype.setTime = function(time) {
     this.image.currentImage = time
 }
 
-// Set loop mode
+/**
+ * Set loop mode
+ * @param {Boolean} loop
+ * @method setLoop
+ */
 VideoTexture.prototype.setLoop = function(loop) {
     this.loop = loop
     this.image.loop = loop
 }
 
-// Set video volume
+/**
+ * Set video volume
+ * @param {Number} volume
+ * @method setVolume
+ */
 VideoTexture.prototype.setVolume = function(volume) {
     this.volume = (volume >= 0 && volume <= 1) ? volume : (volume >= 0) ? 1.0 : 0.0
     this.image.volume = this.volume
 }
 
-// Set video time in seconds
-VideoTexture.prototype.setPlaybackRate = function(speed) {
-    this.speed = speed
-    this.image.playbackRate = speed
+/**
+ * Set video speed
+ * @method setPlaybackRate
+ * @param {Number} playbackRate
+ */
+VideoTexture.prototype.setPlaybackRate = function(playbackRate) {
+    this.playbackRate = playbackRate
+    this.image.playbackRate = playbackRate
 }
 
-// Stop video
+/**
+ * Pause video playback
+ * @method pause
+ */
 VideoTexture.prototype.pause = function() {
     if(!this.image.paused) {
         this.image.pause()
     }
 }
 
-// Play video
+/**
+ * Start playing video
+ * @method play
+ */
 VideoTexture.prototype.play = function() {
     if(this.image.paused) {
         this.image.play()
     }
 }
 
-// Set path
+/**
+ * Set video path
+ * @param {String} path
+ * @method setPath
+ */
 VideoTexture.prototype.setPath = function(path) {
 	if (path !== undefined) {
 		this.path = path
 	}
 }
 
-// Update nodes
+/**
+ * Update nodes
+ * @param {Object} nods
+ * @method updateNodes
+ */
 VideoTexture.prototype.updateNodes = function(nodes) {
     this.nodes = {}
     this.nodes = nodes
 }
 
-//Dispose texture
+/**
+ * Dispose video texture
+ * @method dispose
+ */
 VideoTexture.prototype.dispose = function()
 {
 	THREE.Texture.prototype.dispose.call(this);
@@ -117,7 +186,11 @@ VideoTexture.prototype.dispose = function()
 	}
 }
 
-// Create JSON description
+/**
+ * Create video texture json description
+ * @param {Object} meta
+ * @return {Object} json
+ */
 VideoTexture.prototype.toJSON = function(meta) {
 	var data = THREE.Texture.prototype.toJSON.call(this, meta)
 	var video = this.video.toJSON(meta)
@@ -129,7 +202,7 @@ VideoTexture.prototype.toJSON = function(meta) {
 	data.path = this.path
     data.nodes = this.nodes
 
-    data.speed = this.speed
+    data.playbackRate = this.playbackRate
     data.volume = this.volume
 
 	return data

@@ -1,6 +1,13 @@
 "use strict"
 
-// Video constructor
+/**
+ * Video resources are used to store video data in Base64
+ * @class Video
+ * @constructor
+ * @extends {Resource}
+ * @module Resources
+ * @param {String} url URL to video file
+ */
 function Video(url) {
 	this.name = "video"
 	this.uuid = THREE.Math.generateUUID()
@@ -19,14 +26,23 @@ function Video(url) {
     }
 }
 
-// Set path
+/**
+ * Sets the video path
+ * @param {String} path
+ * @method setPath
+ */
 Video.prototype.setPath = function(path) {
 	if (path !== undefined) {
 		this.path = path
 	}
 }
 
-// JSON serialisation
+/**
+ * Serialise resource to JSON
+ * Video is stored in Base64
+ * @param {Object} meta
+ * @return {Object} json
+ */
 Video.prototype.toJSON = function(meta) {
 
 	if (meta.videos[this.uuid] !== undefined) {

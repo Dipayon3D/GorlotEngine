@@ -1,5 +1,22 @@
 "use strict"
 
+/**
+ * Canvas Texture
+ * @class CanvasTexture
+ * @constructor
+ * @extends {THREE.Texture}
+ * @module Textures
+ * @param {Number} width Canvas width
+ * @param {Number} height Canvas height
+ * @param {Number} mapping
+ * @param {Number} wrapS
+ * @param {Number} wrapT
+ * @param {Number} magFilter
+ * @param {Number} format
+ * @param {Number} type
+ * @param {Number} anisotropy
+ * @param {Number} encoding
+ */
 function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding) {
     THREE.Texture.call(this, document.createElement("canvas"), mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding)
 
@@ -11,11 +28,31 @@ function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, minFilte
     this.width = (width !== undefined) ? width : 512
     this.height = (height !== undefined) ? height: 512
 
-    // Canvas size
+    /**
+     * Image is used to store a DOM canvas element
+     * @property image
+     * @type {DOM}
+     */
+
+    /**
+     * Canvas width
+     * @property width
+     * @type {Number}
+     */
     this.image.width = width
+
+    /**
+     * Canvas height
+     * @property height
+     * @type {Number}
+     */
     this.image.height = height
 
-    // 2D Drawing context
+    /**
+     * Canvas context 2D, can be used to draw content to the canvas texture
+     * @property context
+     * @type {Context2D}
+     */
     this.context = this.image.getContext("2d")
     this.context.font = "Normal 55px Arial"
     this.context.textAlign = "center"
@@ -27,20 +64,33 @@ function CanvasTexture(width, height, mapping, wrapS, wrapT, magFilter, minFilte
 
 CanvasTexture.prototype = Object.create(THREE.Texture.prototype)
 
-// Sets the path of this texture
+/**
+ * Sets the path of this texture
+ * @param {String} path
+ * @method setPath
+ */
 CanvasTexture.prototype.setPath = function(path) {
     if(path !== undefined) {
         this.path = path
     }
 }
 
-// Update nodes
+/**
+ * Update nodes
+ * @param {Object} nodes
+ * @method updateNodes
+ */
 CanvasTexture.prototype.updateNodes = function(nodes) {
     this.nodes = {}
     this.nodes = nodes
 }
 
-// Create JSON description
+/**
+ * Create JSON description for canvas texture, canvas image is not serialised
+ * @param {Object} meta
+ * @return {Object} json
+ * @method toJSON
+ */
 CanvasTexture.prototype.toJSON = function(meta) {
     var data = THREE.Texture.prototype.toJSON.call(this)
 

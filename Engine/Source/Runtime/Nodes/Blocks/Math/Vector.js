@@ -25,6 +25,10 @@ VectorNode.prototype.onStart = function() {
 		this.createVector()
 	}
 }
+VectorNode.prototype.onPropertyChanged = function() {
+    if(!this.isInputConnected(0))
+        this.createVector()
+}
 VectorNode.prototype.createVector = function() {
 	var x = this.getInputData(1)
 	var y = this.getInputData(2)

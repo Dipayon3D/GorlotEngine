@@ -1,6 +1,16 @@
 "use strict";
 
-//Webcam texture
+/**
+ * Webcam texture is used to capture and display video from a webcam
+ * @class WebcamTexture
+ * @constructor
+ * @extends {THREE.Texture}
+ * @param {Number} mapping
+ * @param {Number} wrapS
+ * @param {Number} wrapT
+ * @param {Number} type
+ * @param {Number} anisotropy
+ */
 function WebcamTexture(mapping, wrapS, wrapT, magFilter, minFilter, type, anisotropy)
 {
 	var video = document.createElement("video")
@@ -57,23 +67,33 @@ function WebcamTexture(mapping, wrapS, wrapT, magFilter, minFilter, type, anisot
 	update()
 }
 
-// Super prototypes
 WebcamTexture.prototype = Object.create(THREE.VideoTexture.prototype);
 
-// Set path
+/**
+ * Set path
+ * @param {String} path
+ * @method setPath
+ */
 WebcamTexture.prototype.setPath = function(path) {
 	if (path !== undefined) {
 		this.path = path
 	}
 }
 
-// Update nodes
+/**
+ * Update nodes
+ * @param {Object} nodes
+ * method updateNodes
+ */
 WebcamTexture.prototype.updateNodes = function(nodes) {
     this.nodes = {}
     this.nodes = nodes
 }
 
-// Dispose texture
+/**
+ * Dispose webcam texture
+ * @method dispose
+ */
 WebcamTexture.prototype.dispose = function() {
 	THREE.Texture.prototype.dispose.call(this)
 
@@ -83,6 +103,12 @@ WebcamTexture.prototype.dispose = function() {
 	}
 }
 
+/**
+ * Create JSON description
+ * @param {Object} meta
+ * @return {Object} json
+ * @method toJSON
+ */
 WebcamTexture.prototype.toJSON = function(meta) {
 	var data = THREE.VideoTexture.prototype.toJSON.call(this, meta)
 

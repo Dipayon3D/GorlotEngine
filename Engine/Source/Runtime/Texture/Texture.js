@@ -1,8 +1,23 @@
-"use strict";
+"use strict"
 
-//Texture constructor
-function Texture(image, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding)
-{
+/**
+ * Image texture constructor, supports GIF animations
+ * @class Texture
+ * @constructor
+ * @extends {THREE.Texture}
+ * @module Textures
+ * @param {Image} image
+ * @param {Number} mapping
+ * @param {Number} wrapS
+ * @param {Number} wrapT
+ * @param {Number} magFilter
+ * @param {Number} minFilter
+ * @param {Number} format
+ * @param {Number} type
+ * @param {Number} anisotropy
+ * @param {Number} encoding
+ */
+function Texture(image, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding) {
 	// If image is a URL
 	if (typeof image === "string") {
 		this.img = new GORLOT.Image(image)
@@ -44,30 +59,45 @@ function Texture(image, mapping, wrapS, wrapT, magFilter, minFilter, format, typ
 	}
 }
 
-// Super prototypes
 Texture.prototype = Object.create(THREE.Texture.prototype);
 
-// Set path
+/**
+ * Sets the texture path
+ * @param {String} path
+ * @method setPath
+ */
 Texture.prototype.setPath = function(path) {
 	if (path !== undefined) {
 		this.path = path
 	}
 }
 
-// Update nodes
+/**
+ * Update nodes
+ * @param {Object} nodes
+ * @method updateNodes
+ */
 Texture.prototype.updateNodes = function(nodes) {
     this.nodes = {}
     this.nodes = nodes
 }
 
-// Dispose Texture
+/**
+ * Dispose texture
+ * @method dispose
+ */
 Texture.prototype.dispose = function() {
 	THREE.Texture.prototype.dispose.call(this)
 
 	this.disposed = true
 }
 
-//Create JSON description
+/**
+ * Create JSON description for texture, serialises image used in the texture
+ * @param {Object} meta
+ * @return {Object} json
+ * @method toJSON
+ */
 Texture.prototype.toJSON = function(meta)
 {
 	var data = THREE.Texture.prototype.toJSON.call(this, meta)

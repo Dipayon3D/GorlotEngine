@@ -1,6 +1,14 @@
 "use strict"
 
-// Font constructor
+/**
+ * Font class stores font data, font data can be stored as an opentype json or as a TTF file (stored in Base64)
+ * Font objects are used for both 2D and 3D text
+ * @class Font
+ * @constructor
+ * @extends {Resource}
+ * @module Resources
+ * @param {String} url URL to font file
+ */
 function Font(url) {
 	this.name = "font"
 	this.uuid = THREE.Math.generateUUID()
@@ -41,13 +49,17 @@ function Font(url) {
 
 Font.prototype.isFont = true
 
+/**
+ * Sets the path of the font
+ * @param {String} path
+ * @method setPath
+ */
 Font.prototype.setPath = function(path) {
 	if (path !== undefined) {
 		this.path = path
 	}
 }
 
-// Generate shapes
 Font.prototype.getOpentypeFont = function() {
 	if (this.encoding === "json") {
 		var options = {
@@ -71,7 +83,13 @@ Font.prototype.getOpentypeFont = function() {
 	return null
 }
 
-// Generate shapes
+/**
+ * Generate font shapes used to create 3D geometries
+ * @param {String} text
+ * @param {Number} size
+ * @param {Number} divisions
+ * @return {Array} paths
+ */
 Font.prototype.generateShapes = function(text, size, divisions)
 {
 	if(size === undefined)
@@ -218,7 +236,12 @@ Font.prototype.generateShapes = function(text, size, divisions)
 	}
 }
 
-// JSON serialisation
+/**
+ * Serialise resource to JSON
+ * @param {Object} meta
+ * @return {Object} json
+ * @method toJSON
+ */
 Font.prototype.toJSON = function(meta) {
 
 	if (meta.fonts[this.uuid] !== undefined) {
