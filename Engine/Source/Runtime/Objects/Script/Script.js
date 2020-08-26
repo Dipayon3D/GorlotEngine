@@ -20,7 +20,7 @@
  *  - Keyboard
  *  - Mouse
  * @class Script
- * @extends {THREE.Object}
+ * @extends {Object3D}
  * @param {String} code Javascript code to be used by this script
  * @module Script
  */

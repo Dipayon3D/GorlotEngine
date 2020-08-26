@@ -6,7 +6,7 @@
  * @module Sprite
  * @param {Material} material Material used to draw sprites
  * @constructor
- * @extends {THREE.Sprite}
+ * @extends {Sprite}
  */
 
 /**

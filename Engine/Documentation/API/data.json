@@ -188,9 +188,7 @@
         },
         "../Source/Runtime/Objects/Physics/PhysicsObject.js": {
             "name": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "modules": {
-                "Physics": 1
-            },
+            "modules": {},
             "classes": {
                 "PhysicsObject": 1
             },
@@ -371,13 +369,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "../Source/Runtime/THREE/Texture.js": {
-            "name": "../Source/Runtime/THREE/Texture.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "../Source/Runtime/Texture/CanvasTexture.js": {
             "name": "../Source/Runtime/Texture/CanvasTexture.js",
             "modules": {
@@ -412,6 +403,46 @@
             "modules": {},
             "classes": {
                 "WebcamTexture": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../Source/Runtime/Utils/ArraybufferUtils.js": {
+            "name": "../Source/Runtime/Utils/ArraybufferUtils.js",
+            "modules": {
+                "BinaryData": 1
+            },
+            "classes": {
+                "ArraybufferUtils": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../Source/Runtime/Utils/Base64Utils.js": {
+            "name": "../Source/Runtime/Utils/Base64Utils.js",
+            "modules": {},
+            "classes": {
+                "Base64Utils": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../Source/Runtime/Utils/BufferUtils.js": {
+            "name": "../Source/Runtime/Utils/BufferUtils.js",
+            "modules": {},
+            "classes": {
+                "BufferUtils": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../Source/Runtime/Utils/Mesh2Shape.js": {
+            "name": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "modules": {
+                "Physics": 1
+            },
+            "classes": {
+                "Mesh2shape": 1
             },
             "fors": {},
             "namespaces": {}
@@ -553,14 +584,16 @@
             "submodules": {},
             "elements": {},
             "classes": {
-                "PhysicsObject": 1
+                "Mesh2shape": 1,
+                "PhysicsObject": 1,
+                "FileSystem": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
+            "file": "../Source/Runtime/FileSystem.js",
             "line": 3,
-            "description": "Wrapper for cannon.js Body physics objects"
+            "description": "Mesh2shape is used to convert ThreeJS objects to CannonJS shapes\nIt is based on the original Mesh2Shape converted by @donmccurdy"
         },
         "Script": {
             "name": "Script",
@@ -615,13 +648,12 @@
                 "SpineTexture": 1,
                 "Texture": 1,
                 "VideoTexture": 1,
-                "WebcamTexture": 1,
-                "FileSystem": 1
+                "WebcamTexture": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "../Source/Runtime/FileSystem.js",
+            "file": "../Source/Runtime/Texture/WebcamTexture.js",
             "line": 3,
             "description": "Canvas textures can be used to draw content to the texture using runtime\nCanvas textures always start with black background and a red text \"Canvas Texture\""
         },
@@ -687,6 +719,22 @@
             "file": "../Source/Runtime/THREE/Object3D.js",
             "line": 3,
             "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
+        },
+        "BinaryData": {
+            "name": "BinaryData",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ArraybufferUtils": 1,
+                "Base64Utils": 1,
+                "BufferUtils": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "../Source/Runtime/Utils/BufferUtils.js",
+            "line": 3,
+            "description": "ArraybufferUtils contains method to convert from and to ArrayBuffer binary format"
         },
         "Runtime": {
             "name": "Runtime",
@@ -774,7 +822,7 @@
                 }
             ],
             "is_constructor": 1,
-            "extends": "{THREE.Mesh}"
+            "extends": "{Mesh}"
         },
         "SkinnedMesh": {
             "name": "SkinnedMesh",
@@ -802,7 +850,7 @@
                 }
             ],
             "is_constructor": 1,
-            "extends": "{THREE.SkinnedMesh}"
+            "extends": "{SkinnedMesh}"
         },
         "Text3D": {
             "name": "Text3D",
@@ -860,7 +908,7 @@
                 }
             ],
             "is_constructor": 1,
-            "extends": "{THREE.Mesh}"
+            "extends": "{Mesh}"
         },
         "OrthographicCamera": {
             "name": "OrthographicCamera",
@@ -876,7 +924,7 @@
             "line": 3,
             "description": "Orthographic Camera is used for 2D-like image projection\nBased on THREE.OrthographicCamera, original documentation available at https://threejs.org/docs/#api/en/cameras/OrthographicCamera",
             "is_constructor": 1,
-            "extends": "{THREE.OrthographicCamera}",
+            "extends": "{OrthographicCamera}",
             "params": [
                 {
                     "name": "size",
@@ -918,7 +966,7 @@
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
             "line": 3,
             "description": "Perspective Camera\nBased on THREE.PerspectiveCamera, original documentation available at https://threejs.org/docs/#api/en/cameras/PerspectiveCamera",
-            "extends": "{THREE.PerspectiveCamera}",
+            "extends": "{PerspectiveCamera}",
             "is_constructor": 1,
             "params": [
                 {
@@ -956,7 +1004,7 @@
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
             "line": 3,
             "description": "Kinect device object\nThis object is used to connect Gorlot to a Microsoft Kinect v1, it only works in Microsoft Windows.\nThe operation of the kinect object depends on a server program used to connect to kinect that sends the data to nunuStudio via WebSocket.",
-            "extends": "{THREE.Object3D}",
+            "extends": "{Object3D}",
             "is_constructor": 1
         },
         "LeapMotion": {
@@ -973,7 +1021,7 @@
             "line": 3,
             "description": "Leap device object based on the official LeapJS runtime\nUsed to connect Gorlot to a leap motion hand tracker",
             "is_constructor": 1,
-            "extends": "{THREE.Object3D}"
+            "extends": "{Object3D}"
         },
         "AmbientLight": {
             "name": "AmbientLight",
@@ -995,7 +1043,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.AmbientLight}",
+            "extends": "{AmbientLight}",
             "is_constructor": 1
         },
         "DirectionalLight": {
@@ -1023,7 +1071,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.DirectionalLight}",
+            "extends": "{DirectionalLight}",
             "is_constructor": 1
         },
         "HemisphereLight": {
@@ -1056,7 +1104,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.HemisphereLight}",
+            "extends": "{HemisphereLight}",
             "is_constructor": 1
         },
         "PointLight": {
@@ -1094,7 +1142,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.PointLight}",
+            "extends": "{PointLight}",
             "is_constructor": 1
         },
         "RectAreaLight": {
@@ -1132,7 +1180,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.RectAreaLight}",
+            "extends": "{RectAreaLight}",
             "is_constructor": 1
         },
         "Sky": {
@@ -1170,7 +1218,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.Object3D}",
+            "extends": "{Object3D}",
             "is_constructor": 1
         },
         "SpotLight": {
@@ -1218,7 +1266,7 @@
                     "type": "Number"
                 }
             ],
-            "extends": "{THREE.SpotLight}",
+            "extends": "{SpotLight}",
             "is_constructor": 1
         },
         "Container": {
@@ -1235,7 +1283,7 @@
             "line": 3,
             "description": "Creates an empty object",
             "is_constructor": 1,
-            "extends": "{THREE.Object3D}"
+            "extends": "{Object3D}"
         },
         "ParticleEmitter": {
             "name": "ParticleEmitter",
@@ -1251,7 +1299,7 @@
             "line": 3,
             "description": "Particle emitter is a wrapper for SPE particle systems",
             "is_constructor": 1,
-            "extends": "{THREE.Points}"
+            "extends": "{Points}"
         },
         "PhysicsObject": {
             "name": "PhysicsObject",
@@ -1267,7 +1315,7 @@
             "line": 3,
             "description": "Wrapper for cannon.js Body physics objects",
             "is_constructor": 1,
-            "extends": "{THREE.Object3D}"
+            "extends": "{Object3D}"
         },
         "BlockScript": {
             "name": "BlockScript",
@@ -1282,7 +1330,7 @@
             "file": "../Source/Runtime/Objects/Script/BlockScript.js",
             "line": 1,
             "description": "BlockScripts are used to code in a graphic way\nThis could be imagined as some kind of ue4 blueprints",
-            "extends": "{THREE.Object}",
+            "extends": "{Object3D}",
             "params": [
                 {
                     "name": "nodes",
@@ -1304,7 +1352,7 @@
             "file": "../Source/Runtime/Objects/Script/Script.js",
             "line": 1,
             "description": "Script objects are used to control other objects present in the scene\nIt can access and change every object in the program and supports some events\n - initialize\n     - Called on app initialisation\n - update\n     - Called on every frame (after the frame is rendered)\n - onMouseOver\n     - Called on every frame if mouse is on top of one of the script children\n - onResize\n     - Called every time the window is resize\n - onAppData\n     - Called when receiving data sent by the host website\n\nCode written inside scripts have access to the following attributes\n - scene\n - program\n - self\n     - Same as this reference but global in the script scope\n - Keyboard\n - Mouse",
-            "extends": "{THREE.Object}",
+            "extends": "{Object3D}",
             "params": [
                 {
                     "name": "code",
@@ -1333,7 +1381,7 @@
                     "type": "Audio"
                 }
             ],
-            "extends": "{THREE.Audio}",
+            "extends": "{Audio}",
             "is_constructor": 1
         },
         "PositionalAudio": {
@@ -1356,7 +1404,7 @@
                     "type": "Audio"
                 }
             ],
-            "extends": "{THREE.PositionalAudio}",
+            "extends": "{PositionalAudio}",
             "is_constructor": 1
         },
         "SpineAnimation": {
@@ -1373,7 +1421,7 @@
             "line": 3,
             "description": "Spine animation object, to used with animation produced with Esoteric spine",
             "is_constructor": 1,
-            "extends": "{THREE.Mesh}",
+            "extends": "{Mesh}",
             "params": [
                 {
                     "name": "json",
@@ -1440,7 +1488,7 @@
                 }
             ],
             "is_constructor": 1,
-            "extends": "{THREE.Sprite}"
+            "extends": "{Sprite}"
         },
         "Scene": {
             "name": "Scene",
@@ -1456,7 +1504,7 @@
             "line": 3,
             "description": "Scenes allow you to set up what and where it is supposed to be renderer by three.js This is where you place objects, lights and cameras.",
             "is_constructor": 1,
-            "extends": "{THREE.Object3D}"
+            "extends": "{Scene}"
         },
         "Audio": {
             "name": "Audio",
@@ -1646,7 +1694,7 @@
             "line": 3,
             "description": "Canvas textures can be used to draw content to the texture using runtime\nCanvas textures always start with black background and a red text \"Canvas Texture\"",
             "is_constructor": 1,
-            "extends": "{THREE.Texture}",
+            "extends": "{Texture}",
             "params": [
                 {
                     "name": "width",
@@ -1714,7 +1762,7 @@
             "line": 3,
             "description": "Image texture constructor, supports GIF animations",
             "is_constructor": 1,
-            "extends": "{THREE.Texture}",
+            "extends": "{Texture}",
             "params": [
                 {
                     "name": "image",
@@ -1782,7 +1830,7 @@
             "line": 3,
             "description": "Video texture, uses a video DOm element instead of an img element, it's similar to THREE.VideoTexture\nVideoTexture also provides methods for playback control",
             "is_constructor": 1,
-            "extends": "{THREE.Texture}",
+            "extends": "{Texture}",
             "params": [
                 {
                     "name": "video",
@@ -1830,7 +1878,7 @@
             "line": 3,
             "description": "Webcam texture is used to capture and display video from a webcam in real-time\nIt uses WebRTC, the most must support it, otherwise WebcamTexture will display a black image",
             "is_constructor": 1,
-            "extends": "{THREE.Texture}",
+            "extends": "{Texture}",
             "params": [
                 {
                     "name": "mapping",
@@ -1859,6 +1907,67 @@
                 }
             ]
         },
+        "ArraybufferUtils": {
+            "name": "ArraybufferUtils",
+            "shortname": "ArraybufferUtils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BinaryData",
+            "namespace": "",
+            "file": "../Source/Runtime/Utils/ArraybufferUtils.js",
+            "line": 3,
+            "description": "ArraybufferUtils contains method to convert from and to ArrayBuffer binary format",
+            "static": 1
+        },
+        "Base64Utils": {
+            "name": "Base64Utils",
+            "shortname": "Base64Utils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BinaryData",
+            "namespace": "",
+            "file": "../Source/Runtime/Utils/Base64Utils.js",
+            "line": 3,
+            "description": "Base64Utils contains methods to convert from and to Base64 binary format",
+            "static": 1
+        },
+        "BufferUtils": {
+            "name": "BufferUtils",
+            "shortname": "BufferUtils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BinaryData",
+            "namespace": "",
+            "file": "../Source/Runtime/Utils/BufferUtils.js",
+            "line": 3,
+            "description": "BufferUtils contains methods to convert from and to NodeJS buffer binary format",
+            "static": 1
+        },
+        "Mesh2shape": {
+            "name": "Mesh2shape",
+            "shortname": "Mesh2shape",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Physics",
+            "namespace": "",
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 3,
+            "description": "Mesh2shape is used to convert ThreeJS objects to CannonJS shapes\nIt is based on the original Mesh2Shape converted by @donmccurdy",
+            "author": "Don McCurdy (https://github.com/donmccurdy)",
+            "static": 1
+        },
         "FileSystem": {
             "name": "FileSystem",
             "shortname": "FileSystem",
@@ -1867,7 +1976,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "Textures",
+            "module": "Physics",
             "namespace": "",
             "file": "../Source/Runtime/FileSystem.js",
             "line": 3,
@@ -6970,26 +7079,6 @@
             "module": "THREE"
         },
         {
-            "file": "../Source/Runtime/THREE/Texture.js",
-            "line": 3,
-            "description": "THREE.Texture serialisation is different in Gorlot",
-            "params": [
-                {
-                    "name": "meta",
-                    "description": "",
-                    "type": "Object"
-                }
-            ],
-            "return": {
-                "description": "json",
-                "type": "Object"
-            },
-            "itemtype": "method",
-            "name": "toJSON",
-            "class": "CanvasTexture",
-            "module": "THREE"
-        },
-        {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
             "line": 33,
             "description": "Image is used to store a DOM canvas element",
@@ -7391,6 +7480,421 @@
             "module": "Textures"
         },
         {
+            "file": "../Source/Runtime/Utils/ArraybufferUtils.js",
+            "line": 12,
+            "description": "Create arraybuffer from binary string",
+            "itemtype": "method",
+            "name": "fromBinaryString",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "data",
+                "type": "ArrayBuffer"
+            },
+            "class": "ArraybufferUtils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ArraybufferUtils.js",
+            "line": 31,
+            "description": "Create arraybuffer from base64 string",
+            "itemtype": "method",
+            "name": "fromBase64",
+            "params": [
+                {
+                    "name": "base64",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "data",
+                "type": "ArrayBuffer"
+            },
+            "class": "ArraybufferUtils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ArraybufferUtils.js",
+            "line": 66,
+            "description": "Create ArrayBuffer from NodeJS buffer",
+            "itemtype": "method",
+            "name": "fromBuffer",
+            "params": [
+                {
+                    "name": "buffer",
+                    "description": "",
+                    "type": "Buffer"
+                }
+            ],
+            "return": {
+                "description": "data",
+                "type": "ArrayBuffer"
+            },
+            "class": "ArraybufferUtils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Base64Utils.js",
+            "line": 12,
+            "description": "Remove base64 header from data\nUseful for removing the header from image, audio, video, etc",
+            "itemtype": "method",
+            "name": "removeHeader",
+            "params": [
+                {
+                    "name": "base64",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "base64",
+                "type": "String"
+            },
+            "class": "Base64Utils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Base64Utils.js",
+            "line": 24,
+            "description": "Create Base64 string from arraybuffer",
+            "itemtype": "method",
+            "name": "fromArrayBuffer",
+            "params": [
+                {
+                    "name": "arraybuffer",
+                    "description": "",
+                    "type": "ArrayBuffer"
+                }
+            ],
+            "return": {
+                "description": "base64",
+                "type": "String"
+            },
+            "class": "Base64Utils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Base64Utils.js",
+            "line": 79,
+            "description": "Create Base64 string from binary string",
+            "itemtype": "method",
+            "name": "fromBinaryString",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "base64",
+                "type": "String"
+            },
+            "class": "Base64Utils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/BufferUtils.js",
+            "line": 12,
+            "description": "Create nodejs buffer from arraybuffer",
+            "itemtype": "method",
+            "name": "fromArrayBuffer",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "",
+                    "type": "ArrayBuffer"
+                }
+            ],
+            "return": {
+                "description": "buffer",
+                "type": "Buffer"
+            },
+            "class": "BufferUtils",
+            "module": "BinaryData"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 16,
+            "description": "Type is used to indentify the type of cannonjs\n - BOX\n - CYLINDER\n - SPHERE\n - HULL",
+            "itemtype": "attribute",
+            "name": "Type",
+            "type": "{Object}",
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 34,
+            "description": "Given a Object3D instance, creates a corresponding CANNON shape",
+            "itemtype": "method",
+            "name": "createShape",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "type",
+                    "description": "Mesh2shape.Type",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Shape"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 106,
+            "description": "Create box shape from geometry",
+            "itemtype": "method",
+            "name": "createBoxShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Box"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 129,
+            "description": "Bounding box needs to be computed with the entire mesh, not just geometry",
+            "itemtype": "method",
+            "name": "createBoundingBoxShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Box"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 164,
+            "description": "Computes 3D convex hull as a CANNON.ConvexPolyhedron",
+            "itemtype": "method",
+            "name": "createConvexPolyhedron",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "ConvexPolyhedron"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Shape"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 215,
+            "description": "Create cylinder shape from geometry",
+            "itemtype": "method",
+            "name": "createCylinderShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Cylinder"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 255,
+            "description": "Plane shape from geometry",
+            "itemtype": "method",
+            "name": "createPlaneShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Box"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 270,
+            "description": "Sphere shape from geometry",
+            "itemtype": "method",
+            "name": "createSphereShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Sphere"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 283,
+            "description": "Sphere shape from bouding sphere",
+            "itemtype": "method",
+            "name": "createBoundingSphereShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Sphere"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 297,
+            "description": "Sphere shape from bouding sphere",
+            "itemtype": "method",
+            "name": "createTubeShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Trimesh"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 311,
+            "description": "Trimesh shape from geometry",
+            "itemtype": "method",
+            "name": "createTrimeshShape",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Trimesh"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 331,
+            "description": "Returns a single geometry for the given object\nIf the object is compound, its geometries are automatically merged",
+            "itemtype": "method",
+            "name": "getGeometry",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "",
+                    "type": "Object3D"
+                }
+            ],
+            "return": {
+                "description": "Geometry that contains all merger geometry",
+                "type": "Geometry"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 390,
+            "description": "Get geometry vertices",
+            "itemtype": "method",
+            "name": "getVertices",
+            "params": [
+                {
+                    "name": "geometry",
+                    "description": "",
+                    "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "array",
+                "type": "Array"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 406,
+            "description": "Returns a array of THREE.Mesh instances from the given object.\nIf nested transformations are found, they are applied to child meshes as mesh.userData.matrix, so that each mesh has its position/rotation/scale independently of all of its parents except the top-level object.",
+            "itemtype": "method",
+            "name": "getMeshes",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "",
+                    "type": "Object3D"
+                }
+            ],
+            "return": {
+                "description": "meshes found inside the Object3D",
+                "type": "Array"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
             "file": "../Source/Runtime/FileSystem.js",
             "line": 13,
             "description": "Opens and reads a text file",
@@ -7423,7 +7927,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7443,7 +7947,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7463,7 +7967,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7484,7 +7988,7 @@
                 }
             ],
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7505,7 +8009,7 @@
                 }
             ],
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7526,7 +8030,7 @@
                 }
             ],
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7542,7 +8046,7 @@
                 }
             ],
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7562,7 +8066,7 @@
                 "type": "Array"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7583,7 +8087,7 @@
                 }
             ],
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7609,7 +8113,7 @@
                 }
             ],
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7629,7 +8133,7 @@
                 "type": "Boolean"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7649,7 +8153,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7669,7 +8173,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7689,7 +8193,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
@@ -7709,7 +8213,7 @@
                 "type": "String"
             },
             "class": "FileSystem",
-            "module": "Textures"
+            "module": "Physics"
         },
         {
             "file": "../Source/Runtime/Gorlot.js",

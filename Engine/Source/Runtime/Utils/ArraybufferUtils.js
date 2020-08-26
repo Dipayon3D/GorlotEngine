@@ -1,8 +1,21 @@
 "use strict"
 
+/**
+ * ArraybufferUtils contains method to convert from and to ArrayBuffer binary format
+ * 
+ * @class ArraybufferUtils
+ * @module BinaryData
+ * @static
+ */
 function ArraybufferUtils() {}
 
-// Create arraybuffer from binary string
+/**
+ * Create arraybuffer from binary string
+ *
+ * @method fromBinaryString
+ * @param {String} str
+ * @return {ArrayBuffer} data
+ */
 ArraybufferUtils.fromBinaryString = function(str) {
 	var length = str.length
 	var array = new ArrayBuffer(length)
@@ -15,7 +28,13 @@ ArraybufferUtils.fromBinaryString = function(str) {
 	return array
 }
 
-// Create arraybuffer from base64 string
+/**
+ * Create arraybuffer from base64 string
+ *
+ * @method fromBase64
+ * @param {String} base64
+ * @return {ArrayBuffer} data
+ */
 ArraybufferUtils.fromBase64 = function(str) {
 	var encoding = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 	var length = str.length / 4 * 3
@@ -44,7 +63,13 @@ ArraybufferUtils.fromBase64 = function(str) {
 	return array
 }
 
-// Create arraybuffer from nodejs buffer
+/**
+ * Create ArrayBuffer from NodeJS buffer
+ *
+ * @method fromBuffer
+ * @param {Buffer} buffer
+ * @return {ArrayBuffer} data
+ */
 ArraybufferUtils.fromBuffer = function(buffer) {
     var array = new ArrayBuffer(buffer.length)
     var view = new Uint8Array(array)

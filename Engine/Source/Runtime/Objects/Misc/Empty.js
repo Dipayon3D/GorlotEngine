@@ -4,7 +4,7 @@
  * Creates an empty object
  * @class Container
  * @constructor
- * @extends {THREE.Object3D}
+ * @extends {Object3D}
  * @module Misc
  */
 function Empty() {

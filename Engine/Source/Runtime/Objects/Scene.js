@@ -5,7 +5,7 @@
  * @class Scene
  * @module Core
  * @constructor
- * @extends {THREE.Object3D}
+ * @extends {Scene}
  */
 function Scene()
 {

@@ -5,7 +5,7 @@
  * This object is used to connect Gorlot to a Microsoft Kinect v1, it only works in Microsoft Windows.
  * The operation of the kinect object depends on a server program used to connect to kinect that sends the data to nunuStudio via WebSocket.
  * @class KinectDevice
- * @extends {THREE.Object3D}
+ * @extends {Object3D}
  * @constructor
  * @module Devices
  */

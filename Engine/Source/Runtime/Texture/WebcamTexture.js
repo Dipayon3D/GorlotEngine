@@ -5,7 +5,7 @@
  * It uses WebRTC, the most must support it, otherwise WebcamTexture will display a black image
  * @class WebcamTexture
  * @constructor
- * @extends {THREE.Texture}
+ * @extends {Texture}
  * @param {Number} mapping
  * @param {Number} wrapS
  * @param {Number} wrapT

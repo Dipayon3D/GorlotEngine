@@ -7,7 +7,7 @@
  * @param {Geometry} geometry Geometry used by this mesh
  * @param {Material} material Material used to shade the surface of the geometry
  * @constructor
- * @extends {THREE.SkinnedMesh}
+ * @extends {SkinnedMesh}
  */
 
 /**

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>../Source/Runtime/THREE/Texture.js</title>
+    <title>../Source/Runtime/Utils/Base64Utils.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -39,9 +39,12 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AmbientLight.html">AmbientLight</a></li>
+                                <li><a href="../classes/ArraybufferUtils.html">ArraybufferUtils</a></li>
                                 <li><a href="../classes/Audio.html">Audio</a></li>
                                 <li><a href="../classes/AudioEmitter.html">AudioEmitter</a></li>
+                                <li><a href="../classes/Base64Utils.html">Base64Utils</a></li>
                                 <li><a href="../classes/BlockScript.html">BlockScript</a></li>
+                                <li><a href="../classes/BufferUtils.html">BufferUtils</a></li>
                                 <li><a href="../classes/CanvasTexture.html">CanvasTexture</a></li>
                                 <li><a href="../classes/Container.html">Container</a></li>
                                 <li><a href="../classes/DirectionalLight.html">DirectionalLight</a></li>
@@ -56,6 +59,7 @@
                                 <li><a href="../classes/KinectDevice.html">KinectDevice</a></li>
                                 <li><a href="../classes/LeapMotion.html">LeapMotion</a></li>
                                 <li><a href="../classes/Mesh.html">Mesh</a></li>
+                                <li><a href="../classes/Mesh2shape.html">Mesh2shape</a></li>
                                 <li><a href="../classes/Mouse.html">Mouse</a></li>
                                 <li><a href="../classes/OrthographicCamera.html">OrthographicCamera</a></li>
                                 <li><a href="../classes/ParticleEmitter.html">ParticleEmitter</a></li>
@@ -87,6 +91,7 @@
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/Animations.html">Animations</a></li>
                                 <li><a href="../modules/Audio.html">Audio</a></li>
+                                <li><a href="../modules/BinaryData.html">BinaryData</a></li>
                                 <li><a href="../modules/Cameras.html">Cameras</a></li>
                                 <li><a href="../modules/Core.html">Core</a></li>
                                 <li><a href="../modules/Devices.html">Devices</a></li>
@@ -135,50 +140,133 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: ../Source/Runtime/THREE/Texture.js</h1>
+<h1 class="file-heading">File: ../Source/Runtime/Utils/Base64Utils.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 &quot;use strict&quot;
 
 /**
- * THREE.Texture serialisation is different in Gorlot
- * @param {Object} meta
- * @return {Object} json
- * @method toJSON
+ * Base64Utils contains methods to convert from and to Base64 binary format
+ *
+ * @class Base64Utils
+ * @module BinaryData
+ * @static
  */
-THREE.Texture.prototype.toJSON = function(meta) {
-	// Check if this texture was already serialised
-	if (meta.textures[this.uuid] !== undefined) {
-		return meta.textures[this.uuid]
+function Base64Utils() {}
+
+/**
+ * Remove base64 header from data
+ * Useful for removing the header from image, audio, video, etc
+ *
+ * @method removeHeader
+ * @param {String} base64
+ * @return {String} base64
+ */
+Base64Utils.removeHeader = function(data) {
+    return data.slice(data.search(&quot;;base64&quot;) + 8)
+}
+
+/**
+ * Create Base64 string from arraybuffer
+ *
+ * @method fromArrayBuffer
+ * @param {ArrayBuffer} arraybuffer
+ * @return {String} base64
+ */
+Base64Utils.fromArrayBuffer = function(arraybuffer) {
+	var encoding = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;
+	var base64 = &quot;&quot;
+
+	var view = new Uint8Array(arraybuffer)
+	var remainder = view.byteLength % 3
+	var length = view.byteLength - remainder
+
+	var a, b, c, d
+	var chunk
+
+	//Chunks of 3 bytes for cycle
+	for(var i = 0; i &lt; length; i += 3)
+	{
+		chunk = (view[i] &lt;&lt; 16) | (view[i + 1] &lt;&lt; 8) | view[i + 2]
+
+		a = (chunk &amp; 16515072) &gt;&gt; 18
+		b = (chunk &amp; 258048) &gt;&gt; 12
+		c = (chunk &amp; 4032) &gt;&gt; 6
+		d = chunk &amp; 63
+
+		base64 += encoding[a] + encoding[b] + encoding[c] + encoding[d]
 	}
 
-	// Serialise texture data
-	var data = {
-		metadata: {
-			version: GORLOT.VERSION,
-			type: &quot;Texture&quot;
-		},
+	//Remaining bytes
+	if(remainder === 1)
+	{
+		chunk = view[length]
 
-		uuid: this.uuid,
-		name: this.name,
-		category: this.category,
+		a = (chunk &amp; 252) &gt;&gt; 2
+		b = (chunk &amp; 3) &lt;&lt; 4
 
-		mapping: this.mapping,
+		base64 += encoding[a] + encoding[b] + &quot;==&quot;
+	}
+	else if(remainder === 2)
+	{
+		chunk = (view[length] &lt;&lt; 8) | view[length + 1]
 
-		repeat: [this.repeat.x, this.repeat.y],
-		offset: [this.offset.x, this.offset.y],
-		wrap: [this.wrapS, this.wrapT],
+		a = (chunk &amp; 64512) &gt;&gt; 10
+		b = (chunk &amp; 1008) &gt;&gt; 4
+		c = (chunk &amp; 15) &lt;&lt; 2
 
-		minFilter: this.minFilter,
-		magFilter: this.magFilter,
-		anisotropy: this.anisotropy,
-
-		flipY: this.flipY
+		base64 += encoding[a] + encoding[b] + encoding[c] + &quot;=&quot;
 	}
 
-	meta.textures[this.uuid] = data
-	return data
+	return base64
+}
+
+/**
+ * Create Base64 string from binary string
+ *
+ * @method fromBinaryString
+ * @param {String} str
+ * @return {String} base64
+ */
+Base64Utils.fromBinaryString = function(str) {
+	var encoding = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;
+	var base64 = &quot;&quot;
+	var remainder = str.length % 3
+	var length = str.length - remainder
+
+	var a, b, c
+
+	var i = 0
+	for(var i = 0; i &lt; length; i+= 3)
+	{
+		a = str.charCodeAt(i) &amp; 0xff
+		b = str.charCodeAt(i + 1)
+		c = str.charCodeAt(i + 2)
+
+		base64 += encoding.charAt(a &gt;&gt; 2)
+		base64 += encoding.charAt(((a &amp; 0x3) &lt;&lt; 4) | ((b &amp; 0xF0) &gt;&gt; 4))
+		base64 += encoding.charAt(((b &amp; 0xF) &lt;&lt; 2) | ((c &amp; 0xC0) &gt;&gt; 6))
+		base64 += encoding.charAt(c &amp; 0x3F)
+	}
+
+	if (remainder === 1) {
+		a = str.charCodeAt(i) &amp; 0xff
+
+		base64 += encoding.charAt(a &gt;&gt; 2)
+		base64 += encoding.charAt((a &amp; 0x3) &lt;&lt; 4)
+		base64 += &quot;==&quot;
+	} else if (remainder === 2) {
+		a = str.charCodeAt(i) &amp; 0xff
+		b = str.charCodeAt(i + 1)
+
+		base64 += encoding.charAt(a &gt;&gt; 2)
+		base64 += encoding.charAt((a &amp; 0x3) &lt;&lt; 4) | ((b &amp;&amp; 0xF0) &gt;&gt; 4)
+		base64 += encoding.charAt((b &amp; 0xF) &lt;&lt; 2)
+		base64 += &quot;==&quot;
+	}
+
+	return base64
 }
 
     </pre>

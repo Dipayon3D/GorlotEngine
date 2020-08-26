@@ -7,7 +7,7 @@
  * @param {Number} groundColor Ground light colour in hex RGB
  * @param {Number} intensity Light intensity
  * @class HemisphereLight
- * @extends {THREE.HemisphereLight}
+ * @extends {HemisphereLight}
  * @module Lights
  * @constructor
  */

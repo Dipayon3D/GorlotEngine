@@ -1,11 +1,6 @@
 "use strict"
 
-/**
- * THREE.Texture serialisation is different in Gorlot
- * @param {Object} meta
- * @return {Object} json
- * @method toJSON
- */
+// Serialisation doesn't serialise any image data
 THREE.Texture.prototype.toJSON = function(meta) {
 	// Check if this texture was already serialised
 	if (meta.textures[this.uuid] !== undefined) {

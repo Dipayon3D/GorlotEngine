@@ -4,7 +4,7 @@
  * Wrapper for cannon.js Body physics objects
  * @class PhysicsObject
  * @constructor
- * @extends {THREE.Object3D}
+ * @extends {Object3D}
  * @module Physics
  */
 

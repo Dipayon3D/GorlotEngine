@@ -4,7 +4,7 @@
  * Perspective Camera
  * Based on THREE.PerspectiveCamera, original documentation available at https://threejs.org/docs/#api/en/cameras/PerspectiveCamera
  * @class PerspectiveCamera
- * @extends {THREE.PerspectiveCamera}
+ * @extends {PerspectiveCamera}
  * @module Cameras
  * @constructor
  * @param {Number} fov Field of View

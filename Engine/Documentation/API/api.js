@@ -2,9 +2,12 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "AmbientLight",
+        "ArraybufferUtils",
         "Audio",
         "AudioEmitter",
+        "Base64Utils",
         "BlockScript",
+        "BufferUtils",
         "CanvasTexture",
         "Container",
         "DirectionalLight",
@@ -19,6 +22,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "KinectDevice",
         "LeapMotion",
         "Mesh",
+        "Mesh2shape",
         "Mouse",
         "OrthographicCamera",
         "ParticleEmitter",
@@ -48,6 +52,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "modules": [
         "Animations",
         "Audio",
+        "BinaryData",
         "Cameras",
         "Core",
         "Devices",
@@ -74,6 +79,11 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "Audio",
             "name": "Audio",
             "description": "AudioEmitter is a 3D object used to play audio inside the scene"
+        },
+        {
+            "displayName": "BinaryData",
+            "name": "BinaryData",
+            "description": "ArraybufferUtils contains method to convert from and to ArrayBuffer binary format"
         },
         {
             "displayName": "Cameras",
@@ -118,7 +128,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Physics",
             "name": "Physics",
-            "description": "Wrapper for cannon.js Body physics objects"
+            "description": "Mesh2shape is used to convert ThreeJS objects to CannonJS shapes\nIt is based on the original Mesh2Shape converted by @donmccurdy"
         },
         {
             "displayName": "Resources",

@@ -2,7 +2,7 @@
  * BlockScripts are used to code in a graphic way
  * This could be imagined as some kind of ue4 blueprints
  * @class BlockScript
- * @extends {THREE.Object}
+ * @extends {Object3D}
  * @param {Object} nodes
  * @module Script
  */

@@ -4,7 +4,7 @@
  * Spine animation object, to used with animation produced with Esoteric spine
  * @class SpineAnimation
  * @constructor
- * @extends {THREE.Mesh}
+ * @extends {Mesh}
  * @param {Object} json
  * @param {String} atlas
  * @param {String} path

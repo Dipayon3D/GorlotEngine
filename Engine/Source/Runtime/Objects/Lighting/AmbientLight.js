@@ -5,7 +5,7 @@
  * Documentation for the object can be found at https://threejs.org/docs/index.html#api/en/lights/AmbientLight
  * @param {Number} hex Light colour in hex RGB
  * @class AmbientLight
- * @extends {THREE.AmbientLight}
+ * @extends {AmbientLight}
  * @module Lights
  * @constructor
  */

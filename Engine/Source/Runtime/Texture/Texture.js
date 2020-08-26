@@ -4,7 +4,7 @@
  * Image texture constructor, supports GIF animations
  * @class Texture
  * @constructor
- * @extends {THREE.Texture}
+ * @extends {Texture}
  * @module Textures
  * @param {Image} image
  * @param {Number} mapping

@@ -14,7 +14,7 @@
  * @param {Number} size
  * @param {Number} curveSegments
  * @constructor
- * @extends {THREE.Mesh}
+ * @extends {Mesh}
  */
 
 /**

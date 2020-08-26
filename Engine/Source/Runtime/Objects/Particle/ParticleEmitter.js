@@ -4,7 +4,7 @@
  * Particle emitter is a wrapper for SPE particle systems
  * @class ParticleEmitter
  * @constructor
- * @extends {THREE.Points}
+ * @extends {Points}
  * @module Particles
  */
 function ParticleEmitter(group, emitter)
