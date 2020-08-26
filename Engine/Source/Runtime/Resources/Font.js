@@ -89,6 +89,7 @@ Font.prototype.getOpentypeFont = function() {
  * @param {Number} size
  * @param {Number} divisions
  * @return {Array} paths
+ * @method generateShapes
  */
 Font.prototype.generateShapes = function(text, size, divisions)
 {

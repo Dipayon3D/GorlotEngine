@@ -1,7 +1,8 @@
 "use strict";
 
 /**
- * Webcam texture is used to capture and display video from a webcam
+ * Webcam texture is used to capture and display video from a webcam in real-time
+ * It uses WebRTC, the most must support it, otherwise WebcamTexture will display a black image
  * @class WebcamTexture
  * @constructor
  * @extends {THREE.Texture}
@@ -83,7 +84,7 @@ WebcamTexture.prototype.setPath = function(path) {
 /**
  * Update nodes
  * @param {Object} nodes
- * method updateNodes
+ * @method updateNodes
  */
 WebcamTexture.prototype.updateNodes = function(nodes) {
     this.nodes = {}

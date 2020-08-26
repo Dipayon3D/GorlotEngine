@@ -229,6 +229,7 @@ Program.prototype.exitVR = function() {
 /**
  * Update program state
  * Automatically called by the runtime handler ( Editor / App )
+ * @method update
  */
 Program.prototype.update = function() {
 	this.scene.update()
@@ -281,7 +282,7 @@ Program.prototype.render = function(renderer) {
  * Called by the runtime every time the window is resized
  * @method resize
  * @param {Number} x Width
- * @parma {Number} y Height
+ * @param {Number} y Height
  */
 Program.prototype.resize = function(x, y) {
     // Resize cameras

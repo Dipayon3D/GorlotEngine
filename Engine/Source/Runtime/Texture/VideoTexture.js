@@ -1,7 +1,9 @@
 "use strict";
 
 /**
- * Video texture, uses a video DOM element instead of a img element
+ * Video texture, uses a video DOm element instead of an img element, it's similar to THREE.VideoTexture
+ * VideoTexture also provides methods for playback control
+ *
  * @class VideoTexture
  * @constructor
  * @extends {THREE.Texture}
@@ -190,6 +192,7 @@ VideoTexture.prototype.dispose = function()
  * Create video texture json description
  * @param {Object} meta
  * @return {Object} json
+ * @method toJSON
  */
 VideoTexture.prototype.toJSON = function(meta) {
 	var data = THREE.Texture.prototype.toJSON.call(this, meta)

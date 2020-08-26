@@ -312,7 +312,11 @@ Script.prototype.setCode = function(code)
         // Compile code and create object
         try
         {
-            this.script = new(new Function(&quot;Keyboard, Mouse, self, program, scene&quot;, this.code))(this.program.keyboard, this.program.mouse, this, this.program, this.scene)
+            var Constructor = new Function(&quot;Keyboard, Mouse, self, program, scene&quot;, this.code)
+
+            if(this.program !== null) {
+                this.script = new Constructor(this.program.keyboard, this.program.mouse, this, this.program, this.scene)
+            }
         }
         catch(e){
             console.error(&quot;Script: Error compiling script&quot;, e)

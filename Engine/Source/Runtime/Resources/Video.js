@@ -42,6 +42,7 @@ Video.prototype.setPath = function(path) {
  * Video is stored in Base64
  * @param {Object} meta
  * @return {Object} json
+ * @method toJSON
  */
 Video.prototype.toJSON = function(meta) {
 

@@ -152,7 +152,8 @@
 
 
 <div class="box intro">
-    <p>Video texture, uses a video DOM element instead of a img element</p>
+    <p>Video texture, uses a video DOm element instead of an img element, it's similar to THREE.VideoTexture
+VideoTexture also provides methods for playback control</p>
 
 </div>
 
@@ -326,6 +327,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_toJSON">toJSON</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_updateNodes">updateNodes</a>
 
                             </li>
@@ -376,7 +381,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l173"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:173</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l175"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:175</code></a>
         </p>
 
 
@@ -407,7 +412,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l132"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:132</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l134"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:134</code></a>
         </p>
 
 
@@ -438,7 +443,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l142"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:142</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l144"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:144</code></a>
         </p>
 
 
@@ -475,7 +480,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l102"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:102</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l104"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:104</code></a>
         </p>
 
 
@@ -528,7 +533,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l152"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:152</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l154"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:154</code></a>
         </p>
 
 
@@ -581,7 +586,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l122"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:122</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l124"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:124</code></a>
         </p>
 
 
@@ -634,7 +639,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l93"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:93</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l95"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:95</code></a>
         </p>
 
 
@@ -687,7 +692,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l112"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:112</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l114"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:114</code></a>
         </p>
 
 
@@ -719,6 +724,71 @@
 
 
 </div>
+<div id="method_toJSON" class="method item">
+    <h3 class="name"><code>toJSON</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>meta</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l191"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:191</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Create video texture json description</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">meta</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object</span>:
+                    <p>json</p>
+
+            </div>
+        </div>
+
+
+</div>
 <div id="method_updateNodes" class="method item">
     <h3 class="name"><code>updateNodes</code></h3>
 
@@ -740,7 +810,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l163"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:163</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l165"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:165</code></a>
         </p>
 
 
@@ -788,7 +858,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l36"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:36</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l38"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:38</code></a>
         </p>
 
 
@@ -814,7 +884,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l44"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:44</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l46"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:46</code></a>
         </p>
 
 
@@ -840,7 +910,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l52"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:52</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l54"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:54</code></a>
         </p>
 
 
@@ -866,7 +936,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l60"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:60</code></a>
+        <a href="../files/.._Source_Runtime_Texture_VideoTexture.js.html#l62"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Texture&#x2F;VideoTexture.js:62</code></a>
         </p>
 
 

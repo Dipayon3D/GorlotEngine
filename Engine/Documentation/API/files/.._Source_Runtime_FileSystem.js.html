@@ -363,11 +363,11 @@ FileSystem.copyFolder = function(src, dest) {
 /**
  * Opens a chooser file dialog
  * @method chooseFile
- * @param {Function} callback This function is executed once the dialog is opened (sends &quot;files&quot; as parameters including the selected files)
+ * @param {Function} onLoad onLoad callback
  * @param {String} filter Filters files which can and can&#x27;t be selected (for example &quot;images/*&quot;)
  * @param {Boolean} saveas If true, by using that dialog the files won&#x27;t be opened but saved
  */
-FileSystem.chooseFile = function(callback, filter, saveas) {
+FileSystem.chooseFile = function(onLoad, filter, saveas) {
 	var chooser = document.createElement(&quot;input&quot;)
 	chooser.type = &quot;file&quot;
 
@@ -380,8 +380,8 @@ FileSystem.chooseFile = function(callback, filter, saveas) {
 	}
 
 	chooser.onchange = function(e) {
-		if (callback !== undefined) {
-			callback(chooser.files)
+		if (onLoad !== undefined) {
+			onLoad(chooser.files)
 		}
 	}
 

@@ -623,7 +623,7 @@
             "tag": "module",
             "file": "../Source/Runtime/FileSystem.js",
             "line": 3,
-            "description": "Canvas Texture"
+            "description": "Canvas textures can be used to draw content to the texture using runtime\nCanvas textures always start with black background and a red text \"Canvas Texture\""
         },
         "Sprite": {
             "name": "Sprite",
@@ -686,7 +686,7 @@
             "tag": "module",
             "file": "../Source/Runtime/THREE/Object3D.js",
             "line": 3,
-            "description": "Scene fog"
+            "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
         },
         "Runtime": {
             "name": "Runtime",
@@ -816,7 +816,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
             "line": 3,
-            "description": "Special mesh type used to represent 3D text",
+            "description": "Special mesh type used to draw 3D text\nIt receives a Font resource that is used to triangulate and extrude font data into a 3D mesh",
             "params": [
                 {
                     "name": "text",
@@ -1147,7 +1147,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
             "line": 3,
-            "description": "Sky class is composed of a Hemisphere Light, Directional Light and a dynamic generated Sky sphere geometry\nThis object is composed by 3 internal hidden children",
+            "description": "Sky class is composed of a Hemisphere Light, Directional Light and a dynamic generated Sky sphere geometry\nThis object is composed by 3 internal hidden children\n - Hemisphere Light\n - Directional Light\n - Mesh",
             "params": [
                 {
                     "name": "autoUpdate",
@@ -1615,7 +1615,7 @@
             "namespace": "",
             "file": "../Source/Runtime/THREE/Fog.js",
             "line": 3,
-            "description": "Scene fog"
+            "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
         },
         "THREE.Object3D": {
             "name": "THREE.Object3D",
@@ -1644,7 +1644,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
             "line": 3,
-            "description": "Canvas Texture",
+            "description": "Canvas textures can be used to draw content to the texture using runtime\nCanvas textures always start with black background and a red text \"Canvas Texture\"",
             "is_constructor": 1,
             "extends": "{THREE.Texture}",
             "params": [
@@ -1780,7 +1780,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Texture/VideoTexture.js",
             "line": 3,
-            "description": "Video texture, uses a video DOM element instead of a img element",
+            "description": "Video texture, uses a video DOm element instead of an img element, it's similar to THREE.VideoTexture\nVideoTexture also provides methods for playback control",
             "is_constructor": 1,
             "extends": "{THREE.Texture}",
             "params": [
@@ -1828,7 +1828,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
             "line": 3,
-            "description": "Webcam texture is used to capture and display video from a webcam",
+            "description": "Webcam texture is used to capture and display video from a webcam in real-time\nIt uses WebRTC, the most must support it, otherwise WebcamTexture will display a black image",
             "is_constructor": 1,
             "extends": "{THREE.Texture}",
             "params": [
@@ -2134,9 +2134,9 @@
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
             "line": 149,
-            "description": "SHIFT key",
+            "description": "CTRL key",
             "itemtype": "attribute",
-            "name": "SHIFT",
+            "name": "CTRL",
             "type": "{Number}",
             "class": "Keyboard",
             "module": "Input"
@@ -2144,9 +2144,9 @@
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
             "line": 156,
-            "description": "CTRL key",
+            "description": "ALT key",
             "itemtype": "attribute",
-            "name": "CTRL",
+            "name": "ALT",
             "type": "{Number}",
             "class": "Keyboard",
             "module": "Input"
@@ -3133,7 +3133,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 19,
+            "line": 20,
             "description": "Material is used to define how the geometry surface is shaded",
             "itemtype": "property",
             "name": "material",
@@ -3143,7 +3143,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 30,
+            "line": 31,
             "description": "Font used to draw text",
             "itemtype": "property",
             "name": "font",
@@ -3153,7 +3153,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 37,
+            "line": 38,
             "description": "Text",
             "itemtype": "property",
             "name": "text",
@@ -3163,7 +3163,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 44,
+            "line": 45,
             "description": "Size of the text (depth)",
             "itemtype": "property",
             "name": "size",
@@ -3173,7 +3173,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 51,
+            "line": 52,
             "description": "Height of the text",
             "itemtype": "property",
             "name": "height",
@@ -3183,7 +3183,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 58,
+            "line": 59,
             "description": "Curve segments",
             "itemtype": "property",
             "name": "curveSegments",
@@ -3193,7 +3193,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 65,
+            "line": 66,
             "description": "Bevel",
             "itemtype": "property",
             "name": "bevel",
@@ -3203,7 +3203,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 72,
+            "line": 73,
             "description": "Bevel thickness",
             "itemtype": "property",
             "name": "bevelThickness",
@@ -3213,7 +3213,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 79,
+            "line": 80,
             "description": "Bevel size",
             "itemtype": "property",
             "name": "bevelSize",
@@ -3223,7 +3223,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 101,
+            "line": 102,
             "description": "Set font used by this text 3D instance",
             "params": [
                 {
@@ -3239,7 +3239,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 112,
+            "line": 113,
             "description": "Set text",
             "params": [
                 {
@@ -3255,7 +3255,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 130,
+            "line": 131,
             "description": "Update text geometry\nShould be called after changing any attribute",
             "itemtype": "method",
             "name": "updateText",
@@ -3264,7 +3264,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 149,
+            "line": 150,
             "description": "Clone this Text3D instance",
             "itemtype": "method",
             "name": "clone",
@@ -3277,7 +3277,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 158,
+            "line": 159,
             "description": "Dispose mesh along with its material and geometry",
             "itemtype": "method",
             "name": "dispose",
@@ -3286,7 +3286,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 179,
+            "line": 180,
             "description": "Create JSON for object\nNeed to backup geometry and set to undefined to avoid it being stored",
             "itemtype": "method",
             "name": "toJSON",
@@ -4122,7 +4122,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 22,
+            "line": 26,
             "description": "Clock used to control day time",
             "itemtype": "property",
             "name": "clock",
@@ -4132,7 +4132,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 29,
+            "line": 33,
             "description": "Array with top sky colours",
             "itemtype": "property",
             "name": "colorTop",
@@ -4142,7 +4142,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 36,
+            "line": 40,
             "description": "Array with bottom sky colours",
             "itemtype": "property",
             "name": "colorBottom",
@@ -4152,7 +4152,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 43,
+            "line": 47,
             "description": "Sun colour in hex RGB",
             "itemtype": "property",
             "name": "sunColor",
@@ -4163,7 +4163,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 51,
+            "line": 55,
             "description": "Moon colour in hex RGB",
             "itemtype": "property",
             "name": "moonColor",
@@ -4174,7 +4174,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 59,
+            "line": 63,
             "description": "Hemisphere light used to match ambient light with sky colour",
             "itemtype": "property",
             "name": "hemisphere",
@@ -4184,7 +4184,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 72,
+            "line": 76,
             "description": "Directional light to simulate light and cast shadows",
             "itemtype": "property",
             "name": "sun",
@@ -4194,7 +4194,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 117,
+            "line": 121,
             "description": "Sky mesh with material shader to calculate dinamically sky colour",
             "itemtype": "property",
             "name": "sky",
@@ -4204,7 +4204,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 133,
+            "line": 137,
             "description": "If set to true, the sky auto updates its time",
             "itemtype": "property",
             "name": "autoUpdate",
@@ -4215,7 +4215,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 141,
+            "line": 145,
             "description": "Sun distance",
             "itemtype": "property",
             "name": "sunDistance",
@@ -4225,7 +4225,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 148,
+            "line": 152,
             "description": "Day time (in seconds)",
             "itemtype": "property",
             "name": "dayTime",
@@ -4235,7 +4235,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 155,
+            "line": 159,
             "description": "Current day time (in seconds)",
             "itemtype": "property",
             "name": "time",
@@ -4245,7 +4245,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 174,
+            "line": 178,
             "description": "Initialize sky object\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "initialize",
@@ -4254,7 +4254,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 189,
+            "line": 193,
             "description": "Update sky state\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -4263,7 +4263,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 217,
+            "line": 221,
             "description": "Update sky state\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "updateSky",
@@ -4272,7 +4272,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 351,
+            "line": 355,
             "description": "Create JSON for object",
             "params": [
                 {
@@ -4621,7 +4621,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 183,
+            "line": 187,
             "description": "Create JSON for script",
             "itemtype": "method",
             "name": "toJSON",
@@ -5352,12 +5352,14 @@
             "file": "../Source/Runtime/Objects/Program.js",
             "line": 229,
             "description": "Update program state\nAutomatically called by the runtime handler ( Editor / App )",
+            "itemtype": "method",
+            "name": "update",
             "class": "Scene",
             "module": "Sprite"
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 237,
+            "line": 238,
             "description": "Render program to canvas\nRenderer passed as argument",
             "itemtype": "method",
             "name": "render",
@@ -5373,7 +5375,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 279,
+            "line": 280,
             "description": "Resize program elements\nCalled by the runtime every time the window is resized",
             "itemtype": "method",
             "name": "resize",
@@ -5394,7 +5396,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 301,
+            "line": 302,
             "description": "Change scene during runtime, this method can receive both a scene name or a scene object\nThis method should be used inside of script objects during runtime",
             "itemtype": "method",
             "name": "setScene",
@@ -5410,7 +5412,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 328,
+            "line": 329,
             "description": "Remove scene from program",
             "itemtype": "method",
             "name": "remove",
@@ -5426,7 +5428,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 349,
+            "line": 350,
             "description": "Add new scene to this program\nOn the program class only scenes can be added as children",
             "itemtype": "method",
             "name": "add",
@@ -5442,7 +5444,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 370,
+            "line": 371,
             "description": "Clone program, keeping uuids and every identification attribute\nClone method uses the ObjectLoader to serialise and create a new program instance with the same data",
             "itemtype": "method",
             "name": "clone",
@@ -5455,7 +5457,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 381,
+            "line": 382,
             "description": "Set a scene as initial scene using its uuid\nThis method is used by the editor",
             "itemtype": "method",
             "name": "setInitialScene",
@@ -5471,7 +5473,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 392,
+            "line": 393,
             "description": "Create a scene using a defaul template\nThis is the scene used when creating a new program os scene inside the editor",
             "itemtype": "method",
             "name": "addDefaultScene",
@@ -5487,7 +5489,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 437,
+            "line": 438,
             "description": "Dispose program data to avoid memory leaks\nCalled when exiting the program",
             "itemtype": "method",
             "name": "dispose",
@@ -5496,7 +5498,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 472,
+            "line": 473,
             "description": "Receive external data and pass it to all script instances and triggers the onAppData event on every block",
             "params": [
                 {
@@ -5512,7 +5514,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 504,
+            "line": 505,
             "description": "Send data to external app instances",
             "params": [
                 {
@@ -5528,7 +5530,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 525,
+            "line": 526,
             "description": "Serialise object as JSON",
             "itemtype": "method",
             "name": "toJSON",
@@ -5822,12 +5824,14 @@
                 "description": "paths",
                 "type": "Array"
             },
+            "itemtype": "method",
+            "name": "generateShapes",
             "class": "Font",
             "module": "Resources"
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 239,
+            "line": 240,
             "description": "Serialise resource to JSON",
             "params": [
                 {
@@ -6363,8 +6367,40 @@
                 "description": "json",
                 "type": "Object"
             },
+            "itemtype": "method",
+            "name": "toJSON",
             "class": "Video",
             "module": "Resources"
+        },
+        {
+            "file": "../Source/Runtime/THREE/Fog.js",
+            "line": 10,
+            "description": "No fong",
+            "itemtype": "attribute",
+            "name": "NONE",
+            "type": "{Number}",
+            "class": "THREE.Fog",
+            "module": "THREE"
+        },
+        {
+            "file": "../Source/Runtime/THREE/Fog.js",
+            "line": 17,
+            "description": "Linear fog",
+            "itemtype": "attribute",
+            "name": "LINEAR",
+            "type": "{Number}",
+            "class": "THREE.Fog",
+            "module": "THREE"
+        },
+        {
+            "file": "../Source/Runtime/THREE/Fog.js",
+            "line": 24,
+            "description": "Exponential fog",
+            "itemtype": "attribute",
+            "name": "EXPONENTIAL",
+            "type": "{Number}",
+            "class": "THREE.Fog",
+            "module": "THREE"
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
@@ -6955,7 +6991,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 31,
+            "line": 33,
             "description": "Image is used to store a DOM canvas element",
             "itemtype": "property",
             "name": "image",
@@ -6965,7 +7001,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 37,
+            "line": 39,
             "description": "Canvas width",
             "itemtype": "property",
             "name": "width",
@@ -6975,7 +7011,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 44,
+            "line": 46,
             "description": "Canvas height",
             "itemtype": "property",
             "name": "height",
@@ -6985,7 +7021,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 51,
+            "line": 53,
             "description": "Canvas context 2D, can be used to draw content to the canvas texture",
             "itemtype": "property",
             "name": "context",
@@ -6995,7 +7031,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 67,
+            "line": 69,
             "description": "Sets the path of this texture",
             "params": [
                 {
@@ -7011,7 +7047,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 78,
+            "line": 80,
             "description": "Update nodes",
             "params": [
                 {
@@ -7027,7 +7063,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/CanvasTexture.js",
-            "line": 88,
+            "line": 90,
             "description": "Create JSON description for canvas texture, canvas image is not serialised",
             "params": [
                 {
@@ -7108,7 +7144,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 36,
+            "line": 38,
             "description": "If autoplay, starts automatically",
             "itemtype": "property",
             "name": "autoplay",
@@ -7119,7 +7155,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 44,
+            "line": 46,
             "description": "If true, the video plays in loop",
             "itemtype": "property",
             "name": "loop",
@@ -7130,7 +7166,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 52,
+            "line": 54,
             "description": "Playback speed",
             "itemtype": "property",
             "name": "playbackRate",
@@ -7141,7 +7177,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 60,
+            "line": 62,
             "description": "Video audio volume",
             "itemtype": "property",
             "name": "volume",
@@ -7152,7 +7188,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 93,
+            "line": 95,
             "description": "Set video time in seconds",
             "params": [
                 {
@@ -7168,7 +7204,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 102,
+            "line": 104,
             "description": "Set loop mode",
             "params": [
                 {
@@ -7184,7 +7220,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 112,
+            "line": 114,
             "description": "Set video volume",
             "params": [
                 {
@@ -7200,7 +7236,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 122,
+            "line": 124,
             "description": "Set video speed",
             "itemtype": "method",
             "name": "setPlaybackRate",
@@ -7216,7 +7252,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 132,
+            "line": 134,
             "description": "Pause video playback",
             "itemtype": "method",
             "name": "pause",
@@ -7225,7 +7261,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 142,
+            "line": 144,
             "description": "Start playing video",
             "itemtype": "method",
             "name": "play",
@@ -7234,7 +7270,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 152,
+            "line": 154,
             "description": "Set video path",
             "params": [
                 {
@@ -7250,7 +7286,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 163,
+            "line": 165,
             "description": "Update nodes",
             "params": [
                 {
@@ -7266,7 +7302,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 173,
+            "line": 175,
             "description": "Dispose video texture",
             "itemtype": "method",
             "name": "dispose",
@@ -7275,7 +7311,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/VideoTexture.js",
-            "line": 189,
+            "line": 191,
             "description": "Create video texture json description",
             "params": [
                 {
@@ -7288,12 +7324,14 @@
                 "description": "json",
                 "type": "Object"
             },
+            "itemtype": "method",
+            "name": "toJSON",
             "class": "VideoTexture",
             "module": "Textures"
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 72,
+            "line": 73,
             "description": "Set path",
             "params": [
                 {
@@ -7309,21 +7347,23 @@
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 83,
+            "line": 84,
             "description": "Update nodes",
             "params": [
                 {
-                    "name": "nodes\nmethod",
-                    "description": "updateNodes",
+                    "name": "nodes",
+                    "description": "",
                     "type": "Object"
                 }
             ],
+            "itemtype": "method",
+            "name": "updateNodes",
             "class": "WebcamTexture",
             "module": "Textures"
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 93,
+            "line": 94,
             "description": "Dispose webcam texture",
             "itemtype": "method",
             "name": "dispose",
@@ -7332,7 +7372,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 106,
+            "line": 107,
             "description": "Create JSON description",
             "params": [
                 {
@@ -7553,8 +7593,8 @@
             "name": "chooseFile",
             "params": [
                 {
-                    "name": "callback",
-                    "description": "This function is executed once the dialog is opened (sends \"files\" as parameters including the selected files)",
+                    "name": "onLoad",
+                    "description": "onLoad callback",
                     "type": "Function"
                 },
                 {
@@ -7715,30 +7755,5 @@
             "module": "Runtime"
         }
     ],
-    "warnings": [
-        {
-            "message": "replacing incorrect tag: parma with param",
-            "line": " ../Source/Runtime/Objects/Program.js:279"
-        },
-        {
-            "message": "Missing item type\nUpdate program state\nAutomatically called by the runtime handler ( Editor / App )",
-            "line": " ../Source/Runtime/Objects/Program.js:229"
-        },
-        {
-            "message": "Missing item type\nGenerate font shapes used to create 3D geometries",
-            "line": " ../Source/Runtime/Resources/Font.js:86"
-        },
-        {
-            "message": "Missing item type\nSerialise resource to JSON\nVideo is stored in Base64",
-            "line": " ../Source/Runtime/Resources/Video.js:40"
-        },
-        {
-            "message": "Missing item type\nCreate video texture json description",
-            "line": " ../Source/Runtime/Texture/VideoTexture.js:189"
-        },
-        {
-            "message": "Missing item type\nUpdate nodes",
-            "line": " ../Source/Runtime/Texture/WebcamTexture.js:83"
-        }
-    ]
+    "warnings": []
 }

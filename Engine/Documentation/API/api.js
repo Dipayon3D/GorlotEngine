@@ -143,12 +143,12 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Textures",
             "name": "Textures",
-            "description": "Canvas Texture"
+            "description": "Canvas textures can be used to draw content to the texture using runtime\nCanvas textures always start with black background and a red text \"Canvas Texture\""
         },
         {
             "displayName": "THREE",
             "name": "THREE",
-            "description": "Scene fog"
+            "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
         }
     ],
     "elements": []
