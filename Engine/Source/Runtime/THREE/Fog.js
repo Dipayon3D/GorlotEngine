@@ -1,7 +1,7 @@
 "use strict"
 
 /**
- * Fog class is used to store fog attributes attached to a THREE.Scene
+ * Fog class is used to store fog attributes attached to a Scene
  *
  * @class THREE.Fog
  * @module THREE

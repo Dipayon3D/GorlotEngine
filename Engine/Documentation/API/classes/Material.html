@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>../Source/Runtime/Objects/Sound/PositionalAudio.js</title>
+    <title>Material</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -143,230 +143,159 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: ../Source/Runtime/Objects/Sound/PositionalAudio.js</h1>
+<h1>Material Class</h1>
+<div class="box meta">
 
-<div class="file">
-    <pre class="code prettyprint linenums">
-&quot;use strict&quot;
 
-/**
- * PositionalAudio is used to play a sound with positional audio effect
- * @param {Audio} audio Audio used by this emitter
- * @class PositionalAudio
- * @extends {PositionalAudio}
- * @module Audio
- * @constructor
- */
-function PositionalAudio(audio) {
-    THREE.PositionalAudio.call(this, AudioEmitter.listener)
+        <div class="foundat">
+            Defined in: <a href="../files/.._Source_Runtime_THREE_Material.js.html#l3"><code>..&#x2F;Source&#x2F;Runtime&#x2F;THREE&#x2F;Material.js:3</code></a>
+        </div>
 
-    this.name = &quot;audio&quot;
-    this.type = &quot;PositionalAudio&quot;
+            Module: <a href="../modules/THREE.html">THREE</a>
 
-    this.audio = (audio !== undefined) ? audio : null
+</div>
 
-    /**
-     * Audio volume
-     * @property volume
-     * @default 1.0
-     * @type {Number}
-     */
-    this.volume = 1.0
 
-    /**
-     * If true, the playback starts automatically
-     * @property autoplay
-     * @default true
-     * @type {Boolean}
-     */
-    this.autoplay = true
+<div class="box intro">
+    <p>Materials describe the appearance of objects. They are defined in a (mostly) renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer</p>
 
-    /**
-     * Playback speed
-     * @property playbackRate
-     * @default 1.0
-     * @type {Number}
-     */
-    this.playbackRate = 1.0
+</div>
 
-    /**
-     * Start time (in seconds)
-     * @property startTime
-     * @default 0.0
-     * @type {Number}
-     */
-    this.startTime = 0
 
-    /**
-     * If true, the audio plays in loop
-     * @property loop
-     * @default true
-     * @type {Boolean}
-     */
-    this.loop = true
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
 
-    this.isPlaying = false
-    this.hasPlaybackControl = true
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
 
-    // Runtime variables
-    this.cameras = null
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
 
-    this.tempA = new THREE.Vector3()
-    this.tempB = new THREE.Vector3()
+                <div class="index-section methods">
+                    <h3>Methods</h3>
 
-    this.components = []
-    this.defaultComponents = []
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_dispose">dispose</a>
 
-	this.defaultComponents.push(new ElementComponent())
-	this.defaultComponents.push(new AudioComponent())
-}
+                            </li>
+                    </ul>
+                </div>
 
-PositionalAudio.prototype = Object.create(THREE.Audio.prototype)
+                <div class="index-section properties">
+                    <h3>Properties</h3>
 
-/**
- * Initialise audio object (automatically called by runtime handler - Editor / App - )
- * @method initialize
- */
-PositionalAudio.prototype.initialize = function() {
-    var self = this
+                    <ul class="index-list properties">
+                            <li class="index-item property">
+                                <a href="#property_nodes">nodes</a>
 
-    if(this.audio !== null) {
-        THREE,AudioContext.getContext().decodeAudioData(this.audio.data, (buffer) =&gt; {
-            self.setBuffer(buffer)
-        })
-    }
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_path">path</a>
 
-    this.setVolume(this.volume)
+                            </li>
+                    </ul>
+                </div>
 
-    // Get cameras
-    var node = this
-    while(node.parent !== null) {
-        node = node.parent
-        if(node instanceof Scene) {
-            this.cameras = node.cameras
-        }
-    }
 
-    for(var i = 0; i &lt; this.children.length; i++) {
-        this.children[i].initialize()
-    }
-}
+        </div>
 
-/**
- * Update positional audio state
- * @method update
- */
-PositionalAudio.prototype.update = function() {
-    this.tempA.setFromMatrixPosition(this.matrixWorld)
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
 
-    if(this.cameras.length &gt; 0) {
-        this.tempB.setFromMatrixPosition(this.cameras[0].matrixWorld)
-        this.tempA.sub(this.tempB)
-    }
+<div id="method_dispose" class="method item">
+    <h3 class="name"><code>dispose</code></h3>
 
-    this.panner.setPosition(this.tempA.x, this.tempA.y, this.tempA.z)
+        <span class="paren">()</span>
 
-    // Update children
-    for(var i = 0; i &lt; this.children.length; i++) {
-        this.children[i].update()
-    }
-}
 
-/**
- * Dispose audio object
- * @method dispose
- */
-PositionalAudio.prototype.dispose = function() {
-    if(this.isPlaying) {
-        this.stop()
-        this.disconnect()
-    }
 
-    for(var i = 0; i &lt; this.children.length; i++) {
-        this.children[i].dispose()
-    }
-}
 
-/**
- * Sets the audio emitter volume
- * @method setVolume
- * @param {Number} value Audio volume
- * @return {PositionalAudio} Self pointer for chaining
- */
-PositionalAudio.prototype.setVolume = function(value) {
-    this.volume = value
-    this.gain.gain.value = value
 
-    return this
-}
 
-// Update world matrix
-/*PositionalAudio.prototype.updateMatrixWorld = function(force) {
-    Object3D.prototype.updateMatrixWorld.call(this, force)
-}*/
 
-/**
- * Create JSON description
- * @method toJSON
- * @param {Object} meta
- * @return {Object} JSON description
- */
-PositionalAudio.prototype.toJSON = function(meta) {
-    var audio = this.audio
-    var data = THREE.Object3D.prototype.toJSON.call(this, meta, (meta, object) =&gt; {
-        audio = audio.toJSON(meta)
-    })
 
-    data.object.audio = audio.uuid
-    data.object.volume = this.volume
-    data.object.autoplay = this.autoplay
-    data.object.startTime = this.startTime
-    data.object.playbackRate = this.playbackRate
-    data.object.loop = this.loop
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_THREE_Material.js.html#l24"><code>..&#x2F;Source&#x2F;Runtime&#x2F;THREE&#x2F;Material.js:24</code></a>
+        </p>
 
-    return data
-}
 
-/**
- * Starts playback
- * @method play
- */
 
-/**
- * Pauses playback
- * @method pause
- */
+    </div>
 
-/**
- * Stops playback and resets time to 0
- * @method stop
- */
+    <div class="description">
+        <p>Dispose material</p>
 
-/**
- * Set loop mode
- * @param {Boolean} loop
- * @method setLoop
- */
+    </div>
 
-/**
- * Set playback speed
- * @param {Number} speed
- * @method setPlaybackRate
- */
 
-/**
- * Add the filter to the filters array
- * @method setFilter
- * @param {Object} filter
- */
 
-/**
- * Sets the filters array to value
- * @method setFilters
- * @param {Array} value
- */
 
-    </pre>
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+<div id="property_nodes" class="property item">
+    <h3 class="name"><code>nodes</code></h3>
+    <span class="type">Object</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_THREE_Material.js.html#l10"><code>..&#x2F;Source&#x2F;Runtime&#x2F;THREE&#x2F;Material.js:10</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>The materials nodes</p>
+
+    </div>
+
+
+
+</div>
+<div id="property_path" class="property item">
+    <h3 class="name"><code>path</code></h3>
+    <span class="type">String</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_THREE_Material.js.html#l17"><code>..&#x2F;Source&#x2F;Runtime&#x2F;THREE&#x2F;Material.js:17</code></a>
+        </p>
+
+
+    </div>
+
+    <div class="description">
+        <p>The material path</p>
+
+    </div>
+
+
+
+</div>
+            </div>
+
+
+    </div>
 </div>
                     </div>
                 </div>

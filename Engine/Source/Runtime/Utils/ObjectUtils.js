@@ -1,8 +1,21 @@
 "use strict";
 
+/**
+ * ObjectUtils is a collection of methods to apply operations to Object3D objects
+ *
+ * @class ObjectUtils
+ * @static
+ */
 function ObjectUtils(){}
 
-// Get all fonts in object and children
+/**
+ * Gets all fonts in an object and its children
+ * 
+ * @method getFonts
+ * @param {Object3D} obj
+ * @param {Array} fonts
+ * @return {Array} font array
+ */
 ObjectUtils.getFonts = function(obj, fonts) {
 	if (fonts === undefined) {
 		fonts = []
@@ -19,7 +32,14 @@ ObjectUtils.getFonts = function(obj, fonts) {
 	return fonts
 }
 
-// Get all audio files in object and children
+/**
+ * Get all audio files in objects and children
+ *
+ * @method getAudio
+ * @param {Object3D} obj
+ * @param {Array} audio
+ * @return {Array} audio
+ */
 ObjectUtils.getAudio = function(obj, audio) {
 	if (audio === undefined) {
 		audio = []
@@ -36,7 +56,14 @@ ObjectUtils.getAudio = function(obj, audio) {
 	return audio
 }
 
-//Get all materials in object and children
+/**
+ * Get all materials in an object and its children
+ *
+ * @method getMaterials
+ * @param {Object3D} obj
+ * @param {Array} materials
+ * @return {Array} materials
+ */
 ObjectUtils.getMaterials = function(obj, materials) {
 	//Auxiliar function to add materials
 	function add(material) {
@@ -80,7 +107,14 @@ ObjectUtils.getMaterials = function(obj, materials) {
 	return materials;
 }
 
-//Get all textures in object and children
+/**
+ * Gets all textures in an object and its children
+ *
+ * @method getTextures
+ * @param {Object3D} obj
+ * @param {Array} textures Textures array
+ * @return {Array} files
+ */
 ObjectUtils.getTextures = function(obj, textures) {
 
     // Get Textures from material
@@ -134,7 +168,13 @@ ObjectUtils.getTextures = function(obj, textures) {
 	return textures;
 }
 
-//Get object scene
+/**
+ * Get object scene
+ *
+ * @method getScene
+ * @param {Object3D} obj
+ * @return {Object3D} scene
+ */
 ObjectUtils.getScene = function(obj)
 {
 	var node = obj;
@@ -151,7 +191,13 @@ ObjectUtils.getScene = function(obj)
 	return null;
 }
 
-//Get object tree root
+/**
+ * Get object tree root
+ *
+ * @method getRoot
+ * @param {Object3D} obj
+ * @return {Object3D} root
+ */
 ObjectUtils.getRoot = function(obj)
 {
 	var node = obj;
@@ -164,7 +210,13 @@ ObjectUtils.getRoot = function(obj)
 	return node;
 }
 
-// Set matrix auto update value
+/**
+ * Set object and all its children matrixAutoUpdate value
+ *
+ * @method setMatrixAutoUpdate
+ * @param {Object3D} obj
+ * @param {Boolean} value
+ */
 ObjectUtils.setMatrixAutoUpdate = function(obj, value)
 {
     obj.matrixAutoUpdate = value
@@ -174,7 +226,13 @@ ObjectUtils.setMatrixAutoUpdate = function(obj, value)
 	})
 }
 
-//Set shadow receiving
+/**
+ * Set an object and its children to receive shadows
+ * 
+ * @method setShadowReceiving
+ * @param {Object3D} obj
+ * @param {Boolean} value
+ */
 ObjectUtils.setShadowReceiving = function(obj, value)
 {
     obj.receiveShadow = value
@@ -184,7 +242,13 @@ ObjectUtils.setShadowReceiving = function(obj, value)
 	})
 }
 
-// Set shadow casting
+/**
+ * Set object and all children to cast shadows
+ *
+ * @method setShadowCasting
+ * @param {Object3D} obj
+ * @param {Boolean} value
+ */
 ObjectUtils.setShadowCasting = function(obj, value)
 {
     obj.castShadow = value
@@ -194,7 +258,14 @@ ObjectUtils.setShadowCasting = function(obj, value)
 	})
 }
 
-//Check if object is child of another object
+/**
+ * Check if an object is the child of another one
+ *
+ * @method isChildOf
+ * @param {Object3D} parent
+ * @param {Object3D} child
+ * @return {Boolean} True if parent is parent of child
+ */
 ObjectUtils.isChildOf = function(parent, child)
 {
 	for(var i = 0; i < parent.children.length; i++)

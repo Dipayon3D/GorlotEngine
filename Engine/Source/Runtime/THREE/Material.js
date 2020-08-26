@@ -1,8 +1,30 @@
 "use strict"
 
+/**
+ * Materials describe the appearance of objects. They are defined in a (mostly) renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer
+ *
+ * @class Material
+ * @Module THREE
+ */
+
+/**
+ * The materials nodes
+ * @property nodes
+ * @type {Object}
+ */
 THREE.Material.prototype.nodes = {}
+
+/**
+ * The material path
+ * @property path
+ * @type {String}
+ */
 THREE.Material.prototype.path = "/"
 
+/**
+ * Dispose material
+ * @method dispose
+ */
 THREE.Material.prototype.dispose = function() {
     function disposeTexture(texture) {
 		if(texture !== undefined && texture !== null) {

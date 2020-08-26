@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>FileSystem</title>
+    <title>ObjectUtils</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -143,12 +143,12 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>FileSystem Class</h1>
+<h1>ObjectUtils Class</h1>
 <div class="box meta">
 
 
         <div class="foundat">
-            Defined in: <a href="../files/.._Source_Runtime_FileSystem.js.html#l3"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:3</code></a>
+            Defined in: <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l3"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:3</code></a>
         </div>
 
             Module: <a href="../modules/Physics.html">Physics</a>
@@ -157,7 +157,7 @@
 
 
 <div class="box intro">
-    <p>The FileSystem class is used for opening/writing, encoding/decoding and reading files</p>
+    <p>ObjectUtils is a collection of methods to apply operations to Object3D objects</p>
 
 </div>
 
@@ -178,63 +178,43 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_chooseFile">chooseFile</a>
+                                <a href="#method_getAudio">getAudio</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_copyFile">copyFile</a>
+                                <a href="#method_getFonts">getFonts</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_copyFolder">copyFolder</a>
+                                <a href="#method_getMaterials">getMaterials</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_fileExists">fileExists</a>
+                                <a href="#method_getRoot">getRoot</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getFileExtension">getFileExtension</a>
+                                <a href="#method_getScene">getScene</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getFileName">getFileName</a>
+                                <a href="#method_getTextures">getTextures</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getFilePath">getFilePath</a>
+                                <a href="#method_isChildOf">isChildOf</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getFilesDirectory">getFilesDirectory</a>
+                                <a href="#method_setMatrixAutoUpdate">setMatrixAutoUpdate</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_getNameWithoutExtension">getNameWithoutExtension</a>
+                                <a href="#method_setShadowCasting">setShadowCasting</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_makeDirectory">makeDirectory</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_readFile">readFile</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_readFileArrayBuffer">readFileArrayBuffer</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_readFileBase64">readFileBase64</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_writeFile">writeFile</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_writeFileBase64">writeFileBase64</a>
+                                <a href="#method_setShadowReceiving">setShadowReceiving</a>
 
                             </li>
                     </ul>
@@ -247,495 +227,16 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_chooseFile" class="method item">
-    <h3 class="name"><code>chooseFile</code></h3>
+<div id="method_getAudio" class="method item">
+    <h3 class="name"><code>getAudio</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>onLoad</code>
+                        <code>obj</code>
                 </li>
                 <li class="arg">
-                        <code>filter</code>
-                </li>
-                <li class="arg">
-                        <code>saveas</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l222"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:222</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Opens a chooser file dialog</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">onLoad</code>
-                        <span class="type">Function</span>
-
-
-                    <div class="param-description">
-                        <p>onLoad callback</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">filter</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>Filters files which can and can't be selected (for example &quot;images/*&quot;)</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">saveas</code>
-                        <span class="type">Boolean</span>
-
-
-                    <div class="param-description">
-                        <p>If true, by using that dialog the files won't be opened but saved</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_copyFile" class="method item">
-    <h3 class="name"><code>copyFile</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>src</code>
-                </li>
-                <li class="arg">
-                        <code>dest</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l148"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:148</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Copies a file (this function can't be used to copy folders)</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">src</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The source file to copy</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">dest</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The destination/path to the new file</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_copyFolder" class="method item">
-    <h3 class="name"><code>copyFolder</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>src</code>
-                </li>
-                <li class="arg">
-                        <code>dest</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l190"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:190</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Copies a folder and all of its files (including symbolic links)</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">src</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The source folder</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">dest</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The destination where to copy the folder</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_fileExists" class="method item">
-    <h3 class="name"><code>fileExists</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>file</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">Boolean</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l250"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:250</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Checks if a file currently exists</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">file</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The path to the file to check</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">Boolean</span>:
-                    <p>Returns whether the file exists or not</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_getFileExtension" class="method item">
-    <h3 class="name"><code>getFileExtension</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>file</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l294"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:294</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Get the extension of a file by using a path string</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">file</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The path to get the extension from</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>The extension of the file from the entered path</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_getFileName" class="method item">
-    <h3 class="name"><code>getFileName</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>file</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l264"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:264</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Gets the file name from path (always in lowercase)</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">file</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The file path to get the name from</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>The name of the file (in lowercase)</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_getFilePath" class="method item">
-    <h3 class="name"><code>getFilePath</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>file</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l284"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:284</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Get the directory of a file</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">file</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The path of the file to get the directory from</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>The directory of the file from the entered path</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_getFilesDirectory" class="method item">
-    <h3 class="name"><code>getFilesDirectory</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>dir</code>
+                        <code>audio</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -753,7 +254,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l173"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:173</code></a>
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l35"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:35</code></a>
         </p>
 
 
@@ -761,7 +262,7 @@
     </div>
 
     <div class="description">
-        <p>Returns the files in a directory (returns empty array if something went wrong)</p>
+        <p>Get all audio files in objects and children</p>
 
     </div>
 
@@ -770,12 +271,386 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">dir</code>
-                        <span class="type">String</span>
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
 
 
                     <div class="param-description">
-                        <p>Path to the directory</p>
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">audio</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Array</span>:
+                    <p>audio</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getFonts" class="method item">
+    <h3 class="name"><code>getFonts</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+                <li class="arg">
+                        <code>fonts</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l11"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:11</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Gets all fonts in an object and its children</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fonts</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Array</span>:
+                    <p>font array</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getMaterials" class="method item">
+    <h3 class="name"><code>getMaterials</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+                <li class="arg">
+                        <code>materials</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l59"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:59</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get all materials in an object and its children</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">materials</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Array</span>:
+                    <p>materials</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getRoot" class="method item">
+    <h3 class="name"><code>getRoot</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Object3D</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l194"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:194</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get object tree root</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object3D</span>:
+                    <p>root</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getScene" class="method item">
+    <h3 class="name"><code>getScene</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Object3D</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l171"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:171</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get object scene</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object3D</span>:
+                    <p>scene</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getTextures" class="method item">
+    <h3 class="name"><code>getTextures</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+                <li class="arg">
+                        <code>textures</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l110"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:110</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Gets all textures in an object and its children</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">textures</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>Textures array</p>
 
                     </div>
 
@@ -788,26 +663,29 @@
 
             <div class="returns-description">
                         <span class="type">Array</span>:
-                    <p>An array with the files in the entered directory (if there was any error, the returned array is &quot;[]&quot;)</p>
+                    <p>files</p>
 
             </div>
         </div>
 
 
 </div>
-<div id="method_getNameWithoutExtension" class="method item">
-    <h3 class="name"><code>getNameWithoutExtension</code></h3>
+<div id="method_isChildOf" class="method item">
+    <h3 class="name"><code>isChildOf</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>file</code>
+                        <code>parent</code>
+                </li>
+                <li class="arg">
+                        <code>child</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
 
         <span class="returns-inline">
-            <span class="type">String</span>
+            <span class="type">Boolean</span>
         </span>
 
 
@@ -819,7 +697,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l274"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:274</code></a>
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l261"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:261</code></a>
         </p>
 
 
@@ -827,7 +705,7 @@
     </div>
 
     <div class="description">
-        <p>Gets the file name without extension</p>
+        <p>Check if an object is the child of another one</p>
 
     </div>
 
@@ -836,13 +714,22 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">file</code>
-                        <span class="type">String</span>
+                        <code class="param-name">parent</code>
+                        <span class="type">Object3D</span>
 
 
                     <div class="param-description">
-                        <p>Path of the file to get the name from</p>
+                         
+                    </div>
 
+                </li>
+                <li class="param">
+                        <code class="param-name">child</code>
+                        <span class="type">Object3D</span>
+
+
+                    <div class="param-description">
+                         
                     </div>
 
                 </li>
@@ -853,21 +740,24 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>The name of the file without its extension</p>
+                        <span class="type">Boolean</span>:
+                    <p>True if parent is parent of child</p>
 
             </div>
         </div>
 
 
 </div>
-<div id="method_makeDirectory" class="method item">
-    <h3 class="name"><code>makeDirectory</code></h3>
+<div id="method_setMatrixAutoUpdate" class="method item">
+    <h3 class="name"><code>setMatrixAutoUpdate</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>dir</code>
+                        <code>obj</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -882,7 +772,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l160"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:160</code></a>
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l213"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:213</code></a>
         </p>
 
 
@@ -890,7 +780,7 @@
     </div>
 
     <div class="description">
-        <p>Creates a directory (doesn't throw exception if directory already exists)</p>
+        <p>Set object and all its children matrixAutoUpdate value</p>
 
     </div>
 
@@ -899,272 +789,41 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">dir</code>
-                        <span class="type">String</span>
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
 
 
                     <div class="param-description">
-                        <p>The path to create the directory</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_readFile" class="method item">
-    <h3 class="name"><code>readFile</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>fname</code>
-                </li>
-                <li class="arg">
-                        <code>sync</code>
-                </li>
-                <li class="arg">
-                        <code>onLoad</code>
-                </li>
-                <li class="arg">
-                        <code>onProgress</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l13"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:13</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Opens and reads a text file</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">fname</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The path of the file to open</p>
-
+                         
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">sync</code>
+                        <code class="param-name">value</code>
                         <span class="type">Boolean</span>
 
 
                     <div class="param-description">
-                        <p>If true, the file is read in an asynchronous way</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">onLoad</code>
-                        <span class="type">Function</span>
-
-
-                    <div class="param-description">
-                        <p>called when the file is done loading</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">onProgress</code>
-                        <span class="type">Function</span>
-
-
-                    <div class="param-description">
-                        <p>called when there is a progress while reading the file</p>
-
+                         
                     </div>
 
                 </li>
             </ul>
         </div>
 
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>Returns the content of the file</p>
-
-            </div>
-        </div>
 
 
 </div>
-<div id="method_readFileArrayBuffer" class="method item">
-    <h3 class="name"><code>readFileArrayBuffer</code></h3>
+<div id="method_setShadowCasting" class="method item">
+    <h3 class="name"><code>setShadowCasting</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>fname</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l70"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:70</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Read a file as an array buffer</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">fname</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The path to the file to open</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>Returns the file data</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_readFileBase64" class="method item">
-    <h3 class="name"><code>readFileBase64</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>fname</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-        <span class="returns-inline">
-            <span class="type">String</span>
-        </span>
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l98"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:98</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Read a file as base64</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">fname</code>
-                        <span class="type">String</span>
-
-
-                    <div class="param-description">
-                        <p>The path to the file to open</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                        <span class="type">String</span>:
-                    <p>Returns the file data</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_writeFile" class="method item">
-    <h3 class="name"><code>writeFile</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>fname</code>
+                        <code>obj</code>
                 </li>
                 <li class="arg">
-                        <code>data</code>
+                        <code>value</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -1179,7 +838,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l118"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:118</code></a>
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l245"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:245</code></a>
         </p>
 
 
@@ -1187,7 +846,7 @@
     </div>
 
     <div class="description">
-        <p>Write a text file</p>
+        <p>Set object and all children to cast shadows</p>
 
     </div>
 
@@ -1196,24 +855,22 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">fname</code>
-                        <span class="type">String</span>
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
 
 
                     <div class="param-description">
-                        <p>The path to the file to write</p>
-
+                         
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">data</code>
-                        <span class="type">String</span>
+                        <code class="param-name">value</code>
+                        <span class="type">Boolean</span>
 
 
                     <div class="param-description">
-                        <p>The data to write in the file</p>
-
+                         
                     </div>
 
                 </li>
@@ -1223,16 +880,16 @@
 
 
 </div>
-<div id="method_writeFileBase64" class="method item">
-    <h3 class="name"><code>writeFileBase64</code></h3>
+<div id="method_setShadowReceiving" class="method item">
+    <h3 class="name"><code>setShadowReceiving</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>fname</code>
+                        <code>obj</code>
                 </li>
                 <li class="arg">
-                        <code>data</code>
+                        <code>value</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
@@ -1247,7 +904,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/.._Source_Runtime_FileSystem.js.html#l132"><code>..&#x2F;Source&#x2F;Runtime&#x2F;FileSystem.js:132</code></a>
+        <a href="../files/.._Source_Runtime_Utils_ObjectUtils.js.html#l229"><code>..&#x2F;Source&#x2F;Runtime&#x2F;Utils&#x2F;ObjectUtils.js:229</code></a>
         </p>
 
 
@@ -1255,7 +912,7 @@
     </div>
 
     <div class="description">
-        <p>Write a binary file from base64 data</p>
+        <p>Set an object and its children to receive shadows</p>
 
     </div>
 
@@ -1264,24 +921,22 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">fname</code>
-                        <span class="type">String</span>
+                        <code class="param-name">obj</code>
+                        <span class="type">Object3D</span>
 
 
                     <div class="param-description">
-                        <p>The path to the file to write</p>
-
+                         
                     </div>
 
                 </li>
                 <li class="param">
-                        <code class="param-name">data</code>
-                        <span class="type">String</span>
+                        <code class="param-name">value</code>
+                        <span class="type">Boolean</span>
 
 
                     <div class="param-description">
-                        <p>The data to write in the file</p>
-
+                         
                     </div>
 
                 </li>

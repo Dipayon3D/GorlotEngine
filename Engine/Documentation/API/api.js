@@ -21,9 +21,12 @@ YUI.add("yuidoc-meta", function(Y) {
         "Keyboard",
         "KinectDevice",
         "LeapMotion",
+        "Material",
         "Mesh",
         "Mesh2shape",
         "Mouse",
+        "MultiMaterial",
+        "ObjectUtils",
         "OrthographicCamera",
         "ParticleEmitter",
         "PerspectiveCamera",
@@ -158,7 +161,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "THREE",
             "name": "THREE",
-            "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
+            "description": "Fog class is used to store fog attributes attached to a Scene"
         }
     ],
     "elements": []

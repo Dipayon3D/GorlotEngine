@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>../Source/Runtime/Objects/Sound/PositionalAudio.js</title>
+    <title>../Source/Runtime/Utils/ObjectUtils.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -143,228 +143,289 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: ../Source/Runtime/Objects/Sound/PositionalAudio.js</h1>
+<h1 class="file-heading">File: ../Source/Runtime/Utils/ObjectUtils.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-&quot;use strict&quot;
+&quot;use strict&quot;;
 
 /**
- * PositionalAudio is used to play a sound with positional audio effect
- * @param {Audio} audio Audio used by this emitter
- * @class PositionalAudio
- * @extends {PositionalAudio}
- * @module Audio
- * @constructor
+ * ObjectUtils is a collection of methods to apply operations to Object3D objects
+ *
+ * @class ObjectUtils
+ * @static
  */
-function PositionalAudio(audio) {
-    THREE.PositionalAudio.call(this, AudioEmitter.listener)
+function ObjectUtils(){}
 
-    this.name = &quot;audio&quot;
-    this.type = &quot;PositionalAudio&quot;
+/**
+ * Gets all fonts in an object and its children
+ * 
+ * @method getFonts
+ * @param {Object3D} obj
+ * @param {Array} fonts
+ * @return {Array} font array
+ */
+ObjectUtils.getFonts = function(obj, fonts) {
+	if (fonts === undefined) {
+		fonts = []
+	}
 
-    this.audio = (audio !== undefined) ? audio : null
+	obj.traverse((child) =&gt; {
+		if (child.font instanceof Font) {
+			if (fonts[child.font.uuid] === undefined) {
+				fonts[child.font.uuid] = child.font
+			}
+		}
+	})
 
-    /**
-     * Audio volume
-     * @property volume
-     * @default 1.0
-     * @type {Number}
-     */
-    this.volume = 1.0
-
-    /**
-     * If true, the playback starts automatically
-     * @property autoplay
-     * @default true
-     * @type {Boolean}
-     */
-    this.autoplay = true
-
-    /**
-     * Playback speed
-     * @property playbackRate
-     * @default 1.0
-     * @type {Number}
-     */
-    this.playbackRate = 1.0
-
-    /**
-     * Start time (in seconds)
-     * @property startTime
-     * @default 0.0
-     * @type {Number}
-     */
-    this.startTime = 0
-
-    /**
-     * If true, the audio plays in loop
-     * @property loop
-     * @default true
-     * @type {Boolean}
-     */
-    this.loop = true
-
-    this.isPlaying = false
-    this.hasPlaybackControl = true
-
-    // Runtime variables
-    this.cameras = null
-
-    this.tempA = new THREE.Vector3()
-    this.tempB = new THREE.Vector3()
-
-    this.components = []
-    this.defaultComponents = []
-
-	this.defaultComponents.push(new ElementComponent())
-	this.defaultComponents.push(new AudioComponent())
+	return fonts
 }
 
-PositionalAudio.prototype = Object.create(THREE.Audio.prototype)
+/**
+ * Get all audio files in objects and children
+ *
+ * @method getAudio
+ * @param {Object3D} obj
+ * @param {Array} audio
+ * @return {Array} audio
+ */
+ObjectUtils.getAudio = function(obj, audio) {
+	if (audio === undefined) {
+		audio = []
+	}
+
+	obj.traverse((child) =&gt; {
+		if (child.audio instanceof Audio) {
+			if (audio[child.audio.uuid] === undefined) {
+				audio[child.audio.uuid] = child.audio
+			}
+		}
+	})
+
+	return audio
+}
 
 /**
- * Initialise audio object (automatically called by runtime handler - Editor / App - )
- * @method initialize
+ * Get all materials in an object and its children
+ *
+ * @method getMaterials
+ * @param {Object3D} obj
+ * @param {Array} materials
+ * @return {Array} materials
  */
-PositionalAudio.prototype.initialize = function() {
-    var self = this
+ObjectUtils.getMaterials = function(obj, materials) {
+	//Auxiliar function to add materials
+	function add(material) {
+		if(materials[material.uuid] === undefined)
+		{
+			materials[material.uuid] = material;
+		}
+	}
 
-    if(this.audio !== null) {
-        THREE,AudioContext.getContext().decodeAudioData(this.audio.data, (buffer) =&gt; {
-            self.setBuffer(buffer)
-        })
+	//If undefined create new array to store materials
+	if(materials === undefined)
+	{
+		materials = [];
+	}
+
+	// Traverse obj children
+	obj.traverse((child) =&gt; {
+		// Check if child has material
+		if(!(child.material === undefined || child.hidden || child instanceof Sky || child instanceof ParticleEmitter || child instanceof SpineAnimation)) {
+            if(child.material instanceof THREE.Material)
+			{
+				add(child.material);
+			}
+			else if(child.material instanceof THREE.MultiMaterial)
+			{
+				var array = child.material.materials;
+				for(var j = 0; j &lt; array.length; j++)
+				{
+					add(array[j]);
+				}
+			}
+
+            if(child.materials !== undefined) {
+                for(var j = 0; j &lt; child.materials.length; i++) {
+                    add(child.materials[j])
+                }
+            }
+		}
+	})
+
+	return materials;
+}
+
+/**
+ * Gets all textures in an object and its children
+ *
+ * @method getTextures
+ * @param {Object3D} obj
+ * @param {Array} textures Textures array
+ * @return {Array} files
+ */
+ObjectUtils.getTextures = function(obj, textures) {
+
+    // Get Textures from material
+    function addFromMaterial(material) {
+        add(material.map)
+        add(material.bumpMap)
+        add(material.normalMap)
+        add(material.displacementMap)
+        add(material.specularMap)
+        add(material.emissiveMap)
+        add(material.alphaMap)
+        add(material.roughnessMap)
+        add(material.metalnessMap)
     }
 
-    this.setVolume(this.volume)
+	// Auxiliar function to add textures
+	function add(texture) {
+		if(texture != null)
+		{
+			if(textures[texture.uuid] === undefined) {
+				textures[texture.uuid] = texture;
+			}
+		}
+	}
 
-    // Get cameras
-    var node = this
-    while(node.parent !== null) {
-        node = node.parent
-        if(node instanceof Scene) {
-            this.cameras = node.cameras
+	// If undefined create new array to store materials
+	if(textures === undefined)
+	{
+		textures = [];
+	}
+
+	// Add textures from children
+    obj.traverse((child) =&gt; {
+		if(child.material !== undefined)
+		{
+            if(child.material instanceof THREE.Material) {
+                addFromMaterial(child.material)
+            } else if(child.material instanceof THREE.MultiMaterial) {
+                var array = child.material.materials
+                for(var j = 0; j &lt; array.length; j++) {
+                    addFromMaterial(array[j])
+                }
+            }
+		}
+
+        if(child.texture !== undefined) {
+            add(child.texture)
         }
-    }
+	})
 
-    for(var i = 0; i &lt; this.children.length; i++) {
-        this.children[i].initialize()
-    }
+	return textures;
 }
 
 /**
- * Update positional audio state
- * @method update
+ * Get object scene
+ *
+ * @method getScene
+ * @param {Object3D} obj
+ * @return {Object3D} scene
  */
-PositionalAudio.prototype.update = function() {
-    this.tempA.setFromMatrixPosition(this.matrixWorld)
+ObjectUtils.getScene = function(obj)
+{
+	var node = obj;
 
-    if(this.cameras.length &gt; 0) {
-        this.tempB.setFromMatrixPosition(this.cameras[0].matrixWorld)
-        this.tempA.sub(this.tempB)
-    }
+	while(node.parent !== null)
+	{
+		node = node.parent;
+		if(node instanceof Scene)
+		{
+			return node;
+		}
+	}
 
-    this.panner.setPosition(this.tempA.x, this.tempA.y, this.tempA.z)
-
-    // Update children
-    for(var i = 0; i &lt; this.children.length; i++) {
-        this.children[i].update()
-    }
+	return null;
 }
 
 /**
- * Dispose audio object
- * @method dispose
+ * Get object tree root
+ *
+ * @method getRoot
+ * @param {Object3D} obj
+ * @return {Object3D} root
  */
-PositionalAudio.prototype.dispose = function() {
-    if(this.isPlaying) {
-        this.stop()
-        this.disconnect()
-    }
+ObjectUtils.getRoot = function(obj)
+{
+	var node = obj;
+	
+	while(node.parent !== null)
+	{
+		node = node.parent;
+	}
 
-    for(var i = 0; i &lt; this.children.length; i++) {
-        this.children[i].dispose()
-    }
+	return node;
 }
 
 /**
- * Sets the audio emitter volume
- * @method setVolume
- * @param {Number} value Audio volume
- * @return {PositionalAudio} Self pointer for chaining
+ * Set object and all its children matrixAutoUpdate value
+ *
+ * @method setMatrixAutoUpdate
+ * @param {Object3D} obj
+ * @param {Boolean} value
  */
-PositionalAudio.prototype.setVolume = function(value) {
-    this.volume = value
-    this.gain.gain.value = value
+ObjectUtils.setMatrixAutoUpdate = function(obj, value)
+{
+    obj.matrixAutoUpdate = value
 
-    return this
-}
-
-// Update world matrix
-/*PositionalAudio.prototype.updateMatrixWorld = function(force) {
-    Object3D.prototype.updateMatrixWorld.call(this, force)
-}*/
-
-/**
- * Create JSON description
- * @method toJSON
- * @param {Object} meta
- * @return {Object} JSON description
- */
-PositionalAudio.prototype.toJSON = function(meta) {
-    var audio = this.audio
-    var data = THREE.Object3D.prototype.toJSON.call(this, meta, (meta, object) =&gt; {
-        audio = audio.toJSON(meta)
-    })
-
-    data.object.audio = audio.uuid
-    data.object.volume = this.volume
-    data.object.autoplay = this.autoplay
-    data.object.startTime = this.startTime
-    data.object.playbackRate = this.playbackRate
-    data.object.loop = this.loop
-
-    return data
+	obj.traverse((child) =&gt; {
+		child.matrixAutoUpdate = value
+	})
 }
 
 /**
- * Starts playback
- * @method play
+ * Set an object and its children to receive shadows
+ * 
+ * @method setShadowReceiving
+ * @param {Object3D} obj
+ * @param {Boolean} value
  */
+ObjectUtils.setShadowReceiving = function(obj, value)
+{
+    obj.receiveShadow = value
+
+	obj.traverse((child) =&gt; {
+		child.receiveShadow = value
+	})
+}
 
 /**
- * Pauses playback
- * @method pause
+ * Set object and all children to cast shadows
+ *
+ * @method setShadowCasting
+ * @param {Object3D} obj
+ * @param {Boolean} value
  */
+ObjectUtils.setShadowCasting = function(obj, value)
+{
+    obj.castShadow = value
+
+	obj.traverse((child) =&gt; {
+		child.castShadow = value
+	})
+}
 
 /**
- * Stops playback and resets time to 0
- * @method stop
+ * Check if an object is the child of another one
+ *
+ * @method isChildOf
+ * @param {Object3D} parent
+ * @param {Object3D} child
+ * @return {Boolean} True if parent is parent of child
  */
-
-/**
- * Set loop mode
- * @param {Boolean} loop
- * @method setLoop
- */
-
-/**
- * Set playback speed
- * @param {Number} speed
- * @method setPlaybackRate
- */
-
-/**
- * Add the filter to the filters array
- * @method setFilter
- * @param {Object} filter
- */
-
-/**
- * Sets the filters array to value
- * @method setFilters
- * @param {Array} value
- */
+ObjectUtils.isChildOf = function(parent, child)
+{
+	for(var i = 0; i &lt; parent.children.length; i++)
+	{
+		if(parent.children[i] === child || ObjectUtils.isChildOf(parent.children[i], child))
+		{
+			return true;
+		}
+	}
+	return false;
+}
 
     </pre>
 </div>

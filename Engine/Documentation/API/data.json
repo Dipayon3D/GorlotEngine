@@ -360,6 +360,24 @@
             "fors": {},
             "namespaces": {}
         },
+        "../Source/Runtime/THREE/Material.js": {
+            "name": "../Source/Runtime/THREE/Material.js",
+            "modules": {},
+            "classes": {
+                "Material": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../Source/Runtime/THREE/MultiMaterial.js": {
+            "name": "../Source/Runtime/THREE/MultiMaterial.js",
+            "modules": {},
+            "classes": {
+                "MultiMaterial": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "../Source/Runtime/THREE/Object3D.js": {
             "name": "../Source/Runtime/THREE/Object3D.js",
             "modules": {},
@@ -443,6 +461,15 @@
             },
             "classes": {
                 "Mesh2shape": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "../Source/Runtime/Utils/ObjectUtils.js": {
+            "name": "../Source/Runtime/Utils/ObjectUtils.js",
+            "modules": {},
+            "classes": {
+                "ObjectUtils": 1
             },
             "fors": {},
             "namespaces": {}
@@ -586,6 +613,7 @@
             "classes": {
                 "Mesh2shape": 1,
                 "PhysicsObject": 1,
+                "ObjectUtils": 1,
                 "FileSystem": 1
             },
             "fors": {},
@@ -711,6 +739,8 @@
             "elements": {},
             "classes": {
                 "THREE.Fog": 1,
+                "Material": 1,
+                "MultiMaterial": 1,
                 "THREE.Object3D": 1
             },
             "fors": {},
@@ -718,7 +748,7 @@
             "tag": "module",
             "file": "../Source/Runtime/THREE/Object3D.js",
             "line": 3,
-            "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
+            "description": "Fog class is used to store fog attributes attached to a Scene"
         },
         "BinaryData": {
             "name": "BinaryData",
@@ -1663,7 +1693,35 @@
             "namespace": "",
             "file": "../Source/Runtime/THREE/Fog.js",
             "line": 3,
-            "description": "Fog class is used to store fog attributes attached to a THREE.Scene"
+            "description": "Fog class is used to store fog attributes attached to a Scene"
+        },
+        "Material": {
+            "name": "Material",
+            "shortname": "Material",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "THREE",
+            "namespace": "",
+            "file": "../Source/Runtime/THREE/Material.js",
+            "line": 3,
+            "description": "Materials describe the appearance of objects. They are defined in a (mostly) renderer-independent way, so you don't have to rewrite materials if you decide to use a different renderer"
+        },
+        "MultiMaterial": {
+            "name": "MultiMaterial",
+            "shortname": "MultiMaterial",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "THREE",
+            "namespace": "",
+            "file": "../Source/Runtime/THREE/MultiMaterial.js",
+            "line": 3,
+            "description": "A material to define multiple material for the same geometry. The geometry decides which material is used for which faces by the faces material index.\nThe material index corresponds with the index of the material in the .materials array"
         },
         "THREE.Object3D": {
             "name": "THREE.Object3D",
@@ -1966,6 +2024,21 @@
             "line": 3,
             "description": "Mesh2shape is used to convert ThreeJS objects to CannonJS shapes\nIt is based on the original Mesh2Shape converted by @donmccurdy",
             "author": "Don McCurdy (https://github.com/donmccurdy)",
+            "static": 1
+        },
+        "ObjectUtils": {
+            "name": "ObjectUtils",
+            "shortname": "ObjectUtils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Physics",
+            "namespace": "",
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 3,
+            "description": "ObjectUtils is a collection of methods to apply operations to Object3D objects",
             "static": 1
         },
         "FileSystem": {
@@ -6512,6 +6585,54 @@
             "module": "THREE"
         },
         {
+            "file": "../Source/Runtime/THREE/Material.js",
+            "line": 10,
+            "description": "The materials nodes",
+            "itemtype": "property",
+            "name": "nodes",
+            "type": "{Object}",
+            "class": "Material",
+            "module": "THREE"
+        },
+        {
+            "file": "../Source/Runtime/THREE/Material.js",
+            "line": 17,
+            "description": "The material path",
+            "itemtype": "property",
+            "name": "path",
+            "type": "{String}",
+            "class": "Material",
+            "module": "THREE"
+        },
+        {
+            "file": "../Source/Runtime/THREE/Material.js",
+            "line": 24,
+            "description": "Dispose material",
+            "itemtype": "method",
+            "name": "dispose",
+            "class": "Material",
+            "module": "THREE"
+        },
+        {
+            "file": "../Source/Runtime/THREE/MultiMaterial.js",
+            "line": 11,
+            "description": "Resource name. Not required to be unique",
+            "itemtype": "property",
+            "name": "name",
+            "type": "{String}",
+            "class": "MultiMaterial",
+            "module": "THREE"
+        },
+        {
+            "file": "../Source/Runtime/THREE/MultiMaterial.js",
+            "line": 18,
+            "description": "Dispose materials inside the container",
+            "itemtype": "method",
+            "name": "dispose",
+            "class": "MultiMaterial",
+            "module": "THREE"
+        },
+        {
             "file": "../Source/Runtime/THREE/Object3D.js",
             "line": 14,
             "description": "Array with the object's children",
@@ -7892,6 +8013,234 @@
                 "type": "Array"
             },
             "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 11,
+            "description": "Gets all fonts in an object and its children",
+            "itemtype": "method",
+            "name": "getFonts",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "fonts",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "font array",
+                "type": "Array"
+            },
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 35,
+            "description": "Get all audio files in objects and children",
+            "itemtype": "method",
+            "name": "getAudio",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "audio",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "audio",
+                "type": "Array"
+            },
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 59,
+            "description": "Get all materials in an object and its children",
+            "itemtype": "method",
+            "name": "getMaterials",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "materials",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "materials",
+                "type": "Array"
+            },
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 110,
+            "description": "Gets all textures in an object and its children",
+            "itemtype": "method",
+            "name": "getTextures",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "textures",
+                    "description": "Textures array",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "files",
+                "type": "Array"
+            },
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 171,
+            "description": "Get object scene",
+            "itemtype": "method",
+            "name": "getScene",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                }
+            ],
+            "return": {
+                "description": "scene",
+                "type": "Object3D"
+            },
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 194,
+            "description": "Get object tree root",
+            "itemtype": "method",
+            "name": "getRoot",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                }
+            ],
+            "return": {
+                "description": "root",
+                "type": "Object3D"
+            },
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 213,
+            "description": "Set object and all its children matrixAutoUpdate value",
+            "itemtype": "method",
+            "name": "setMatrixAutoUpdate",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 229,
+            "description": "Set an object and its children to receive shadows",
+            "itemtype": "method",
+            "name": "setShadowReceiving",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 245,
+            "description": "Set object and all children to cast shadows",
+            "itemtype": "method",
+            "name": "setShadowCasting",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "ObjectUtils",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/ObjectUtils.js",
+            "line": 261,
+            "description": "Check if an object is the child of another one",
+            "itemtype": "method",
+            "name": "isChildOf",
+            "params": [
+                {
+                    "name": "parent",
+                    "description": "",
+                    "type": "Object3D"
+                },
+                {
+                    "name": "child",
+                    "description": "",
+                    "type": "Object3D"
+                }
+            ],
+            "return": {
+                "description": "True if parent is parent of child",
+                "type": "Boolean"
+            },
+            "class": "ObjectUtils",
             "module": "Physics"
         },
         {
