@@ -1343,7 +1343,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
             "line": 3,
-            "description": "Wrapper for cannon.js Body physics objects",
+            "description": "Wrapper for cannon.js Body physics objects\nPhysics coordinates are always calculated in local space, they should always be placed directly inside the scene or inside container without any offset\nGorlot includes tools to create cannon shapes from three geometry objects",
             "is_constructor": 1,
             "extends": "{Object3D}"
         },
@@ -4546,7 +4546,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 18,
+            "line": 20,
             "description": "CANNON.JS Body object",
             "itemtype": "attribute",
             "name": "body",
@@ -4556,7 +4556,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 27,
+            "line": 29,
             "description": "CANNON.JS World",
             "itemtype": "attribute",
             "name": "world",
@@ -4566,7 +4566,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 44,
+            "line": 46,
             "description": "Initialise physics object and add it to the scene physics world\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "initialize",
@@ -4575,7 +4575,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 69,
+            "line": 72,
             "description": "Update object position and rotation based on cannon.js body\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -4584,7 +4584,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 87,
+            "line": 91,
             "description": "Add shape to physics object body",
             "params": [
                 {
@@ -4600,7 +4600,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 98,
+            "line": 103,
             "description": "Create JSON for object\nNeed to backup material and geometry and set to undefined in order to avoid it being store",
             "itemtype": "method",
             "name": "toJSON",
@@ -7742,7 +7742,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 17,
+            "line": 16,
             "description": "Type is used to indentify the type of cannonjs\n - BOX\n - CYLINDER\n - SPHERE\n - HULL",
             "itemtype": "attribute",
             "name": "Type",
@@ -7752,7 +7752,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 35,
+            "line": 34,
             "description": "Given a Object3D instance, creates a corresponding CANNON shape",
             "itemtype": "method",
             "name": "createShape",
@@ -7777,7 +7777,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 107,
+            "line": 103,
             "description": "Create box shape from geometry",
             "itemtype": "method",
             "name": "createBoxShape",
@@ -7797,7 +7797,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 130,
+            "line": 126,
             "description": "Bounding box needs to be computed with the entire mesh, not just geometry",
             "itemtype": "method",
             "name": "createBoundingBoxShape",
@@ -7817,7 +7817,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 165,
+            "line": 161,
             "description": "Computes 3D convex hull as a CANNON.ConvexPolyhedron",
             "itemtype": "method",
             "name": "createConvexPolyhedron",
@@ -7837,7 +7837,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 216,
+            "line": 211,
             "description": "Create cylinder shape from geometry",
             "itemtype": "method",
             "name": "createCylinderShape",
@@ -7846,6 +7846,26 @@
                     "name": "geometry",
                     "description": "",
                     "type": "Geometry"
+                }
+            ],
+            "return": {
+                "description": "shape",
+                "type": "CANNON.Cylinder"
+            },
+            "class": "Mesh2shape",
+            "module": "Physics"
+        },
+        {
+            "file": "../Source/Runtime/Utils/Mesh2Shape.js",
+            "line": 229,
+            "description": "Create cylinder shape from bounding cylinder calculated from bounding box and bouding sphere",
+            "itemtype": "method",
+            "name": "createBoundingCylinderShape",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "",
+                    "type": "Object3D"
                 }
             ],
             "return": {
@@ -7897,7 +7917,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 284,
+            "line": 283,
             "description": "Sphere shape from bouding sphere",
             "itemtype": "method",
             "name": "createBoundingSphereShape",
@@ -7977,7 +7997,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 391,
+            "line": 393,
             "description": "Get geometry vertices",
             "itemtype": "method",
             "name": "getVertices",
@@ -7997,7 +8017,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 407,
+            "line": 409,
             "description": "Returns a array of THREE.Mesh instances from the given object.\nIf nested transformations are found, they are applied to child meshes as mesh.userData.matrix, so that each mesh has its position/rotation/scale independently of all of its parents except the top-level object.",
             "itemtype": "method",
             "name": "getMeshes",
@@ -8321,7 +8341,7 @@
         {
             "file": "../Source/Runtime/FileSystem.js",
             "line": 119,
-            "description": "Write a text file",
+            "description": "Write text file, when running without NWJS it writes a blob and autodownloads it",
             "itemtype": "method",
             "name": "writeFile",
             "params": [
@@ -8341,7 +8361,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 133,
+            "line": 147,
             "description": "Write a binary file from base64 data",
             "itemtype": "method",
             "name": "writeFileBase64",
@@ -8362,7 +8382,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 149,
+            "line": 163,
             "description": "Copies a file (this function can't be used to copy folders)",
             "itemtype": "method",
             "name": "copyFile",
@@ -8383,7 +8403,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 161,
+            "line": 175,
             "description": "Creates a directory (doesn't throw exception if directory already exists)",
             "itemtype": "method",
             "name": "makeDirectory",
@@ -8399,7 +8419,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 174,
+            "line": 188,
             "description": "Returns the files in a directory (returns empty array if something went wrong)",
             "itemtype": "method",
             "name": "getFilesDirectory",
@@ -8419,7 +8439,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 191,
+            "line": 205,
             "description": "Copies a folder and all of its files (including symbolic links)",
             "itemtype": "method",
             "name": "copyFolder",
@@ -8440,7 +8460,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 223,
+            "line": 237,
             "description": "Opens a chooser file dialog",
             "itemtype": "method",
             "name": "chooseFile",
@@ -8466,7 +8486,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 251,
+            "line": 265,
             "description": "Checks if a file currently exists",
             "itemtype": "method",
             "name": "fileExists",
@@ -8486,7 +8506,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 265,
+            "line": 279,
             "description": "Gets the file name from path (always in lowercase)",
             "itemtype": "method",
             "name": "getFileName",
@@ -8506,7 +8526,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 275,
+            "line": 289,
             "description": "Gets the file name without extension",
             "itemtype": "method",
             "name": "getNameWithoutExtension",
@@ -8526,7 +8546,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 285,
+            "line": 299,
             "description": "Get the directory of a file",
             "itemtype": "method",
             "name": "getFilePath",
@@ -8546,7 +8566,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 295,
+            "line": 309,
             "description": "Get the extension of a file by using a path string",
             "itemtype": "method",
             "name": "getFileExtension",
