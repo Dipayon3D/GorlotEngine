@@ -2074,7 +2074,7 @@
     "classitems": [
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 11,
+            "line": 12,
             "description": "Indicates if this key is currently pressed",
             "itemtype": "property",
             "name": "pressed",
@@ -2085,7 +2085,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 19,
+            "line": 20,
             "description": "Indicates if this key was just pressed",
             "itemtype": "property",
             "name": "justPressed",
@@ -2096,7 +2096,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 27,
+            "line": 28,
             "description": "Indiciates if this key was just released",
             "itemtype": "property",
             "name": "justReleased",
@@ -2107,7 +2107,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 36,
+            "line": 37,
             "description": "Down",
             "itemtype": "attribute",
             "name": "DOWN",
@@ -2117,7 +2117,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 43,
+            "line": 44,
             "description": "Up",
             "itemtype": "attribute",
             "name": "UP",
@@ -2127,7 +2127,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 50,
+            "line": 51,
             "description": "Reset",
             "itemtype": "attribute",
             "name": "RESET",
@@ -2137,7 +2137,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 57,
+            "line": 58,
             "description": "Update key status based on new key state",
             "itemtype": "method",
             "name": "update",
@@ -2153,7 +2153,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 90,
+            "line": 91,
             "description": "Set this key status manually",
             "itemtype": "method",
             "name": "set",
@@ -2179,7 +2179,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Key.js",
-            "line": 104,
+            "line": 105,
             "description": "Reset this key to its default values",
             "itemtype": "method",
             "name": "reset",
@@ -2188,7 +2188,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 10,
+            "line": 11,
             "description": "Array with keyboard keys status",
             "type": "{Array}",
             "itemtype": "property",
@@ -2198,7 +2198,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 52,
+            "line": 53,
             "description": "Update the key flags synchronously (called automatically by the runtine - Editor/App - )",
             "itemtype": "method",
             "name": "update",
@@ -2207,7 +2207,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 73,
+            "line": 74,
             "description": "Reset keyboard status to default",
             "itemtype": "method",
             "name": "reset",
@@ -2216,7 +2216,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 87,
+            "line": 88,
             "description": "Check if a key is pressed",
             "itemtype": "method",
             "name": "keyPressed",
@@ -2236,7 +2236,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 97,
+            "line": 98,
             "description": "Check if a key was just pressed",
             "itemtype": "method",
             "name": "keyJustPressed",
@@ -2256,7 +2256,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 107,
+            "line": 108,
             "description": "Check if a key was just released",
             "itemtype": "method",
             "name": "keyJustReleased",
@@ -2276,7 +2276,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 117,
+            "line": 118,
             "description": "Dispose keyboard events (called automatically by the runtime - Editor/App - )",
             "itemtype": "method",
             "name": "dispose",
@@ -2285,7 +2285,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 128,
+            "line": 129,
             "description": "TAB key",
             "itemtype": "attribute",
             "name": "TAB",
@@ -2295,7 +2295,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 135,
+            "line": 136,
             "description": "ENTER key",
             "itemtype": "attribute",
             "name": "ENTER",
@@ -2305,7 +2305,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 142,
+            "line": 143,
             "description": "SHIFT key",
             "itemtype": "attribute",
             "name": "SHIFT",
@@ -2315,7 +2315,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 149,
+            "line": 150,
             "description": "CTRL key",
             "itemtype": "attribute",
             "name": "CTRL",
@@ -2325,7 +2325,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 156,
+            "line": 157,
             "description": "ALT key",
             "itemtype": "attribute",
             "name": "ALT",
@@ -2335,7 +2335,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 163,
+            "line": 164,
             "description": "CAPS_LOCK key",
             "itemtype": "attribute",
             "name": "CAPS_LOCK",
@@ -2345,7 +2345,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 170,
+            "line": 171,
             "description": "ESC key",
             "itemtype": "attribute",
             "name": "ESC",
@@ -2355,7 +2355,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 177,
+            "line": 178,
             "description": "SPACEBAR key",
             "itemtype": "attribute",
             "name": "SPACEBAR",
@@ -2365,7 +2365,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 184,
+            "line": 185,
             "description": "PAGE_UP key",
             "itemtype": "attribute",
             "name": "PAGE_UP",
@@ -2375,7 +2375,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 191,
+            "line": 192,
             "description": "PAGE_DOWN key",
             "itemtype": "attribute",
             "name": "PAGE_DOWN",
@@ -2385,7 +2385,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 198,
+            "line": 199,
             "description": "END key",
             "itemtype": "attribute",
             "name": "END",
@@ -2395,7 +2395,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 205,
+            "line": 206,
             "description": "HOME key",
             "itemtype": "attribute",
             "name": "HOME",
@@ -2405,7 +2405,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 212,
+            "line": 213,
             "description": "INSERT key",
             "itemtype": "attribute",
             "name": "INSERT",
@@ -2415,7 +2415,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 219,
+            "line": 220,
             "description": "DEL key",
             "itemtype": "attribute",
             "name": "DEL",
@@ -2425,7 +2425,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 227,
+            "line": 228,
             "description": "LEFT key",
             "itemtype": "attribute",
             "name": "LEFT",
@@ -2435,7 +2435,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 234,
+            "line": 235,
             "description": "RIGHT key",
             "itemtype": "attribute",
             "name": "RIGHT",
@@ -2445,7 +2445,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 241,
+            "line": 242,
             "description": "UP key",
             "itemtype": "attribute",
             "name": "UP",
@@ -2455,7 +2455,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 248,
+            "line": 249,
             "description": "DOWN key",
             "itemtype": "attribute",
             "name": "DOWN",
@@ -2465,7 +2465,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 256,
+            "line": 257,
             "description": "NUM0 key",
             "itemtype": "attribute",
             "name": "NUM0",
@@ -2475,7 +2475,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 263,
+            "line": 264,
             "description": "NUM1 key",
             "itemtype": "attribute",
             "name": "NUM1",
@@ -2485,7 +2485,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 270,
+            "line": 271,
             "description": "NUM2 key",
             "itemtype": "attribute",
             "name": "NUM2",
@@ -2495,7 +2495,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 277,
+            "line": 278,
             "description": "NUM3 key",
             "itemtype": "attribute",
             "name": "NUM3",
@@ -2505,7 +2505,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 284,
+            "line": 285,
             "description": "NUM4 key",
             "itemtype": "attribute",
             "name": "NUM4",
@@ -2515,7 +2515,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 291,
+            "line": 292,
             "description": "NUM5 key",
             "itemtype": "attribute",
             "name": "NUM5",
@@ -2525,7 +2525,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 298,
+            "line": 299,
             "description": "NUM6 key",
             "itemtype": "attribute",
             "name": "NUM6",
@@ -2535,7 +2535,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 305,
+            "line": 306,
             "description": "NUM7 key",
             "itemtype": "attribute",
             "name": "NUM7",
@@ -2545,7 +2545,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 312,
+            "line": 313,
             "description": "NUM8 key",
             "itemtype": "attribute",
             "name": "NUM8",
@@ -2555,7 +2555,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 319,
+            "line": 320,
             "description": "NUM9 key",
             "itemtype": "attribute",
             "name": "NUM9",
@@ -2565,7 +2565,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 327,
+            "line": 328,
             "description": "A key",
             "itemtype": "attribute",
             "name": "A",
@@ -2575,7 +2575,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 334,
+            "line": 335,
             "description": "B key",
             "itemtype": "attribute",
             "name": "B",
@@ -2585,7 +2585,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 341,
+            "line": 342,
             "description": "C key",
             "itemtype": "attribute",
             "name": "C",
@@ -2595,7 +2595,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 348,
+            "line": 349,
             "description": "D key",
             "itemtype": "attribute",
             "name": "D",
@@ -2605,7 +2605,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 355,
+            "line": 356,
             "description": "E key",
             "itemtype": "attribute",
             "name": "E",
@@ -2615,7 +2615,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 362,
+            "line": 363,
             "description": "F key",
             "itemtype": "attribute",
             "name": "F",
@@ -2625,7 +2625,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 369,
+            "line": 370,
             "description": "G key",
             "itemtype": "attribute",
             "name": "G",
@@ -2635,7 +2635,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 376,
+            "line": 377,
             "description": "H key",
             "itemtype": "attribute",
             "name": "H",
@@ -2645,7 +2645,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 383,
+            "line": 384,
             "description": "I key",
             "itemtype": "attribute",
             "name": "I",
@@ -2655,7 +2655,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 390,
+            "line": 391,
             "description": "J key",
             "itemtype": "attribute",
             "name": "J",
@@ -2665,7 +2665,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 397,
+            "line": 398,
             "description": "K key",
             "itemtype": "attribute",
             "name": "K",
@@ -2675,7 +2675,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 404,
+            "line": 405,
             "description": "L key",
             "itemtype": "attribute",
             "name": "L",
@@ -2685,7 +2685,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 411,
+            "line": 412,
             "description": "M key",
             "itemtype": "attribute",
             "name": "M",
@@ -2695,7 +2695,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 418,
+            "line": 419,
             "description": "N key",
             "itemtype": "attribute",
             "name": "N",
@@ -2705,7 +2705,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 425,
+            "line": 426,
             "description": "O key",
             "itemtype": "attribute",
             "name": "O",
@@ -2715,7 +2715,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 432,
+            "line": 433,
             "description": "P key",
             "itemtype": "attribute",
             "name": "P",
@@ -2725,7 +2725,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 439,
+            "line": 440,
             "description": "Q key",
             "itemtype": "attribute",
             "name": "Q",
@@ -2735,7 +2735,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 446,
+            "line": 447,
             "description": "R key",
             "itemtype": "attribute",
             "name": "R",
@@ -2745,7 +2745,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 453,
+            "line": 454,
             "description": "S key",
             "itemtype": "attribute",
             "name": "S",
@@ -2755,7 +2755,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 460,
+            "line": 461,
             "description": "T key",
             "itemtype": "attribute",
             "name": "T",
@@ -2765,7 +2765,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 467,
+            "line": 468,
             "description": "U key",
             "itemtype": "attribute",
             "name": "U",
@@ -2775,7 +2775,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 474,
+            "line": 475,
             "description": "V key",
             "itemtype": "attribute",
             "name": "V",
@@ -2785,7 +2785,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 481,
+            "line": 482,
             "description": "W key",
             "itemtype": "attribute",
             "name": "W",
@@ -2795,7 +2795,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 488,
+            "line": 489,
             "description": "X key",
             "itemtype": "attribute",
             "name": "X",
@@ -2805,7 +2805,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 495,
+            "line": 496,
             "description": "Y key",
             "itemtype": "attribute",
             "name": "Y",
@@ -2815,7 +2815,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 502,
+            "line": 503,
             "description": "Z key",
             "itemtype": "attribute",
             "name": "Z",
@@ -2825,7 +2825,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 511,
+            "line": 512,
             "description": "F1 key",
             "itemtype": "attribute",
             "name": "F1",
@@ -2835,7 +2835,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 518,
+            "line": 519,
             "description": "F2 key",
             "itemtype": "attribute",
             "name": "F2",
@@ -2845,7 +2845,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 525,
+            "line": 526,
             "description": "F3 key",
             "itemtype": "attribute",
             "name": "F3",
@@ -2855,7 +2855,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 532,
+            "line": 533,
             "description": "F4 key",
             "itemtype": "attribute",
             "name": "F4",
@@ -2865,7 +2865,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 539,
+            "line": 540,
             "description": "F5 key",
             "itemtype": "attribute",
             "name": "F5",
@@ -2875,7 +2875,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 546,
+            "line": 547,
             "description": "F6 key",
             "itemtype": "attribute",
             "name": "F6",
@@ -2885,7 +2885,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 553,
+            "line": 554,
             "description": "F7 key",
             "itemtype": "attribute",
             "name": "F7",
@@ -2895,7 +2895,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 560,
+            "line": 561,
             "description": "F8 key",
             "itemtype": "attribute",
             "name": "F8",
@@ -2905,7 +2905,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 567,
+            "line": 568,
             "description": "F9 key",
             "itemtype": "attribute",
             "name": "F9",
@@ -2915,7 +2915,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 574,
+            "line": 575,
             "description": "F10 key",
             "itemtype": "attribute",
             "name": "F10",
@@ -2925,7 +2925,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 581,
+            "line": 582,
             "description": "F11 key",
             "itemtype": "attribute",
             "name": "F11",
@@ -2935,7 +2935,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Keyboard.js",
-            "line": 588,
+            "line": 589,
             "description": "F12 key",
             "itemtype": "attribute",
             "name": "F12",
@@ -2945,7 +2945,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 20,
+            "line": 21,
             "description": "Array with mouse buttons status",
             "type": "{Array}",
             "itemtype": "property",
@@ -2955,7 +2955,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 27,
+            "line": 28,
             "description": "Mouse position inside of the window (coordinates in window space)",
             "type": "{Vector2}",
             "itemtype": "property",
@@ -2965,7 +2965,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 34,
+            "line": 35,
             "description": "Mouse movement (coordinates in window space)",
             "type": "{Vector}",
             "itemtype": "property",
@@ -2975,7 +2975,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 41,
+            "line": 42,
             "description": "Mouse scroll wheel movement",
             "type": "{Number}",
             "itemtype": "property",
@@ -2985,7 +2985,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 49,
+            "line": 50,
             "description": "Canvas attached to this mouse instance, used to calculate position and delta in canvas space coordinates",
             "type": "{DOM}",
             "itemtype": "property",
@@ -2995,7 +2995,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 177,
+            "line": 178,
             "description": "LEFT mouse button",
             "itemtype": "attribute",
             "name": "LEFT",
@@ -3005,7 +3005,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 184,
+            "line": 185,
             "description": "MIDDLE mouse button",
             "itemtype": "attribute",
             "name": "MIDDLE",
@@ -3015,7 +3015,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 191,
+            "line": 192,
             "description": "Right mouse button",
             "itemtype": "attribute",
             "name": "RIGHT",
@@ -3025,7 +3025,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 198,
+            "line": 199,
             "description": "Canvas to be used for coordinates calculation relative to that canvas",
             "itemtype": "method",
             "name": "setCanvas",
@@ -3041,7 +3041,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 220,
+            "line": 221,
             "description": "Check if mouse is inside attached canvas (updated async)",
             "itemtype": "method",
             "name": "insideCanvas",
@@ -3054,7 +3054,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 235,
+            "line": 236,
             "description": "Set mouse lock state",
             "itemtype": "method",
             "name": "setLock",
@@ -3070,7 +3070,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 277,
+            "line": 278,
             "description": "Check if mouse button is currently pressed",
             "itemtype": "method",
             "name": "buttonPressed",
@@ -3090,7 +3090,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 288,
+            "line": 289,
             "description": "Check if mouse button was double clicked",
             "itemtype": "method",
             "name": "buttonDoubleClicked",
@@ -3103,7 +3103,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 298,
+            "line": 299,
             "description": "Check if mouse button was just pressed",
             "itemtype": "method",
             "name": "buttonJustPressed",
@@ -3116,7 +3116,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 308,
+            "line": 309,
             "description": "Check if a mouse button was just released",
             "itemtype": "method",
             "name": "buttonJustReleased",
@@ -3136,7 +3136,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 319,
+            "line": 320,
             "description": "Update mouse position (automatically called by the runtime handler - Editor / App - )",
             "itemtype": "method",
             "name": "updatePosition",
@@ -3167,7 +3167,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 335,
+            "line": 336,
             "description": "Update a mouse button (automatically called by the runtime)",
             "params": [
                 {
@@ -3188,7 +3188,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 349,
+            "line": 350,
             "description": "Update mouse buttons state, position, wheel and delta synchronously (called automatically by the runtime handler - Editor / App - )",
             "itemtype": "method",
             "name": "update",
@@ -3197,7 +3197,7 @@
         },
         {
             "file": "../Source/Runtime/Input/Mouse.js",
-            "line": 410,
+            "line": 411,
             "description": "Dispose mouse events (called automatically by the runtime handler - Editor / App - )",
             "itemtype": "method",
             "name": "dispose",
@@ -3206,7 +3206,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Mesh.js",
-            "line": 13,
+            "line": 14,
             "description": "Geometry defined by the object structure",
             "itemtype": "property",
             "name": "geometry",
@@ -3216,7 +3216,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Mesh.js",
-            "line": 19,
+            "line": 20,
             "description": "Material is used to define how the geometry surface is shaded",
             "itemtype": "property",
             "name": "material",
@@ -3226,7 +3226,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Mesh.js",
-            "line": 25,
+            "line": 26,
             "description": "Determines how the mesh triangles are constructed from the vertices.\nOnly works when the geometry is a BufferGeometry",
             "itemtype": "property",
             "name": "drawMode",
@@ -3236,7 +3236,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Mesh.js",
-            "line": 49,
+            "line": 50,
             "description": "Dispose model along with its material and geometry",
             "itemtype": "method",
             "name": "dispose",
@@ -3245,7 +3245,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/SkinnedMesh.js",
-            "line": 13,
+            "line": 16,
             "description": "Geometry defined by the object structure",
             "itemtype": "property",
             "name": "geometry",
@@ -3255,7 +3255,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/SkinnedMesh.js",
-            "line": 19,
+            "line": 22,
             "description": "Material is used to define how the geometry surface is shaded",
             "itemtype": "property",
             "name": "material",
@@ -3265,7 +3265,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/SkinnedMesh.js",
-            "line": 25,
+            "line": 28,
             "description": "Determines how the mesh triangles are constructed from the vertices\nOnly works when the geometry is a BufferGeometry",
             "itemtype": "property",
             "name": "drawMode",
@@ -3275,7 +3275,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/SkinnedMesh.js",
-            "line": 32,
+            "line": 35,
             "description": "Array with the bones attached to this mesh",
             "itemtype": "property",
             "name": "bones",
@@ -3285,7 +3285,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/SkinnedMesh.js",
-            "line": 54,
+            "line": 57,
             "description": "Dispose mesh along with its material and geometry",
             "itemtype": "method",
             "name": "dispose",
@@ -3294,7 +3294,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/SkinnedMesh.js",
-            "line": 71,
+            "line": 74,
             "description": "Bind a skeleton to the skinned mesh. The bindMatrix gets saved from .bindMatrix property and the .bindMatrixInverse gets calculated.\nThis is called automatically in the constructor, and the skeleton is created from the bones of the Geometry passed in the constructor",
             "itemtype": "method",
             "name": "bind",
@@ -3315,7 +3315,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 20,
+            "line": 21,
             "description": "Material is used to define how the geometry surface is shaded",
             "itemtype": "property",
             "name": "material",
@@ -3325,7 +3325,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 31,
+            "line": 32,
             "description": "Font used to draw text",
             "itemtype": "property",
             "name": "font",
@@ -3335,7 +3335,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 38,
+            "line": 39,
             "description": "Text",
             "itemtype": "property",
             "name": "text",
@@ -3345,7 +3345,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 45,
+            "line": 46,
             "description": "Size of the text (depth)",
             "itemtype": "property",
             "name": "size",
@@ -3355,7 +3355,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 52,
+            "line": 53,
             "description": "Height of the text",
             "itemtype": "property",
             "name": "height",
@@ -3365,7 +3365,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 59,
+            "line": 60,
             "description": "Curve segments",
             "itemtype": "property",
             "name": "curveSegments",
@@ -3375,7 +3375,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 66,
+            "line": 67,
             "description": "Bevel",
             "itemtype": "property",
             "name": "bevel",
@@ -3385,7 +3385,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 73,
+            "line": 74,
             "description": "Bevel thickness",
             "itemtype": "property",
             "name": "bevelThickness",
@@ -3395,7 +3395,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 80,
+            "line": 81,
             "description": "Bevel size",
             "itemtype": "property",
             "name": "bevelSize",
@@ -3405,7 +3405,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 102,
+            "line": 103,
             "description": "Set font used by this text 3D instance",
             "params": [
                 {
@@ -3421,7 +3421,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 113,
+            "line": 114,
             "description": "Set text",
             "params": [
                 {
@@ -3437,7 +3437,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 131,
+            "line": 132,
             "description": "Update text geometry\nShould be called after changing any attribute",
             "itemtype": "method",
             "name": "updateText",
@@ -3446,7 +3446,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 150,
+            "line": 151,
             "description": "Clone this Text3D instance",
             "itemtype": "method",
             "name": "clone",
@@ -3459,7 +3459,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 159,
+            "line": 160,
             "description": "Dispose mesh along with its material and geometry",
             "itemtype": "method",
             "name": "dispose",
@@ -3468,7 +3468,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Basic/Text3D.js",
-            "line": 180,
+            "line": 181,
             "description": "Create JSON for object\nNeed to backup geometry and set to undefined to avoid it being stored",
             "itemtype": "method",
             "name": "toJSON",
@@ -3488,7 +3488,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 22,
+            "line": 23,
             "description": "Camera size (relative to resize mode)",
             "itemtype": "property",
             "name": "size",
@@ -3499,7 +3499,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 30,
+            "line": 31,
             "description": "Aspect ratio (X/Y)",
             "itemtype": "property",
             "name": "aspect",
@@ -3510,7 +3510,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 38,
+            "line": 39,
             "description": "Camera resize mode",
             "itemtype": "property",
             "name": "mode",
@@ -3521,7 +3521,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 46,
+            "line": 47,
             "description": "Camera viewport offset\nValues range from 0.0 to 1.0 in screen space",
             "itemtype": "property",
             "name": "offset",
@@ -3531,7 +3531,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 54,
+            "line": 55,
             "description": "Camera viewport size\nValues range from 0.0 to 1.0 in screen space",
             "itemtype": "property",
             "name": "viewport",
@@ -3541,7 +3541,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 62,
+            "line": 63,
             "description": "Clear screen colour flag",
             "itemtype": "property",
             "name": "clearColor",
@@ -3552,7 +3552,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 70,
+            "line": 71,
             "description": "Clear depth flag",
             "itemtype": "property",
             "name": "clearDepth",
@@ -3563,7 +3563,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 78,
+            "line": 79,
             "description": "Camera draw order preference\nIf more than one camera has the same order value, the draw order is undefined to those cameras",
             "itemtype": "property",
             "name": "order",
@@ -3574,7 +3574,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 99,
+            "line": 100,
             "description": "Used to set camera to resize horizontally",
             "itemtype": "attribute",
             "name": "RESIZE_HORIZONTAL",
@@ -3584,7 +3584,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 106,
+            "line": 107,
             "description": "Used to set camera to resize vertically",
             "itemtype": "attribute",
             "name": "RESIZE_VERTICAL",
@@ -3594,7 +3594,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 113,
+            "line": 114,
             "description": "Destroy camera object and remove it from the scene",
             "itemtype": "method",
             "name": "destroy",
@@ -3603,7 +3603,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 126,
+            "line": 127,
             "description": "Update camera projection matrix\nShould be called after changing projection parameters",
             "itemtype": "method",
             "name": "updateProjectionMatrix",
@@ -3612,7 +3612,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/OrthographicCamera.js",
-            "line": 152,
+            "line": 153,
             "description": "Create JSON description",
             "itemtype": "method",
             "name": "toJSON",
@@ -3632,7 +3632,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 16,
+            "line": 17,
             "description": "Camera field of view (in degrees)",
             "itemtype": "property",
             "name": "fov",
@@ -3643,7 +3643,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 23,
+            "line": 24,
             "description": "Camera aspect ratio (X/Y)",
             "itemtype": "property",
             "name": "aspect",
@@ -3654,7 +3654,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 30,
+            "line": 31,
             "description": "Camera zoom",
             "itemtype": "property",
             "name": "zoom",
@@ -3665,7 +3665,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 42,
+            "line": 43,
             "description": "Camera viewport offset\nValues range from 0.0 to 1.0 in screen space",
             "itemtype": "property",
             "name": "offset",
@@ -3675,7 +3675,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 50,
+            "line": 51,
             "description": "Camera viewport size\nValues range from 0.0 to 1.0 in screen space",
             "itemtype": "property",
             "name": "viewport",
@@ -3685,7 +3685,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 58,
+            "line": 59,
             "description": "Clear screen colour flag",
             "itemtype": "property",
             "name": "clearColor",
@@ -3696,7 +3696,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 66,
+            "line": 67,
             "description": "Clear depth flag",
             "itemtype": "property",
             "name": "clearDepth",
@@ -3707,7 +3707,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 74,
+            "line": 75,
             "description": "Camera draw order preference\nIf more than once camera has the same order value, the draw order is undefined for those cameras",
             "itemtype": "property",
             "name": "order",
@@ -3718,7 +3718,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 93,
+            "line": 94,
             "description": "Destroy camera object and remove it from scene",
             "itemtype": "method",
             "name": "destroy",
@@ -3727,7 +3727,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 106,
+            "line": 107,
             "description": "Update world transformation matrinx ignoring parent scaling properties",
             "itemtype": "method",
             "name": "updateMatrixWorld",
@@ -3743,7 +3743,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 134,
+            "line": 135,
             "description": "Update camera projection matrix\nShould be called after changing projection parameters",
             "itemtype": "method",
             "name": "updateProjectionMatrix",
@@ -3752,7 +3752,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js",
-            "line": 153,
+            "line": 154,
             "description": "Create JSON description",
             "itemtype": "method",
             "name": "JSON",
@@ -3772,7 +3772,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 19,
+            "line": 20,
             "description": "Websocket used to connect to the data server",
             "itemtype": "property",
             "name": "socket",
@@ -3783,7 +3783,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 27,
+            "line": 28,
             "description": "Connected flag",
             "itemtype": "property",
             "name": "connected",
@@ -3793,7 +3793,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 34,
+            "line": 35,
             "description": "Debug model flag",
             "itemtype": "property",
             "name": "debugModel",
@@ -3804,7 +3804,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 42,
+            "line": 43,
             "description": "Time until data is considered too obsolete to be usable",
             "itemtype": "property",
             "name": "dataTimeout",
@@ -3814,7 +3814,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 51,
+            "line": 52,
             "description": "Skeleton data sent by the kinect",
             "itemtype": "property",
             "name": "data",
@@ -3824,7 +3824,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 100,
+            "line": 101,
             "description": "Kinect default data timeout in seconds",
             "itemtype": "attribute",
             "name": "DATA_TIMEOUT",
@@ -3834,7 +3834,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 107,
+            "line": 108,
             "description": "Kinect camera depth mode",
             "itemtype": "attribute",
             "name": "DEPTH",
@@ -3844,7 +3844,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 114,
+            "line": 115,
             "description": "Kinect camera colour mode",
             "itemtype": "attribute",
             "name": "COLOR",
@@ -3854,7 +3854,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 121,
+            "line": 122,
             "description": "Kinect skeleton joint names in pairs",
             "itemtype": "attribute",
             "name": "JOINTS_NAME",
@@ -3864,7 +3864,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 133,
+            "line": 134,
             "description": "Update kinect device state",
             "itemtype": "method",
             "name": "update",
@@ -3873,7 +3873,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 195,
+            "line": 196,
             "description": "Check if there is a kinect connected",
             "itemtype": "method",
             "name": "isConnected",
@@ -3886,7 +3886,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 205,
+            "line": 206,
             "description": "Set kinect camera mode",
             "itemtype": "method",
             "name": "setCameraMode",
@@ -3902,7 +3902,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/KinectDevice.js",
-            "line": 222,
+            "line": 223,
             "description": "Create JSON for object",
             "params": [
                 {
@@ -3918,7 +3918,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 18,
+            "line": 19,
             "description": "Debug model flag",
             "itemtype": "property",
             "name": "debugModel",
@@ -3929,7 +3929,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 26,
+            "line": 27,
             "description": "Flag to enable gesture detection",
             "itemtype": "property",
             "name": "gesturesEnabled",
@@ -3940,7 +3940,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 34,
+            "line": 35,
             "description": "Flag to enable hand pose detection",
             "itemtype": "property",
             "name": "posesEnabled",
@@ -3951,7 +3951,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 42,
+            "line": 43,
             "description": "Hand tracking mode",
             "itemtype": "property",
             "name": "mode",
@@ -3962,7 +3962,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 50,
+            "line": 51,
             "description": "Flag to set arm tracking",
             "itemtype": "property",
             "name": "useArm",
@@ -3973,7 +3973,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 97,
+            "line": 98,
             "description": "Leap tracking desktop mode",
             "itemtype": "attribute",
             "name": "DESK",
@@ -3983,7 +3983,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 104,
+            "line": 105,
             "description": "Leap tracking HDM mode",
             "itemtype": "attribute",
             "name": "HDM",
@@ -3993,7 +3993,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 111,
+            "line": 112,
             "description": "Leap SWIP gesture",
             "itemtype": "attribute",
             "name": "SWIPE",
@@ -4003,7 +4003,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 118,
+            "line": 119,
             "description": "Leap SWIPE_LEFT gesture",
             "itemtype": "attribute",
             "name": "SWIPE_LEFT",
@@ -4013,7 +4013,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 125,
+            "line": 126,
             "description": "Leap SWIPE_RIGHT gesture",
             "itemtype": "attribute",
             "name": "SWIPE_RIGHT",
@@ -4023,7 +4023,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 132,
+            "line": 133,
             "description": "Leap SWIPE_FRONT gesture",
             "itemtype": "attribute",
             "name": "SWIPE_FRONT",
@@ -4033,7 +4033,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 139,
+            "line": 140,
             "description": "Leap SWIPE_BACK gesture",
             "itemtype": "attribute",
             "name": "SWIPE_BACK",
@@ -4043,7 +4043,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 146,
+            "line": 147,
             "description": "Leap SWIPE_UP gesture",
             "itemtype": "attribute",
             "name": "SWIPE_UP",
@@ -4053,7 +4053,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 153,
+            "line": 154,
             "description": "Leap SWIPE_DOWN gesture",
             "itemtype": "attribute",
             "name": "SWIPE_DOWN",
@@ -4063,7 +4063,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 160,
+            "line": 161,
             "description": "Leap CIRCLE gesture",
             "itemtype": "attribute",
             "name": "CIRCLE",
@@ -4073,7 +4073,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 167,
+            "line": 168,
             "description": "Leap SCREEN_TAP gesture",
             "itemtype": "attribute",
             "name": "SCREEN_TAP",
@@ -4083,7 +4083,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 174,
+            "line": 175,
             "description": "Leap KEY_TAP",
             "itemtype": "attribute",
             "name": "KEY_TAP",
@@ -4093,7 +4093,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 181,
+            "line": 182,
             "description": "Hand CLOSED pose",
             "itemtype": "attribute",
             "name": "CLOSED",
@@ -4103,7 +4103,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 188,
+            "line": 189,
             "description": "Hand OPEN pose",
             "itemtype": "attribute",
             "name": "OPEN",
@@ -4113,7 +4113,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 195,
+            "line": 196,
             "description": "Hand POINTING pose",
             "itemtype": "attribute",
             "name": "POINTING",
@@ -4123,7 +4123,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 202,
+            "line": 203,
             "description": "Initialise the LeapMotion object\nCalled automatically the runtime handler (Editor / App)\nConnects to the websocket provided by the leap driver",
             "itemtype": "method",
             "name": "initialize",
@@ -4132,7 +4132,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 226,
+            "line": 227,
             "description": "Update leap status\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -4141,7 +4141,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 256,
+            "line": 257,
             "description": "Check if a gesture is occuring, is true while the gesture is occuring",
             "itemtype": "method",
             "name": "checkGesture",
@@ -4161,7 +4161,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 271,
+            "line": 272,
             "description": "Check if hand is in pose",
             "itemtype": "method",
             "name": "checkPose",
@@ -4181,7 +4181,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 286,
+            "line": 287,
             "description": "Set hand tracking mode\nCan be set to HDM or Desktop Mode",
             "params": [
                 {
@@ -4197,7 +4197,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 297,
+            "line": 298,
             "description": "Update leap object pose flags from collected data\nCalled automatically by the update methods",
             "itemtype": "method",
             "name": "updatePoses",
@@ -4206,7 +4206,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 371,
+            "line": 372,
             "description": "Update leap object gesture flags from collected data\nCalled automatically by the update method",
             "itemtype": "method",
             "name": "updateGestures",
@@ -4215,7 +4215,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 442,
+            "line": 443,
             "description": "Update internal hand debug model\nAutomatically called by the update method if debugModel is set to true",
             "itemtype": "method",
             "name": "updateDebugModel",
@@ -4224,7 +4224,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 503,
+            "line": 504,
             "description": "Update physics object to enable hand physics collision\nCalled by updateDebugModel automatically",
             "itemtype": "method",
             "name": "updatePhysics",
@@ -4233,7 +4233,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 566,
+            "line": 567,
             "description": "Get hand speed (temporarily normalised)",
             "itemtype": "method",
             "name": "getMovement",
@@ -4246,7 +4246,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Device/LeapMotion.js",
-            "line": 582,
+            "line": 583,
             "description": "Create JSON for object",
             "itemtype": "method",
             "name": "toJSON",
@@ -4266,7 +4266,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/DirectionalLight.js",
-            "line": 34,
+            "line": 36,
             "description": "Update light shadow map attributes at runtime",
             "itemtype": "method",
             "name": "updateShadowMap",
@@ -4275,7 +4275,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/PointLight.js",
-            "line": 37,
+            "line": 39,
             "description": "Update light shadow map attributes at runtime",
             "itemtype": "method",
             "name": "updateShadowMap",
@@ -4284,7 +4284,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/RectAreaLight.js",
-            "line": 30,
+            "line": 32,
             "description": "Create JSON description",
             "itemtype": "method",
             "name": "toJSON",
@@ -4304,7 +4304,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 26,
+            "line": 27,
             "description": "Clock used to control day time",
             "itemtype": "property",
             "name": "clock",
@@ -4314,7 +4314,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 33,
+            "line": 34,
             "description": "Array with top sky colours",
             "itemtype": "property",
             "name": "colorTop",
@@ -4324,7 +4324,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 40,
+            "line": 41,
             "description": "Array with bottom sky colours",
             "itemtype": "property",
             "name": "colorBottom",
@@ -4334,7 +4334,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 47,
+            "line": 48,
             "description": "Sun colour in hex RGB",
             "itemtype": "property",
             "name": "sunColor",
@@ -4345,7 +4345,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 55,
+            "line": 56,
             "description": "Moon colour in hex RGB",
             "itemtype": "property",
             "name": "moonColor",
@@ -4356,7 +4356,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 63,
+            "line": 64,
             "description": "Hemisphere light used to match ambient light with sky colour",
             "itemtype": "property",
             "name": "hemisphere",
@@ -4366,7 +4366,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 76,
+            "line": 77,
             "description": "Directional light to simulate light and cast shadows",
             "itemtype": "property",
             "name": "sun",
@@ -4376,7 +4376,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 121,
+            "line": 122,
             "description": "Sky mesh with material shader to calculate dinamically sky colour",
             "itemtype": "property",
             "name": "sky",
@@ -4386,7 +4386,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 137,
+            "line": 138,
             "description": "If set to true, the sky auto updates its time",
             "itemtype": "property",
             "name": "autoUpdate",
@@ -4397,7 +4397,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 145,
+            "line": 146,
             "description": "Sun distance",
             "itemtype": "property",
             "name": "sunDistance",
@@ -4407,7 +4407,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 152,
+            "line": 153,
             "description": "Day time (in seconds)",
             "itemtype": "property",
             "name": "dayTime",
@@ -4417,7 +4417,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 159,
+            "line": 160,
             "description": "Current day time (in seconds)",
             "itemtype": "property",
             "name": "time",
@@ -4427,7 +4427,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 178,
+            "line": 179,
             "description": "Initialize sky object\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "initialize",
@@ -4436,7 +4436,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 193,
+            "line": 194,
             "description": "Update sky state\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -4445,7 +4445,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 221,
+            "line": 222,
             "description": "Update sky state\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "updateSky",
@@ -4454,7 +4454,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/Sky.js",
-            "line": 355,
+            "line": 356,
             "description": "Create JSON for object",
             "params": [
                 {
@@ -4474,7 +4474,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Lighting/SpotLight.js",
-            "line": 41,
+            "line": 42,
             "description": "Update light shadow map attributes at runtime",
             "itemtype": "method",
             "name": "updateShadowMap",
@@ -4483,7 +4483,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Particle/ParticleEmitter.js",
-            "line": 110,
+            "line": 111,
             "description": "Initialise particle emitter state\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "initialize",
@@ -4492,7 +4492,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Particle/ParticleEmitter.js",
-            "line": 125,
+            "line": 126,
             "description": "Update particle emitter state\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -4501,7 +4501,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Particle/ParticleEmitter.js",
-            "line": 140,
+            "line": 141,
             "description": "Updates the particle nodes",
             "params": [
                 {
@@ -4517,7 +4517,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Particle/ParticleEmitter.js",
-            "line": 150,
+            "line": 151,
             "description": "Dispose particle emitter",
             "itemtype": "method",
             "name": "dispose",
@@ -4526,7 +4526,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Particle/ParticleEmitter.js",
-            "line": 173,
+            "line": 174,
             "description": "Create JSON for object\nNeed to backup material and geometry and set to undefined to avoid it to being stored",
             "itemtype": "method",
             "name": "toJSON",
@@ -4546,7 +4546,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 17,
+            "line": 18,
             "description": "CANNON.JS Body object",
             "itemtype": "attribute",
             "name": "body",
@@ -4556,7 +4556,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 26,
+            "line": 27,
             "description": "CANNON.JS World",
             "itemtype": "attribute",
             "name": "world",
@@ -4566,7 +4566,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 43,
+            "line": 44,
             "description": "Initialise physics object and add it to the scene physics world\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "initialize",
@@ -4575,7 +4575,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 68,
+            "line": 69,
             "description": "Update object position and rotation based on cannon.js body\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -4584,7 +4584,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 86,
+            "line": 87,
             "description": "Add shape to physics object body",
             "params": [
                 {
@@ -4600,7 +4600,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Physics/PhysicsObject.js",
-            "line": 97,
+            "line": 98,
             "description": "Create JSON for object\nNeed to backup material and geometry and set to undefined in order to avoid it being store",
             "itemtype": "method",
             "name": "toJSON",
@@ -4694,7 +4694,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 35,
+            "line": 36,
             "description": "Pointer to parent program\nUsed access program resources easier",
             "itemtype": "property",
             "name": "program",
@@ -4704,7 +4704,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 43,
+            "line": 44,
             "description": "Pointer to the parent scene",
             "itemtype": "property",
             "name": "scene",
@@ -4714,7 +4714,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 50,
+            "line": 51,
             "description": "Compiled function using during runtime",
             "itemtype": "property",
             "name": "func",
@@ -4724,7 +4724,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 57,
+            "line": 58,
             "description": "Javascript code attached to the script",
             "itemtype": "property",
             "name": "code",
@@ -4734,7 +4734,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 73,
+            "line": 74,
             "description": "Default script code used when creating a new Script",
             "itemtype": "attribute",
             "name": "default",
@@ -4744,7 +4744,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 80,
+            "line": 81,
             "description": "Initialise script\nAutomatically called by the runtime handler (Editor / App)\nCalls the script initialise method - if it exists -",
             "itemtype": "method",
             "name": "initialize",
@@ -4753,7 +4753,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 118,
+            "line": 119,
             "description": "Update script state\nCalls the script update method - if it exists -",
             "itemtype": "method",
             "name": "update",
@@ -4762,7 +4762,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 142,
+            "line": 143,
             "description": "Call resize method - if available -",
             "itemtype": "method",
             "name": "resize",
@@ -4771,7 +4771,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 152,
+            "line": 153,
             "description": "Call onAppData - if available -",
             "params": [
                 {
@@ -4787,7 +4787,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 163,
+            "line": 164,
             "description": "Set script code",
             "itemtype": "method",
             "name": "setCode",
@@ -4803,7 +4803,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Script/Script.js",
-            "line": 187,
+            "line": 188,
             "description": "Create JSON for script",
             "itemtype": "method",
             "name": "toJSON",
@@ -4823,7 +4823,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 23,
+            "line": 24,
             "description": "Audio volume",
             "itemtype": "property",
             "name": "volume",
@@ -4834,7 +4834,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 31,
+            "line": 32,
             "description": "If true, the playback will start automatically",
             "itemtype": "property",
             "name": "autoplay",
@@ -4845,7 +4845,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 39,
+            "line": 40,
             "description": "Playback speed",
             "itemtype": "property",
             "name": "playbackRate",
@@ -4856,7 +4856,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 47,
+            "line": 48,
             "description": "Start time (in seconds)",
             "itemtype": "property",
             "name": "startTime",
@@ -4867,7 +4867,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 55,
+            "line": 56,
             "description": "If true, the audio will play in loop",
             "itemtype": "property",
             "name": "loop",
@@ -4878,8 +4878,8 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 79,
-            "description": "Initialise the audio object (automatically called by the runtime handler - Editor / App -)",
+            "line": 80,
+            "description": "Initialise the audio object, loads audio data, decodes it and starts playback if autoplay is set to true\nAutomatically called by the runtime handler - Editor / App -",
             "itemtype": "method",
             "name": "initialize",
             "class": "AudioEmitter",
@@ -4887,7 +4887,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 102,
+            "line": 106,
             "description": "Dispose audio object",
             "itemtype": "method",
             "name": "dispose",
@@ -4896,7 +4896,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 121,
+            "line": 125,
             "description": "Change audio emitter volume",
             "itemtype": "method",
             "name": "setVolume",
@@ -4912,7 +4912,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 133,
+            "line": 137,
             "description": "Create JSON description",
             "itemtype": "method",
             "name": "toJSON",
@@ -4932,7 +4932,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 157,
+            "line": 161,
             "description": "Starts playback",
             "itemtype": "method",
             "name": "play",
@@ -4941,7 +4941,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 162,
+            "line": 166,
             "description": "Pauses playback",
             "itemtype": "method",
             "name": "pause",
@@ -4950,7 +4950,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 167,
+            "line": 171,
             "description": "Stops playback and resets time to 0",
             "itemtype": "method",
             "name": "stop",
@@ -4959,7 +4959,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 172,
+            "line": 176,
             "description": "Set loop mode",
             "params": [
                 {
@@ -4975,7 +4975,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 178,
+            "line": 182,
             "description": "Sets playback speed",
             "params": [
                 {
@@ -4991,7 +4991,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 184,
+            "line": 188,
             "description": "Add the filter to the filters array",
             "itemtype": "method",
             "name": "setFilter",
@@ -5007,7 +5007,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/AudioEmitter.js",
-            "line": 190,
+            "line": 194,
             "description": "Set the filters array to value",
             "itemtype": "method",
             "name": "setFilters",
@@ -5023,7 +5023,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 19,
+            "line": 20,
             "description": "Audio volume",
             "itemtype": "property",
             "name": "volume",
@@ -5034,7 +5034,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 27,
+            "line": 28,
             "description": "If true, the playback starts automatically",
             "itemtype": "property",
             "name": "autoplay",
@@ -5045,7 +5045,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 35,
+            "line": 36,
             "description": "Playback speed",
             "itemtype": "property",
             "name": "playbackRate",
@@ -5056,7 +5056,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 43,
+            "line": 44,
             "description": "Start time (in seconds)",
             "itemtype": "property",
             "name": "startTime",
@@ -5067,7 +5067,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 51,
+            "line": 52,
             "description": "If true, the audio plays in loop",
             "itemtype": "property",
             "name": "loop",
@@ -5078,8 +5078,8 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 77,
-            "description": "Initialise audio object (automatically called by runtime handler - Editor / App - )",
+            "line": 78,
+            "description": "Initialise audio object, loads audio data, decodes it and start playback if autoplay is set to true\nAutomatically called by runtime handler - Editor / App -",
             "itemtype": "method",
             "name": "initialize",
             "class": "PositionalAudio",
@@ -5087,7 +5087,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 106,
+            "line": 110,
             "description": "Update positional audio state",
             "itemtype": "method",
             "name": "update",
@@ -5096,7 +5096,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 126,
+            "line": 130,
             "description": "Dispose audio object",
             "itemtype": "method",
             "name": "dispose",
@@ -5105,7 +5105,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 141,
+            "line": 145,
             "description": "Sets the audio emitter volume",
             "itemtype": "method",
             "name": "setVolume",
@@ -5125,7 +5125,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 159,
+            "line": 163,
             "description": "Create JSON description",
             "itemtype": "method",
             "name": "toJSON",
@@ -5145,7 +5145,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 181,
+            "line": 185,
             "description": "Starts playback",
             "itemtype": "method",
             "name": "play",
@@ -5154,7 +5154,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 186,
+            "line": 190,
             "description": "Pauses playback",
             "itemtype": "method",
             "name": "pause",
@@ -5163,7 +5163,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 191,
+            "line": 195,
             "description": "Stops playback and resets time to 0",
             "itemtype": "method",
             "name": "stop",
@@ -5172,7 +5172,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 196,
+            "line": 200,
             "description": "Set loop mode",
             "params": [
                 {
@@ -5188,7 +5188,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 202,
+            "line": 206,
             "description": "Set playback speed",
             "params": [
                 {
@@ -5204,7 +5204,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 208,
+            "line": 212,
             "description": "Add the filter to the filters array",
             "itemtype": "method",
             "name": "setFilter",
@@ -5220,7 +5220,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sound/PositionalAudio.js",
-            "line": 214,
+            "line": 218,
             "description": "Sets the filters array to value",
             "itemtype": "method",
             "name": "setFilters",
@@ -5236,7 +5236,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 16,
+            "line": 17,
             "description": "Array of SpineTextures used by the animation",
             "itemtype": "property",
             "name": "textures",
@@ -5246,7 +5246,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 70,
+            "line": 71,
             "description": "Animation data",
             "itemtype": "property",
             "name": "json",
@@ -5256,7 +5256,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 77,
+            "line": 78,
             "description": "Texture atlas information",
             "itemtype": "property",
             "name": "atlas",
@@ -5266,7 +5266,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 106,
+            "line": 107,
             "description": "Update animation state\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -5275,7 +5275,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 124,
+            "line": 125,
             "description": "Get all available animations",
             "itemtype": "method",
             "name": "getAnimations",
@@ -5288,7 +5288,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 133,
+            "line": 134,
             "description": "Set animation from track number and name",
             "itemtype": "method",
             "name": "setAnimation",
@@ -5309,7 +5309,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 145,
+            "line": 146,
             "description": "Get skins in this animation",
             "itemtype": "method",
             "name": "getSkins",
@@ -5322,7 +5322,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 154,
+            "line": 155,
             "description": "Update mesh geometry from animation state",
             "itemtype": "method",
             "name": "updateGeometry",
@@ -5331,7 +5331,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Spine/SpineAnimation.js",
-            "line": 207,
+            "line": 208,
             "description": "Serialise animation data",
             "itemtype": "method",
             "name": "toJSON",
@@ -5351,7 +5351,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Sprite/Sprite.js",
-            "line": 12,
+            "line": 13,
             "description": "Material used to render the sprite",
             "itemtype": "property",
             "name": "material",
@@ -5361,7 +5361,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 22,
+            "line": 24,
             "description": "GorlotApp instance, used to communication between an app and the host webpage",
             "itemtype": "property",
             "name": "app",
@@ -5371,7 +5371,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 32,
+            "line": 34,
             "description": "Program description",
             "itemtype": "property",
             "name": "description",
@@ -5381,7 +5381,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 39,
+            "line": 41,
             "description": "Program author",
             "itemtype": "property",
             "name": "author",
@@ -5391,7 +5391,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 46,
+            "line": 48,
             "description": "Program version",
             "itemtype": "property",
             "name": "version",
@@ -5402,7 +5402,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 54,
+            "line": 56,
             "description": "Flag to control pointer locking",
             "itemtype": "property",
             "name": "lockPointer",
@@ -5413,7 +5413,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 63,
+            "line": 65,
             "description": "Enable virtual reality flag",
             "itemtype": "property",
             "name": "vr",
@@ -5424,7 +5424,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 71,
+            "line": 73,
             "description": "Virtual reality movement scale",
             "itemtype": "property",
             "name": "vrScale",
@@ -5435,7 +5435,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 80,
+            "line": 82,
             "description": "If true, the program is rendered with antialiasing",
             "itemtype": "property",
             "name": "antialiasing",
@@ -5446,7 +5446,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 88,
+            "line": 90,
             "description": "If true, the program is rendered with shadows",
             "itemtype": "property",
             "name": "shadows",
@@ -5457,7 +5457,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 96,
+            "line": 98,
             "description": "Shadow type",
             "itemtype": "property",
             "name": "shadowsType",
@@ -5468,7 +5468,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 145,
+            "line": 147,
             "description": "Select initial scene and initialise that scene\nAutOmatically called by the runtime handler ( Editor / App )",
             "itemtype": "method",
             "name": "initialize",
@@ -5477,7 +5477,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 172,
+            "line": 174,
             "description": "Set program mouse and keyboard",
             "itemtype": "method",
             "name": "setMouseKeyboard",
@@ -5498,7 +5498,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 183,
+            "line": 185,
             "description": "Set program renderer",
             "itemtype": "method",
             "name": "setRenderer",
@@ -5514,7 +5514,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 193,
+            "line": 195,
             "description": "Enter VR mode",
             "itemtype": "method",
             "name": "displayVR",
@@ -5523,7 +5523,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 213,
+            "line": 215,
             "description": "Exit VR mode",
             "itemtype": "method",
             "name": "exitVR",
@@ -5532,7 +5532,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 229,
+            "line": 231,
             "description": "Update program state\nAutomatically called by the runtime handler ( Editor / App )",
             "itemtype": "method",
             "name": "update",
@@ -5541,7 +5541,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 238,
+            "line": 240,
             "description": "Render program to canvas\nRenderer passed as argument",
             "itemtype": "method",
             "name": "render",
@@ -5557,7 +5557,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 280,
+            "line": 282,
             "description": "Resize program elements\nCalled by the runtime every time the window is resized",
             "itemtype": "method",
             "name": "resize",
@@ -5578,7 +5578,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 302,
+            "line": 304,
             "description": "Change scene during runtime, this method can receive both a scene name or a scene object\nThis method should be used inside of script objects during runtime",
             "itemtype": "method",
             "name": "setScene",
@@ -5594,7 +5594,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 329,
+            "line": 331,
             "description": "Remove scene from program",
             "itemtype": "method",
             "name": "remove",
@@ -5610,7 +5610,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 350,
+            "line": 352,
             "description": "Add new scene to this program\nOn the program class only scenes can be added as children",
             "itemtype": "method",
             "name": "add",
@@ -5626,7 +5626,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 371,
+            "line": 373,
             "description": "Clone program, keeping uuids and every identification attribute\nClone method uses the ObjectLoader to serialise and create a new program instance with the same data",
             "itemtype": "method",
             "name": "clone",
@@ -5639,7 +5639,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 382,
+            "line": 384,
             "description": "Set a scene as initial scene using its uuid\nThis method is used by the editor",
             "itemtype": "method",
             "name": "setInitialScene",
@@ -5655,7 +5655,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 393,
+            "line": 395,
             "description": "Create a scene using a defaul template\nThis is the scene used when creating a new program os scene inside the editor",
             "itemtype": "method",
             "name": "addDefaultScene",
@@ -5671,7 +5671,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 438,
+            "line": 440,
             "description": "Dispose program data to avoid memory leaks\nCalled when exiting the program",
             "itemtype": "method",
             "name": "dispose",
@@ -5680,7 +5680,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 473,
+            "line": 475,
             "description": "Receive external data and pass it to all script instances and triggers the onAppData event on every block",
             "params": [
                 {
@@ -5696,7 +5696,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 505,
+            "line": 507,
             "description": "Send data to external app instances",
             "params": [
                 {
@@ -5712,7 +5712,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Program.js",
-            "line": 526,
+            "line": 528,
             "description": "Serialise object as JSON",
             "itemtype": "method",
             "name": "toJSON",
@@ -5737,7 +5737,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 18,
+            "line": 19,
             "description": "Cannon.js world used for physics simulation",
             "itemtype": "property",
             "name": "world",
@@ -5747,7 +5747,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 35,
+            "line": 36,
             "description": "Raycaster used for mouse interaction with 3D objects",
             "itemtype": "property",
             "name": "raycaster",
@@ -5757,7 +5757,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 44,
+            "line": 45,
             "description": "Program that parents this scene",
             "itemtype": "property",
             "name": "program",
@@ -5767,7 +5767,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 50,
+            "line": 51,
             "description": "Canvas used to draw this scene",
             "itemtype": "property",
             "name": "canvas",
@@ -5777,7 +5777,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 56,
+            "line": 57,
             "description": "Normalised mouse coordinates used by the raycaster",
             "itemtype": "property",
             "name": "mouse",
@@ -5787,7 +5787,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 70,
+            "line": 71,
             "description": "Initialise scene objects\nAutomatically called by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "initialize",
@@ -5796,7 +5796,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 91,
+            "line": 92,
             "description": "Update scene\nCalled automatically by the runtime handler (Editor / App)",
             "itemtype": "method",
             "name": "update",
@@ -5805,7 +5805,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 118,
+            "line": 119,
             "description": "Get camera from scene using cameras uuid",
             "itemtype": "method",
             "name": "getCamera",
@@ -5825,7 +5825,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 150,
+            "line": 151,
             "description": "Adds camera to active cameras list",
             "itemtype": "method",
             "name": "addCamera",
@@ -5841,7 +5841,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 160,
+            "line": 161,
             "description": "Update active cameras order",
             "itemtype": "method",
             "name": "updateCameraOrder",
@@ -5850,7 +5850,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 170,
+            "line": 171,
             "description": "Remove camera from active cameras list",
             "params": [
                 {
@@ -5866,7 +5866,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 183,
+            "line": 184,
             "description": "Set fog mode",
             "params": [
                 {
@@ -5882,7 +5882,7 @@
         },
         {
             "file": "../Source/Runtime/Objects/Scene.js",
-            "line": 201,
+            "line": 202,
             "description": "Serialise the object as JSON\nAlso serialises physics world information",
             "itemtype": "method",
             "name": "toJSON",
@@ -5902,7 +5902,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Audio.js",
-            "line": 29,
+            "line": 30,
             "description": "Sets the path of the resource",
             "itemtype": "method",
             "name": "setPath",
@@ -5918,7 +5918,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Audio.js",
-            "line": 40,
+            "line": 41,
             "description": "Serialise audio data as JSON, audio data is serialised in Base64",
             "itemtype": "method",
             "name": "toJSON",
@@ -5938,7 +5938,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Folder.js",
-            "line": 18,
+            "line": 19,
             "description": "Sets the path of the folder (the one in which the folder will be stored)",
             "params": [
                 {
@@ -5954,7 +5954,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Folder.js",
-            "line": 29,
+            "line": 30,
             "description": "Serialise folder as JSON",
             "return": {
                 "description": "data",
@@ -5967,7 +5967,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 52,
+            "line": 53,
             "description": "Sets the path of the font",
             "params": [
                 {
@@ -5983,7 +5983,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 86,
+            "line": 87,
             "description": "Generate font shapes used to create 3D geometries",
             "params": [
                 {
@@ -6013,7 +6013,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 240,
+            "line": 241,
             "description": "Serialise resource to JSON",
             "params": [
                 {
@@ -6033,7 +6033,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 11,
+            "line": 12,
             "description": "Resource name. Not required to be unique",
             "itemtype": "property",
             "name": "name",
@@ -6043,7 +6043,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 18,
+            "line": 19,
             "description": "Universal Unique identifier",
             "itemtype": "property",
             "name": "uuid",
@@ -6053,7 +6053,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 25,
+            "line": 26,
             "description": "Resource type. Used to identify the type of the resource, useful for serialisation",
             "itemtype": "property",
             "name": "type",
@@ -6063,7 +6063,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 32,
+            "line": 33,
             "description": "Data format (Base64, ArrayBuffer, ...)\nIndicates in which format the data is being stored",
             "itemtype": "property",
             "name": "format",
@@ -6073,7 +6073,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 40,
+            "line": 41,
             "description": "Data encoding (MP3, JPEG, MP4, ...)\nIndicated how the data is encoded",
             "itemtype": "property",
             "name": "encoding",
@@ -6083,7 +6083,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 48,
+            "line": 49,
             "description": "Data",
             "itemtype": "property",
             "name": "data",
@@ -6093,7 +6093,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 56,
+            "line": 57,
             "description": "Serialise resource to JSON",
             "params": [
                 {
@@ -6520,7 +6520,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Video.js",
-            "line": 29,
+            "line": 30,
             "description": "Sets the video path",
             "params": [
                 {
@@ -6536,7 +6536,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Video.js",
-            "line": 40,
+            "line": 41,
             "description": "Serialise resource to JSON\nVideo is stored in Base64",
             "params": [
                 {
@@ -7293,7 +7293,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/Texture.js",
-            "line": 64,
+            "line": 65,
             "description": "Sets the texture path",
             "params": [
                 {
@@ -7309,7 +7309,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/Texture.js",
-            "line": 75,
+            "line": 76,
             "description": "Update nodes",
             "params": [
                 {
@@ -7325,7 +7325,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/Texture.js",
-            "line": 85,
+            "line": 86,
             "description": "Dispose texture",
             "itemtype": "method",
             "name": "dispose",
@@ -7334,7 +7334,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/Texture.js",
-            "line": 95,
+            "line": 96,
             "description": "Create JSON description for texture, serialises image used in the texture",
             "params": [
                 {
@@ -7541,7 +7541,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 73,
+            "line": 74,
             "description": "Set path",
             "params": [
                 {
@@ -7557,7 +7557,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 84,
+            "line": 85,
             "description": "Update nodes",
             "params": [
                 {
@@ -7573,7 +7573,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 94,
+            "line": 95,
             "description": "Dispose webcam texture",
             "itemtype": "method",
             "name": "dispose",
@@ -7582,7 +7582,7 @@
         },
         {
             "file": "../Source/Runtime/Texture/WebcamTexture.js",
-            "line": 107,
+            "line": 108,
             "description": "Create JSON description",
             "params": [
                 {
@@ -7742,7 +7742,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 16,
+            "line": 17,
             "description": "Type is used to indentify the type of cannonjs\n - BOX\n - CYLINDER\n - SPHERE\n - HULL",
             "itemtype": "attribute",
             "name": "Type",
@@ -7752,7 +7752,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 34,
+            "line": 35,
             "description": "Given a Object3D instance, creates a corresponding CANNON shape",
             "itemtype": "method",
             "name": "createShape",
@@ -7777,7 +7777,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 106,
+            "line": 107,
             "description": "Create box shape from geometry",
             "itemtype": "method",
             "name": "createBoxShape",
@@ -7797,7 +7797,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 129,
+            "line": 130,
             "description": "Bounding box needs to be computed with the entire mesh, not just geometry",
             "itemtype": "method",
             "name": "createBoundingBoxShape",
@@ -7817,7 +7817,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 164,
+            "line": 165,
             "description": "Computes 3D convex hull as a CANNON.ConvexPolyhedron",
             "itemtype": "method",
             "name": "createConvexPolyhedron",
@@ -7837,7 +7837,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 215,
+            "line": 216,
             "description": "Create cylinder shape from geometry",
             "itemtype": "method",
             "name": "createCylinderShape",
@@ -7857,7 +7857,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 255,
+            "line": 256,
             "description": "Plane shape from geometry",
             "itemtype": "method",
             "name": "createPlaneShape",
@@ -7877,7 +7877,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 270,
+            "line": 271,
             "description": "Sphere shape from geometry",
             "itemtype": "method",
             "name": "createSphereShape",
@@ -7897,7 +7897,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 283,
+            "line": 284,
             "description": "Sphere shape from bouding sphere",
             "itemtype": "method",
             "name": "createBoundingSphereShape",
@@ -7917,7 +7917,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 297,
+            "line": 298,
             "description": "Sphere shape from bouding sphere",
             "itemtype": "method",
             "name": "createTubeShape",
@@ -7937,7 +7937,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 311,
+            "line": 312,
             "description": "Trimesh shape from geometry",
             "itemtype": "method",
             "name": "createTrimeshShape",
@@ -7957,7 +7957,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 331,
+            "line": 332,
             "description": "Returns a single geometry for the given object\nIf the object is compound, its geometries are automatically merged",
             "itemtype": "method",
             "name": "getGeometry",
@@ -7977,7 +7977,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 390,
+            "line": 391,
             "description": "Get geometry vertices",
             "itemtype": "method",
             "name": "getVertices",
@@ -7997,7 +7997,7 @@
         },
         {
             "file": "../Source/Runtime/Utils/Mesh2Shape.js",
-            "line": 406,
+            "line": 407,
             "description": "Returns a array of THREE.Mesh instances from the given object.\nIf nested transformations are found, they are applied to child meshes as mesh.userData.matrix, so that each mesh has its position/rotation/scale independently of all of its parents except the top-level object.",
             "itemtype": "method",
             "name": "getMeshes",
@@ -8245,7 +8245,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 13,
+            "line": 14,
             "description": "Opens and reads a text file",
             "itemtype": "method",
             "name": "readFile",
@@ -8280,7 +8280,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 70,
+            "line": 71,
             "description": "Read a file as an array buffer",
             "itemtype": "method",
             "name": "readFileArrayBuffer",
@@ -8300,7 +8300,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 98,
+            "line": 99,
             "description": "Read a file as base64",
             "itemtype": "method",
             "name": "readFileBase64",
@@ -8320,7 +8320,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 118,
+            "line": 119,
             "description": "Write a text file",
             "itemtype": "method",
             "name": "writeFile",
@@ -8341,7 +8341,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 132,
+            "line": 133,
             "description": "Write a binary file from base64 data",
             "itemtype": "method",
             "name": "writeFileBase64",
@@ -8362,7 +8362,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 148,
+            "line": 149,
             "description": "Copies a file (this function can't be used to copy folders)",
             "itemtype": "method",
             "name": "copyFile",
@@ -8383,7 +8383,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 160,
+            "line": 161,
             "description": "Creates a directory (doesn't throw exception if directory already exists)",
             "itemtype": "method",
             "name": "makeDirectory",
@@ -8399,7 +8399,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 173,
+            "line": 174,
             "description": "Returns the files in a directory (returns empty array if something went wrong)",
             "itemtype": "method",
             "name": "getFilesDirectory",
@@ -8419,7 +8419,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 190,
+            "line": 191,
             "description": "Copies a folder and all of its files (including symbolic links)",
             "itemtype": "method",
             "name": "copyFolder",
@@ -8440,7 +8440,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 222,
+            "line": 223,
             "description": "Opens a chooser file dialog",
             "itemtype": "method",
             "name": "chooseFile",
@@ -8466,7 +8466,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 250,
+            "line": 251,
             "description": "Checks if a file currently exists",
             "itemtype": "method",
             "name": "fileExists",
@@ -8486,7 +8486,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 264,
+            "line": 265,
             "description": "Gets the file name from path (always in lowercase)",
             "itemtype": "method",
             "name": "getFileName",
@@ -8506,7 +8506,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 274,
+            "line": 275,
             "description": "Gets the file name without extension",
             "itemtype": "method",
             "name": "getNameWithoutExtension",
@@ -8526,7 +8526,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 284,
+            "line": 285,
             "description": "Get the directory of a file",
             "itemtype": "method",
             "name": "getFilePath",
@@ -8546,7 +8546,7 @@
         },
         {
             "file": "../Source/Runtime/FileSystem.js",
-            "line": 294,
+            "line": 295,
             "description": "Get the extension of a file by using a path string",
             "itemtype": "method",
             "name": "getFileExtension",
@@ -8566,7 +8566,7 @@
         },
         {
             "file": "../Source/Runtime/Gorlot.js",
-            "line": 10,
+            "line": 11,
             "itemtype": "attribute",
             "name": "NAME",
             "type": "{String}",
@@ -8576,7 +8576,7 @@
         },
         {
             "file": "../Source/Runtime/Gorlot.js",
-            "line": 17,
+            "line": 18,
             "description": "Stores the gorlot runtime version",
             "itemtype": "attribute",
             "name": "VERSION",
@@ -8586,7 +8586,7 @@
         },
         {
             "file": "../Source/Runtime/Gorlot.js",
-            "line": 24,
+            "line": 25,
             "description": "Shows the GORLOT runtime timestamp",
             "itemtype": "attribute",
             "name": "TIMESTAMP",
@@ -8596,7 +8596,7 @@
         },
         {
             "file": "../Source/Runtime/Gorlot.js",
-            "line": 31,
+            "line": 32,
             "description": "Check if host has WebVR available",
             "itemtype": "method",
             "name": "WebVRAvailable",
