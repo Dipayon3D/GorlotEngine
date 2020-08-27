@@ -3,10 +3,12 @@
 /**
  * Same as THREE.RectAreaLight
  * Documentation for the object can be found at https://threejs.org/docs/index.html#api/en/lights/RectAreaLight
+ *
  * @param {Number} color Light colour in hex RGB
  * @param {Number} intensity Light intensity
  * @param {Number} width
  * @param {Number} height
+ *
  * @class RectAreaLight
  * @extends {RectAreaLight}
  * @module Lights

@@ -2,6 +2,7 @@
 
 /**
  * Image texture constructor, supports GIF animations
+ *
  * @class Texture
  * @constructor
  * @extends {Texture}

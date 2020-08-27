@@ -2,6 +2,7 @@
 
 /**
  * The FileSystem class is used for opening/writing, encoding/decoding and reading files
+ *
  * @class FileSystem
  */
 function FileSystem() {}

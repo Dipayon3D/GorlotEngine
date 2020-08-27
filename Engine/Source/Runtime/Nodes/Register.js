@@ -30,6 +30,7 @@ Register.registerParticlesNodes = function() {
 
 Register.registerTextureNodes = function() {
     registerTextureNodes()
+    registerVideoTextureNodes()
 	registerVectorNode()
     registerUtilsNodes()
 }

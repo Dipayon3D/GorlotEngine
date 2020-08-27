@@ -2,6 +2,7 @@
 
 /**
  * Audio class is used to store audio data as an arraybuffer to be used later by objects with the WebAudio API
+ *
  * @class Audio
  * @extends {Resource}
  * @constructor

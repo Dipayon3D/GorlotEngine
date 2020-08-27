@@ -19,6 +19,7 @@
  *      - Same as this reference but global in the script scope
  *  - Keyboard
  *  - Mouse
+ *
  * @class Script
  * @extends {Object3D}
  * @param {String} code Javascript code to be used by this script

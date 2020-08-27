@@ -11,6 +11,7 @@
  * @param {Number} dayTime Day duration (in seconds)
  * @param {Number} sunDistance Distance of the sun
  * @param {Number} time Starting time
+ *
  * @class Sky
  * @extends {Object3D}
  * @module Lights

@@ -3,9 +3,11 @@
 /**
  * Same as THREE.HemisphereLight
  * Documentation for the object can be found at https://threejs.org/docs/index.html#api/en/lights/HemisphereLight
+ *
  * @param {Number} skyColor Sky light colour in hex RGB
  * @param {Number} groundColor Ground light colour in hex RGB
  * @param {Number} intensity Light intensity
+ *
  * @class HemisphereLight
  * @extends {HemisphereLight}
  * @module Lights

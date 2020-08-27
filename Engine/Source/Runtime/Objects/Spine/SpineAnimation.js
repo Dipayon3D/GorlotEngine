@@ -2,6 +2,7 @@
 
 /**
  * Spine animation object, to used with animation produced with Esoteric spine
+ *
  * @class SpineAnimation
  * @constructor
  * @extends {Mesh}

@@ -2,6 +2,7 @@
 
 /**
  * Class used to store gorlot version and timestamp used for development
+ *
  * @class GORLOT
  * @module Runtime
  */

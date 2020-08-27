@@ -2,6 +2,7 @@
 
 /**
  * Creates an empty object
+ *
  * @class Container
  * @constructor
  * @extends {Object3D}

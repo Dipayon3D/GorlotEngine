@@ -3,6 +3,7 @@
 /**
  * Special mesh type used to draw 3D text
  * It receives a Font resource that is used to triangulate and extrude font data into a 3D mesh
+ *
  * @class Text3D
  * @module Meshes
  * @param {String} text Text to be drawn

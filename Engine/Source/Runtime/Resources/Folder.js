@@ -2,6 +2,7 @@
 
 /**
  * Folder class is used to store and organised some other resources in the editor asset explorer
+ *
  * @class Folder
  * @extends {Resource}
  * @constructor

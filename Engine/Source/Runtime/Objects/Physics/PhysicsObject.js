@@ -2,6 +2,7 @@
 
 /**
  * Wrapper for cannon.js Body physics objects
+ *
  * @class PhysicsObject
  * @constructor
  * @extends {Object3D}

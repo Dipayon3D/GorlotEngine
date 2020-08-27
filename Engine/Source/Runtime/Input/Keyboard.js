@@ -2,6 +2,7 @@
 
 /**
  * Keyboard instance for input in sync with the 3D application, it's updated automatically by the runtime handler (Editor/App)
+ *
  * @class Keyboard
  * @module Input
  * @constructor

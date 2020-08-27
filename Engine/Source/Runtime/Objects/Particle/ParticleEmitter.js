@@ -2,6 +2,7 @@
 
 /**
  * Particle emitter is a wrapper for SPE particle systems
+ *
  * @class ParticleEmitter
  * @constructor
  * @extends {Points}

@@ -10,6 +10,7 @@
  * @param {Number} angle
  * @param {Number} exponent
  * @param {Number} decay
+ * 
  * @class SpotLight
  * @extends {SpotLight}
  * @module Lights

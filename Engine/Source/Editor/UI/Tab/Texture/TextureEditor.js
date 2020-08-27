@@ -1,3 +1,4 @@
+// TODO: Make the inputs and outputs of the nodes work
 "use strict"
 
 function TextureEditor(parent, closeable, container, index) {

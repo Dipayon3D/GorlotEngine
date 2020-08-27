@@ -187,6 +187,7 @@ include("Source/Runtime/Nodes/Particles/ParticlesNodes.js")
 
 // Texture
 include("Source/Runtime/Nodes/Texture/TextureNodes.js")
+include("Source/Runtime/Nodes/Texture/VideoTextureNodes.js")
 
 include("Binaries/Runtime/GorlotApp.js")
 

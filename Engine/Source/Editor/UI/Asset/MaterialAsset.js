@@ -35,18 +35,11 @@ function MaterialAsset(parent) {
 	// Double click
 	this.element.ondblclick = function() {
 		if(self.material instanceof THREE.Material) {
-            if(self.material instanceof THREE.ShaderMaterial) {
-                var tab = Interface.tab.getTab(ShaderMaterialEditor, self.material)
-            } else {
-                var tab = Interface.tab.getTab(MaterialEditor, self.material)
-            }
+            var Constructor = (self.material instanceof MeshShaderMaterial) ? ShaderMaterialEditor : MaterialEditor
+            var tab = Interface.tab.getTab(Constructor, self.material)
 
             if(tab === null) {
-                if(self.material instanceof THREE.ShaderMaterial) {
-                    tab = Interface.tab.addTab(ShaderMaterialEditor, true)
-                } else {
-                    tab = Interface.tab.addTab(MaterialEditor, true)
-                }
+                tab = Interface.tab.addTab(Constructor, true)
                 tab.attach(self.material)
             }
             tab.select()

@@ -2,6 +2,7 @@
 
 /**
  * Key is used by keyboard and mouse to represent a key state
+ *
  * @class Key
  * @module Input
  * @constructor
