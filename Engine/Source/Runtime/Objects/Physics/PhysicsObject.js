@@ -2,6 +2,8 @@
 
 /**
  * Wrapper for cannon.js Body physics objects
+ * Physics coordinates are always calculated in local space, they should always be placed directly inside the scene or inside container without any offset
+ * Gorlot includes tools to create cannon shapes from three geometry objects
  *
  * @class PhysicsObject
  * @constructor
@@ -44,6 +46,7 @@ PhysicsObject.prototype = Object.create(THREE.Object3D.prototype)
 /**
  * Initialise physics object and add it to the scene physics world
  * Automatically called by the runtime handler (Editor / App)
+ *
  * @method initialize
  */
 PhysicsObject.prototype.initialize = function() {
@@ -69,6 +72,7 @@ PhysicsObject.prototype.initialize = function() {
 /**
  * Update object position and rotation based on cannon.js body
  * Automatically called by the runtime handler (Editor / App)
+ *
  * @method update
  */
 PhysicsObject.prototype.update = function() {
@@ -87,6 +91,7 @@ PhysicsObject.prototype.update = function() {
 /**
  * Add shape to physics object body
  * @param {CANNON.Shape} shape
+ *
  * @method addShape
  */
 PhysicsObject.prototype.addShape = function(shape) {

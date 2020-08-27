@@ -117,7 +117,8 @@ FileSystem.readFileBase64 = function(fname) {
 }
 
 /**
- * Write a text file
+ * Write text file, when running without NWJS it writes a blob and autodownloads it
+ *
  * @method writeFile
  * @param {String} fname The path to the file to write
  * @param {String} data The data to write in the file
@@ -127,7 +128,20 @@ FileSystem.writeFile = function(fname, data) {
 		var stream = FileSystem.fs.createWriteStream(fname, "utf8")
 		stream.write(data)
 		stream.end()
-	}
+	} else {
+        var blob = new Blob([data], {type: "text/plain"})
+
+        var download = document.createElement("a")
+        download.download = fname
+        download.href = window.URL.createObjectURL(blob)
+        download.onclick = function() {
+            document.body.removeChild(this)
+        }
+        download.style.display = "none"
+        document.body.appendChild(download)
+
+        download.click()
+    }
 }
 
 /**

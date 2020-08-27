@@ -146,7 +146,7 @@ PhysicsComponent.prototype.initUI = function(pos, obj) {
 	this.form.nextRow()
 
 	// Collision group
-	this.form.addText("Collision Group")
+	this.form.addText("Physics Group")
 	this.collisionFilterGroup = new NumberBox(this.form.element)
 	this.collisionFilterGroup.size.set(80, 18)
 	this.collisionFilterGroup.setStep(1)
