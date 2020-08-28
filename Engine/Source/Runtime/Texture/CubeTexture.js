@@ -20,11 +20,34 @@
  * @param {Number} encoding
  */
 function CubeTexture(images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding) {
-    this.images = (images !== undefined) ? images : []
-    mapping = (mapping !== undefined) ? mapping : THREE.CubeReflectionMapping
+    if(mapping === undefined) {
+        mapping = THREE.CubeReflectionMapping
+    }
 
-    THREE.Texture.call(this, this.images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding)
+    if(images === undefined) {
+        images = []
+    }
 
+    var array = []
+    var self = this
+
+    for(var i = 0; i < images.length; i++) {
+        if(typeof images[i] === "string") {
+            images[i] = new Image(images[i])
+        }
+
+        var element = document.createElement("img")
+        element.src = images[i].data
+        element.onload = function() {
+            self.needsUpdate = true
+        }
+
+        array.push(element)
+    }
+
+    THREE.Texture.call(this, array, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding)
+
+    this.images = images
     this.flipY = false
 
     this.name = "cubetexture"
@@ -51,12 +74,22 @@ CubeTexture.prototype.setPath = function(path) {
 }
 
 /**
- * Serialise cubetexture to JSON
+ * Serialise cube texture to JSON
+ * All six images of the cube texture are stored individually
  *
  * @method toJSON
  * @param {Object} meta
  * @return {Object} json
  */
 CubeTexture.prototype.toJSON = function(meta) {
-    // TODO: This
+    var data = THREE.Texture.prototype.toJSON.call(this, meta)
+
+    data.images = []
+
+    for(var i = 0; i < this.images.length; i++) {
+        var image = this.images[i].toJSON(meta)
+        data.images.push(image.uuid)
+    }
+
+    return data
 }

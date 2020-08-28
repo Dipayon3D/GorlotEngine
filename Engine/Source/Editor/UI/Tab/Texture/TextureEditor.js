@@ -107,11 +107,9 @@ TextureEditor.prototype.attach = function(texture) {
 
     if(this.texture instanceof CubeTexture) {
         // Create the cube map
-        var urls = [ "Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png","Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png"  ]
+        var image = new Image("Source/Engine/Data/Sample.png")
 
-        this.texture = new THREE.CubeTextureLoader().load(urls)
-        this.texture.format = THREE.RGBFormat
-        this.texture.mapping = THREE.CubeRefractionMapping
+        this.texture = new CubeTexture([image, image, image, image, image, image])
         this.scene.background = this.texture
 
         // Create the camera
