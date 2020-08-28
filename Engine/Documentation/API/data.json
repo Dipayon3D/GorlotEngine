@@ -398,6 +398,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "../Source/Runtime/Texture/CubeTexture.js": {
+            "name": "../Source/Runtime/Texture/CubeTexture.js",
+            "modules": {},
+            "classes": {
+                "CubeTexture": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "../Source/Runtime/Texture/Texture.js": {
             "name": "../Source/Runtime/Texture/Texture.js",
             "modules": {},
@@ -674,6 +683,7 @@
             "classes": {
                 "CanvasTexture": 1,
                 "SpineTexture": 1,
+                "CubeTexture": 1,
                 "Texture": 1,
                 "VideoTexture": 1,
                 "WebcamTexture": 1
@@ -1594,7 +1604,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Resources/Font.js",
             "line": 3,
-            "description": "Font class stores font data, font data can be stored as an opentype json or as a TTF file (stored in Base64)\nFont objects are used for both 2D and 3D text",
+            "description": "Font class stores font data, font data can be stored as an opentype json or as a TTF file (stored in Base64)\n\nFont objects are used for both 2D and 3D text",
             "is_constructor": 1,
             "extends": "{Resource}",
             "params": [
@@ -1617,7 +1627,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Resources/Image.js",
             "line": 3,
-            "description": "Image class is used to store image data that is used to create Textures\nImages can be stored in several formats but they all are serialised as JPEG if the image is opaque or as PNG if it is transparent\nGIF images are never converted to prevent animation capabilities",
+            "description": "Image class is used to store image data that is used to create Textures\n\nImages can be stored in several formats but they all are serialised as JPEG if the image is opaque or as PNG if it is transparent\n\nGIF images are never converted to prevent animation capabilities",
             "is_constructor": 1,
             "extends": "{Resource}",
             "params": [
@@ -1640,7 +1650,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Resources/Resource.js",
             "line": 3,
-            "description": "Resource class is used to represent resources\nResources store data that is used by objects",
+            "description": "Resource class is used to represent resources\n\nResources store data that is used by objects",
             "is_constructor": 1
         },
         "ResourceManager": {
@@ -1655,7 +1665,7 @@
             "namespace": "",
             "file": "../Source/Runtime/Resources/ResourceManager.js",
             "line": 3,
-            "description": "Resource manager is used to manage available resources used by objects\nThe resource manager is used to extend the Program object, and it's not designed to be used as a standalone\nThe manager is used to manage the following types of resources\n - Images\n - Videos\n - Audio\n - Fonts\n - Textures\n - Materials\n - Geometries",
+            "description": "Resource manager is used to manage available resources used by objects\n\nThe resource manager is used to extend the Program object, and it's not designed to be used as a standalone\n\nThe manager is used to manage the following types of resources\n - Images\n - Videos\n - Audio\n - Fonts\n - Textures\n - Materials\n - Geometries",
             "is_constructor": 1
         },
         "Video": {
@@ -1735,7 +1745,7 @@
             "namespace": "",
             "file": "../Source/Runtime/THREE/Object3D.js",
             "line": 3,
-            "description": "This is the base class for most objects in three.js and provides a set of properties and methods for manipulating objects in 3D space.\nThis page provides documentation for some of the main features of this class, the original documentation can be found at https://threejs.org/docs/index.html#api/en/core/Object3D\nAll Gorlot objects extend the Object3D class of some other higher level class from three.js\nCode examples provided for three.js should also work inside Gorlot",
+            "description": "This is the base class for most objects in three.js and provides a set of properties and methods for manipulating objects in 3D space.\n\nThis page provides documentation for some of the main features of this class, the original documentation can be found at https://threejs.org/docs/index.html#api/en/core/Object3D\n\nAll Gorlot objects extend the Object3D class of some other higher level class from three.js",
             "is_constructor": 1
         },
         "CanvasTexture": {
@@ -1781,6 +1791,74 @@
                 },
                 {
                     "name": "magFilter",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "format",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "anisotropy",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "encoding",
+                    "description": "",
+                    "type": "Number"
+                }
+            ]
+        },
+        "CubeTexture": {
+            "name": "CubeTexture",
+            "shortname": "CubeTexture",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Textures",
+            "namespace": "",
+            "file": "../Source/Runtime/Texture/CubeTexture.js",
+            "line": 3,
+            "description": "CubeTextures represent 360 degrees view using six images, these images correspond to the faces of a cube\nCubeTextures can be used to simulate reflections and transparency refraction in materials\nIt's also possible to create dynamic CubeTextures using the CubeCamera object",
+            "is_constructor": 1,
+            "extends": "{Texture}",
+            "params": [
+                {
+                    "name": "images",
+                    "description": "Image array with 6 images",
+                    "type": "Array"
+                },
+                {
+                    "name": "mapping",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "wrapS",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "wrapT",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "magFilter",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "minFilter",
                     "description": "",
                     "type": "Number"
                 },
@@ -5967,7 +6045,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 53,
+            "line": 54,
             "description": "Sets the path of the font",
             "params": [
                 {
@@ -5983,7 +6061,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 87,
+            "line": 88,
             "description": "Generate font shapes used to create 3D geometries",
             "params": [
                 {
@@ -6013,7 +6091,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Font.js",
-            "line": 241,
+            "line": 242,
             "description": "Serialise resource to JSON",
             "params": [
                 {
@@ -6033,7 +6111,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 12,
+            "line": 13,
             "description": "Resource name. Not required to be unique",
             "itemtype": "property",
             "name": "name",
@@ -6043,7 +6121,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 19,
+            "line": 20,
             "description": "Universal Unique identifier",
             "itemtype": "property",
             "name": "uuid",
@@ -6053,7 +6131,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 26,
+            "line": 27,
             "description": "Resource type. Used to identify the type of the resource, useful for serialisation",
             "itemtype": "property",
             "name": "type",
@@ -6063,7 +6141,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 33,
+            "line": 34,
             "description": "Data format (Base64, ArrayBuffer, ...)\nIndicates in which format the data is being stored",
             "itemtype": "property",
             "name": "format",
@@ -6073,7 +6151,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 41,
+            "line": 42,
             "description": "Data encoding (MP3, JPEG, MP4, ...)\nIndicated how the data is encoded",
             "itemtype": "property",
             "name": "encoding",
@@ -6083,7 +6161,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 49,
+            "line": 50,
             "description": "Data",
             "itemtype": "property",
             "name": "data",
@@ -6093,7 +6171,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/Resource.js",
-            "line": 57,
+            "line": 58,
             "description": "Serialise resource to JSON",
             "params": [
                 {
@@ -6113,7 +6191,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 20,
+            "line": 22,
             "description": "Materials",
             "itemtype": "property",
             "name": "materials",
@@ -6123,7 +6201,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 27,
+            "line": 29,
             "description": "Textures",
             "itemtype": "property",
             "name": "textures",
@@ -6133,7 +6211,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 34,
+            "line": 36,
             "description": "Geometries",
             "itemtype": "property",
             "name": "geometries",
@@ -6143,7 +6221,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 41,
+            "line": 43,
             "description": "Asset objects",
             "itemtype": "property",
             "name": "assetObjects",
@@ -6153,7 +6231,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 48,
+            "line": 50,
             "description": "Folders",
             "itemtype": "property",
             "name": "folders",
@@ -6163,7 +6241,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 55,
+            "line": 57,
             "description": "Images",
             "itemtype": "property",
             "name": "images",
@@ -6173,7 +6251,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 62,
+            "line": 64,
             "description": "Videos",
             "itemtype": "property",
             "name": "videos",
@@ -6183,7 +6261,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 69,
+            "line": 71,
             "description": "Audio",
             "itemtype": "property",
             "name": "audio",
@@ -6193,7 +6271,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 76,
+            "line": 78,
             "description": "Fonts",
             "itemtype": "property",
             "name": "fonts",
@@ -6203,7 +6281,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 84,
+            "line": 86,
             "description": "Get material by its name",
             "itemtype": "method",
             "name": "getMaterialByName",
@@ -6223,7 +6301,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 100,
+            "line": 102,
             "description": "Add material to materials list",
             "itemtype": "method",
             "name": "addMaterial",
@@ -6239,7 +6317,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 113,
+            "line": 115,
             "description": "Remove material from materials list, also receives default material used to replace",
             "itemtype": "method",
             "name": "removeMaterial",
@@ -6265,7 +6343,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 148,
+            "line": 150,
             "description": "Add a texture to texture list",
             "itemtype": "method",
             "name": "addTexture",
@@ -6281,7 +6359,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 158,
+            "line": 160,
             "description": "Get texture by name",
             "itemtype": "method",
             "name": "getTextureByName",
@@ -6301,7 +6379,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 174,
+            "line": 176,
             "description": "Remove texture from textures list (also receives default used to replace)",
             "itemtype": "method",
             "name": "removeTexture",
@@ -6326,7 +6404,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 230,
+            "line": 232,
             "description": "Get font by name",
             "itemtype": "method",
             "name": "getFontByName",
@@ -6346,7 +6424,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 246,
+            "line": 248,
             "description": "Add font to fonts list",
             "itemtype": "method",
             "name": "addFont",
@@ -6362,7 +6440,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 257,
+            "line": 259,
             "description": "Remove font from font list",
             "itemtype": "method",
             "name": "removeFont",
@@ -6383,7 +6461,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 279,
+            "line": 281,
             "description": "Get audio by name",
             "itemtype": "method",
             "name": "getAudioByName",
@@ -6403,7 +6481,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 295,
+            "line": 297,
             "description": "Add audio to audio list",
             "params": [
                 {
@@ -6419,7 +6497,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 306,
+            "line": 308,
             "description": "Remove audio",
             "params": [
                 {
@@ -6440,7 +6518,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 328,
+            "line": 330,
             "description": "Add an object to object list",
             "params": [
                 {
@@ -6456,7 +6534,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 337,
+            "line": 339,
             "description": "Get an object by name",
             "params": [
                 {
@@ -6472,7 +6550,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 352,
+            "line": 354,
             "description": "Remove an asset object",
             "itemtype": "method",
             "name": "removeObject",
@@ -6488,7 +6566,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 363,
+            "line": 365,
             "description": "Add folder",
             "itemtype": "method",
             "name": "addFolder",
@@ -6504,7 +6582,7 @@
         },
         {
             "file": "../Source/Runtime/Resources/ResourceManager.js",
-            "line": 374,
+            "line": 376,
             "description": "Remove folder",
             "itemtype": "method",
             "name": "removeFolder",
@@ -6634,7 +6712,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 14,
+            "line": 15,
             "description": "Array with the object's children",
             "itemtype": "property",
             "name": "children",
@@ -6644,7 +6722,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 20,
+            "line": 21,
             "description": "When this is set to true, it checks every frame if the object is in the frustum of the camera before rendering the object. Otherwise the object gets rendered every frame even if it isn't visible",
             "itemtype": "property",
             "name": "frustumCulled",
@@ -6655,7 +6733,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 27,
+            "line": 28,
             "description": "The layer membership of the object. The object is only visible if it has at least one layer in common with the Camera in use",
             "itemtype": "property",
             "name": "layers",
@@ -6665,7 +6743,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 33,
+            "line": 34,
             "description": "The local transform matrix",
             "itemtype": "property",
             "name": "matrix",
@@ -6675,7 +6753,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 39,
+            "line": 40,
             "description": "When this is set to true, it calculates the matrix of position (rotation or quaternion) and scale every frame and also recalculates the matrixWorld property",
             "itemtype": "property",
             "name": "matrixAutoUpdate",
@@ -6686,7 +6764,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 46,
+            "line": 47,
             "description": "The global transform of the object. If the Object3D has no parent, then it's identical to the local transform",
             "itemtype": "property",
             "name": "matrixWorld",
@@ -6696,7 +6774,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 52,
+            "line": 53,
             "description": "Name of the object (doesn't need to be unique)",
             "itemtype": "property",
             "name": "name",
@@ -6706,7 +6784,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 58,
+            "line": 59,
             "description": "The object's local position",
             "itemtype": "property",
             "name": "position",
@@ -6716,7 +6794,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 64,
+            "line": 65,
             "description": "Object's local rotation as a Quaternion",
             "itemtype": "property",
             "name": "quaternion",
@@ -6726,7 +6804,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 70,
+            "line": 71,
             "description": "Object's local rotation (see Euler angles), in radians",
             "itemtype": "property",
             "name": "rotation",
@@ -6736,7 +6814,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 76,
+            "line": 77,
             "description": "The object's local scale",
             "itemtype": "property",
             "name": "scale",
@@ -6746,7 +6824,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 82,
+            "line": 83,
             "description": "This is used by the lookAt method, for example, to determine the orientation of the result",
             "itemtype": "property",
             "name": "up",
@@ -6756,7 +6834,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 88,
+            "line": 89,
             "description": "UUID of this object instance. It gets automatically assigned, so it shouldn't be edited",
             "itemtype": "property",
             "name": "uuid",
@@ -6766,7 +6844,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 94,
+            "line": 95,
             "description": "Object gets rendered if true",
             "itemtype": "property",
             "name": "visible",
@@ -6777,7 +6855,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 101,
+            "line": 102,
             "description": "This value allows the default rendering order of scene graphs objects to be overriden although opaque and transparent objects remain sorted independently",
             "itemtype": "property",
             "name": "renderOrder",
@@ -6788,7 +6866,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 108,
+            "line": 109,
             "description": "Whether the object gets rendererd into shadow map",
             "itemtype": "property",
             "name": "castShadow",
@@ -6799,7 +6877,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 115,
+            "line": 116,
             "description": "Whether the material receives shadows",
             "itemtype": "property",
             "name": "receiveShadow",
@@ -6810,7 +6888,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 122,
+            "line": 123,
             "description": "Space reserved for user data, can be used for variables in runtime or can be used by scripts to store values on an object",
             "itemtype": "property",
             "name": "userData",
@@ -6820,7 +6898,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 143,
+            "line": 144,
             "description": "Initialise the object",
             "itemtype": "method",
             "name": "initialize",
@@ -6829,7 +6907,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 155,
+            "line": 156,
             "description": "Update the object state",
             "itemtype": "method",
             "name": "update",
@@ -6838,7 +6916,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 167,
+            "line": 168,
             "description": "Dispose the object (to avoid memory leaks)",
             "itemtype": "method",
             "name": "dispose",
@@ -6847,7 +6925,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 179,
+            "line": 180,
             "description": "Remove all children from the object",
             "itemtype": "method",
             "name": "removeAll",
@@ -6856,7 +6934,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 191,
+            "line": 192,
             "description": "Destroy object, dispose and remove from its parent",
             "itemtype": "method",
             "name": "destroy",
@@ -6865,7 +6943,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 211,
+            "line": 212,
             "description": "Serialise object as JSON",
             "itemtype": "method",
             "name": "toJSON",
@@ -6895,7 +6973,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 344,
+            "line": 345,
             "description": "Remove children from this object",
             "params": [
                 {
@@ -6911,7 +6989,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 350,
+            "line": 351,
             "description": "Converts the vector from local space to world space",
             "params": [
                 {
@@ -6927,7 +7005,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 356,
+            "line": 357,
             "description": "Updates the vector world from world space to local space",
             "params": [
                 {
@@ -6943,7 +7021,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 362,
+            "line": 363,
             "description": "Adds object as child of this object. An arbitrary number of objects may be added",
             "itemtype": "method",
             "name": "add",
@@ -6959,7 +7037,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 368,
+            "line": 369,
             "description": "This updates the position, rotation and scale with the matrix",
             "itemtype": "method",
             "name": "applyMatrix",
@@ -6975,7 +7053,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 374,
+            "line": 375,
             "description": "Returns a clone ot his object - and optionally - its descendants",
             "itemtype": "method",
             "name": "clone",
@@ -6991,7 +7069,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 380,
+            "line": 381,
             "description": "Copy the given object into this object",
             "itemtype": "method",
             "name": "copy",
@@ -7012,7 +7090,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 387,
+            "line": 388,
             "description": "Searches through the object's children and returns the first with a matchin name",
             "params": [
                 {
@@ -7028,7 +7106,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 393,
+            "line": 394,
             "description": "Searches through the object's children and returns the first with a property that matches the aclue given",
             "params": [
                 {
@@ -7049,7 +7127,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 400,
+            "line": 401,
             "params": [
                 {
                     "name": "optionalTarget",
@@ -7068,7 +7146,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 406,
+            "line": 407,
             "description": "Returns a quaternion representing the rotation of the object in world space.",
             "itemtype": "method",
             "name": "getWorldQuaternion",
@@ -7084,7 +7162,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 412,
+            "line": 413,
             "description": "Returns the euler angles representing the rotation of the object in world space.",
             "itemtype": "method",
             "name": "getWorldRotation",
@@ -7100,7 +7178,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 418,
+            "line": 419,
             "description": "Returns a vector of the scaling factors applied to the object for each axis in world space.",
             "itemtype": "method",
             "name": "getWorldScale",
@@ -7116,7 +7194,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 424,
+            "line": 425,
             "description": "Returns a vector representing the direction of object's positive z-axis in world space.",
             "itemtype": "method",
             "name": "getWorldDirection",
@@ -7132,7 +7210,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 430,
+            "line": 431,
             "description": "Rotate an object along an axis in object space. The axis is assumed to be normalized..",
             "itemtype": "method",
             "name": "rotateOnAxis",
@@ -7153,7 +7231,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 437,
+            "line": 438,
             "description": "Rotates the object around x axis in local space.",
             "itemtype": "method",
             "name": "rotateX",
@@ -7169,7 +7247,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 443,
+            "line": 444,
             "description": "Rotates the object around y axis in local space.",
             "itemtype": "method",
             "name": "rotateY",
@@ -7185,7 +7263,7 @@
         },
         {
             "file": "../Source/Runtime/THREE/Object3D.js",
-            "line": 449,
+            "line": 450,
             "description": "Rotates the object around z axis in local space.",
             "itemtype": "method",
             "name": "rotateZ",
@@ -7289,6 +7367,42 @@
             "itemtype": "method",
             "name": "toJSON",
             "class": "CanvasTexture",
+            "module": "Textures"
+        },
+        {
+            "file": "../Source/Runtime/Texture/CubeTexture.js",
+            "line": 64,
+            "description": "Set the texture path",
+            "itemtype": "method",
+            "name": "setPath",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "CubeTexture",
+            "module": "Textures"
+        },
+        {
+            "file": "../Source/Runtime/Texture/CubeTexture.js",
+            "line": 76,
+            "description": "Serialise cube texture to JSON\nAll six images of the cube texture are stored individually",
+            "itemtype": "method",
+            "name": "toJSON",
+            "params": [
+                {
+                    "name": "meta",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "json",
+                "type": "Object"
+            },
+            "class": "CubeTexture",
             "module": "Textures"
         },
         {

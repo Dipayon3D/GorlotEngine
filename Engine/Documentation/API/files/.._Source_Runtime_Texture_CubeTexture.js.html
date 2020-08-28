@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js</title>
+    <title>../Source/Runtime/Texture/CubeTexture.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -144,179 +144,104 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: ../Source/Runtime/Objects/Cinematic/PerspectiveCamera.js</h1>
+<h1 class="file-heading">File: ../Source/Runtime/Texture/CubeTexture.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 &quot;use strict&quot;
 
 /**
- * Perspective Camera
- * Based on THREE.PerspectiveCamera, original documentation available at https://threejs.org/docs/#api/en/cameras/PerspectiveCamera
+ * CubeTextures represent 360 degrees view using six images, these images correspond to the faces of a cube
+ * CubeTextures can be used to simulate reflections and transparency refraction in materials
+ * It&#x27;s also possible to create dynamic CubeTextures using the CubeCamera object
  *
- * @class PerspectiveCamera
- * @extends {PerspectiveCamera}
- * @module Cameras
+ * @class CubeTexture
  * @constructor
- * @param {Number} fov Field of View
- * @param {Number} aspect Aspect ratio
- * @param {Number} near Near projection plane (how closer can be objects visible by this camera)
- * @param {Number} far Far projection plane (how far can be objects visibile by this camera)
+ * @extends {Texture}
+ * @param {Array} images Image array with 6 images
+ * @param {Number} mapping
+ * @param {Number} wrapS
+ * @param {Number} wrapT
+ * @param {Number} magFilter
+ * @param {Number} minFilter
+ * @param {Number} format
+ * @param {Number} type
+ * @param {Number} anisotropy
+ * @param {Number} encoding
  */
+function CubeTexture(images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding) {
+    if(mapping === undefined) {
+        mapping = THREE.CubeReflectionMapping
+    }
 
-/**
- * Camera field of view (in degrees)
- * @property fov
- * @default 50
- * @type {Number}
- */
+    if(images === undefined) {
+        images = []
+    }
 
-/**
- * Camera aspect ratio (X/Y)
- * @property aspect
- * @default 1.0
- * @type {Number}
- */
+    var array = []
+    var self = this
 
-/**
- * Camera zoom
- * @property zoom
- * @default 1.0
- * @type {Number}
- */
-function PerspectiveCamera(fov, aspect, near, far)
-{
-	THREE.PerspectiveCamera.call(this, fov, aspect, near, far)
+    for(var i = 0; i &lt; images.length; i++) {
+        if(typeof images[i] === &quot;string&quot;) {
+            images[i] = new Image(images[i])
+        }
 
-	this.name = &quot;camera&quot;
+        var element = document.createElement(&quot;img&quot;)
+        element.src = images[i].data
+        element.onload = function() {
+            self.needsUpdate = true
+        }
 
-    /**
-     * Camera viewport offset
-     * Values range from 0.0 to 1.0 in screen space
-     * @property offset
-     * @type {Vector2}
-     */
-	this.offset = new THREE.Vector2(0.0, 0.0)
+        array.push(element)
+    }
 
-    /**
-     * Camera viewport size
-     * Values range from 0.0 to 1.0 in screen space
-     * @property viewport
-     * @type {Vector2}
-     */
-	this.viewport = new THREE.Vector2(1.0, 1.0)
+    THREE.Texture.call(this, array, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding)
 
-    /**
-     * Clear screen colour flag
-     * @property clearColor
-     * @default false
-     * @type {Boolean}
-     */
-	this.clearColor = false
+    this.images = images
+    this.flipY = false
 
-    /**
-     * Clear depth flag
-     * @property clearDepth
-     * @default false
-     * @type {Boolean}
-     */
-	this.clearDepth = false
+    this.name = &quot;cubetexture&quot;
+    this.category = &quot;Cube&quot;
 
-    /**
-     * Camera draw order preference
-     * If more than once camera has the same order value, the draw order is undefined for those cameras
-     * @property order
-     * @default 0
-     * @type {Number}
-     */
-    this.order = 0
-
-	this.components = []
-	this.defaultComponents = []
-
-	this.defaultComponents.push(new ElementComponent())
-	this.defaultComponents.push(new ObjectComponent())
-	this.defaultComponents.push(new CameraComponent())
+    this.nodes = []
+    this.path = &quot;/&quot;
 }
 
-PerspectiveCamera.prototype = Object.create(THREE.PerspectiveCamera.prototype)
+CubeTexture.prototype = Object.create(Texture.prototype)
+
+CubeTexture.prototype.isCubeTexture = true
 
 /**
- * Destroy camera object and remove it from scene
- * @method destroy
+ * Set the texture path
+ *
+ * @method setPath
+ * @param {String} path
  */
-PerspectiveCamera.prototype.destroy = function() {
-	var scene = ObjectUtils.getScene(this)
-	if (scene !== null) {
-		scene.removeCamera(this)
-	}
-
-	THREE.Object3D.prototype.destroy.call(this)
+CubeTexture.prototype.setPath = function(path) {
+    if(path !== undefined) {
+        this.path = path
+    }
 }
 
 /**
- * Update world transformation matrinx ignoring parent scaling properties
- * @method updateMatrixWorld
- * @param {Boolean} force Force matrix update even if the attribute matrixWorldNeedsUpdate is not true
- */
-PerspectiveCamera.prototype.updateMatrixWorld = function(force) {
-	if (this.matrixAutoUpdate === true) {
-		this.updateMatrix()
-	}
-
-	if (this.matrixWorldNeedsUpdate === true || force === true) {
-		if (this.parent !== null) {
-			this.matrixWorld.multiplyMatrices(this.parent.matrixWorld, this.matrix)
-		} else {
-			this.matrixWorld = this.matrix
-		}
-
-		this.matrixWorldNeedsUpdate = false
-		force = true
-	}
-
-	// Update children
-	var children = this.children
-	for(var i = 0; i &lt; this.children.length; i++) {
-		children[i].updateMatrixWorld(force)
-	}
-}
-
-/**
- * Update camera projection matrix
- * Should be called after changing projection parameters
- * @method updateProjectionMatrix
- */
-PerspectiveCamera.prototype.updateProjectionMatrix = function() {
-	var top = this.near * Math.tan(THREE.Math.DEG2RAD * 0.5 * this.fov) / this.zoom
-	var height = 2 * top
-	var width = this.aspect * height * ((this.viewport !== undefined) ? (this.viewport.x / this.viewport.y) : 1.0)
-	var left = - 0.5 * width
-
-	if (this.filmOffset !== 0) {
-		left += this.near * this.filmOffset / this.getFilmWidth()
-	}
-
-    this.projectionMatrix.makePerspective(left, left + width, top, top - height, this.near, this.far)
-    //this.projectionMatrix.makePerspective(left, left + width, top, top - height, this.near, this.far);
-}
-
-/**
- * Create JSON description
- * @method JSON
+ * Serialise cube texture to JSON
+ * All six images of the cube texture are stored individually
+ *
+ * @method toJSON
  * @param {Object} meta
- * @return {Object} JSON description
+ * @return {Object} json
  */
-PerspectiveCamera.prototype.toJSON = function(meta) {
-	var data = THREE.PerspectiveCamera.prototype.toJSON.call(this, meta)
+CubeTexture.prototype.toJSON = function(meta) {
+    var data = THREE.Texture.prototype.toJSON.call(this, meta)
 
-	data.object.clearColor = this.clearColor
-	data.object.clearDepth = this.clearDepth
-	data.object.viewport = this.viewport.toArray()
-	data.object.offset = this.offset.toArray()
-    data.object.order = this.order
+    data.images = []
 
-	return data
+    for(var i = 0; i &lt; this.images.length; i++) {
+        var image = this.images[i].toJSON(meta)
+        data.images.push(image.uuid)
+    }
+
+    return data
 }
 
     </pre>

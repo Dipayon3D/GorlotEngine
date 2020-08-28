@@ -2,6 +2,7 @@
 
 /**
  * Resource class is used to represent resources
+ *
  * Resources store data that is used by objects
  *
  * @class Resource

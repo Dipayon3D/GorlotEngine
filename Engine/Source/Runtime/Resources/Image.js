@@ -2,7 +2,9 @@
 
 /**
  * Image class is used to store image data that is used to create Textures
+ *
  * Images can be stored in several formats but they all are serialised as JPEG if the image is opaque or as PNG if it is transparent
+ *
  * GIF images are never converted to prevent animation capabilities
  *
  * @class GORLOT.Image

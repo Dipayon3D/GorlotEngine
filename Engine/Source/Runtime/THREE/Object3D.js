@@ -2,9 +2,10 @@
 
 /**
  * This is the base class for most objects in three.js and provides a set of properties and methods for manipulating objects in 3D space.
+ *
  * This page provides documentation for some of the main features of this class, the original documentation can be found at https://threejs.org/docs/index.html#api/en/core/Object3D
+ *
  * All Gorlot objects extend the Object3D class of some other higher level class from three.js
- * Code examples provided for three.js should also work inside Gorlot
  *
  * @class THREE.Object3D
  * @module THREE
