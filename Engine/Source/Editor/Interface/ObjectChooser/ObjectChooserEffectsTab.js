@@ -23,7 +23,9 @@ function ObjectChooserEffectsTab(parent, closeable, container, index) {
     })
 
     this.particle = this.addElement("Particles", Interface.fileDir + "Icons/Effects/Particles.png", () => {
-        Editor.addToScene(new ParticleEmitter())
+        var particle = new ParticleEmitter()
+        particle.texture = Editor.defaultTextureParticle
+        Editor.addToScene(particle)
     })
 
     this.empty = this.addElement("Empty", Interface.fileDir + "Icons/Effects/Empty.png", () => {

@@ -26,7 +26,7 @@ function ParticleEmitter(group, emitter)
 		{
 			texture:
 			{
-				value: new Texture(new GORLOT.Image("Source/Runtime/Data/particle.png"))
+                value: null
 			},
 			maxParticleCount: 2000,
 			blending: THREE.AdditiveBlending,

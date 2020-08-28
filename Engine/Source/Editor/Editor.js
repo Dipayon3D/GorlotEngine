@@ -1090,12 +1090,19 @@ Editor.updateObjectPanel = function() {
 
 // Create default resources to be used when creating new objects
 Editor.createDefaultResources = function() {
-	Editor.defaultImage = new GORLOT.Image("Source/Runtime/Data/sample.png")
-	Editor.defaultFont = new Font("Source/Runtime/Data/Fonts/montserrat.json")
-	Editor.defaultAudio = new Audio("Source/Runtime/Data/sample.ogg")
+	Editor.defaultImage = new GORLOT.Image("Source/Editor/Data/Default.png")
+	Editor.defaultFont = new Font("Source/Editor/Data/Fonts/Default.json")
+	Editor.defaultAudio = new Audio("Source/Editor/Data/Default.ogg")
+
 	Editor.defaultTexture = new Texture(Editor.defaultImage)
+    Editor.defaultTexture.name = "default"
+
+    Editor.defaultTextureParticle = new Texture(new GORLOT.Image("Source/Editor/Data/Particle.png"))
+    Editor.defaultTextureParticle.name = "particle"
+
 	Editor.defaultMaterial = new MeshStandardMaterial({roughness: 0.6, metalness: 0.2})
 	Editor.defaultMaterial.name = "default"
+
 	Editor.defaultSpriteMaterial = new SpriteMaterial({map: Editor.defaultTexture, color: 0xffffff})
 	Editor.defaultSpriteMaterial.name = "default"
 }
