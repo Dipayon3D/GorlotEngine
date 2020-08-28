@@ -64,6 +64,7 @@ include("Source/Runtime/Texture/CanvasTexture.js")
 include("Source/Runtime/Texture/VideoTexture.js")
 include("Source/Runtime/Texture/WebcamTexture.js")
 include("Source/Runtime/Texture/Texture.js")
+include("Source/Runtime/Texture/CubeTexture.js")
 
 include("Source/Runtime/Loaders/FontLoader.js")
 include("Source/Runtime/Loaders/ImageLoader.js")

@@ -39,7 +39,7 @@ function TextureEditor(parent, closeable, container, index) {
     this.renderer.shadowMap.enabled = false
 
     // Camera
-    this.camera = new OrthographicCamera(1.2, 1, OrthographicCamera.RESIZE_VERTICAL)
+    this.camera = null
 
     // Scene
     this.scene = new THREE.Scene()
@@ -55,12 +55,11 @@ function TextureEditor(parent, closeable, container, index) {
     this.background = new THREE.Sprite(new THREE.SpriteMaterial({ map: this.alpha }))
     this.background.position.set(0, 0, -2)
     this.background.scale.set(2.5, 2.5, 0)
-    this.scene.add(this.background)
 
     // Sprite
     this.sprite = new THREE.Sprite(new SpriteMaterial())
     this.sprite.position.set(0, 0, -1)
-    this.scene.add(this.sprite)
+    //this.scene.add(this.sprite)
 }
 
 TextureEditor.prototype = Object.create(TabElement.prototype)
@@ -84,6 +83,8 @@ TextureEditor.prototype.activate = function() {
 
     Editor.setState(Editor.STATE_IDLE)
     Editor.resetEditingFlags()
+
+    Mouse.setCanvas(this.canvas.element)
 }
 
 // Update object data
@@ -103,7 +104,33 @@ TextureEditor.prototype.updateMetadata = function() {
 
 // Attach texture
 TextureEditor.prototype.attach = function(texture) {
-    this.texture = texture
+
+    if(this.texture instanceof CubeTexture) {
+        // Create the cube map
+        var urls = [ "Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png","Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png", "Source/Runtime/Data/Sample.png"  ]
+
+        this.texture = new THREE.CubeTextureLoader().load(urls)
+        this.texture.format = THREE.RGBFormat
+        this.texture.mapping = THREE.CubeRefractionMapping
+        this.scene.background = this.texture
+
+        // Create the camera
+        this.camera = new PerspectiveCamera(100, this.canvas.width/this.canvas.height)
+    } else {
+        // Update sprite
+        this.sprite.material.map = texture
+        this.sprite.material.needsUpdate = true
+
+        // Create the camera
+        this.camera = new OrthographicCamera(1.2, 1, OrthographicCamera.RESIZE_VERTICAL)
+
+        // Add images to scene
+        this.scene.add(this.background)
+        this.scene.add(this.sprite)
+
+        // Set the texture
+        this.texture = texture
+    }
     this.updateMetadata()
 
     if(this.texture.nodes !== undefined) {
@@ -136,15 +163,19 @@ TextureEditor.prototype.attach = function(texture) {
 
     // Initialise node editor
     this.initNodeEditor()
-
-    // Update sprite
-    this.sprite.material.map = texture
-    this.sprite.material.needsUpdate = true
 }
 
 // Update
 TextureEditor.prototype.update = function() {
     this.division.update()
+
+    if(this.camera instanceof PerspectiveCamera) {
+        if(Editor.mouse.buttonPressed(Mouse.LEFT)) {
+            var delta = Editor.mouse.delta.x * 0.004
+            this.camera.rotation.y += delta
+        }
+    }
+
     this.renderer.render(this.scene, this.camera)
 }
 
@@ -200,7 +231,11 @@ TextureEditor.prototype.updateInterface = function() {
     // Renderer
     this.renderer.setSize(this.canvas.size.x, this.canvas.size.y)
     this.camera.aspect = this.canvas.size.x / this.canvas.size.y
-    this.camera.mode = (this.camera.aspect > 1) ? OrthographicCamera.RESIZE_HORIZONTAL : OrthographicCamera.RESIZE_VERTICAL
+
+    if(this.camera instanceof OrthographicCamera) {
+        this.camera.mode = (this.camera.aspect > 1) ? OrthographicCamera.RESIZE_HORIZONTAL : OrthographicCamera.RESIZE_VERTICAL
+    }
+
     this.camera.updateProjectionMatrix()
 
     // Graph canvas
